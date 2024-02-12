@@ -1,6 +1,10 @@
 ---
-title: Welcome to Quartz
+dg-home: true
+dg-publish: true
 ---
+# chi sono?👨🏻‍💻
+Luca Gugliotta studio presso [l'università di Tor Vergata informatica](https://web.uniroma2.it/)
 
-This is a blank Quartz installation.
-See the [documentation](https://quartz.jzhao.xyz) for how to get started.
+# Gli esami:
+## Programmazione💻
+eccoci qua:[[Programmazione INDICE]]
