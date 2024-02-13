@@ -8,4 +8,3 @@ Luca Gugliotta studio presso [l'università di Tor Vergata informatica](https://
 # Gli esami:
 ## Programmazione💻
 eccoci qua:[[Programmazione INDICE]]
-CIAOOOO
