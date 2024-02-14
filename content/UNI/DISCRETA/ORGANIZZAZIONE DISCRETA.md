@@ -1,6 +1,6 @@
 # Data esame 26 febbraio
 # 10 giorni
-
+### guida:
 | Priorità | Colore |
 | ---- | ---- |
 | Importante | <span style="color: white; background-color: #9E0404;">Rosso</span> |
