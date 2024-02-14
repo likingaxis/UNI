@@ -7,7 +7,7 @@
 | Medio | ==Giallo== |
 | Normale | Bianco |
 ## argomenti da vedere
-- [ ]  <span style="color: white; background-color: #9E0404">3 opa con priorità al terzo</span>    
+- [x]  <span style="color: white; background-color: #9E0404">3 opa con priorità al terzo</span>    
 	+ inversa moltiplicativa
 	+ bezout
 	+ ==ricursiun linuar== 
