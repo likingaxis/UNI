@@ -9,3 +9,4 @@ eccoci qua:[[Programmazione INDICE]]
 eccoci qua:[[Discreta INDICE]]
 ## Logica e Reti Logiche🧠
 eccolo qui:[[Logica INDICE]]
+ciao aurora
