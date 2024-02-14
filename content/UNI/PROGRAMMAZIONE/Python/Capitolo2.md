@@ -1,6 +1,3 @@
----
-dg-publish: true
----
 # ARGOMENTI
 Stringhe, funzione, frame, liste, tuple  
 

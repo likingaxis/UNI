@@ -1,6 +1,3 @@
----
-dg-publish: true
----
 In questo capitolo vedremo i seguenti argomenti:
 Cicli, dati, condizioni, input, output, costi computazionali
 

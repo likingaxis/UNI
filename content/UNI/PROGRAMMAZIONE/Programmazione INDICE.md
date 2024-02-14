@@ -1,6 +1,3 @@
----
-dg-publish: true
----
 ## Python
 ### [[Capitolo1|Capitolo 1:]]
 Cicli, dati, condizioni, input, output, costi computazionali
