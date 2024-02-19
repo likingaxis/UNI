@@ -24,7 +24,7 @@
 	+ doppie
 	+ produttorie
 	+ notazioni asintotiche
-+ [ ] <span style="color: white; background-color:#9E0404;">RSA</span>
++ [x] <span style="color: white; background-color:#9E0404;">RSA</span>
 	+ capire A e B!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
 + [ ] ==Insiemistica==
 	+ relazione equivalenza
