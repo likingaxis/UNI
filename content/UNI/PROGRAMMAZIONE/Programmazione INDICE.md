@@ -11,3 +11,5 @@ Stringhe, funzione, frame, liste, tuple
 ### capitolo 6:
 ### capitolo 7:
 ### capitolo 8:
+
+# [[pre-test]]
