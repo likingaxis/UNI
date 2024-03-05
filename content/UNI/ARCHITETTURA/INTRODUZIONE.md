@@ -99,15 +99,15 @@ andiamo incontro al corto circuito perchè bisogna sincronizzare le comunicazion
 >[!success]- Per risolvere il problema si decise di fare più core con architetture multi core più cpu insieme, più core ≠ più potenza perchè dipende da come lo gestisce il SO e dalla sincronizzazione tra questi core
 
 # tipologie di computer
-- Computer usa e getta: chip all'interno di cartoline di auguri che hanno un basso costo chip RFID
-- Micro-controllori: computer che non sono elaboratori(elettrodomestici, giocattoli)
-- Dispositivi mobili e da gioco: macchine con capacità grafiche e sonore non espandibili e non programmabili dall'utente
-- Personal computer: macchine destinate all'informatica individuale
-- Server: computer potentissimi che si connettono alla rete con alta velocità e sono, mono o multi-processore dotate di hard disk capienti
-- Cluster: insieme di server connessi insieme da reti 
-
+- **Computer usa e getta**: chip all'interno di cartoline di auguri che hanno un basso costo chip RFID
+- **Micro-controllori**: computer che non sono elaboratori(elettrodomestici, giocattoli)
+- **Dispositivi mobili e da gioco**: macchine con capacità grafiche e sonore, non espandibili e non programmabili dall'utente
+- **Personal computer**: macchine destinate all'informatica individuale
+- **Server**: computer potentissimi che si connettono alla rete con alta velocità e sono, mono o multi-processore dotate di hard disk capienti
+- **Cluster**: insieme di server connessi insieme da reti 
+- **Mainframe** : computer un tempo super potente ormai obsoleto usato da banche e inail
 # La storia di intel 
-- primo chip 4004 in silicio
+primo chip 4004 in silicio
 la frequenza non è sempre indice di velocità soprattutto su architetture diverse
 
 ogni chip ha una memoria, a che serve?
