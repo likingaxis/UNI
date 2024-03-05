@@ -9,3 +9,5 @@ eccoci qua:[[Programmazione INDICE]]
 eccoci qua:[[Discreta INDICE]]
 ## Logica e Reti Logiche🧠
 eccolo qui:[[Logica INDICE]]
+## Architettura dei sistemi di elaborazione🎛
+eccolo qua:[[Architettura INDICE]]

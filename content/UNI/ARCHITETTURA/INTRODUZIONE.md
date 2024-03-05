@@ -1,23 +1,23 @@
-### argomenti
+### Argomenti
 - dominio digitale e analogico
 - linguaggi, livelli e macchine virtuali
 - evoluzione delle architetture di computer
 - tipologie di computer
 - storia della famiglia intel
 - unità metriche
-### analogico
+### Analogico
 - le info intorno a noi sono analogiche, suoni, colori, tatto...
 - le informazioni di memoria venivano memorizzate in modo analogico(vinile)
-### digitale
+### Digitale
 - informazioni vengono codificate attraverso dei valori discreti
 
 > [!question]- i valori discreti possono dare gli stessi dati dei valori continui(analogici)?
 > ## teorema del campionamento
 quei campioni se vengono selezionati in un intervallo breve quando ricostruiamo il segnale non perdiamo informazioni, tipo il ping nei giochi
-# conversioni tra domini
+# Conversioni tra domini
 
 ![[WhatsApp Image 2024-03-05 at 11.16.29.jpeg]]
-### il computer è una macchina elettronica digitale in grado di risolvere problemi attraverso un insieme di istruzioni assegnate (il programma)
+### Il computer è una macchina elettronica digitale in grado di risolvere problemi attraverso un insieme di istruzioni assegnate (il programma)
 - il calcolatore usa 0 e 1 
 - il calcolatore ha una cpu
 # il problema della distanza concettuale
@@ -40,7 +40,7 @@ M=macchina
 Si crea uno schema a cipolla con una gerarchia di linguaggi astratti e macchine virtuali corrispondenti
 ogni programma del livello n deve essere tradotto per il livello n-1
 ![[Pasted image 20240305121402.png]]
-## architettura multilivello attuale
+## Architettura multilivello attuale
 
 5. linguaggi ad alto livello: c++, java ecc...
 4. linguaggio assemblativo che usano i programmatori(assembly)
@@ -54,19 +54,19 @@ livelli da 0 a 3 più linguaggio macchina
 ![[Screen Shot 2024-03-05 at 11.39.27.png]]
 >[!question]- cosa è l'ALU?
 >ALU(arithmetic logic unit) esegue le operazioni aritmetiche e logiche
-## differenza tra Hardware e Software
+## Differenza tra Hardware e Software
 - Hardware tangibile
 - software intangibile, astratto
 
 Hw e Sw sono logicamente equivalenti qualsiasi operazione fatta dal software può essere svolta dal'Hw e viceversa
 
-# un pò di storia:
+# Un pò di storia:
 - 1940 i primi computer digitali con solo due livelli, ISA e livello logico diitale
 - 1951  si passò a computer a 3 livelli
 - 1960 invenzione sistema operativo un software in grado di gestire l'hardware
 - 1970 utilizzo di micro-codice permise la creazione di istruzioni più efficienti per programmare
-# le varie generazioni di computer:
-## computer di generazione zero:
+# Le varie generazioni di computer:
+## Computer di generazione zero:
 erano meccanici come: 
 - la macchina di Pascal che svolgeva somme e sottrazioni
 - macchina di Leibniz che svolgeva moltiplicazioni e divisioni
@@ -80,7 +80,7 @@ erano meccanici come:
 Uso di transistor digitali e non analogica
 - TX-0 e PDP-1 sfruttavano i bus(insieme di linee condivise tra i vari componenti del calcolatore) tra transistor e bus abbiamo una vera e propria architettura "moderna", con comunicazione multipla 
 - omnibus primo pc che usava il bus
-### cosa è il bus?
+### Cosa è il bus?
 ti permette di far comunicare ogni componente direttamente da un'unico flusso
 ![[Screen Shot 2024-03-05 at 14.19.47.png]]
 
