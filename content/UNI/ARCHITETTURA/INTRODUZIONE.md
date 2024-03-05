@@ -93,11 +93,10 @@ andiamo incontro al corto circuito perchè bisogna sincronizzare le comunicazion
 - computer invisibili in elettrodomestici, orologi, carte di credito, giocattoli
 # legge di Moore
 
-Dice che il numero dei transistor nei componenti raddoppia ogni 18 mesi
-fino agli anni 2000 poi per problemi di surriscaldamento ecc...
+>[!warning]- Dice che il numero dei transistor nei componenti raddoppia ogni 18 mesi fino agli anni 2000 poi per problemi di surriscaldamento, consumi e altro non è più attuale questa legge
+
 ![[Screen Shot 2024-03-05 at 14.25.09.png]]
-Per risolvere il problema si decise di fare più core con architetture multi core più cpu insieme
-più core != più potenza dipende da come lo gestisce il SO e dalla sincronizzazione tra questi core
+>[!success]- Per risolvere il problema si decise di fare più core con architetture multi core più cpu insieme, più core ≠ più potenza perchè dipende da come lo gestisce il SO e dalla sincronizzazione tra questi core
 
 # tipologie di computer
 - Computer usa e getta: chip all'interno di cartoline di auguri che hanno un basso costo chip RFID
