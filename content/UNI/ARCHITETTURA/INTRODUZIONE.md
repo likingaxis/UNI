@@ -107,11 +107,11 @@ andiamo incontro al corto circuito perchè bisogna sincronizzare le comunicazion
 - **Cluster**: insieme di server connessi insieme da reti 
 - **Mainframe** : computer un tempo super potente ormai obsoleto usato da banche e inail
 # La storia di intel 
-primo chip 4004 in silicio
-la frequenza non è sempre indice di velocità soprattutto su architetture diverse
+Nel 1968 costruì il primo chip 4004 in silicio
+la frequenza non è sempre indice di velocità soprattutto su architetture diverse.
 
-ogni chip ha una memoria, a che serve?
-è una memoria molto veloce che memorizza elementi vicini a un'elemento che ci serve così da raggiungerlo in fretta, se ripeto un'istruzione e la ho nella memoria della cpu va più veloce
+## Ogni chip ha una memoria, a che serve?
+è una memoria molto veloce che memorizza elementi vicini ad uno specifico che ci serve così da raggiungerlo in fretta, se ripeto un'istruzione e la ho nella memoria della cpu andrà più veloce
 una memoria per ogni singolo core, una memoria per mettere d'accordo tutti i core
 più potenza significa più tensione e più calore difficile da smaltire
 
