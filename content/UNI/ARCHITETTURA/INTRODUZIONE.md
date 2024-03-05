@@ -120,7 +120,7 @@ più potenza significa più tensione e più calore difficile da smaltire
 # le unità metriche
 foto delle unità metriche
 per i dati si usa base due 
-1kb di memoria contiene 1024 byte non 1000 byte
+1kb di memoria contiene 1024 Byte non 1000 Byte
 
 ![[Screen Shot 2024-03-05 at 16.42.54.png]]
 esercizi sul suo libro che si possono fare:
