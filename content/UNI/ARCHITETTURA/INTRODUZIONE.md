@@ -1,0 +1,131 @@
+### argomenti
+- dominio digitale e analogico
+- linguaggi, livelli e macchine virtuali
+- evoluzione delle architetture di computer
+- tipologie di computer
+- storia della famiglia intel
+- unità metriche
+### analogico
+- le info intorno a noi sono analogiche, suoni, colori, tatto...
+- le informazioni di memoria venivano memorizzate in modo analogico(vinile)
+### digitale
+- informazioni vengono codificate attraverso dei valori discreti
+
+> [!question]- i valori discreti possono dare gli stessi dati dei valori continui(analogici)?
+> ## teorema del campionamento
+quei campioni se vengono selezionati in un intervallo breve quando ricostruiamo il segnale non perdiamo informazioni, tipo il ping nei giochi
+# conversioni tra domini
+
+![[WhatsApp Image 2024-03-05 at 11.16.29.jpeg]]
+### il computer è una macchina elettronica digitale in grado di risolvere problemi attraverso un insieme di istruzioni assegnate (il programma)
+- il calcolatore usa 0 e 1 
+- il calcolatore ha una cpu
+# il problema della distanza concettuale
+il calcolatore è composto da layer fino a quando non raggiunge un livello che è comprensibile dall'essere umano
+macchine e linguaggi via via più sofisticati tra layer e layer
+![[Screen Shot 2024-03-05 at 11.21.25.png]]
+
+>[!tip] 
+L=linguaggio
+M=macchina
+
+- traduzione:
+	- un modo per eseguire un programma scritto in L1 è sostituire ogni istruzione di L1 in L0 e viene definita traduzione
+	- il programma L1 è tradotto nel linguaggio L0 e funziona esclusivamente su quella determinata M
+	- L1 può essere eliminato una volta che viene tradotto in L0
+- interpretazione:
+	- quando hai un programma in L0 che accetta input da L1, le istruzioni verranno eseguite man mano e ci sarà un interprete che le cambierà
+	- L1 e L0 sono entrambi utili perché vengono usati allo stesso tempo
+# La Cipolla
+Si crea uno schema a cipolla con una gerarchia di linguaggi astratti e macchine virtuali corrispondenti
+ogni programma del livello n deve essere tradotto per il livello n-1
+![[Pasted image 20240305121402.png]]
+## architettura multilivello attuale
+
+5. linguaggi ad alto livello: c++, java ecc...
+4. linguaggio assemblativo che usano i programmatori(assembly)
+3. è un mix di istruzioni che vengono eseguite o dal microprogramma o dal sistema operativo, una sorta di ponte tra i due 
+2. microprogramma, controlla le operazioni nel percorso dei dati e le interpreta
+1. micro-architettura, la memoria locale è fatta di collezioni di 8-32 registri, quest'ultimi sono connessi all'ALU attraverso un percorso dati(data path)
+0. parte fisica, porte logiche e i registri(combo di porte logiche)
+
+Livelli 4 e 5 sono del programmatore
+livelli da 0 a 3 più linguaggio macchina
+![[Screen Shot 2024-03-05 at 11.39.27.png]]
+>[!question]- cosa è l'ALU?
+>ALU(arithmetic logic unit) esegue le operazioni aritmetiche e logiche
+## differenza tra Hardware e Software
+- Hardware tangibile
+- software intangibile, astratto
+
+Hw e Sw sono logicamente equivalenti qualsiasi operazione fatta dal software può essere svolta dal'Hw e viceversa
+
+# un pò di storia:
+- 1940 i primi computer digitali con solo due livelli, ISA e livello logico diitale
+- 1951  si passò a computer a 3 livelli
+- 1960 invenzione sistema operativo un software in grado di gestire l'hardware
+- 1970 utilizzo di micro-codice permise la creazione di istruzioni più efficienti per programmare
+# le varie generazioni di computer:
+## computer di generazione zero:
+erano meccanici come: 
+- la macchina di Pascal che svolgeva somme e sottrazioni
+- macchina di Leibniz che svolgeva moltiplicazioni e divisioni
+- la macchina analitica di Babbage che legge e scrive dati nelle schede perforate tipo con delle matrici con fori attraverso un foto-diodo che con le luci indicava 0 e 1 
+- primi computer a relè con mark 1 e mark 2, con i segnali elettrici che indicano 0 e 1
+## Prima generazione:
+- Computer Colossus utilizzato da turing a valvole termoioniche 1945 
+- Macchina di Von Neumann IAS ha una ALU che usa il registro accumulatore per fare le operazioni, memoria, CU(control unit), input e output 
+
+## Seconda generazione:
+Uso di transistor digitali e non analogica
+- TX-0 e PDP-1 sfruttavano i bus(insieme di linee condivise tra i vari componenti del calcolatore) tra transistor e bus abbiamo una vera e propria architettura "moderna", con comunicazione multipla 
+- omnibus primo pc che usava il bus
+### cosa è il bus?
+ti permette di far comunicare ogni componente direttamente da un'unico flusso
+![[Screen Shot 2024-03-05 at 14.19.47.png]]
+
+condividere un unico bus rende le macchine scalabili al posto di fare un intreccio 
+andiamo incontro al corto circuito perchè bisogna sincronizzare le comunicazioni, se due componenti parlano allo stesso tempo si fotte tutto ESPLODEE AIUTOOOO!!!!!! perchè si mixano delle tensioni diverse(concetto master-slave)
+## Terza generazione:
+- circuiti integrali 1965-1980 ibm system 360, pdp-11
+## Quarta generazione:
+- (very large scale integration) 1980-? con tecnologia VLSI si stampano milioni di transistor su un singolo chip / ibm pc, apple lica intel 8080 8088 80386, arrivano alle case di tutti con floppy disk
+## Quinta generazione:
+- computer invisibili in elettrodomestici, orologi, carte di credito, giocattoli
+# legge di Moore
+
+Dice che il numero dei transistor nei componenti raddoppia ogni 18 mesi
+fino agli anni 2000 poi per problemi di surriscaldamento ecc...
+![[Screen Shot 2024-03-05 at 14.25.09.png]]
+Per risolvere il problema si decise di fare più core con architetture multi core più cpu insieme
+più core != più potenza dipende da come lo gestisce il SO e dalla sincronizzazione tra questi core
+
+# tipologie di computer
+- server
+- cluster insieme di server connessi insieme da reti 
+
+# La storia di intel 
+- primo chip 4004 in silicio
+la frequenza non è sempre indice di velocità soprattutto su architetture diverse
+
+ogni chip ha una memoria, a che serve?
+è una memoria molto veloce che memorizza elementi vicini a un'elemento che ci serve così da raggiungerlo in fretta, se ripeto un'istruzione e la ho nella memoria della cpu va più veloce
+una memoria per ogni singolo core, una memoria per mettere d'accordo tutti i core
+più potenza significa più tensione e più calore difficile da smaltire
+
+
+# le unità metriche
+foto delle unità metriche
+per i dati si usa base due 
+1kb di memoria contiene 1024 byte non 1000 byte
+
+
+
+- esercizi sui sistemi di enumerazione
+- algebra di boole
+- sistemi di emning bho
+- stack pila architettura dei livelli
+	- livello astratto hai una visione astratta attraverso una sintesi di quello che c'è sotto, guidi la macchina con volante frizione ecc... information hiding(interfaccia), quando applichi il metodo passi i parametri ma non vedi l'algoritmo
+
+
+#pagina31
