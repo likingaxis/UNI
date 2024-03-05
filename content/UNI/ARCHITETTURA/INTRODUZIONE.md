@@ -15,8 +15,7 @@
 > ## teorema del campionamento
 quei campioni se vengono selezionati in un intervallo breve quando ricostruiamo il segnale non perdiamo informazioni, tipo il ping nei giochi
 # Conversioni tra domini
-
-![[WhatsApp Image 2024-03-05 at 11.16.29.jpeg]]
+![[WhatsApp Image 2024-03-05 at 16.30.08.jpeg]]
 ### Il computer è una macchina elettronica digitale in grado di risolvere problemi attraverso un insieme di istruzioni assegnate (il programma)
 - il calcolatore usa 0 e 1 
 - il calcolatore ha una cpu
@@ -84,12 +83,12 @@ Uso di transistor digitali e non analogica
 ti permette di far comunicare ogni componente direttamente da un'unico flusso
 ![[Screen Shot 2024-03-05 at 14.19.47.png]]
 
-condividere un unico bus rende le macchine scalabili al posto di fare un intreccio 
+condividere un unico bus rende le macchine scalabili al posto di fare un intreccio.
 andiamo incontro al corto circuito perchè bisogna sincronizzare le comunicazioni, se due componenti parlano allo stesso tempo si fotte tutto ESPLODEE AIUTOOOO!!!!!! perchè si mixano delle tensioni diverse(concetto master-slave)
 ## Terza generazione:
-- circuiti integrali 1965-1980 ibm system 360, pdp-11
+- circuiti integrati 1965-1980 ibm system/360, pdp-11
 ## Quarta generazione:
-- (very large scale integration) 1980-? con tecnologia VLSI si stampano milioni di transistor su un singolo chip / ibm pc, apple lica intel 8080 8088 80386, arrivano alle case di tutti con floppy disk
+- (very large scale integration) 1980-? con tecnologia VLSI si stampano milioni di transistor su un singolo chip / IBM pc, apple Lisa intel 8080 8088 80386, arrivano alle case di tutti con floppy disk
 ## Quinta generazione:
 - computer invisibili in elettrodomestici, orologi, carte di credito, giocattoli
 # legge di Moore
@@ -101,8 +100,12 @@ Per risolvere il problema si decise di fare più core con architetture multi cor
 più core != più potenza dipende da come lo gestisce il SO e dalla sincronizzazione tra questi core
 
 # tipologie di computer
-- server
-- cluster insieme di server connessi insieme da reti 
+- Computer usa e getta: chip all'interno di cartoline di auguri che hanno un basso costo chip RFID
+- Micro-controllori: computer che non sono elaboratori(elettrodomestici, giocattoli)
+- Dispositivi mobili e da gioco: macchine con capacità grafiche e sonore non espandibili e non programmabili dall'utente
+- Personal computer: macchine destinate all'informatica individuale
+- Server: computer potentissimi che si connettono alla rete con alta velocità e sono, mono o multi-processore dotate di hard disk capienti
+- Cluster: insieme di server connessi insieme da reti 
 
 # La storia di intel 
 - primo chip 4004 in silicio
@@ -119,13 +122,13 @@ foto delle unità metriche
 per i dati si usa base due 
 1kb di memoria contiene 1024 byte non 1000 byte
 
-
-
+![[Screen Shot 2024-03-05 at 16.42.54.png]]
+esercizi sul suo libro che si possono fare:
 - esercizi sui sistemi di enumerazione
 - algebra di boole
 - sistemi di emning bho
-- stack pila architettura dei livelli
-	- livello astratto hai una visione astratta attraverso una sintesi di quello che c'è sotto, guidi la macchina con volante frizione ecc... information hiding(interfaccia), quando applichi il metodo passi i parametri ma non vedi l'algoritmo
+## Stack pila architettura dei livelli
+livello astratto hai una visione astratta attraverso una sintesi di quello che c'è sotto, guidi la macchina con volante frizione ecc... information hiding(interfaccia), quando applichi il metodo passi i parametri ma non vedi l'algoritmo
 
 
 #pagina31
