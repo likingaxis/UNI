@@ -13,7 +13,8 @@
 
 > [!question]- i valori discreti possono dare gli stessi dati dei valori continui(analogici)?
 > ## teorema del campionamento
-quei campioni se vengono selezionati in un intervallo breve quando ricostruiamo il segnale non perdiamo informazioni, tipo il ping nei giochi
+>quei campioni se vengono selezionati in un intervallo breve quando ricostruiamo il segnale non
+>perdiamo informazioni, tipo il ping nei giochi
 # Conversioni tra domini
 ![[WhatsApp Image 2024-03-05 at 16.30.08.jpeg]]
 ### Il computer è una macchina elettronica digitale in grado di risolvere problemi attraverso un insieme di istruzioni assegnate (il programma)
