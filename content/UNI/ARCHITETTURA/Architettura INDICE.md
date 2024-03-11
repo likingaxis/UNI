@@ -13,3 +13,9 @@
 >- tipologie di computer
 >- storia della famiglia intel
 >- unità metriche
+
+
+>[!abstract]- # [[Organizzazione sistemi di calcolo]]
+> argomenti
+> - processori
+> - memoria principale
