@@ -64,7 +64,7 @@ La CPU esegue le istruzioni svolgendole in piccoli passi che principalmente si d
 - Architetture CISC abbiamo una cpu che capisce delle istruzioni più complesse senza l'uso di istruzioni di base che le compongono (lentamente)
 - Architettura RISC abbiamo una cpu che capisce poche e semplici istruzioni(più veloci infatti basta **un solo ciclo di data path!!**)
 >[!info] **utilizzo di entrambe**
-intel a partire dal x486 fece un mix tra risc e cisc 
+>intel a partire dal x486 fece un mix tra risc e cisc 
 ## se vuoi progettare la tua cpu devi
 - Far eseguire tutte le istruzioni direttamente dall'hardware, se hai istruzioni per le architetture CISC le dividi in piccole istruzioni primitive
 - Utilizzo del parallelismo per eseguire più istruzioni nello stesso tempo
