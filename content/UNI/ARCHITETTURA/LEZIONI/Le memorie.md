@@ -10,10 +10,14 @@ esempio:
 le varie memorie si possono mettere su una piramide dove più vai in basso più sono lente come accesso, più capienti e meno costose, dove è sottolineato in verde c'è un gap 
 ![[Screen Shot 2024-03-12 at 10.49.07.png]]
 >[!simonettata]-
-l>a macchina non deve mai stare in attesa sennò inefficiente
+>la macchina non deve mai stare in attesa sennò inefficiente
+>
 >quando andiamo dalla memoria centrale al disco meccanico c'è ancora più ritardo
+>
 >perchè la testina dell'hard disk è meccanica
+>
 >i dispositivi ottici potrebbero ESPLODERE nel tempo
+>
 #### dischi magnetici
 Sono uno o più piatti di alluminio rivestiti da materiale magnetico.
 Si dà una polarità a questi magneti con una carica elettrostatica dalla testina che corrispondono a (+/-) che poi letti dalla stessa testina corrispondono a  0 e 1
