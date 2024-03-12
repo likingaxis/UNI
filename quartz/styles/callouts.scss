@@ -112,9 +112,9 @@
     --border: var(--lightgray);
     --callout-icon: var(--callout-icon-quote);
   }
-      &[data-callout="Simonettata"] {
-    --color: 168, 137, 50;
-    --callout-icon: lucide-annoyed;
+  &[data-callout="Simonettata"] {
+    --color: #7a43b5;
+    --callout-icon: var(--callout-icon-example);
   }
   &.is-collapsed > .callout-title > .fold-callout-icon {
     transform: rotateZ(-90deg);
