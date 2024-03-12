@@ -40,6 +40,7 @@ ci sono 3 tipi tempi:
 - **Latenza rotazionale** il disco deve girare per trovare l'informazione giusta con rpm(rotazioni-per-minuto)con latenza tra 3-6 ms
 - **tempo di trasferimento** tempo necessario per il passaggio dei dati al cervello della macchina con un tempo di 3,5/4 µs(micro-secondi)
 ![[Screen Shot 2024-03-12 at 11.34.55.png]]
+
 #### I floppy disk
 sono piccoli ma contengono poca memoria 
 sono tipo gli hard disk ma non sono immersi da un liquido e quindi le testine(punzone) che servono per leggerli toccano direttamente la superficie 
