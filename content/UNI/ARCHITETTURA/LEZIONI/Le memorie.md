@@ -27,10 +27,12 @@ testina:si muove in modo longitudinale e copre tutta la superficie del disco che
 la traccia è la sequenza di bit che percorre il disco(quella in blu)
 le tracce sono divise in settori e tra i settori c'è un gap di intersezione
 più la traccia è vicino al centro più è densa di informazioni ma sempre con lo stesso numero di informazioni
-![[Screen Shot 2024-03-12 at 11.06.25.png]]
+![[Screen Shot 2024-03-12 at 11.06.25.png]]  
+
 
 - **ogni traccia è formata da un preambolo che sincronizza le testine**
 - **ogni traccia ha un ECC che serve per il controllo degli errori e la correzione**
+![[Pasted image 20240314124212.png]]
 #### hard disk
 Sfruttano più dischi magnetici
 Ogni disco ha diverse tracce e per le tracce parallele a tutti gli altri dischi si dice come la figura che forma, cilindro 
