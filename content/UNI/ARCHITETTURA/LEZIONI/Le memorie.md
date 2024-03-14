@@ -48,7 +48,7 @@ sono piccoli ma contengono poca memoria
 sono tipo gli hard disk ma non sono immersi da un liquido e quindi le testine(punzone) che servono per leggerli toccano direttamente la superficie 
 
 #### Dischi IDE
-Su questi dischi il controllore è su una scheda separata.
+Su questi dischi il controllore non è più su una scheda separata ma su ogni testina.
 Il sistema operativo leggeva e scriveva dati sul disco e scriveva anche sul registro della CPU, invocando il BIOS nella ROM
 **IDE** si è poi evoluto in **EIDE** che con uno schema di indirizzamento **LBA**(Logical Block Addressing) aumentò la capacità massima e la velocità di lettura sfruttando anche il parallelismo
 #### SCSI disk
