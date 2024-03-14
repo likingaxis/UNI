@@ -14,4 +14,4 @@ eccolo qui:[[Logica INDICE]]
 eccolo qua:[[Architettura INDICE]]
 
 ### Organizzazione:
-![[ciao/content/UNI/UTILITY/piano di studi.png]]
+![[piano di studi.png]]
