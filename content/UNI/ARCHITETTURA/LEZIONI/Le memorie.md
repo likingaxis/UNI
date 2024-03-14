@@ -3,7 +3,7 @@ argomenti:
 libro(50)
 riassunto(14)
 ## Gerarchie di memorie
-più la memoria è grande più ci metti meno tempo ad accedervi  e costa meno
+più la memoria è grande più ci metti tempo ad accedervi  e costa meno
 esempio:
 - registri della CPU sono più veloci e meno capienti ma costano di più
 - nastri e dischi ottici sono più capienti ma più lenti però costano meno
