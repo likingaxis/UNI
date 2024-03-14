@@ -111,7 +111,7 @@ Funziona basandosi sull'ottimizzazione della gestione dei dati
 ##### Classificazione di Flynn
 ![[Screen Shot 2024-03-11 at 17.59.17.png]]
 - Processori SIMD: sono costituiti da un vasto numero di processori identici che svolgono le stesse istruzioni su dati differenti(super computer vettoriali)
-- Processori vettoriali: esegue le stesse operazioni su 2 dati differenti con un unico sommatore 
+- Processori vettoriali: esegue le stesse operazioni su 2 dati differenti (registri) con un unico sommatore 
 #### multi processori
 segue la tecnica di mettere più cpu che condividono una memoria in comune
 e che siano sincronizzati nel farlo e sono dette fortemente accoppiate (tightly coupled)
