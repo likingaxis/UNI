@@ -5,7 +5,7 @@
 - programmazione in ARM
 - Böhm-Jacopini dice che posso non scrivere porcherie e che posso scrivere cose strutturate, in modo strutturato
 - tipo di architettura:ARM7
->[!example]- # [[INTRODUZIONE]]
+>[!example]- # [[1.INTRODUZIONE]]
 > argomenti
 >- dominio digitale e analogico
 >- linguaggi, livelli e macchine virtuali
@@ -15,12 +15,12 @@
 >- unità metriche
 
 
->[!example]- # [[Organizzazione sistemi di calcolo]]
+>[!example]- # [[2.Organizzazione sistemi di calcolo]]
 > argomenti
 > - processori
 > - memoria principale
 
->[!example]- # [[Le memorie]]
+>[!example]- # [[3.Le memorie]]
 >argomenti
 >- gerarchie delle memorie
 >- hard disk e supporti di memoria
