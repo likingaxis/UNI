@@ -12,7 +12,6 @@ eccoci qua:[[Discreta INDICE]]
 eccolo qui:[[Logica INDICE]]
 ## Architettura dei sistemi di elaborazione🎛
 eccolo qua:[[Architettura INDICE]]
-## Sito milano:
 
 ### Organizzazione:
 ![[piano di studi.png]]
