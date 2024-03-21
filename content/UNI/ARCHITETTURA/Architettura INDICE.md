@@ -24,3 +24,11 @@
 >argomenti
 >- gerarchie delle memorie
 >- hard disk e supporti di memoria
+
+
+>[!example]- # [[4.Input-Output]]
+>argomenti:
+>- mobo
+>- bus, tipologie ed evoluzioni
+>- input-output
+>- caratteri
