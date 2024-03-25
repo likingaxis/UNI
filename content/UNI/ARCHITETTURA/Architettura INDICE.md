@@ -32,3 +32,7 @@
 >- bus, tipologie ed evoluzioni
 >- input-output
 >- caratteri
+
+>[!example]- # [[5.Algebra Booleana]]
+>- Algebra di Boole
+>- Porte logiche 
