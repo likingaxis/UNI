@@ -1,4 +1,4 @@
- -
+>[!bug] purtroppo li avevo scritti sul onenote quindi dovete fare tasto destro->stampa per visualizzarli adeguatamente
 # Parte 1🤔: 
 
 - [Cantor, induzione, tabelle della verità](Cap1-logica) 
