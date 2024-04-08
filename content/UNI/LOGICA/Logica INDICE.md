@@ -1,4 +1,4 @@
- 
+ -
 # Parte 1🤔: 
 
 - [Cantor, induzione, tabelle della verità](Cap1-logica) 
