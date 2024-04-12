@@ -40,3 +40,4 @@
 
 >[!example]- # [[6.Livello Logico Digitale]]
 
+[[7.Livello logico digitale(2)]]
