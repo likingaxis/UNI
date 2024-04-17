@@ -44,4 +44,4 @@
 >[!example]- # [[7.Livello logico digitale(2)]]
 
 
->[!example]- # [[[[8.Architettura ARM]]]]
+>[!example]- # [[8.Architettura ARM]]
