@@ -42,14 +42,21 @@
 
 
 >[!example]- # [[6.Livello Logico Digitale]]
+>- flip flop, latch e varie porte logiche
 
 
 >[!example]- # [[7.Livello logico digitale(2)]]
+>- varie cpu partendo dal pentium fino all'i7
+>- vari microcontrollori
 
 
 >[!example]- # [[8.Architettura ARM]]
+>- introduzione all'argomento
+>- spiegazione di registri, indirizzamenti e shift 
+>- varie istruzioni in ARM
 
 
->[!tip]- lista dove trovare tutti gli esercizi 
+>[!tip]- # lista di esercizi
+> # [[HAMMING CODE]]
 > # [[ESERCIZI ARM]]
 
