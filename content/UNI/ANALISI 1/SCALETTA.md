@@ -1,5 +1,8 @@
 # FINE LEZIONI
 manca esattamente `= date(2024-06-14) - date(today)` per il **14/06/2024**
+
+# DIMOSTRZIONI:
+IHIHIHIH
 ## BASI: 
 - [x] Semplificazioni 
 - [ ] Fattoriali 

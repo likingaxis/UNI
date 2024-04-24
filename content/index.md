@@ -3,6 +3,8 @@ Mi chiamo Luca Gugliotta e studio presso [l'università di Tor Vergata informati
 
 ![[tumblr_527e9e177b4cc0c2e94d2d9f98ae57ed_4ffd3b4f_500.webp]]
 # Gli esami:
+## Analisi📈
+ecco:[[SCALETTA]]
 ## Programmazione💻
 eccoci qua:[[Programmazione INDICE]]
 
