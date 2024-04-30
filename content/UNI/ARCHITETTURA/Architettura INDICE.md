@@ -56,6 +56,19 @@
 >- varie istruzioni in ARM
 
 
+>[!example]- # [[9.PROGRAMMARE IN ARM]]
+>- guida sulla programmazione
+>- schemi DNS ecc...
+
+>[!example]- # [[10.Micro-architettura e Macro-architettura]]
+>- sezione dedicata alla micro architettura che è un livello dell'architettura
+>- prima parte della macro architettura
+
+>[!example]- # [[11. MACRO ARCHITETTURA + Linguaggio assemblativo]]
+>- seconda parte della macro architettura
+>- linguaggio assemblativo il livello 4
+
+
 >[!tip]- # lista di esercizi
 > # [[HAMMING CODE]]
 > # [[ESERCIZI ARM]]

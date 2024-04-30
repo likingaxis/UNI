@@ -1,5 +1,23 @@
 lista di esercizi in arm
-clicca qui per quelli del [[ESERCIZI ARM#^8f5769|simonetta]]
+clicca qui per quelli del [[ESERCIZI ARM#n.3(libro)|simonetta]]
+
+| Condizione | Descrizione                                       | Flag Coinvolti       |
+|------------|---------------------------------------------------|----------------------|
+| EQ         | Equal (Uguale)                                    | Z=1                  |
+| NE         | Not Equal (Non uguale)                            | Z=0                  |
+| CS/HS      | Carry Set/Unsigned Higher or Same                 | C=1                  |
+| CC/LO      | Carry Clear/Unsigned Lower                        | C=0                  |
+| MI         | Minus/Negative                                    | N=1                  |
+| PL         | Plus/Positive or Zero                             | N=0                  |
+| VS         | Overflow Set                                      | V=1                  |
+| VC         | Overflow Clear                                    | V=0                  |
+| HI         | Unsigned Higher                                   | C=1 & Z=0            |
+| LS         | Unsigned Lower or Same                            | C=0 or Z=1           |
+| GE         | Signed Greater Than or Equal                      | N=V                  |
+| LT         | Signed Less Than                                  | N≠V                  |
+| GT         | Signed Greater Than                               | Z=0 & N=V            |
+| LE         | Signed Less Than or Equal                         | Z=1 or N≠V           |
+
 # Esercizi nostri
 ## n.1(nostro)
 > [!question]- Scrivi un programma che scambia i valori di due registri.
@@ -93,8 +111,61 @@ Addizione di Numeri:
 ## n.8(nostro)
 >[!question]- Creare un programma che confronta due numeri memorizzati nei registri R0 e R1. A seconda del risultato del confronto, il programma eseguirà diverse operazioni aritmetiche: Se R0 è maggiore di R1, incrementare R2. Se R0 è uguale a R1, decrementare R2. Se R0 è non uguale a R1, moltiplicare R2 per 2. Se R0 è minore di R1, dividere R2 per 2 (per semplicità, assumiamo una divisione intera).
 
-# Esercizi simonetta
+# Esercizi Simonetta
+## n.1(libro)
+>[!question]- creare un esercizio che faccia la divisione senza usare la divisione in ARM
+>```arm-asm
+>MOV R1, #10
+>MOV R2, #5
+>MOV R3, #0
+>WHILE:
+>CMP R1,R2
+>BLT continua
+>SUB R1,R2
+>ADD R3,#1
+>B WHILE
+>continua:
+>```
 
-^8f5769
+## n.2(libro)
+>[!question]- creare un esercizio che faccia la moltiplicazione senza usare la MUL in ARM
+>```arm-asm
+>MOV R1, #10
+>MOV R2, #5
+>MOV R3,#0
+>WHILE:
+>CMP R2,#0
+>BEQ continua
+>ADD R3,R3, R1
+>SUB R2,#1
+>B WHILE
+>continua:
+>```
 
-non ci sono godo 
+## n.3(libro)
+>[!question]- creare un esercizio che faccia la potenza senza la potenza
+>```arm-asm
+>MOV R1, #0
+>MOV R2, #0
+>MOV R0,R1
+>CMP R1,#0
+>BEQ case0
+>CMP R2,#0
+>BEQ case1
+>WHILE:
+>CMP R2,#1
+>BLT continua
+>MUL R0,R0,R1
+>SUB R2,#1
+>B WHILE
+>case0:
+>CMP R2,#0
+>BEQ case3
+>MOV R0,#0
+>case3:
+>MVN R0,#0
+>B continua
+>case1:
+>MOV R0,#1
+>continua:
+>```
