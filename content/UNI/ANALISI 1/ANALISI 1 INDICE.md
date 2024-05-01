@@ -1,0 +1,8 @@
+## SCALETTA
+[[SCALETTA]]
+## LIMITI CONSIGLI
+[[LIMITI NOTEVOLI]]
+## DIMOSTRAZIONI
+
+## TABELLINE
+![[tavola-pitagorica.webp|390]]
