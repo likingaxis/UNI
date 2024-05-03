@@ -14,8 +14,9 @@ Anche le versioni inverse di questi limiti sono indifferenti
 | $0$             | $(1+x)^\dfrac{1}{x}$         | $\epsilon$     |
 | $0$             | $\dfrac{a^x-1}{x}$           | $ln(a)$        |
 | $0$             | $\dfrac{(1+x)^a-1}{x}$       | $a$            |
-| $0$             | $\dfrac{\epsilon^x+1}{x}$    | $1$            |
+| $0$             | $\dfrac{\epsilon^x-1}{x}$    | $1$            |
 | $0$             | $\dfrac{ln(1+x)}{x}$         | $1$            |
+
 ## TEOREMA DEL RAPPORTO
 
 Il teorema del rapporto si svolge quando non sai cosa fare, questo è uno schema di esempio

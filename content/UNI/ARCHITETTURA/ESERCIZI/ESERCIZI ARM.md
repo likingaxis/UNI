@@ -169,3 +169,31 @@ Addizione di Numeri:
 >MOV R0,#1
 >continua:
 >```
+
+## n.4(libro)
+>[!question]- creare un esercizio che fa una somma degli elementi di un array
+>```arm-asm
+>.data  // entriamo nella sezione di data dove li creiamo
+>array: .word 3,4,5,6   // ci creiamo un array con il nome che ci pare poi con .word per creare delle
+>word
+>.global _start //tipo il main  
+>_start:      // tipo il main
+>LDR R0,=array     // facciamo una load in R0 della nostra struttura dell'array
+>LDR R2,[R0]       // facciamo una load del primo elemento di R0 in R2 per salvarcelo
+>MOV R4,#0         // creiamo il nostro registro che salverà la somma
+>CMP R2,#0         // compare per verificare se il primo elemento è minore a zero, pk lo prevede la
+>pre cond
+>BLT fine   		  // branch a etichetta fine
+>//LSL R3,R2,#4     // per salvarci l'ultimo offset dell'array in R3 facciamo uno shift a sinistra di 4
+>posizioni??
+>MOV R1,#0        // R1 sarà il nostro offset
+>while:
+>LDR R2,[R0,R1]   // per scorrere stiamo dicendo che il nostro R2 è la somma di R0+R1
+>ADD R4,R2        // salviamo in R4 R2
+>ADD R1,#4        // per andare ai numeri successivi sommiamo R1 con 4 N.B indirizzo di base non
+>cambia l'offset
+>CMP R1,#12	     // confronta il massimo valore possibile con l'offset attuale per capire se deve
+>fermarsi
+>BLE while
+>fine:
+>```
