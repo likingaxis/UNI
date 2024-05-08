@@ -68,6 +68,9 @@
 >- seconda parte della macro architettura
 >- linguaggio assemblativo il livello 4
 
+>[!example]- # [[12. Architetture per il calcolo parallelo]]
+>- soluzioni per eseguire calcoli in modo parallelo
+
 
 >[!tip]- # lista di esercizi
 > # [[HAMMING CODE]]
