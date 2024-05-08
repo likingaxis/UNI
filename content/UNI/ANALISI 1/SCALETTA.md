@@ -38,11 +38,11 @@ IHIHIHIH
 - [x] Nepero
 - [x] Destro e sinistro
 - [x] Confronto
-## Derivate: al 10/05/2024 manca `= date(2024-05-07) - date(today)`
+## Derivate: al 10/05/2024 manca `= date(2024-05-10) - date(today)`
     
 - [ ] Derivate notevoli
 - [ ] Formule
-- [ ] Taylor
+- [ ] Hopital
 - [ ] Fermat
 ## Integrali: 20/05/2024 manca `= date(2024-05-20) - date(today)`
 - [ ] Primitiva
@@ -52,6 +52,7 @@ IHIHIHIH
 - [ ] Integrale improprio
 - [ ] Confronto
 - [ ] Equi asintotica
+- [ ] Taylor
 ## Studio funzione(lez.14) 
     
 - [ ] Dominio 
