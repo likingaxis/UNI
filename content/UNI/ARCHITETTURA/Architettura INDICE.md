@@ -68,8 +68,10 @@
 >- seconda parte della macro architettura
 >- linguaggio assemblativo il livello 4
 
->[!example]- # [[12. Architetture per il calcolo parallelo]]
+>[!example]- # [[12. Architetture per il calcolo parallelo(parte 1)]]
 >- soluzioni per eseguire calcoli in modo parallelo
+
+>[!example]- # [[13. Architetture per il calcolo parallelo(parte 2)]]
 
 
 >[!tip]- # lista di esercizi
