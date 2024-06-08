@@ -73,6 +73,10 @@
 
 >[!example]- # [[13. Architetture per il calcolo parallelo(parte 2)]]
 
+>[!example]- # [[14.sistemi operativi]]
+>paging memorie e scheduling
+
+
 
 >[!tip]- # lista di esercizi
 > # [[HAMMING CODE]]
