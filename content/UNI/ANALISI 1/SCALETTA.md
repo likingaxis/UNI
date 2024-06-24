@@ -5,7 +5,7 @@ dall'esame manca esattamente `= date(2024-06-25) - date(today)` per il 25/06/202
 IHIHIHIH
 ## BASI: 
 - [x] Semplificazioni 
-- [ ] Fattoriali 
+- [x] Fattoriali 
 - [ ] Sistemi 
 - [x] binomi 
 - [x] Frazioni 
@@ -16,7 +16,7 @@ IHIHIHIH
 - [x] tabelline 
 - [x] Radici 
 - [x] trigonometria 
-- [ ] Funzioni 
+- [x] Funzioni 
 - [x] Equazioni/dis
 
 ## Disequazioni: 
@@ -28,46 +28,45 @@ IHIHIHIH
 - [x] FRATTE, PARABOLE, parabola cubica, SISTEMI
 ## Limiti: 
     
-- [ ] Sostituzione
+- [x] Sostituzione
 - [x] Forme Indet
 - [x] Limiti notevoli
-- [ ] Hopital
+- [x] Hopital
 - [ ] Successioni
-- [ ] Teorema degli zeri
+- [x] Teorema degli zeri
 - [x] Funz continue
 - [x] Nepero
 - [x] Destro e sinistro
 - [x] Confronto
 ## Derivate: al 10/05/2024 manca `= date(2024-05-10) - date(today)`
     
-- [ ] Derivate notevoli
-- [ ] Formule
-- [ ] Hopital
+- [x] Derivate notevoli
+- [x] Formule
+- [x] Hopital
 - [ ] Fermat
 ## Integrali: 20/05/2024 manca `= date(2024-05-20) - date(today)`
-- [ ] Primitiva
+- [x] Primitiva
 - [ ] Definiti/indefiniti
 - [ ] Per sostituzione e per parti
 - [ ] Integrali fratti
 - [ ] Integrale improprio
 - [ ] Confronto
 - [ ] Equi asintotica
-- [ ] Taylor
+- [x] Taylor
 ## Studio funzione(lez.14) 
     
-- [ ] Dominio 
+- [x] Dominio 
     
 - [ ] Continuità e Simmetrie e segno(se chiesto) 
     
-- [ ] Limiti agli estremi di D e asintoti 
+- [x] Limiti agli estremi di D e asintoti 
     
-- [ ] Derivata prima,
-- [ ] Crescenza decrescenza
-- [ ] Massimo e minimo (rel e ass)
-- [ ] Derivata seconda se richiesto 
-- [ ] Convessità concavità
-- [ ] Punti di flesso 
-- [ ] Integrali bho forse
+- [x] Derivata prima,
+- [x] Crescenza decrescenza
+- [x] Massimo e minimo (rel e ass)
+- [x] Derivata seconda se richiesto 
+- [x] Convessità concavità
+- [x] Punti di flesso 
 ## N. complessi e serie numeriche: 
     
 - [ ] Serie numeriche,  geometriche, telescopiche, armonica,radice, rapporto, confronto e confronto asintotico e confronto integrale 
