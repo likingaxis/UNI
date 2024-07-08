@@ -14,6 +14,8 @@ eccoci qua:[[Discreta INDICE]]
 eccolo qui:[[Logica INDICE]]
 ## Architettura dei sistemi di elaborazione🎛
 eccolo qua:[[Architettura INDICE]]
+## Geometria 📐
+esercizi meccanici:[[GEOMETRIA INDICE]]
 
 ### Organizzazione:
 ![[piano di studi.png]]
