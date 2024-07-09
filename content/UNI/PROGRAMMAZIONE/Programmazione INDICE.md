@@ -1,14 +1,14 @@
 # Python
-### [[ciao/content/UNI/PROGRAMMAZIONE/Python/1.Capitolo1|Capitolo 1:]]
+### [[1.Capitolo1|Capitolo 1:]]
 #### Cicli, dati, condizioni, input, output, costi computazionali
 
-### [[ciao/content/UNI/PROGRAMMAZIONE/Python/2.Capitolo2|Capitolo 2:]]
+### [[2.Capitolo2|Capitolo 2:]]
 #### Approfondimenti sulle Stringhe e Funzioni in Python
 
-### [[ciao/content/UNI/PROGRAMMAZIONE/Python/3.Capitolo 3|Capitolo 3:]]
+### [[3.Capitolo 3|Capitolo 3:]]
 #### Funzioni Avanzate e Aliasing in Python
 
-### [[ciao/content/UNI/PROGRAMMAZIONE/Python/4.Capitolo 4|Capitolo 4:]]
+### [[4.Capitolo 4|Capitolo 4:]]
 #### Uso di Break, Bubble Sort e Zip in Python
 ### [[ciao/content/UNI/PROGRAMMAZIONE/Python/5.Capitolo 5|Capitolo 5:]]
 #### Sorted, Sort, Lambda, e Ricorsione in Python
