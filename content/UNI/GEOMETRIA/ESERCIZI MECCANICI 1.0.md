@@ -20,13 +20,18 @@ n di colonne-dimensione(IMM)
 una trasformazione lineare da $\mathbb{R}^3  a  \mathbb{R}^5$ avrà 3 colonne e 5 righe.
 ## POLINOMIO CARATTERISTICO
 
+$P(A)=det(A-\lambda *I_n )$
+fai il determinante mettendo $A-\lambda$ ad ogni pivot, senza fare michael jordan
+## AUTOVALORE
+lo trovi facendo il polinomio caratteristico, alla fine dello svolgimento del determinante potresti incorrere in code simili  a formule come ad esempio $(\lambda-4)(-\lambda^2-4\lambda-4)$ prendendo le $\lambda$ trovi gli autovalori ovvero 4 e -2(doppio)
+
 
 ## AUTOSPAZIO
 
+per trovare l'autospazio devi applicare gli autovalori alle $\lambda$ della matrice creata, successivamente fai il michael jordan e poi ti calcoli la base del nucleo senza però cambiare le t in numeri e lasci le lettere e scrivi il tuo autospazio 
 
-## AUTOVALORE
-
-
+## DIAGONIZZABILE
+la media geometrica deve essere uguale da quella algebrica
 ## AUTOVETTORE
 
 
@@ -48,7 +53,7 @@ una trasformazione lineare da $\mathbb{R}^3  a  \mathbb{R}^5$ avrà 3 colonne e 
 ## MOLTIPLICAZIONE TRA MATRICI
 
 
-## DIAGONIZZABILE
+
 
 
 ## DIAGONALE
@@ -77,6 +82,8 @@ una trasformazione lineare da $\mathbb{R}^3  a  \mathbb{R}^5$ avrà 3 colonne e 
 
 
 # GEOMETRIA SPAZIALE
+## VETTORI FORMANO UNA BASE
+rango=max
 ## COME TROVARE UN PIANO
 
 ## RETTE INCIDENTI PARALLELE SGHEMBE
