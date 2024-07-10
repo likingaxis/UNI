@@ -32,6 +32,9 @@ per trovare l'autospazio devi applicare gli autovalori alle $\lambda$ della matr
 
 ## DIAGONIZZABILE
 la media geometrica deve essere uguale da quella algebrica
+la media geometrica era n-rango dove n è la partenza
+la media algebrica è il numero massimo di autovalori uguali che trovi
+dopo aver fatto questi controlli devi fare la somma delle medie geometriche e deve essere uguale a n
 ## AUTOVETTORE
 
 
