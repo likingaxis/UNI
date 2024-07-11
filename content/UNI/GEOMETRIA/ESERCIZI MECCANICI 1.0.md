@@ -121,4 +121,10 @@ fai il sistema con le corrispondenze delle varie x y e z
 
 ## <span style="color: white; background-color: #9E0404">VEDERE SE UN SISTEMA È COMPATIBILE</span>
 
+ti fai la matrice e il rg(A) deve essere uguale al rg(A|B)   (teorema rouche capelli)
+
+## <span style="color: white; background-color: #9E0404">VEDERE QUANTE SOLUZIONI HA UN SISTEMA</span>
+- rg max ha una sola soluzione
+- rg non max infinite soluzioni/oppure non ne ha proprio
 ## <span style="color: white; background-color: #9E0404">VEDERE QUANDO UN SISTEMA SI COMPORTA COME UNA RETTA</span>
+un sistema ha infinite soluzioni(ha almeno un parametro t s o roba così)
