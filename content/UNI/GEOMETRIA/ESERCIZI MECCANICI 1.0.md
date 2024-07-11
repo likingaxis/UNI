@@ -80,7 +80,7 @@ poer verificare l'additività invece bisogna verificare se T(U+V) è uguale a T(
 dove u è x1,y1 invece v è x2,y2
 
 ## <span style="color: white; background-color: #9E0404">LINEARMENTE INDIPENDENTE</span>
-bho
+quando fai il giordano e i pivot che non sono 0 sono indipendenti se sono tutti 0 sono tutti dipendenti
 
 ## <span style="color: white; background-color: #9E0404">MATRICE ASSOCIATA</span>
 prendi i coefficienti dei vettori e te li spalmi in una matrice in colonna
