@@ -74,6 +74,11 @@ ogni riga della prima matrice va moltiplicata con ogni colonna della seconda
 se hai una matrice puoi sfruttare il teorema degli orlati per definire il rango minimo, se prendi una matrice a caso dentro di una determinata dimensione $n*n$, se il suo determinante è diverso da 0 significa che la matrice più grande è almeno di quella n
 # ESERCIZI SU APPLICAZIONI LINEARI
 ## <span style="color: white; background-color: #9E0404">LINEARITÀ</span>
+per verificare linearità bisogna capire se c'è omogeneità e additività
+l'omogeneità si verifica moltiplicando per c tutte le variabili della matrice e del sistema lineare e poi si porta fuori 
+![[Pasted image 20240711102455.png]]
+poer verificare l'additività invece bisogna verificare se T(U+V) è uguale a T(U)+T(V)
+dove u è x1,y1 invece v è x2,y2
 
 ## <span style="color: white; background-color: #9E0404">LINEARMENTE INDIPENDENTE</span>
 
