@@ -103,8 +103,16 @@ se è biunivoca è invertibile ed è sia inny che surry
 ## <span style="color: white; background-color: #9E0404">VETTORI FORMANO UNA BASE</span>
 michael jordan mettendo i vettori sulle colonne e poi vedi se rango=max
 ## <span style="color: white; background-color: #9E0404">COME TROVARE UN PIANO</span>
+bho
 
 ## <span style="color: white; background-color: #9E0404">RETTE INCIDENTI PARALLELE SGHEMBE</span>
+scrivi equazione parametrica applicando la formula A+t(B-A)
+#### parallele
+per vedere se sono parallele devi controllare se c'è un valore che molitplicato per il vettore di una delle due rette esce uguale alla sua amica retta
+#### incidenti
+i risultati delle equazioni parametriche delle due rette devono esserci soluzioni e non devono esserci cose strane tipo h=1 e h=3 o è 1 o 3
+#### sghembe 
+nè parallele nè incidenti
 
 ## <span style="color: white; background-color: #9E0404">EQUAZIONE PARAMETRICA E CARTESIANA</span>
 prendi i vettori e applica la seguente formula r=A+t(B-A)
