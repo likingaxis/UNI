@@ -41,8 +41,6 @@ la media geometrica deve essere uguale da quella algebrica
 la media geometrica era n-rango dove n è la partenza(colonne)
 la media algebrica è il numero di autovalori che trovi(molteplicità)
 dopo aver fatto questi controlli devi fare la somma delle medie geometriche e deve essere uguale a n
-
-
 ## <span style="color: white; background-color: #9E0404">INVERTIBILE</span>
 
 det diverso da 0 oppure rango=max oppure biunivoca
@@ -52,7 +50,7 @@ oppure
 fai $\frac{1}{det}*catania$
 per fare catania ti devi fare il determinante di ogni singolo elemento della matrice, poi ogni singolo elemento della riga lo metti come se fosse una colonna quindi metti la matrice al contrario, poi moltiplichi per 1/det
 ## <span style="color: white; background-color: #9E0404">VETTORE APPARTIENE A IMMAGINE(A)</span>
-
+metti la matrice= a quel vettore facendo un sistema e svolgendolo tipo un sistema omogeneo
 
 ## <span style="color: white; background-color: #9E0404">VEDERE SE ESISTE UN VETTORE</span>$x$ T.C. $A*x=w$
 
@@ -68,7 +66,7 @@ determinante di $(A*B)$ è uguale a $det(A)*det(B)$
 ogni riga della prima matrice va moltiplicata con ogni colonna della seconda
 
 ## <span style="color: white; background-color: #9E0404">DIAGONALE</span>
-
+trova i risultati degli autovalori e mettili in diagonale
 
 ## <span style="color: white; background-color: #9E0404">TEOREMA DEGLI ORLATI</span>
 
@@ -82,10 +80,15 @@ poer verificare l'additività invece bisogna verificare se T(U+V) è uguale a T(
 dove u è x1,y1 invece v è x2,y2
 
 ## <span style="color: white; background-color: #9E0404">LINEARMENTE INDIPENDENTE</span>
+bho
 
 ## <span style="color: white; background-color: #9E0404">MATRICE ASSOCIATA</span>
+prendi i coefficienti dei vettori e te li spalmi in una matrice in colonna
+## <span style="color: white; background-color: #9E0404">MATRICE A BASE CANONICA</span>
+prendi i risultati dei vettori e li spalmi in una matrice
 
 ## <span style="color: white; background-color: #9E0404">MATRICE</span>
+la scrivi con le lettere così com'è
 
 ## <span style="color: white; background-color: #9E0404">SURRY</span>
 il rango della matrice deve essere uguale alla n di arrivo
@@ -95,7 +98,6 @@ se il rango della matrice è uguale a quella di partenza
 
 ## <span style="color: white; background-color: #9E0404">BIUNY</span>
 se è biunivoca è invertibile ed è sia inny che surry
-
 
 # GEOMETRIA SPAZIALE
 ## <span style="color: white; background-color: #9E0404">VETTORI FORMANO UNA BASE</span>
