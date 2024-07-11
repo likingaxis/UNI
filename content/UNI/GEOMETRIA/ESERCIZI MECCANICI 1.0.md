@@ -7,7 +7,7 @@ distribuisci + - alternati facendo in modo che le colonne tra loro siano sempre 
 condizioni per barare: se avevi due righe o due colonne uguali allora il det=0
 oppure se hai una riga o una colonna full di zeri allora il det=0
 ![[Pasted image 20240708183435.png|500]]
-## <span style="color: white; background-color: #9E0404">base  NUCLEO</span>
+## <span style="color: white; background-color: #9E0404">base KER o NUCLEO</span>
 prendi la matrice e te la semplifichi con il michael jordan poi moltiplichi con un vettore con le variabili che rappresentano ognuna una colonna e poni tutto uguale a 0, ti svolgi il tutto come se fosse un sistema, se hai delle variabili che non trovi devi metterle uguali a una lettera, successivamente scrivi il risultato così (0,0,1,1) se hai una lettera devi metterci il suo coefficiente
 ![[Pasted image 20240708184149.png|500]]
 ## <span style="color: white; background-color: #9E0404">base IMMAGINE</span>
@@ -15,7 +15,7 @@ michael jordan, vedi dove sono i pivot e ti scrivi le colonne che c'erano origin
 ![[Pasted image 20240708184425.png|500]]
 ## <span style="color: white; background-color: #9E0404">dimensione IMMAGINE</span>
 è il rango
-## <span style="color: white; background-color: #9E0404">dimensione KER o NUCLEO</span>
+## <span style="color: white; background-color: #9E0404">dimensione NUCLEO</span>
 n di colonne-dimensione(IMM)
 una trasformazione lineare da $\mathbb{R}^3  a  \mathbb{R}^5$ avrà 3 colonne e 5 righe.
 ## <span style="color: white; background-color: #9E0404">POLINOMIO CARATTERISTICO</span>
@@ -27,7 +27,7 @@ lo trovi facendo il polinomio caratteristico, alla fine dello svolgimento del de
 
 ## <span style="color: white; background-color: #9E0404">AUTOSPAZIO</span>
 
-per trovare l'autospazio devi applicare gli autovalori alle $\lambda$ della matrice creata, successivamente fai il michael jordan e poi ti calcoli la base del nucleo senza però cambiare le t in numeri e lasci le lettere e scrivi il tuo autospazio 
+per trovare l'autospazio devi applicare gli autovalori alle $\lambda$ della matrice creata, successivamente fai il michael jordan e poi ti calcoli l'autovettore(come la base del nucleo) senza però cambiare le t in numeri e lasci le lettere e scrivi il tuo autospazio 
 ## <span style="color: white; background-color: #9E0404">MOLTEPLICITÀ o MEDIA GEOMETRICA E ALGEBRICA</span>
 
 fai il polinomio caratteristico, quante volte appare $\lambda_n$ rappresenta la media algebrica\
