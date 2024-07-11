@@ -28,6 +28,8 @@ lo trovi facendo il polinomio caratteristico, alla fine dello svolgimento del de
 ## <span style="color: white; background-color: #9E0404">AUTOSPAZIO</span>
 
 per trovare l'autospazio devi applicare gli autovalori alle $\lambda$ della matrice creata, successivamente fai il michael jordan e poi ti calcoli l'autovettore(come la base del nucleo) senza però cambiare le t in numeri e lasci le lettere e scrivi il tuo autospazio 
+## <span style="color: white; background-color: #9E0404">AUTOVETTORE</span>
+sostituisci le lambda e fai come il calcolo del sistema per trovare la base del nucleo
 ## <span style="color: white; background-color: #9E0404">MOLTEPLICITÀ o MEDIA GEOMETRICA E ALGEBRICA</span>
 
 fai il polinomio caratteristico, quante volte appare $\lambda_n$ rappresenta la media algebrica\
@@ -39,7 +41,6 @@ la media geometrica deve essere uguale da quella algebrica
 la media geometrica era n-rango dove n è la partenza(colonne)
 la media algebrica è il numero di autovalori che trovi(molteplicità)
 dopo aver fatto questi controlli devi fare la somma delle medie geometriche e deve essere uguale a n
-## <span style="color: white; background-color: #9E0404">AUTOVETTORE</span>
 
 
 ## <span style="color: white; background-color: #9E0404">INVERTIBILE</span>
