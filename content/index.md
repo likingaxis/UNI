@@ -27,12 +27,6 @@ eccolo qua:[[Architettura INDICE]]
 esercizi meccanici:[[GEOMETRIA INDICE]]
 - riassunti❌
 - esercizi ✅
-# Progetti personali:
-### Milano libera:
-https://likingaxis.github.io/esperienzamilano/
-### My-pill:
-https://likingaxis.github.io/mypill/
-
 
 ### Organizzazione(in fase di aggiornamento):
 ![[piano di studi.png]]
