@@ -1,4 +1,13 @@
 # Indice
 
-## piano personale per il 26:
-###       [[ORGANIZZAZIONE DISCRETA]]
+## piano personale:
+### [[ORGANIZZAZIONE DISCRETA]]
+
+### [[GRAFI e RETI]]
+### [[INSIEMISTICA]]
+### [[OPA]]
+### [[PROBABILITÀ]]
+### [[RELAZIONI]]
+### [[RSA]]
+### [[ARGOMENTI CON LIMITI E INTEGRALI]]
+

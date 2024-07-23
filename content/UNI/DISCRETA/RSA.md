@@ -2,10 +2,13 @@
 - A HA LE SUE CHIAVI PUBBLICHE E PRIVATE
 - B IDEM
 SE VUOI INVIARE UN MESSAGIO CODIFICATO PRENDI LE CHIAVI PUBBLICHE DEL DESTINATARIO
-SE VUOI DECODICARE USI LE TUE CHIAVI PRIVATE PER DECODIFICARLO
+SE VUOI DECODIFICARE USI LE TUE CHIAVI PRIVATE PER DECODIFICARLO
 LE FORMULE SONO:
 DECODIFICA: m^d mod n
 CODIFICA: m^e mod n
-esempio:
-![[PHOTO-2024-02-11-12-22-07-gigapixel-lines-scale-2_00x.jpg]]![[WhatsApp Image 2024-02-16 at 10.42.17 1.jpeg]]
-![[WhatsApp Image 2024-02-16 at 10.42.17 (1) 1.jpeg]]
+
+poi fai le riduzioni di modulo classiche
+
+### CREARE RSA
+a e b sono due numeri coprimi inventati da noi
+![[Pasted image 20240723170041.png]]
