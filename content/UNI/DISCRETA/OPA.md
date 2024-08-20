@@ -6,7 +6,7 @@ $ax+by=n$
 4. fai bezout con $r=a+b(-q)$
 5. una volta fatto bezout moltiplica gli argomenti x e y con il risultato della divisione tra $n$ e $mcd$
 6. scrivere equazione diofantea 
-![[Pasted image 20240723195858.png]]
+![[Pasted image 20240725104207.png]]
 
 ## OPA 2
 INVERSA MOLTIPLICATIVA
