@@ -28,5 +28,5 @@ esercizi meccanici:[[GEOMETRIA INDICE]]
 - riassunti❌
 - esercizi ✅
 
-### Organizzazione(in fase di aggiornamento):
+### Organizzazione(in fase di aggiornamento lol):
 ![[piano di studi.png]]
