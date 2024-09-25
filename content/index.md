@@ -28,5 +28,7 @@ esercizi meccanici:[[GEOMETRIA INDICE]]
 - riassunti❌
 - esercizi ✅
 
+#### ALTRO
+[[ONE PIECE EPISODI]]
 ### Organizzazione(in fase di aggiornamento):
 ![[piano di studi.png]]
