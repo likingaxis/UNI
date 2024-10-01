@@ -10,7 +10,7 @@
 
 ### [[4.Capitolo 4|Capitolo 4:]]
 #### Uso di Break, Bubble Sort e Zip in Python
-### [[ciao/content/UNI/PROGRAMMAZIONE/Python/5.Capitolo 5|Capitolo 5:]]
+### [[5.Capitolo 5|Capitolo 5:]]
 #### Sorted, Sort, Lambda, e Ricorsione in Python
 ### [[6.Capitolo 6|Capitolo 6:]]
 #### Merge Sort e Binary Search in Python

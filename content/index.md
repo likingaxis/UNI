@@ -27,7 +27,10 @@ eccolo qua:[[Architettura INDICE]]
 esercizi meccanici:[[GEOMETRIA INDICE]]
 - riassunti❌
 - esercizi ✅
-
+## Probabilità e Statistica 🎲
+appunti del corso:[[PROBABILITÀ INDICE]]
+- riassunti❌
+- esercizi ❌
 #### ALTRO
 [[ONE PIECE EPISODI]]
 ### Organizzazione(in fase di aggiornamento):

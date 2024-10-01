@@ -1,4 +1,4 @@
-# ARRIVARE 15 MINUTI PRIMA
+[](ESERCIZI%20ARM.md)# ARRIVARE 15 MINUTI PRIMA
 - sistemi di numerazioni ed algebra di boole
 - sistemi digitali e codifica
 - architettura ARM
