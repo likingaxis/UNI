@@ -1,7 +1,7 @@
 # introduzione
 Fenomeno aleatorio ovvero un fenomeno con esito incerto e si indica con $\Omega$
-- discreto se omega e' finito  {${1,2,3,...,6}$}  o numerabile {${1,2,3,...}$}
-- continuo se omega e' piu' che numerabile da {$0,\infty$}
+- discreto se omega è finito  {${1,2,3,...,6}$}  o numerabile {${1,2,3,...}$}
+- continuo se omega è più che numerabile da {$0,\infty$}
 Una famiglia di eventi $A$ fa parte di una famiglia di sottoinsiemi di $\Omega$
 >[!example]-
 > esce un numero pari {2,4,6} c {1,2,3,4,5,6}
@@ -14,13 +14,13 @@ Una famiglia di eventi $A$ fa parte di una famiglia di sottoinsiemi di $\Omega$
 | Negazione$\overline{A}$ | $A^c=\Omega*A$ |
 ### Definizione di $\sigma$ algebra
 Sia $\Omega$ un insieme non vuoto che ha $A c P($$\omega$)
-Allora $A$ e' una $\sigma$ algebra di eventi se:
+Allora $A$ è una $\sigma$ algebra di eventi se:
 1. R $\in$ ad A
 2. $every A\in A$  significa che $A^c \in A$
 3. $\forall$ {$an$}$_n\geq 1$ c $A$ -> U $n\geq1$ {$an$} $\in A$
 ### Definizione di misura di probabilità
 Sia $\Omega$ un insieme non vuoto e $A$ una $\sigma$ algebra di eventi
-Allora una funzione $P:A->[0,\infty)$ e' una misura di probabilità 
+Allora una funzione $P:A->[0,\infty)$ è una misura di probabilità 
 Se 
 1. P($\Omega$) =1
 2. $\forall$ {$A_n$}$_{n\geq1}$ c $A$ tale che $A_m \cap A_n \neq 0$ per $m\neq n$ ovvero disgiunti due a due
