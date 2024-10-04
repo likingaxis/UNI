@@ -12,7 +12,7 @@ appunti del corso:[[PROBABILITÀ INDICE]]
 
 >[!example]- anno 1
 >## Analisi📈
-ecco qua:[[ANALISI 1 INDICE]]
+>ecco qua:[[ANALISI 1 INDICE]]
 >- riassunti❌
 >- esercizi❌
 >## Programmazione💻
@@ -20,19 +20,19 @@ ecco qua:[[ANALISI 1 INDICE]]
 >- riassunti ✅
 >- esercizi ❌
 >## Discreta 🧮
-eccoci qua:[[Discreta INDICE]]
+>eccoci qua:[[Discreta INDICE]]
 >- riassunti❌
 >- esercizi ❌
 >## Logica e Reti Logiche🧠
-eccolo qui:[[Logica INDICE]]
+>eccolo qui:[[Logica INDICE]]
 >- riassunti ✅
 >- esercizi ❌
 >## Architettura dei sistemi di elaborazione🎛
-eccolo qua:[[Architettura INDICE]]
+>eccolo qua:[[Architettura INDICE]]
 >- riassunti ✅
 >- esercizi ✅
 >## Geometria 📐
-esercizi meccanici:[[GEOMETRIA INDICE]]
+>esercizi meccanici:[[GEOMETRIA INDICE]]
 >- riassunti❌
 >- esercizi ✅
 #### ALTRO

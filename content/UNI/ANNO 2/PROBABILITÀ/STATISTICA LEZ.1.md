@@ -44,7 +44,7 @@ $P(A|B)$ = $\frac{P(A\cap B)}{P(B)}$=$\frac{\#(A\cap B)/n}{\# B/n}$=$\frac{\#(A\
 # ESEMPIO
 Un'urna ha 10 palline numerate da 1 a 10
 Si estrae una pallina a caso
-1. Calcolare la probabilità di estrarre un numero maggiore di 5 sapendo che e' stato estratto un numero pari
+1. Calcolare la probabilità di estrarre un numero maggiore di 5 sapendo che è stato estratto un numero pari
 2. Calcolare la stessa probabilità nel caso in cui vengano aggiunte due palline una con il numero 1 e una con il numero 10
 Abbiamo che $A=\{6,7,8,9,10\}$ e $B=\{2,4,6,8,10\}$ quindi $A\cap B$=$\{6,8,10\}$
 ###### Parte 1
