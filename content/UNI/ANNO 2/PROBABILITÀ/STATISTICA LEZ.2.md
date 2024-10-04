@@ -46,7 +46,7 @@ $P(E_n|B)=\frac{P(B|E_n)*P(E_n)}{\sum_{i \in I} P(A \mid E_i) P(E_i)}$
 SI USA SEMPRE INSIEME ALLA FORM DELLE PROB TOTALI
 ## esempio 4
 Riprendiamo l'esempio 3 e poniamo questo quesito
->[!probabilità' ] Calcolare la probabilità che sia uscito 2 o 3 nel lancio del dado sapendo di aver estratto una pallina bianca
+>[!example] Calcolare la probabilità che sia uscito 2 o 3 nel lancio del dado sapendo di aver estratto una pallina bianca
 
 
 Quindi possiamo dire che $P(E_2|B)$
