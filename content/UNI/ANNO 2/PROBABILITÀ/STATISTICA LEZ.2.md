@@ -30,7 +30,7 @@ $$
 $$
 Allora $P(A)=P(A|E)*P(E)+P(A|E^c)*P(E^c)$
 ## esempio 3
->[!probabilità] Un'urna ha 2 palline bianche e 1 nera.
+>[!example] Un'urna ha 2 palline bianche e 1 nera.
 >Si lancia un dado equo:
 >- Se esce il numero 1 si mettono 2 palline bianche nell'urna
 >- Se escono i numeri 2 e 3 si mettono nell'urna 1 pallina bianca e 1 nera
