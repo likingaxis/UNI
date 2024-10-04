@@ -6,7 +6,7 @@ $P(A\cap B)$=$P(A|B)*P(B)$
 Anche con 3 eventi
 $P(A\cap B \cap C)$=$P(A|B\cap C)*P(B|C)*P(C)$
 ## esempio 1
->[!probabilità] Un'urna contiene 2 palline bianche, 3 rosse e 4 nere
+>[!example] Un'urna contiene 2 palline bianche, 3 rosse e 4 nere
 >Si estraggono 3 palline a caso, una alla volta senza reinserimento
 >1) calcolare la probabilità' di ottenere la sequenza (rosso,non rosso) sulle prime due
 >estrazioni
