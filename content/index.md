@@ -10,7 +10,7 @@ appunti del corso:[[PROBABILITÀ INDICE]]
 - esercizi ❌
 
 
->[!example]- anno 1
+>[!example] anno 1
 >## Analisi📈
 >ecco qua:[[ANALISI 1 INDICE]]
 >- riassunti❌
