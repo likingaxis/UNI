@@ -47,4 +47,4 @@ appunti del corso:[[LINGUAGGI INDICE]]
 [[ONE PIECE EPISODI]]
 ### Organizzazione
 
-![[ORARIO LEZIONI.png]]
+![[orario lezioni.png]]
