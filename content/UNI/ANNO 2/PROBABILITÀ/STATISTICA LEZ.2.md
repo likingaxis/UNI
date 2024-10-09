@@ -54,3 +54,13 @@ Ora facciamo la formula di Bayes
 ![[Screenshot_2024-10-04-19-31-35-70_45415775811cea13943236d9369df411.jpg|600]]
 
 
+
+
+
+
+>[!tip] DEFINIZIONE
+>Due eventi a,b ∈ A sono indipendenti se: $$P(a∩b) = P(a)P(b)$$
+>
+>Siano a,b ∈ A, con P(b) ≠ 0. Allora$$
+A \text{ e } B \text{ sono indipendenti } \iff P(B | A) = P(B).
+$$

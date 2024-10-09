@@ -8,6 +8,14 @@ Mi chiamo Luca Gugliotta e studio presso [l'università di Tor Vergata informati
 appunti del corso:[[PROBABILITÀ INDICE]]
 - riassunti❌
 - esercizi ❌
+## ALGORITMI 🎯
+appunti del corso:[[ALGORITMI INDICE]]
+- riassunti❌
+- esercizi ❌
+## LINGUAGGI </>
+appunti del corso:[[LINGUAGGI INDICE]]
+- riassunti❌
+- esercizi ❌
 
 
 >[!example]- anno 1
