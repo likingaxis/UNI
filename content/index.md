@@ -16,7 +16,10 @@ appunti del corso:[[ALGORITMI INDICE]]
 appunti del corso:[[LINGUAGGI INDICE]]
 - riassunti❌
 - esercizi ❌
-
+## SISTEMI OPERATIVI E RETI ⚙️
+appunti del corso:[[SISTEMI OPERATIVI E RETI INDICE]]
+- riassunti❌
+- esercizi ❌
 
 >[!example]- anno 1
 >## Analisi📈
