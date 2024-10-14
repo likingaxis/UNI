@@ -36,6 +36,7 @@ Ricordare almeno i registri:
 - SP, Stack Pointer, punta alla cima dello stack
 Concetto di multiplexing delle operazioni nel tempo pipeline
 Cache nella CPU
+
 ![[Pasted image 20241010180055.jpg|450]]
 ### memorie
 Più  una memoria e' veloce più costa e di solito e' meno capiente
