@@ -1,7 +1,7 @@
 **Pausa tra gli esercizi**: 30-45 secondi per aumentare l’intensità.  
 **Pausa tra i circuiti**: 1 minuto.
 **Tip**: fai esercizi piano, concentrati sul farlo bene e se non riesci con i pesi fai senza
- ## <span style="color: red; font-size: 20px; font-weight: bold;">Allenamento 1: Parte superiore del corpo</span>
+ ## <span style="color: red; font-size: 30px; font-weight: bold;">Allenamento 1: Parte superiore del corpo</span>
 
 **Focus**: Petto, Schiena, Spalle, Braccia.
 ### Esercizi:
@@ -35,7 +35,7 @@ Ripeti il circuito per **3 giri totali**.
 
 ---
 
-## Allenamento 2: Parte inferiore del corpo e core
+## <span style="color: red; font-size: 30px; font-weight: bold;">Allenamento 2: Parte inferiore del corpo e core</span> 
 
 **Focus**: Gambe, Glutei, Core.
 
