@@ -1,5 +1,6 @@
 **Pausa tra gli esercizi**: 30-45 secondi per aumentare l’intensità.  
 **Pausa tra i circuiti**: 1 minuto.
+
 **Tip**: fai esercizi piano, concentrati sul farlo bene e se non riesci con i pesi fai senza
  ## <span style="color: #d4534a; font-size: 30px; font-weight: bold;">Allenamento 1: Parte superiore del corpo</span>
 

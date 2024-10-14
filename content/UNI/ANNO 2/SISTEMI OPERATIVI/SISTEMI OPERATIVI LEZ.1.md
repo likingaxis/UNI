@@ -1,8 +1,8 @@
 ### Def sistema operativo
 Il sistema operativo è uno strato di software della macchina ha lo scopo di fornire una semplificazione delle risorse hardware ai programmi
 - Il s.o. maschera gli elementi sottostanti della macchina
-- Il s.o. consentono la gestione di esecuzioni in parallelo
-- Il s.o. e' un gestore delle risorse e ne facilita l'utilizzo
+- Il s.o. consente la gestione di esecuzioni in parallelo
+- Il s.o. è un gestore delle risorse e ne facilita l'utilizzo
 ![[Pasted image 20241010161716.jpg|400]]
 In mezzo abbiamo un s.o. che traduce le operazioni dall'alto verso le componenti in basso
 ##### Librerie
