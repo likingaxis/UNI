@@ -1,3 +1,4 @@
 # LEZIONE
 ### [[ALGORITMI LEZ.1]]
 ### [[ALGORITMI LEZ.2]]
+### [[ALGORITMI LEZ.3]]
