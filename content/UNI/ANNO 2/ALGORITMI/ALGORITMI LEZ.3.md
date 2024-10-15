@@ -43,7 +43,8 @@ Ignoro
 - costanti
 - ordini inferiori
 
-Il prof intende $log$ come $log_2$
+>[!info]
+> Il prof intende $log$ come $log_2$
 
 $T(n)$ è il numero di passi elementari eseguiti su una RAM nel caso peggiore su una Istanza di dimensioni n
 ### ESEMPIO DI NOTAZIONE ASINTOTICA
