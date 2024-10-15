@@ -42,7 +42,8 @@ Complessità computazionale di un algoritmo espressa con T(n) in modo qualitativ
 Ignoro 
 - costanti
 - ordini inferiori
->[!info] Il prof intende $log$ come $log_2$
+
+Il prof intende $log$ come $log_2$
 
 $T(n)$ è il numero di passi elementari eseguiti su una RAM nel caso peggiore su una Istanza di dimensioni n
 ### ESEMPIO DI NOTAZIONE ASINTOTICA
@@ -53,24 +54,26 @@ Quindi T(n) è asintoticamente proporzionale e a $n^2$
 
 ## DEFINIZIONI NOTAZIONI ASINTOTICHE(5)
 
-1) 
->[!info]- Notazione asintotica $O$ Serve per dare degli upper-bound
+1) $O$
+>[!info]- Notazione asintotica  Serve per dare degli upper-bound
 >![[Pasted image 20241015210315.jpg|400]]
 
-2) 
->[!info]- $\Omega$ lower-bound
+2) $\Omega$
+>[!info]-  lower-bound
 >![[Pasted image 20241015211050.jpg|400]]
 
-3) 
->[!info]- $\Theta$ doppio confronto quindi uguali
+3) $\Theta$
+>[!info]-  doppio confronto quindi uguali
 >![[Pasted image 20241015211751.jpg|400]]
 
-4) 
->[!info]- $o$ rapp tra infiniti con 0 notare che $o \subset O$
+4) $o$ 
+>[!info]- rapp tra infiniti con 0 notare che 
+>$o \subset O$
 >![[Pasted image 20241015212020.jpg|500]]
 
-5) 
->[!info]- $\omega$ infiniti con inf con $\omega \subset \Omega$
+5)$\omega$ 
+>[!info]-  infiniti con inf con 
+>$\omega \subset \Omega$
 >![[Screenshot 2024-10-15 220807.png|500]]
 
 ###### PROPRIETÀ NOTAZIONE ASINTOTICA (non devi saperle tutte )
