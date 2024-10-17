@@ -110,20 +110,24 @@ In Linux i device hardware vengono visti come dei file
 - Block special file per I dischi
 - Character special file per le porte seriali
 ###### FILE A PIPE
-Processi comunicano tra loro con le pipe, ovvero pseudo file che viaggiano su un canale fifo
+Processi comunicano tra loro con le pipe, ovvero pseudo file che viaggiano su un canale FIFO
 Scrivere un processo che comunica con altri processi attraverso pipe(chiede a esame)
 ![[Pasted image 20241016203452.jpg|400]]
 ## CHIAMATE DI SISTEMA
 Una chiamata di sistema permette ai programmi in user space (spazio utente) di richiedere servizi o risorse direttamente al kernel del sistema operativo. È uno dei meccanismi fondamentali che consentono ai programmi di interagire con l'hardware e le risorse di sistema in modo controllato e sicuro.
-Quando ad un programma ha bisogno di un servizio che solo il kernel può fornire (ad esempio leggere un file), deve effettuare una chiamata di sistema.
+Quando un programma ha bisogno di un servizio che solo il kernel può fornire (ad esempio leggere un file), deve effettuare una chiamata di sistema.
 ![[Pasted image 20241016205008.jpg|400]]
 
 - Devono essere estremamente veloci
 - Trap blocca il processo e lo sposta facendogli fare il cambio di contesto
 - le chiamate di sistema variano a seconda del s.o. come soluzione si sono create delle chiamate di sistema generiche per ogni s.o. POSIX
-==Numero di chiamata cosa è?==
 #### quali sono le chiamate di sistema per la gestione dei processi che vedremo?
-Sistemare domani
 
-
+- il programma prepara i parametri della procedura che deve chiamare read(fd, buffer, nbytes)
+- il programma chiama la procedura nella libreria 
+- in un registro RAX viene immesso il numero che identifica il tipo di funzione del kernel che bisogna eseguire(read, write,open...), spesso questi numeri vengono messi in una tabella
+- passaggio a modalità kernel che avviene attraverso una istruzione trap verso il kernel
+- il gestore di chiamate di sistema viene eseguito
+- viene ridato il controllo alla procedura utente
+![[Screenshot_2024-10-17-16-19-37-53_f56466bc4bb61e6d2de1f3b0468a89d9.jpg|700]]
 
