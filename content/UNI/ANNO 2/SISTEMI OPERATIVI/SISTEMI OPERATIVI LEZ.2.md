@@ -124,10 +124,10 @@ Quando un programma ha bisogno di un servizio che solo il kernel può fornire (a
 #### quali sono le chiamate di sistema per la gestione dei processi che vedremo?
 
 - il programma prepara i parametri della procedura che deve chiamare read(fd, buffer, nbytes)
-- il programma chiama la procedura nella libreria 
-- in un registro RAX viene immesso il numero che identifica il tipo di funzione del kernel che bisogna eseguire(read, write,open...), spesso questi numeri vengono messi in una tabella
-- passaggio a modalità kernel che avviene attraverso una istruzione trap verso il kernel
-- il gestore di chiamate di sistema viene eseguito
-- viene ridato il controllo alla procedura utente
+- il programma chiama la procedura nella libreria (4)
+- in un registro RAX viene immesso il numero che identifica il tipo di funzione del kernel che bisogna eseguire(read, write,open...), spesso questi numeri vengono messi in una tabella(5)
+- passaggio a modalità kernel che avviene attraverso una istruzione trap verso il kernel(6)
+- il gestore di chiamate di sistema viene eseguito(8)
+- viene ridato il controllo alla procedura utente(10)
 ![[Screenshot_2024-10-17-16-19-37-53_f56466bc4bb61e6d2de1f3b0468a89d9.jpg|700]]
 
