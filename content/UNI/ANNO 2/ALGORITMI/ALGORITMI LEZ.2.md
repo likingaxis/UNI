@@ -1,4 +1,4 @@
-[[cap1_2024 (1).pdf|PDF rispettivo della lezione]]
+[[Cap1.pdf|PDF rispettivo della lezione]]
 $$
 F_n = \begin{cases}
     F_{n-1}+F_{n-2} & \text{se } n \geq 3 \\
@@ -18,8 +18,11 @@ $$
 
 ### Algoritmo2
 lo troviamo con pseudo codice
+
 ![[Pasted image 20241009153904.jpg|400]]
+
 sfruttando uno divide and conquer
+
 Per calcolare il costo computazionale del Fibonacci2 
 calcoliamo il numero di linee di codice mandate in esecuzione al variare di n
 Usiamo T(n) ovvero $\#$ di linee di codice eseguite nel caso peggiore su un input n

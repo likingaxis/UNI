@@ -1,4 +1,4 @@
-[[cap2.pdf|PDF rispettivo della lezione]]
+[[Cap1.5.pdf|PDF rispettivo della lezione]]
 ## Introduzione
 Ci sono vari tipi di modelli di calcolo come la macchina di Turing ma e' troppo vecchia per usarla nel corso
 Vedremo invece una RAM macchina a registri come modello di calcolo che è una astrazione della macchina di Von Neumann
