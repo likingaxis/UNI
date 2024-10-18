@@ -1,7 +1,9 @@
 [[Cap1.5.pdf|PDF rispettivo della lezione]]
 ## Introduzione
-Ci sono vari tipi di modelli di calcolo come la macchina di Turing ma e' troppo vecchia per usarla nel corso
-Vedremo invece una RAM macchina a registri come modello di calcolo che è una astrazione della macchina di Von Neumann
+Ci sono vari tipi di modelli di calcolo come la macchina di Turing ma è troppo vecchia per usarla nel corso
+
+Vedremo invece una RAM, macchina a registri come modello di calcolo che è una astrazione della macchina di Von Neumann
+
 ![[Pasted image 20241015192441.jpg|500]]
 - Ognuna di queste risorse della RAM viene usata per svolgere le istruzioni del programma finito 
 ### ANALISI DI UN ALGORITMO
@@ -23,10 +25,10 @@ Si basa su un concetto di passo elementare ad esempio(nella RAM):
 Nel corso di algoritmi per quasi tutti i problemi il modo 1 dovrebbe essere più usato del modo 2 giusto con Fibonacci viene usato 2
 **Quindi useremo principalmente modello RAM con costo uniforme**
 ## Caso peggiore e Caso medio
-Il tempo di esecuzione di un algoritmo viene calcolato in base alla dimensione delle istanze dell'algoritmo Che pero' possono avere dimensione variabile e potrebbero richiedere tempo diverso quindi differenziato due modi per calcolare il tempo di esecuzione
+Il tempo di esecuzione di un algoritmo viene calcolato in base alla dimensione delle istanze dell'algoritmo Che però possono avere dimensione variabile e potrebbero richiedere tempo diverso quindi differenziato due modi per calcolare il tempo di esecuzione
 #### Nel caso peggiore
 Prendiamo Tempo(I) come tempo di esecuzione su una Istanza I allora il caso peggiore sarà:
-Il massimo dell'insieme di tutti i tempi delle istanze I,ovviamente parlando di istanze con dimensione n non potremmo avere un numero definito.
+Il massimo dell'insieme di tutti i tempi delle istanze I, ovviamente parlando di istanze con dimensione n non potremmo avere un numero definito.
 $$T_{worst}(n)=max_{istanze \ I \ di \ dimensione \  n} \ \{Tempo(I)\}$$
 $T_{worst}$ sarà una garanzia sul tempo di esecuzione e indicherà il massimo sforzo che dovrà fare la macchina per eseguire l'algoritmo
 #### Nel caso medio
