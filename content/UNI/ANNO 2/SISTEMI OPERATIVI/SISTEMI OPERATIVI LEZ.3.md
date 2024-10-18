@@ -73,6 +73,7 @@ Invece di installare sulla macchina app che richiedono librerie da scaricare ecc
 Si usano i container poiché sono istanze complete già con librerie per eseguire l'app
 Esiste il gestore del container che gestirà tutti i container che possono esplodere con un click
 Quasi tutte le funzionalità di Google si installano con container di tipo docker
+![[Pasted image 20241018164822.png|500]]
 #### EXOKERNEL
 Non emula l'hardware sottostante ma dà accesso diretto alle macchine virtuali al di sopra però limitando e gestendo notevolmente le risorse in modo che siano spartite nel modo corretto
 Garantisce maggiore sicurezza e maggiori performance
