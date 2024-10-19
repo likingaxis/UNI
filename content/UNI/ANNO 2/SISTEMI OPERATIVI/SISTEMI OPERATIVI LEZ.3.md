@@ -84,7 +84,7 @@ Non sono general purpose, ma mettono a disposizione poche funzionalità per la s
 Ha completo accesso almeno all'utente del server
 Vengono spesso usati per app come server web
 Togliendo funzionalità al s.o. potrei renderlo più sicuro e leggero
-## STRUTTURA DI UN SISTEMA OPERATIVO BASATO SU CLIENT-SERVER
+## STRUTTURA DI UN SISTEMA OPERATIVO BASATO SU CLIENT-SERVER MICROKERNEL
 Le chiamate di sistema si basano su dei messaggi inviati tra le componenti del kernel
 Kernel semplificato
 Le Service procedure vengono chiamate non nel kernel ma al livello utente
