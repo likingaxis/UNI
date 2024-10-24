@@ -120,7 +120,7 @@ Quindi, abbiamo visto questi comandi.
 >![[Pasted image 20241023202004.png]]
 
 ### Precisazione sul significato di console
-Console è un modo generico per definire tutti quei tipi come `bash sh zsh ecc...` ovvero i vari software terminali
+Console è un modo generico per definire tutti quei tipi di shell come `bash sh zsh ecc...` ovvero i vari software terminali
 ### COMANDI FONDAMENTALI CHE SI USANO PER UN FILE
 Conosciamo bene Open, Read e Write ma esiste anche il comando di seek
 >[!question]- cosa fà il comando di seek?
@@ -138,17 +138,21 @@ in termini di linguaggio bash le pipe si scrivono con `|` e sono utilizzate per 
 >```
 
 ==Come prendere dalla riga 17 alla 23==
+
 Le funzioni sono ESTREMAMENTE ottimizzate
-Ci sono alcune funzioni che sono un collo di bottiglia operazionale come il sort 
+Ci sono alcune funzioni che sono un _**collo di bottiglia operazionale**_ come il sort 
 
 ## La shell
-La shell è un ambiente di scripting (35)
-Se voglio eseguire tanti comandi costruisco uno script che in cascata mi esegue I vari comandi e nella Shell introducono degli elementi condizionali
+La shell è un ambiente di scripting che ci consente di creare file con una serie di comandi da eseguire in modo sequenziale e nella Shell introducono degli elementi condizionali(if,for ecc...)
 Visto che ho dei condizionali posso fare molte computazioni
-Script seguenza di tutti i comandi necessari per eseguire quel compito
+>[!info]- Definizione di Script
+>Script sequenza di tutti i comandi necessari per eseguire quel compito
+>
+>
+
+#### Script di tipo Bash
 Il nostro script si chiamerà Bash-> "Bourne again-shell"
-Il linguaggio Bash usa delle variabili d'ambiente 
-Che permettono di capire cosa c'è nel sistema
+Il linguaggio Bash usa delle variabili d'ambiente che permettono di capire cosa c'è nel sistema
 Cambiare le variabili d'ambiente nel PATH dove andare a cercare I vari comandi
 Il s.o. è una struttura arborea estremamente complessa
 PATH privilegiati 
