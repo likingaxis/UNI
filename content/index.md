@@ -7,11 +7,11 @@ Mi chiamo Luca Gugliotta e studio presso [l'università di Tor Vergata informati
 
 ## CRITTOGRAFIA 🔒
 appunti del corso: [[CRITTOGRAFIA INDICE]]
-## INGEGNERIA DEL SOFTWARE
+## INGEGNERIA DEL SOFTWARE 🧩
 [[IS INDICE]]
-## INTELLIGENZA ARTIFICIALE
+## INTELLIGENZA ARTIFICIALE 🤖
 [[IA INDICE]]
-## BIG DATA
+## BIG DATA 📊
 [[BIG DATA INDICE]]
 
 

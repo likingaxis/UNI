@@ -1,95 +1,208 @@
-- differenza tra un software tradizionale e un software AI
-	- il software AI é un software che non lavora in isolamento, lavora in un ambiente che agisce in autonomia, lui riceve segnali dall'ambiente e ne risponde
-		- è piu simile a un S.O rispetto a un software classico
-		- l'agente non puo sapere prima le domande
-		- l'agente puo avere degli effettori, coloro che consentono a lui di effettuare azioni fisiche
-		- sensori, apparati in grado di vedere l'ambiente e riconoscerlo adeguatamente
-		- Ciclo dell'agente
-			- percepire una azione mediante i sensori
-			- decido
-			- agisco con una azione
-			- si aggiorna
-		- gli agenti hanno obiettivi e una percezione adeguata ma anche parziale del mondo esterno
-			- il mondo esterno non è però una copia 1:1 bensi una copia senza tutte le informazioni, che vengono aggiunte in modo dinamico e astratto una volta che mi accorgo della loro necessità
-### PERCEZIONI E AZIONI
-- Percezione
-- Sequenza
-- l'azione è esclusivamente dopo una Percezione
-### Agenti Razionali
-- Un agente ha una razionalita
-	- scopo o scopi del singolo agente
-	- Un agente intelligente=Un agente razionale
-	- gli agenti lavorano su un criterio approssimato che cerca l'ottimalita su diverse scelte
-		- ci sono piu vie 
-		- vado a approfondire la cosa se ogni scelta ha probabilità identiche
-##### Valutazione della prestazione
-- ho diverse metodologie per dare una valutazione a una prestazione attuabile
-	- devono funzionare su ambienti diversi, non una sola partita ma tutte le istanze possibili
-### Un agente razionale
-- la razionalità relativa a
-	- la misura di prestazioni che hanno successo
-	- le conoscenze pregresse dell'ambiente
-	- le percezioni presenti e passate
-	- le capacita dell'agente
-- per ogni percezione deve compiere l'azione che massimizza il valore atteso della misura delle prestazioni, sfruttando percezioni passate e la conoscenza passata
-	- diff tra percez passate e conoscenza passata
-- non deve sempre fare le cose giuste per essere razionale
-	- se non sa deve apprendere da risorse dati ecc, comunque dall'ambiente esterno
-### Agenti autonomi
-- lavorano in autonomia
-	- mentre decide deve essere autonomo, possiamo pero manipolarlo perche cmq e un collaboratore
-# AMBIENTE E CODIFICA PEAS
-un ambiente è caratterizzato da una dimensione di 4 cose
-- Prestazioni
-	- obiettivi
-- Ambiente
-	- descrizione 
-- Attuatori
-	- componenti da usare per fare azioni
-- Sensori
-	- componenti per percepire dall'ambiente
-ESEMPIO DI AMBIENTE CHAT GPT
-- vedi slide
-### Problema P dell'agente
-- un problema P per un agente parte sicuramente da una caratterizzazione adeguata dell'ambiente
-### UN ambiente e il problema hanno diverse proprieta
-- completamente o parzialmente osservabile
-- agente singolo o multiplo
-	- agente non indicava multiple ia?
-- deterministico, stocazzo, non deterministico
-	- il primo e se sono sicuro al 100% di cosa succede
-	- stocazzo se ho una certa prob
-	- non det se ho difficolta a determinare cosa deve avvenire
-- episodico vs sequenziale
-	- episodico quando decisioni sono prese singolarmente
-	- sequenziale decisioni in sequenza
-- statico o dinamico
-	- definiti da un cambiamento ambientale o meno
-	- statico quando l'agente va piu veloce dei cambiamenti quindi non cambia l'ambiente ecc
-	- dinamico quando le scelte vanno di paripasso ai cambiamenti dell'ambiente
-		- tipo taxi autonomo
-	- semi dinamico, l'ambiente non cambia ma la valutazione dell'agente si
-- discreto o continuo
-	- discreti, ambienti di esame
-		- modificano ogni tot tick o scansioni e transizioni temporali
-		- continuo quando le variabile vengono descritte da numeri reali
-### Osservabilità dell'ambiente
-- completamente osservabile
-- parzialmente osservabile
-## Come automatizzare un ambiente
-- attraverso uno strumento software che vuole:
-	- generare stimoli per gli agenti
-	- raccogliere le azioni in risposta
-	- aggiornare il proprio stato
-	- attivare altri processi implicati dal cambiamento effettuato
-	- valutare le prestazioni degli agenti
-### AGENTE
-architettura+programma
-funzione che prende percezioni e manda in output azioni
-una funzione di un agente prende in input una percezione
-manda in output una azione
-ha una memoria che deve aggiornare
-effettua una azione scegliendo la migliore
-aggiorna la memoria a seguito di una azione
-restituisco l'azione
-****
+
+## DEFINIZIONE DI AGENTE
+
+- Un **agente** è una **IA incarnata** in un ambiente, capace di **percepire, ragionare e agire autonomamente** in modo **razionale** per raggiungere i suoi obiettivi.
+- **IA** è il campo di studio (la disciplina)  
+- **Agente** è l’unità operativa che incarna una IA in un ambiente.
+
+- *Agente=Software*
+# 🤖 DIFFERENZA TRA UN SOFTWARE TRADIZIONALE E UN SOFTWARE AI
+
+Un **software tradizionale** lavora in isolamento: riceve input predefiniti e produce output prevedibili.  
+Un **software di tipo AI**, invece, **lavora in un ambiente**, percepisce segnali esterni, **decide autonomamente** e **agisce** in base alle condizioni che rileva.  
+È un sistema dinamico, più simile a un **sistema operativo intelligente** che non a un semplice programma.
+
+- L’**agente AI** non può sapere in anticipo le domande o gli stimoli che riceverà.
+    
+- Può disporre di:
+    
+    - **Effettori** → componenti che gli permettono di compiere azioni fisiche o logiche.
+        
+    - **Sensori** → apparati che gli consentono di percepire e riconoscere l’ambiente.
+### 🔁 Ciclo dell’agente
+
+![[Pasted image 20251013185628.png]]
+
+1. **Percepire** una situazione tramite i sensori.
+    
+2. **Decidere** cosa fare in base alle proprie conoscenze e percezioni passate.
+    
+3. **Agire** sull’ambiente con gli effettori.
+    
+4. **Aggiornarsi** in base alle conseguenze dell’azione.
+    
+
+Gli agenti hanno **obiettivi** e una **percezione parziale del mondo**:  
+l’ambiente interno che rappresentano **non è una copia perfetta del mondo reale**, ma una **versione astratta e dinamica**, arricchita solo quando nuove informazioni diventano necessarie.
+
+---
+
+# 🧩 PERCEZIONI E AZIONI
+
+- **Percezione:** l’input proveniente dai sensori.
+    
+- **Sequenza percettiva:** la storia completa di tutte le percezioni avute fino a un certo momento.
+    
+- L’**azione** è sempre conseguente a una percezione: ogni nuova percezione genera una nuova decisione e quindi una nuova azione.
+
+---
+# 🧠 AGENTI RAZIONALI
+
+Un **agente razionale** è un’entità che interagisce con l’ambiente in modo efficace, compiendo **le azioni giuste** per ottenere una **sequenza di stati desiderabile**.
+
+> 💡 **Un agente intelligente = un agente razionale**  
+> In Intelligenza Artificiale, un agente è intelligente quando agisce in modo razionale rispetto ai propri obiettivi e alle informazioni di cui dispone.
+
+L’obiettivo non è “pensare come un umano”, ma **compiere scelte ottimali** rispetto alle percezioni e alle conoscenze attuali.
+
+---
+
+## 🔹 Definizione di razionalità
+
+La razionalità di un agente dipende da:
+
+- la **misura di prestazione** (quanto le sue azioni portano al successo),
+    
+- le **conoscenze pregresse** dell’ambiente,
+    
+- le **percezioni presenti e passate**,
+    
+- le **capacità operative** dell’agente.
+    
+
+Per ogni sequenza percettiva, un agente razionale sceglie **l’azione che massimizza il valore atteso della misura di prestazione**, considerando ciò che sa e ciò che ha percepito in passato.
+
+---
+
+## ⚖️ Criterio di valutazione oggettivo
+
+Per stabilire se un agente è razionale, serve una **misura di prestazione esterna**, definita dal progettista, che descriva come vogliamo che il mondo evolva dopo le sue azioni.  
+La razionalità quindi non è assoluta, ma **relativa al contesto e al problema**.
+
+---
+
+## 🔸 Razionalità ≠ Onniscienza
+
+L’agente razionale **non è perfetto**: non conosce tutto e non prevede tutto.  
+Conta solo che agisca **nel modo migliore possibile** con le informazioni che ha.  
+Se non sa, può **esplorare** o **acquisire nuove informazioni** per migliorarsi.
+
+---
+
+## 🔹 Razionalità e apprendimento
+
+Raramente un agente dispone di tutte le conoscenze in anticipo.  
+Per questo deve **imparare dall’esperienza**, modificando il proprio comportamento in base a **percezioni passate**, **feedback** e **errori**.  
+Più apprende, più diventa razionale e quindi intelligente.
+
+---
+
+# 🧍‍♂️ AGENTI AUTONOMI
+
+Un agente è **autonomo** nella misura in cui il suo comportamento dipende **dalla propria esperienza**.  
+Un agente che agisce solo secondo regole predefinite (**built-in**) è rigido e poco flessibile.  
+Deve invece **adattarsi** e migliorare nel tempo, pur rimanendo **controllabile e collaborativo**.
+
+---
+
+# 🌍 AMBIENTE E CODIFICA PEAS
+
+Un ambiente è descritto dal modello **PEAS**, che identifica gli elementi chiave del problema dell’agente:
+
+|Lettera|Significato|Descrizione|
+|---|---|---|
+|**P**|Performance|Misura di successo dell’agente (obiettivi)|
+|**E**|Environment|Descrizione dell’ambiente operativo|
+|**A**|Actuators|Attuatori: componenti per agire|
+|**S**|Sensors|Sensori: componenti per percepire|
+
+---
+
+## 🚖 Esempio — Agente "Guidatore di Taxi"
+
+| **Prestazioni** | Arrivare a destinazione in sicurezza, rispettando le regole, minimizzando tempi e consumi, garantendo comfort. |  
+| **Ambiente** | Strada, traffico, pedoni, clienti, segnali stradali. |  
+| **Attuatori** | Sterzo, acceleratore, freni, clacson, schermo, voce sintetica. |  
+| **Sensori** | Telecamere, GPS, sonar, tachimetro, microfono, sensori di motore. |
+
+---
+
+# ⚖️ PROPRIETÀ DELL’AMBIENTE
+
+Un ambiente può avere diverse caratteristiche:
+
+|Proprietà|Descrizione|
+|---|---|
+|**Completamente / Parzialmente osservabile**|L’agente percepisce tutto ciò che serve oppure solo una parte (limitazioni sensoriali).|
+|**Agente singolo / multi-agente**|In un ambiente multi-agente gli altri agenti possono essere cooperativi o competitivi.|
+|**Deterministico / Stocastico / Non deterministico**|Deterministico → stato futuro certo.  <br>Stocastico → esiste una probabilità di transizione.  <br>Non deterministico → esiti possibili equiprobabili o non noti.|
+|**Episodico / Sequenziale**|Episodico → le decisioni sono indipendenti (es. riconoscimento immagini).  <br>Sequenziale → ogni decisione influenza le successive (es. guida autonoma).|
+|**Statico / Dinamico / Semi-dinamico**|Statico → l’ambiente non cambia mentre l’agente decide, probabilmente perché effettua le scelte in maniera molto rapida.  <br>Dinamico → l’ambiente cambia mentre l’agente agisce (es. taxi autonomo).  <br>Semi-dinamico → ambiente stabile ma la valutazione cambia (es. scacchi con timer).|
+|**Discreto / Continuo**|Discreto → numero finito di stati o azioni (esame a scelta multipla).  <br>Continuo → stati e tempi variano nel continuo (es. guida).|
+|**Noto / Ignoto**|Noto → l’agente conosce l’ambiente.  <br>Ignoto → deve esplorare e apprendere.|
+
+> Gli ambienti reali sono di solito: **parzialmente osservabili, stocastici, sequenziali, dinamici, continui, multi-agente e ignoti.**
+---
+
+**CHIEDI A LEZIONE SI INTENDE SIMULARE PER VELOCIZZARE O ASTRARRE IL VERO E PROPRIO AMBIENTE IN MODO CHE SIA COMPATIBILE CON QUEL DETERMINATO AGENTE?**
+# 🧮 COME AUTOMATIZZARE UN AMBIENTE
+
+Un **simulatore di ambienti** è un software che:
+
+- genera stimoli per gli agenti,
+    
+- raccoglie le azioni in risposta,
+    
+- aggiorna lo stato dell’ambiente,
+    
+- può attivare processi secondari,
+    
+- valuta la prestazione degli agenti.
+
+Serve per **testare e addestrare** gli agenti in modo controllato.
+
+### 🔸 Ambiente reale vs simulato
+
+- L’**ambiente reale** è il mondo fisico o operativo in cui l’agente percepisce e agisce concretamente (es. un’auto autonoma).
+    
+- L’**ambiente simulato** è costruito ad hoc per l’addestramento: consente di provare azioni e imparare senza rischi.  
+    → In genere si addestra in un **ambiente virtuale**, poi si trasferisce il comportamento nel **mondo reale**.
+    
+
+---
+
+# 🧠 STRUTTURA DELL’AGENTE
+
+> **Agente = Architettura + Programma**
+
+- **Architettura:** la parte fisica o software che esegue le operazioni (hardware, sensori, processi).
+    
+- **Programma agente:** l’algoritmo che decide quale azione intraprendere in base alle percezioni.
+    
+
+👉 L’architettura è il **corpo**, il programma è la **mente** dell’agente.
+
+Un **agente** può essere visto come una **funzione matematica** che:
+$$Ag : P^* \rightarrow A$$
+dove:
+- $P^*$ = insieme di tutte le possibili sequenze di percezioni,
+    
+- $A$= insieme delle azioni possibili.
+
+> In parole semplici:  
+> **un agente è una funzione che prende in input le percezioni e restituisce in output un’azione.**
+> 
+> Quindi, una **funzione agente** riceve una percezione (o una sequenza percettiva), decide, e **manda in output un’azione** in risposta.
+
+---
+
+## 📘 Funzionamento generale
+```scss
+memoria ← aggiorna(memoria, percezione) 
+azione ← scegli_azione_migliore(memoria) 
+memoria ← aggiorna(memoria, azione) 
+restituisci(azione)
+```
+
+Ogni agente, indipendentemente dalla sua architettura, può **migliorare nel tempo attraverso l’apprendimento**, diventando progressivamente più razionale e adattivo.
+
