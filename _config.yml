@@ -1,0 +1,11 @@
+exclude:
+  - docs
+  - node_modules
+  - quartz
+  - package.json
+  - package-lock.json
+  - tsconfig.json
+  - pnpm-lock.yaml
+  - .github
+  - README.md
+  - LICENSE
