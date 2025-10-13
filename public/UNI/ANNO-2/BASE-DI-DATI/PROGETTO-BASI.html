@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><title>PROGETTO BASI</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="Quartz 4"/><meta property="og:title" content="PROGETTO BASI"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="PROGETTO BASI"/><meta name="twitter:description" content="Titolo del progetto: MyAma – Gestione prenotazioni per rifiuti ingombranti Componenti del gruppo: Luca Gugliotta – luca.gugliotta@students.uniroma2.eu Samuele De Santis – samuele.desantis@students.uniroma2.eu Descrizione del dominio applicativo Il progetto riguarda la realizzazione di un sistema inf..."/><meta property="og:description" content="Titolo del progetto: MyAma – Gestione prenotazioni per rifiuti ingombranti Componenti del gruppo: Luca Gugliotta – luca.gugliotta@students.uniroma2.eu Samuele De Santis – samuele.desantis@students.uniroma2.eu Descrizione del dominio applicativo Il progetto riguarda la realizzazione di un sistema inf..."/><meta property="og:image:alt" content="Titolo del progetto: MyAma – Gestione prenotazioni per rifiuti ingombranti Componenti del gruppo: Luca Gugliotta – luca.gugliotta@students.uniroma2.eu Samuele De Santis – samuele.desantis@students.uniroma2.eu Descrizione del dominio applicativo Il progetto riguarda la realizzazione di un sistema inf..."/><meta property="twitter:domain" content="quartz.jzhao.xyz"/><meta property="og:url" content="https://quartz.jzhao.xyz/UNI/ANNO-2/BASE-DI-DATI/PROGETTO-BASI"/><meta property="twitter:url" content="https://quartz.jzhao.xyz/UNI/ANNO-2/BASE-DI-DATI/PROGETTO-BASI"/><link rel="icon" href="../../../static/icon.png"/><meta name="description" content="Titolo del progetto: MyAma – Gestione prenotazioni per rifiuti ingombranti Componenti del gruppo: Luca Gugliotta – luca.gugliotta@students.uniroma2.eu Samuele De Santis – samuele.desantis@students.uniroma2.eu Descrizione del dominio applicativo Il progetto riguarda la realizzazione di un sistema inf..."/><meta name="generator" content="Quartz"/><link href="../../../index.css" rel="stylesheet" type="text/css" spa-preserve/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  padding: 2rem;
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiQzpcXFVzZXJzXFxMdWNhXFxEZXNrdG9wXFxVTkkgTlVPVk9cXHF1YXJ0elxccXVhcnR6XFxjb21wb25lbnRzXFxzdHlsZXMiLCJzb3VyY2VzIjpbIm1lcm1haWQuaW5saW5lLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7O0FBR0Y7RUFDRTtFQUNBOztBQUdGO0VBQ0U7OztBQUtGO0VBQ0U7RUFDQTs7O0FBSUo7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTs7QUFHRjtFQUNFO0VBQ0E7O0FBSUo7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7O0FBSUY7RUFDRTtFQUNBO0VBQ0EiLCJzb3VyY2VzQ29udGVudCI6WyIuZXhwYW5kLWJ1dHRvbiB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxvYXQ6IHJpZ2h0O1xuICBwYWRkaW5nOiAwLjRyZW07XG4gIG1hcmdpbjogMC4zcmVtO1xuICByaWdodDogMDsgLy8gTk9URTogcmlnaHQgd2lsbCBiZSBzZXQgaW4gbWVybWFpZC5pbmxpbmUudHNcbiAgY29sb3I6IHZhcigtLWdyYXkpO1xuICBib3JkZXItY29sb3I6IHZhcigtLWRhcmspO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1saWdodCk7XG4gIGJvcmRlcjogMXB4IHNvbGlkO1xuICBib3JkZXItcmFkaXVzOiA1cHg7XG4gIG9wYWNpdHk6IDA7XG4gIHRyYW5zaXRpb246IDAuMnM7XG5cbiAgJiA+IHN2ZyB7XG4gICAgZmlsbDogdmFyKC0tbGlnaHQpO1xuICAgIGZpbHRlcjogY29udHJhc3QoMC4zKTtcbiAgfVxuXG4gICY6aG92ZXIge1xuICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICBib3JkZXItY29sb3I6IHZhcigtLXNlY29uZGFyeSk7XG4gIH1cblxuICAmOmZvY3VzIHtcbiAgICBvdXRsaW5lOiAwO1xuICB9XG59XG5cbnByZSB7XG4gICY6aG92ZXIgPiAuZXhwYW5kLWJ1dHRvbiB7XG4gICAgb3BhY2l0eTogMTtcbiAgICB0cmFuc2l0aW9uOiAwLjJzO1xuICB9XG59XG5cbiNtZXJtYWlkLWNvbnRhaW5lciB7XG4gIHBvc2l0aW9uOiBmaXhlZDtcbiAgY29udGFpbjogbGF5b3V0O1xuICB6LWluZGV4OiA5OTk7XG4gIGxlZnQ6IDA7XG4gIHRvcDogMDtcbiAgd2lkdGg6IDEwMHZ3O1xuICBoZWlnaHQ6IDEwMHZoO1xuICBvdmVyZmxvdzogaGlkZGVuO1xuICBkaXNwbGF5OiBub25lO1xuICBiYWNrZHJvcC1maWx0ZXI6IGJsdXIoNHB4KTtcbiAgYmFja2dyb3VuZDogcmdiYSgwLCAwLCAwLCAwLjUpO1xuXG4gICYuYWN0aXZlIHtcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIH1cblxuICAmID4gI21lcm1haWQtc3BhY2Uge1xuICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbGlnaHQpO1xuICAgIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgICBwb3NpdGlvbjogZml4ZWQ7XG4gICAgdG9wOiA1MCU7XG4gICAgbGVmdDogNTAlO1xuICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlKC01MCUsIC01MCUpO1xuICAgIGhlaWdodDogODB2aDtcbiAgICB3aWR0aDogODB2dztcbiAgICBvdmVyZmxvdzogaGlkZGVuO1xuXG4gICAgJiA+IC5tZXJtYWlkLWNvbnRlbnQge1xuICAgICAgcGFkZGluZzogMnJlbTtcbiAgICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICAgIHRyYW5zZm9ybS1vcmlnaW46IDAgMDtcbiAgICAgIHRyYW5zaXRpb246IHRyYW5zZm9ybSAwLjFzIGVhc2U7XG4gICAgICBvdmVyZmxvdzogdmlzaWJsZTtcbiAgICAgIG1pbi1oZWlnaHQ6IDIwMHB4O1xuICAgICAgbWluLXdpZHRoOiAyMDBweDtcblxuICAgICAgcHJlIHtcbiAgICAgICAgbWFyZ2luOiAwO1xuICAgICAgICBib3JkZXI6IG5vbmU7XG4gICAgICB9XG5cbiAgICAgIHN2ZyB7XG4gICAgICAgIG1heC13aWR0aDogbm9uZTtcbiAgICAgICAgaGVpZ2h0OiBhdXRvO1xuICAgICAgfVxuICAgIH1cblxuICAgICYgPiAubWVybWFpZC1jb250cm9scyB7XG4gICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgICBib3R0b206IDIwcHg7XG4gICAgICByaWdodDogMjBweDtcbiAgICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgICBnYXA6IDhweDtcbiAgICAgIHBhZGRpbmc6IDhweDtcbiAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0KTtcbiAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICBib3JkZXItcmFkaXVzOiA2cHg7XG4gICAgICBib3gtc2hhZG93OiAwIDJweCA0cHggcmdiYSgwLCAwLCAwLCAwLjEpO1xuICAgICAgei1pbmRleDogMjtcblxuICAgICAgLm1lcm1haWQtY29udHJvbC1idXR0b24ge1xuICAgICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgICAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgICAgICAgd2lkdGg6IDMycHg7XG4gICAgICAgIGhlaWdodDogMzJweDtcbiAgICAgICAgcGFkZGluZzogMDtcbiAgICAgICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHQpO1xuICAgICAgICBjb2xvcjogdmFyKC0tZGFyayk7XG4gICAgICAgIGJvcmRlci1yYWRpdXM6IDRweDtcbiAgICAgICAgY3Vyc29yOiBwb2ludGVyO1xuICAgICAgICBmb250LXNpemU6IDE2cHg7XG4gICAgICAgIGZvbnQtZmFtaWx5OiB2YXIoLS1ib2R5Rm9udCk7XG4gICAgICAgIHRyYW5zaXRpb246IGFsbCAwLjJzIGVhc2U7XG5cbiAgICAgICAgJjpob3ZlciB7XG4gICAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgICAgfVxuXG4gICAgICAgICY6YWN0aXZlIHtcbiAgICAgICAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoMXB4KTtcbiAgICAgICAgfVxuXG4gICAgICAgIC8vIFN0eWxlIHRoZSByZXNldCBidXR0b24gZGlmZmVyZW50bHlcbiAgICAgICAgJjpudGgtY2hpbGQoMikge1xuICAgICAgICAgIHdpZHRoOiBhdXRvO1xuICAgICAgICAgIHBhZGRpbmc6IDAgMTJweDtcbiAgICAgICAgICBmb250LXNpemU6IDE0cHg7XG4gICAgICAgIH1cbiAgICAgIH1cbiAgICB9XG4gIH1cbn1cbiJdfQ== */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" spa-preserve/><script src="../../../prescript.js" type="application/javascript" spa-preserve></script><script type="application/javascript" spa-preserve>const fetchData = fetch("../../../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://quartz.jzhao.xyz/index.xml"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://quartz.jzhao.xyz/UNI/ANNO-2/BASE-DI-DATI/PROGETTO-BASI-og-image.webp"/><meta property="og:image:url" content="https://quartz.jzhao.xyz/UNI/ANNO-2/BASE-DI-DATI/PROGETTO-BASI-og-image.webp"/><meta name="twitter:image" content="https://quartz.jzhao.xyz/UNI/ANNO-2/BASE-DI-DATI/PROGETTO-BASI-og-image.webp"/><meta property="og:image:type" content="image/.webp"/></head><body data-slug="UNI/ANNO-2/BASE-DI-DATI/PROGETTO-BASI"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="../../..">Quartz 4</a></h2><div class="spacer mobile-only"></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>Search</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="Search for something" placeholder="Search for something"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="Reader mode"><title>Reader mode</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a,b)=>!a.isFolder&amp;&amp;!b.isFolder||a.isFolder&amp;&amp;b.isFolder?a.displayName.localeCompare(b.displayName,void 0,{numeric:!0,sensitivity:\&quot;base\&quot;}):!a.isFolder&amp;&amp;b.isFolder?1:-1&quot;,&quot;filterFn&quot;:&quot;node=>node.slugSegment!==\&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;node=>node&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-201"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>Explorer</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-201" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#"></a></li></template><template id="template-folder"><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../../../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../UNI/">UNI</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../UNI/ANNO-2/">ANNO 2</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../UNI/ANNO-2/BASE-DI-DATI/">BASE DI DATI</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>PROGETTO BASI</a></div></nav><h1 class="article-title">PROGETTO BASI</h1><p show-comma="true" class="content-meta"><time datetime="2025-10-13T15:42:40.000Z">Oct 13, 2025</time><span>12 min read</span></p></div></div><article class="popover-hint"><p><strong>Titolo del progetto</strong>:<br/>
+<strong>MyAma – Gestione prenotazioni per rifiuti ingombranti</strong>
+<img src="../../../UNI/ANNO-2/BASE-DI-DATI/fotobasi/Pasted-image-20250506112951.png" width="auto" height="auto" alt/>
+<strong>Componenti del gruppo</strong>:</p>
+<ul>
+<li>
+<p>Luca Gugliotta –  <a href="../../../mailto:luca.gugliotta@students.uniroma2.eu" class="internal alias" data-slug="mailto:luca.gugliotta@students.uniroma2.eu">luca.gugliotta@students.uniroma2.eu</a></p>
+</li>
+<li>
+<p>Samuele De Santis – <a href="../../../mailto:samuele.desantis@students.uniroma2.eu" class="internal alias" data-slug="mailto:samuele.desantis@students.uniroma2.eu">samuele.desantis@students.uniroma2.eu</a></p>
+</li>
+</ul>
+<hr/>
+<h3 id="descrizione-del-dominio-applicativo"><strong>Descrizione del dominio applicativo</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#descrizione-del-dominio-applicativo" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Il progetto riguarda la realizzazione di un sistema informativo per un portale AMA (ispirato all’Azienda Municipale Ambiente), pensato per consentire ai cittadini la <strong>prenotazione del ritiro o la consegna in sede di rifiuti ingombranti</strong>.<br/>
+Il portale permette la gestione completa degli utenti, dei lavoratori, delle sedi AMA, dei veicoli impiegati e delle prenotazioni. Il sistema tiene conto della disponibilità dei lavoratori e dei vincoli logistici, come il codice di avviamento postale (CAP) e la capacità dei veicoli.</p>
+<hr/>
+<h3 id="obiettivi-funzionali-del-sistema"><strong>Obiettivi funzionali del sistema</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#obiettivi-funzionali-del-sistema" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Il sistema dovrà permettere di:</p>
+<ol>
+<li>
+<p>Consentire la <strong>registrazione dei clienti</strong> (codice fiscale, nome, cognome, email, password, numero di telefono).</p>
+</li>
+<li>
+<p>Consentire la <strong>registrazione dei lavoratori AMA</strong> (CID, nome, cognome, data di nascita, ruolo, email, orari lavorativi, numero di telefono).</p>
+</li>
+<li>
+<p>Consentire ai clienti di <strong>prenotare un ritiro a domicilio</strong> oppure scegliere di <strong>portare il rifiuto presso una sede</strong>.</p>
+</li>
+<li>
+<p>Calcolare il <strong>costo della prenotazione</strong> in base alla tipologia del rifiuto e al peso stimato.</p>
+</li>
+<li>
+<p>Permettere l’<strong>upload di una foto</strong> del rifiuto per valutazioni preliminari.</p>
+</li>
+<li>
+<p>Validare la <strong>disponibilità di lavoratori e veicoli</strong> per le prenotazioni a domicilio.</p>
+</li>
+<li>
+<p>Permettere la scelta di <strong>data, ora e luogo</strong>, con <strong>limitazioni sul CAP</strong> servito.</p>
+</li>
+<li>
+<p>Visualizzare l’elenco delle <strong>sedi AMA</strong> disponibili in base alla zona del cliente.</p>
+</li>
+<li>
+<p>Gestire un archivio delle <strong>tipologie di rifiuti</strong>, con relativi costi e categorie.</p>
+</li>
+<li>
+<p>Gestire le <strong>assegnazioni dei lavoratori e dei veicoli</strong> alle singole prenotazioni.</p>
+</li>
+</ol>
+<h3 id="obiettivi-secondari-utili"><strong>Obiettivi secondari utili</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#obiettivi-secondari-utili" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ol>
+<li>
+<p><strong>Gestione dello storico delle prenotazioni</strong> per ciascun cliente, con visualizzazione di stato, data, costo e modalità (ritiro o consegna).</p>
+</li>
+<li>
+<p><strong>Reportistica interna</strong> per AMA, con statistiche su:</p>
+<ul>
+<li>Numero di ritiri per zona o sede;</li>
+<li>Tipologie di rifiuti più frequenti;</li>
+<li>Carico di lavoro medio per lavoratore.</li>
+</ul>
+</li>
+<li>
+<p><strong>Sistema di notifica simulato</strong> per comunicare conferme, modifiche o annullamenti delle prenotazioni (tramite flag o campo nel database).</p>
+</li>
+<li>
+<p><strong>Valutazione del servizio</strong> da parte del cliente dopo il ritiro, con voto (1–5) e commento.</p>
+</li>
+<li>
+<p><strong>Controllo del carico massimo dei veicoli</strong>, per evitare che vengano assegnati a prenotazioni eccedenti la capacità.</p>
+</li>
+<li>
+<p><strong>Gestione dei CAP serviti</strong> da ogni sede, per mostrare solo le opzioni valide durante la prenotazione.</p>
+</li>
+</ol>
+<h3 id="utenti">Utenti<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#utenti" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Ruoli dei rispettivi utenti</p>
+<ol>
+<li>Cliente
+<ul>
+<li>È il cittadino che accede al portale per usufruire dei servizi AMA.</li>
+<li>Può:
+<ul>
+<li>Registrarsi tramite SPID o credenziali classiche.</li>
+<li>Effettuare prenotazioni di ritiro a domicilio o consegna in sede.</li>
+<li>Visualizzare solo le sedi e gli orari compatibili con il proprio CAP.</li>
+<li>Caricare la foto del rifiuto, specificarne tipologia e peso.</li>
+<li>Visualizzare lo storico delle proprie prenotazioni.</li>
+<li>Cancellare una prenotazione (rispettando i limiti di tempo previsti).</li>
+<li>Lasciare una valutazione del servizio dopo il ritiro.</li>
+</ul>
+</li>
+<li>Non può:
+<ul>
+<li>Accedere ai dati di altri utenti o lavoratori.</li>
+<li>Visualizzare informazioni riservate (es. disponibilità veicoli o altri ritiri).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Lavoratore AMA
+<ul>
+<li>È il dipendente che gestisce operativamente i ritiri e le consegne.</li>
+<li>È suddiviso in:
+<ul>
+<li>Autista: associato a uno o più veicoli, si occupa dei ritiri a domicilio.
+<ul>
+<li>Visualizza le prenotazioni assegnate nel proprio turno.</li>
+<li>Registra l’avvenuto ritiro o eventuali problemi (es. mancata consegna).</li>
+</ul>
+</li>
+<li>Operatore di sede: lavora nei punti di raccolta AMA.
+<ul>
+<li>Gestisce le consegne dirette in sede da parte dei clienti.</li>
+<li>Verifica i dati del rifiuto e li registra nel sistema.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>I lavoratori AMA:
+<ul>
+<li>Non possono modificare le prenotazioni.</li>
+<li>Non hanno accesso ai dati anagrafici dei clienti (salvo CAP e contatti operativi).</li>
+<li>Operano solo negli orari definiti nel loro profilo.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Amministratori e gestori del database
+<ul>
+<li>Sono figure tecniche con privilegi completi.</li>
+<li>Possono:
+<ul>
+<li>Gestire e aggiornare i dati di sistema.</li>
+<li>Assegnare o revocare ruoli e accessi.</li>
+<li>Monitorare l’attività del sistema.</li>
+<li>Intervenire su malfunzionamenti, errori o frodi.</li>
+</ul>
+</li>
+<li>Non possono:
+<ul>
+<li>Prenotare ritiri o agire come clienti o lavoratori nel flusso operativo normale.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="parte-seconda-raccolta-e-analisi-dei-requisiti">Parte seconda: Raccolta e analisi dei Requisiti<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#parte-seconda-raccolta-e-analisi-dei-requisiti" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Il progetto è destinato a due tipi di utenti:</p>
+<ul>
+<li>cittadini di roma
+<ul>
+<li>i veri e propri clienti, questo progetto ha lo scopo di facilitare richieste di prenotazione per gettare rifiuti ingombranti nei modi più semplici e più corretti per l’ambiente</li>
+<li>è previsto che i clienti abbiano una visione ampia di tutti i servizi che può offrire la piattaforma MyAma e che possa interagirvi facilmente</li>
+</ul>
+</li>
+<li>i lavoratori
+<ul>
+<li>avere una piattaforma che consente a loro di lavorare in maniera uniforme e organizzata</li>
+<li>senza mancanze di dettagli e informazioni</li>
+</ul>
+</li>
+</ul>
+<h3 id="fonti">FONTI<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#fonti" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<h3 id="-fonti-di-riferimento-generiche-e-specifiche">📚 <strong>Fonti di riferimento (generiche e specifiche)</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-fonti-di-riferimento-generiche-e-specifiche" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<h4 id="1-normative-e-leggi"><strong>1. Normative e leggi</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1-normative-e-leggi" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>
+<p><strong>D.Lgs. 152/2006 – Codice dell’Ambiente</strong><br/>
+👉 Riferimento normativo nazionale che disciplina la gestione dei rifiuti (compresi quelli urbani e ingombranti).<br/>
+🔗 <a href="https://www.normattiva.it" class="external">Normattiva Codice dell’Ambiente<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</li>
+<li>
+<p><strong>Regolamenti AMA</strong><br/>
+👉 In particolare, quelli relativi a servizi di ritiro rifiuti ingombranti e RAEE (disponibili sul sito ufficiale).<br/>
+🔗 <a href="https://www.amaroma.it" class="external">AMA Roma – Ritiro ingombranti<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a><br/>
+🔗 Regolamenti di servizio AMA (PDF)</p>
+</li>
+<li>
+<p><strong>Regolamenti comunali di Roma Capitale</strong><br/>
+👉 Documenti e delibere riguardanti la gestione dei rifiuti urbani.<br/>
+🔗 Deliberazioni Comune di Roma</p>
+</li>
+</ul>
+<hr/>
+<h4 id="2-prassi-operative-ama-dedotte-e-documentate"><strong>2. Prassi operative AMA (dedotte e documentate)</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#2-prassi-operative-ama-dedotte-e-documentate" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>
+<p>Le procedure AMA attualmente prevedono:</p>
+<ul>
+<li>
+<p>Prenotazioni via telefono o moduli online.</p>
+</li>
+<li>
+<p>Scambi interni non digitalizzati.</p>
+</li>
+<li>
+<p>Gestione manuale di orari e disponibilità (fonte: simulazione utente + sito AMA).</p>
+</li>
+<li>
+<p>Nessuna integrazione diretta con SPID o strumenti avanzati (visibile dalla UX del sito).</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr/>
+<h4 id="3-dati-realistici-dedotti-dallanalisi-comparativa"><strong>3. Dati realistici dedotti dall’analisi comparativa</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#3-dati-realistici-dedotti-dallanalisi-comparativa" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>
+<p>Pratiche comuni in aziende di gestione rifiuti municipali (AMA o analoghe).</p>
+</li>
+<li>
+<p>Esperienze utente documentate in forum, reclami, richieste di semplificazione (es. su Reddit, segnalazioni social o portali tipo RomaLido.org).</p>
+</li>
+</ul>
+<p>Operazioni di inserimento </p>
+<ul>
+<li>Inserimento di un nuovo cliente (con SPID o credenziali manuali).</li>
+<li>Inserimento di un nuovo lavoratore AMA (autista o operatore di sede).</li>
+<li>Inserimento di una nuova prenotazione da parte del cliente
+<ul>
+<li>Inserimento della foto del rifiuto nella prenotazione.</li>
+<li>Inserimento dei dettagli del rifiuto: tipologia, peso stimato, categoria.</li>
+</ul>
+</li>
+<li>Inserimento di una nuova sede AMA nel sistema.</li>
+<li>Inserimento di un nuovo veicolo disponibile per i ritiri.</li>
+<li>Assegnazione automatica o manuale di un lavoratore e di un veicolo a una prenotazione.</li>
+<li>Inserimento di turni/orari lavorativi associati ai dipendenti.</li>
+<li>Inserimento di una valutazione del servizio da parte del cliente.</li>
+<li>Inserimento delle zone (CAP) servite da ciascuna sede.
+Operazioni di aggiornamento </li>
+<li>Modifica delle informazioni anagrafiche del cliente o del lavoratore.</li>
+<li>Modifica dello stato della prenotazione (attiva, completata, cancellata).</li>
+<li>Aggiornamento dei dati relativi al rifiuto (es. peso modificato dopo verifica).</li>
+<li>Aggiornamento del costo totale sulla base della tipologia e peso.</li>
+<li>Modifica dell’orario o della sede selezionata dal cliente.</li>
+<li>Aggiornamento della disponibilità dei lavoratori in base ai turni.</li>
+<li>Aggiornamento della disponibilità dei veicoli.</li>
+<li>Modifica dei CAP serviti da ciascuna sede.</li>
+<li>Aggiornamento della valutazione inserita (entro limiti temporali).</li>
+<li>Inserimento di eventuali note interne da parte dei lavoratori AMA.</li>
+</ul>
+<p>Operazioni di cancellazione </p>
+<ul>
+<li>
+<p>Cancellazione di una prenotazione da parte del cliente (entro i termini).</p>
+</li>
+<li>
+<p>Rimozione di un lavoratore non più attivo nel sistema.</p>
+</li>
+<li>
+<p>Cancellazione di un veicolo dismesso o non più utilizzabile.</p>
+</li>
+<li>
+<p>Eliminazione di una sede (solo se non associata a prenotazioni attive).</p>
+</li>
+<li>
+<p>Eliminazione di una tipologia di rifiuto non più gestita.</p>
+</li>
+<li>
+<p>Annullamento di un’associazione lavoratore-veicolo su una determinata prenotazione.</p>
+</li>
+<li>
+<p>Cancellazione di valutazioni non conformi o segnalate.</p>
+</li>
+<li>
+<p>Cancellazione di un cliente su richiesta
+Operazioni di visualizzazione</p>
+</li>
+<li>
+<p>Visualizzazione delle prenotazioni effettuate da un cliente.</p>
+</li>
+<li>
+<p>Visualizzazione dello storico dei ritiri/consegne da parte di un lavoratore.</p>
+</li>
+<li>
+<p>Visualizzazione delle sedi disponibili in base al CAP inserito.</p>
+</li>
+<li>
+<p>Visualizzazione dei costi associati a ciascuna tipologia di rifiuto.</p>
+</li>
+<li>
+<p>Visualizzazione dei veicoli disponibili e assegnati.</p>
+</li>
+<li>
+<p>Visualizzazione degli orari disponibili per il ritiro/consegna.</p>
+</li>
+<li>
+<p>Visualizzazione dello stato di una prenotazione.</p>
+</li>
+<li>
+<p>Visualizzazione della valutazione media del servizio.</p>
+</li>
+<li>
+<p>Visualizzazione della cronologia completa per scopi di report.</p>
+</li>
+</ul>
+<p>Il sistema <em>MyAma</em> prevede tre classi distinte di utenza, ciascuna con specifici privilegi di accesso e operatività nel sistema:</p>
+<ol>
+<li>
+<p><strong>Clienti</strong></p>
+<ul>
+<li>
+<p>Accedono tramite SPID o credenziali.</p>
+</li>
+<li>
+<p>Possono effettuare prenotazioni, caricare dati, consultare lo storico, cancellare o modificare le richieste.</p>
+</li>
+<li>
+<p>Hanno visibilità solo sui propri dati.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Lavoratori AMA</strong></p>
+<ul>
+<li>
+<p>Divisi in <strong>Autisti</strong> (gestiscono i ritiri a domicilio) e <strong>Operatori di sede</strong> (gestiscono i conferimenti diretti).</p>
+</li>
+<li>
+<p>Possono visualizzare le prenotazioni assegnate e segnarne l’esito.</p>
+</li>
+<li>
+<p>Non possono modificare i dati anagrafici o gestionali.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Amministratori</strong></p>
+<ul>
+<li>
+<p>Gestiscono il sistema, i ruoli, i dati e le configurazioni.</p>
+</li>
+<li>
+<p>Possono accedere a tutte le sezioni, eseguire controlli, backup e manutenzione.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>Ogni classe ha <strong>permessi specifici</strong>, impostati per garantire sicurezza, tracciabilità e integrità dei dati.</p>
+<h4 id="-assunzioni">✅ <strong>Assunzioni</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-assunzioni" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>Gli utenti che si registrano come <strong>clienti</strong> devono essere maggiorenni e far parte dei comuni associati ad AMA.</li>
+<li>Gli <strong>autisti</strong> sono sempre associati ad almeno un veicolo per effettuare i ritiri.</li>
+<li>I <strong>CAP inseriti</strong> nelle prenotazioni devono essere tra quelli serviti da almeno una sede.</li>
+<li>Un <strong>lavoratore</strong> può essere assegnato a una sola prenotazione per fascia oraria.</li>
+<li>Ogni <strong>foto del rifiuto</strong> viene caricata in formato valido (.jpg, .png) e non supera una dimensione predefinita di 10mb.</li>
+<li>Le <strong>prenotazioni</strong> possono essere cancellate solo 2 ore prima dell’orario previsto per il ritiro o la consegna.</li>
+<li>I <strong>veicoli</strong> hanno una capacità massima espressa in kg e non possono eccedere tale limite nella somma dei ritiri assegnati.</li>
+</ol>
+<hr/>
+<h4 id="️-vincoli-di-integrità">🛡️ <strong>Vincoli di integrità</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-vincoli-di-integrità" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p><strong>1. Vincoli di chiave primaria</strong></p>
+<ul>
+<li>Ogni tabella (utenti, prenotazioni, rifiuti, veicoli, ecc.) ha un identificatore univoco.
+<strong>2. Vincoli di chiave esterna</strong></li>
+<li>Le prenotazioni fanno riferimento:
+<ul>
+<li>a un cliente registrato (FK su <code>Clienti</code>);</li>
+<li>a una sede AMA (FK su <code>Sedi</code>);</li>
+<li>a un lavoratore (se assegnato);</li>
+<li>a un veicolo (se assegnato).
+<strong>3. Vincoli di dominio</strong></li>
+</ul>
+</li>
+<li>I CAP devono essere numerici e compresi tra 00010 e 00199 (esempio di range per Roma).</li>
+<li>Il peso del rifiuto deve essere > 0.</li>
+<li>Le email devono contenere il carattere <code>@</code>.</li>
+<li>Le password devono avere almeno 8 caratteri e almeno 1 carattere speciale.</li>
+<li>Le valutazioni devono essere comprese tra 1 e 5.
+<strong>4. Vincoli di unicità</strong></li>
+<li>Il <strong>codice fiscale</strong> dei clienti è univoco.</li>
+<li>Il <strong>CID</strong> dei lavoratori AMA è univoco.</li>
+<li>Il <strong>numero targa</strong> dei veicoli è univoco.
+<strong>5. Vincoli temporali</strong></li>
+<li>La data di ritiro/consegna deve essere successiva alla data di prenotazione.</li>
+<li>Una valutazione può essere inserita solo <strong>dopo</strong> la conclusione del servizio.
+<strong>6. Vincoli di integrità referenziale</strong></li>
+<li>L’eliminazione di un cliente comporta anche la cancellazione delle sue prenotazioni</li>
+<li>Se una sede viene rimossa, le prenotazioni collegate vanno gestite</li>
+</ul>
+<h2 id="schema-e-r">SCHEMA E-R<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#schema-e-r" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>per gli attributi obbligatori *</p>
+<ul>
+<li>Prenotazione
+<ul>
+<li>PK: codice prenotazione</li>
+<li>foto rifiuto</li>
+<li>descrizione oggetto</li>
+<li>Cliente FK</li>
+<li>lavoratore preso FK</li>
+<li>tipo prenotazione
+<ul>
+<li>sede o veicolo</li>
+</ul>
+</li>
+<li>Data prenotazione</li>
+<li>orario prenotazione</li>
+<li>Veicolo FK</li>
+<li>Sede associata FK</li>
+<li>stato prenotazione
+<ul>
+<li>attiva o completata o terminata</li>
+</ul>
+</li>
+<li>costo prenotazione</li>
+</ul>
+</li>
+<li>valutazioni
+<ul>
+<li>Id valutazione</li>
+<li>Codice prenotazione FK</li>
+<li>votazione da 1 a 5</li>
+<li>unique su stato prenotazione</li>
+</ul>
+</li>
+<li>Cliente
+<ul>
+<li>PK: Codice Fiscale*</li>
+<li>Nome*</li>
+<li>Cognome*</li>
+<li>E-mail*</li>
+<li>Password*</li>
+<li>Data di nascita*</li>
+<li>Indirizzo di domicilio*</li>
+<li>Cap di domicilio*</li>
+<li>Token per accesso con SPID</li>
+<li>numero di telefono</li>
+</ul>
+</li>
+<li>turni del lavoratore
+<ul>
+<li>id tabella</li>
+<li>FK lavoratore</li>
+<li>data turno</li>
+<li>orario inizio</li>
+<li>orario fine</li>
+<li>pausa inizio</li>
+<li>pausa fine</li>
+</ul>
+</li>
+<li>Lavoratore
+<ul>
+<li>PK: CID(Codice Identificativo Dipendente)*</li>
+<li>Nome*</li>
+<li>Cognome*</li>
+<li>E-mail*</li>
+<li>Password*</li>
+<li>Data di nascita*</li>
+<li>Ruolo
+<ul>
+<li>in sede</li>
+<li>con veicolo</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Veicolo
+<ul>
+<li>PK: Targa*</li>
+<li>Tipologia</li>
+<li>Carico massimo consentito</li>
+<li>Stato
+<ul>
+<li>disponibile</li>
+<li>in uso</li>
+<li>in riparazione</li>
+</ul>
+</li>
+<li>FK lavoratore con veicolo</li>
+<li>FK su prenotazione</li>
+</ul>
+</li>
+<li>Sede Ama
+<ul>
+<li>PK: codice sede</li>
+<li>indirizzo*</li>
+<li>FK tabella orari</li>
+<li>FK lavoratori in sede</li>
+</ul>
+</li>
+<li>cap serviti dalla sede
+<ul>
+<li>id cap</li>
+<li>Numero CAP</li>
+<li>Codice sede FK</li>
+</ul>
+</li>
+<li>orari sede ama
+<ul>
+<li>data</li>
+<li>ora</li>
+<li>id sede</li>
+</ul>
+</li>
+</ul>
+<h1 id="dizionario-dei-dati---schema-ama">Dizionario dei Dati - Schema AMA<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#dizionario-dei-dati---schema-ama" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<ol start="2">
+<li>Dizionario dei Dati </li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th></th><th></th><th></th><th></th></tr></thead><tbody><tr><td>ENTITÀ</td><td>DESCRIZIONE</td><td>ATTRIBUTI</td><td>CHIAVI PRIMARIE</td></tr><tr><td>Prenotazione</td><td>Contiene tutte le informazioni relative a una prenotazione effettuata</td><td>- Foto_rifiuto <br/>    <br/><br/>- Descrizione_oggetto <br/>    <br/><br/>- Tipo_prenotazione  <br/>    <br/><br/>- Data_prenotazione <br/>    <br/><br/>- Orario_prenotazione  <br/>    <br/><br/>- Stato_prenotazione  <br/>    <br/><br/>- Costo_prenotazione</td><td>Data, Orario, Cliente</td></tr><tr><td>Valutazione</td><td>Valutazioni associate a prenotazioni concluse</td><td>- Data_valutazione <br/>    <br/><br/>- Voto_valutazione</td><td>Data, Cliente, Prenotazione</td></tr><tr><td>Cliente</td><td>Persona registrata nel sistema come cliente</td><td>- Codice_fiscale <br/>    <br/><br/>- Nome <br/>    <br/><br/>- Cognome  <br/>    <br/><br/>- E-mail <br/>    <br/><br/>- Password  <br/>    <br/><br/>- Data_di_nascita  <br/>    <br/><br/>- Indirizzo_domicilio  <br/>    <br/><br/>- CAP_domicilio <br/>    <br/><br/>- Token_SPID <br/>    <br/><br/>- Telefono</td><td>Codice_fiscale</td></tr><tr><td>Lavoratore</td><td>Dipendente dell’AMA con ruolo specifico</td><td>- Nome <br/>    <br/><br/>- Cognome <br/>    <br/><br/>- E-mail <br/>    <br/><br/>- Password <br/>    <br/><br/>- Data_di_nascita <br/>    <br/><br/>- Ruolo</td><td>E-mail, Data_di_nascita</td></tr><tr><td>Turno</td><td>Contiene i turni assegnati ai lavoratori</td><td>- Data_turno <br/>    <br/><br/>- Orario_inizio <br/>    <br/><br/>- Orario_fine <br/>    <br/><br/>- Pausa_inizio <br/>    <br/><br/>- Pausa_fine</td><td>Data, Orario_inizio, Orario_fine, lavoratore</td></tr><tr><td>Veicolo</td><td>Veicolo disponibile o in uso per le prenotazioni</td><td>- Targa  <br/>    <br/><br/>- Tipologia <br/>    <br/><br/>- Carico_massimo <br/>    <br/><br/>- Stato</td><td>Targa</td></tr><tr><td>Sede AMA</td><td>Sede operativa AMA con lavoratori assegnati</td><td>- Indirizzo <br/>    <br/><br/>- CAP</td><td>Indirizzo, CAP</td></tr><tr><td>Lista CAP</td><td>Associa CAP ai territori serviti da ciascuna sede</td><td>- CAP</td><td>CAP, Sede AMA</td></tr><tr><td>Orario</td><td>Mostra gli orari di ciascuna sede</td><td>- Ora <br/>    <br/><br/>- Inizio_pausa <br/>    <br/><br/>- Fine_pausa <br/>    <br/><br/>- Data</td><td>Data, Sede AMA</td></tr></tbody></table></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Relazione</strong></th><th><strong>Descrizione</strong></th><th><strong>Entità coinvolte</strong></th><th><strong>Attributi</strong></th></tr></thead><tbody><tr><td><strong>effettuare</strong></td><td>Collega ciascun cliente alle prenotazioni da lui effettuate</td><td><code>Cliente</code> – <code>Prenotazione</code></td><td>—</td></tr><tr><td><strong>ottenere</strong></td><td>Una prenotazione può essere associata a una valutazione</td><td><code>Prenotazione</code> – <code>Valutazione</code></td><td>—</td></tr><tr><td><strong>scrivere</strong></td><td>Collega ogni cliente alla valutazione che ha scritto</td><td><code>Cliente</code> – <code>Valutazione</code></td><td>—</td></tr><tr><td><strong>ingaggiare</strong></td><td>Collega ogni prenotazione al lavoratore assegnato</td><td><code>Prenotazione</code> – <code>Lavoratore</code></td><td>—</td></tr><tr><td><strong>utilizzare</strong></td><td>Collega un lavoratore al veicolo assegnato</td><td><code>Lavoratore</code> – <code>Veicolo</code></td><td>—</td></tr><tr><td><strong>gestire</strong></td><td>Collega ciascuna sede AMA alle prenotazioni che gestisce</td><td><code>Sede AMA</code> – <code>Prenotazione</code></td><td>—</td></tr><tr><td><strong>servire</strong></td><td>Specifica quali CAP sono serviti da ogni sede AMA</td><td><code>Sede AMA</code> – <code>Lista CAP</code></td><td>—</td></tr><tr><td><strong>lavorare</strong></td><td>Collega un lavoratore alla sede in cui opera</td><td><code>Lavoratore</code> – <code>Sede AMA</code></td><td>—</td></tr><tr><td><strong>rispettare</strong></td><td>Collega ciascun lavoratore ai turni che deve rispettare</td><td><code>Lavoratore</code> – <code>Turno</code></td><td>—</td></tr><tr><td><strong>avere</strong></td><td>Collega ogni sede AMA ai suoi orari di apertura e chiusura</td><td><code>Sede AMA</code> – <code>Orario</code></td><td>—</td></tr></tbody></table></div>
+<p>SCHEMA LOGICO</p>
+<hr/>
+<h2 id="-dizionario-delle-entità-schema-ristrutturato">📘 Dizionario delle Entità (schema ristrutturato)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-dizionario-delle-entità-schema-ristrutturato" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Entità</strong></th><th><strong>Descrizione</strong></th><th><strong>Attributi</strong></th><th><strong>Chiave primaria</strong></th></tr></thead><tbody><tr><td><strong>Cliente</strong></td><td>Cittadino registrato per effettuare prenotazioni</td><td>codice_fiscale, nome, cognome, email, password, data_nascita, indirizzo_domicilio, cap, telefono, token_spid</td><td>codice_fiscale</td></tr><tr><td><strong>Lavoratore</strong></td><td>Dipendente AMA, operatore o autista</td><td>cid, nome, cognome, email, password, data_nascita, ruolo</td><td>cid</td></tr><tr><td><strong>Veicolo</strong></td><td>Veicolo usato dai lavoratori per i ritiri a domicilio</td><td>targa, tipologia, carico_massimo, stato, cid_lavoratore*</td><td>targa</td></tr><tr><td><strong>Orari</strong></td><td>Orario di apertura e pausa associato a una sede</td><td>id_orari, data, ora_inizio, ora_fine, inizio_pausa, fine_pausa, codice_sede*</td><td>id_orari</td></tr><tr><td><strong>Turno</strong></td><td>Turno lavorativo assegnato a un lavoratore</td><td>id_turno, data, ora_inizio, ora_fine, inizio_pausa, fine_pausa, cid_lavoratore*</td><td>id_turno</td></tr><tr><td><strong>Sede</strong></td><td>Sede AMA fisica</td><td>codice_sede, indirizzo, cap</td><td>codice_sede</td></tr><tr><td><strong>Lista_CAP</strong></td><td>Associazione tra CAP e sedi che li servono</td><td>codice_sede*, cap</td><td>codice_sede*, cap</td></tr><tr><td><strong>Prenotazione</strong></td><td>Prenotazione effettuata dal cliente per il ritiro o la consegna in sede</td><td>codice_prenotazione, foto_rifiuto, descrizione_oggetto, tipologia_servizio, data, orario, stato_prenotazione, costo, codice_fiscale_cliente*, cid_lavoratore*, codice_sede*</td><td>codice_prenotazione</td></tr><tr><td><strong>Valutazione</strong></td><td>Feedback fornito dal cliente dopo il servizio</td><td>codice_prenotazione*, voto, commento</td><td>codice_prenotazione* (PK + FK)</td></tr></tbody></table></div>
+<hr/>
+<h2 id="-dizionario-delle-relazioni">📗 Dizionario delle Relazioni<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-dizionario-delle-relazioni" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Relazione</strong></th><th><strong>Descrizione</strong></th><th><strong>Entità Coinvolte</strong></th><th><strong>Attributi</strong></th></tr></thead><tbody><tr><td><strong>effettuare</strong></td><td>Un cliente può effettuare più prenotazioni</td><td>Cliente – Prenotazione</td><td>—</td></tr><tr><td><strong>ottenere</strong></td><td>Ogni prenotazione può avere una valutazione</td><td>Prenotazione – Valutazione</td><td>—</td></tr><tr><td><strong>scrivere</strong></td><td>Ogni cliente può scrivere una valutazione</td><td>Cliente – Valutazione</td><td>—</td></tr><tr><td><strong>ingaggiare</strong></td><td>Ogni prenotazione ha un lavoratore assegnato</td><td>Prenotazione – Lavoratore</td><td>—</td></tr><tr><td><strong>utilizzare</strong></td><td>Ogni lavoratore può essere associato a un veicolo</td><td>Lavoratore – Veicolo</td><td>—</td></tr><tr><td><strong>gestire</strong></td><td>Ogni sede gestisce più prenotazioni</td><td>Sede – Prenotazione</td><td>—</td></tr><tr><td><strong>servire</strong></td><td>Una sede serve uno o più CAP</td><td>Sede – Lista_CAP</td><td>—</td></tr><tr><td><strong>lavorare</strong></td><td>Un lavoratore è associato a una sede</td><td>Lavoratore – Sede</td><td>—</td></tr><tr><td><strong>rispettare</strong></td><td>Un lavoratore è associato ai turni lavorativi</td><td>Lavoratore – Turno</td><td>—</td></tr><tr><td><strong>avere</strong></td><td>Una sede ha orari giornalieri di apertura/chiusura</td><td>Sede – Orari</td><td>—</td></tr></tbody></table></div>
+<hr/>
+<p>✅ <strong>Tutti i riferimenti sono coerenti con lo schema E-R fin</strong></p></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc desktop-only"><button type="button" class="toc-header" aria-controls="toc-103" aria-expanded="true"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-1" class="toc-content overflow"><li class="depth-2"><a href="#descrizione-del-dominio-applicativo" data-for="descrizione-del-dominio-applicativo">Descrizione del dominio applicativo</a></li><li class="depth-2"><a href="#obiettivi-funzionali-del-sistema" data-for="obiettivi-funzionali-del-sistema">Obiettivi funzionali del sistema</a></li><li class="depth-2"><a href="#obiettivi-secondari-utili" data-for="obiettivi-secondari-utili">Obiettivi secondari utili</a></li><li class="depth-2"><a href="#utenti" data-for="utenti">Utenti</a></li><li class="depth-2"><a href="#parte-seconda-raccolta-e-analisi-dei-requisiti" data-for="parte-seconda-raccolta-e-analisi-dei-requisiti">Parte seconda: Raccolta e analisi dei Requisiti</a></li><li class="depth-2"><a href="#fonti" data-for="fonti">FONTI</a></li><li class="depth-2"><a href="#-fonti-di-riferimento-generiche-e-specifiche" data-for="-fonti-di-riferimento-generiche-e-specifiche">📚 Fonti di riferimento (generiche e specifiche)</a></li><li class="depth-1"><a href="#schema-e-r" data-for="schema-e-r">SCHEMA E-R</a></li><li class="depth-0"><a href="#dizionario-dei-dati---schema-ama" data-for="dizionario-dei-dati---schema-ama">Dizionario dei Dati - Schema AMA</a></li><li class="depth-1"><a href="#-dizionario-delle-entità-schema-ristrutturato" data-for="-dizionario-delle-entità-schema-ristrutturato">📘 Dizionario delle Entità (schema ristrutturato)</a></li><li class="depth-1"><a href="#-dizionario-delle-relazioni" data-for="-dizionario-delle-relazioni">📗 Dizionario delle Relazioni</a></li><li class="overflow-end"></li></ul></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.5.2</a> © 2025</p><ul><li><a href="https://github.com/jackyzha0/quartz">GitHub</a></li><li><a href="https://discord.gg/cRFFHYye7t">Discord Community</a></li></ul></footer></div></div></body><script type="application/javascript">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module">function f(i,e){if(!i)return;function r(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function t(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}i?.addEventListener("click",r),window.addCleanup(()=>i?.removeEventListener("click",r)),document.addEventListener("keydown",t),window.addCleanup(()=>document.removeEventListener("keydown",t))}function y(i){for(;i.firstChild;)i.removeChild(i.firstChild)}var h=class{constructor(e,r){this.container=e;this.content=r;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),r=this.onMouseMove.bind(this),t=this.onMouseUp.bind(this),o=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",r),document.addEventListener("mouseup",t),window.addEventListener("resize",o),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",r),()=>document.removeEventListener("mouseup",t),()=>window.removeEventListener("resize",o))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let r=this.createButton("+",()=>this.zoom(.1)),t=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(t),e.appendChild(o),e.appendChild(r),this.container.appendChild(e)}createButton(e,r){let t=document.createElement("button");return t.textContent=e,t.className="mermaid-control-button",t.addEventListener("click",r),window.addCleanup(()=>t.removeEventListener("click",r)),t}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}zoom(e){let r=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),t=this.content.getBoundingClientRect(),o=t.width/2,n=t.height/2,c=r-this.scale;this.currentPan.x-=o*c,this.currentPan.y-=n*c,this.scale=r,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){this.scale=1;let e=this.content.querySelector("svg");this.currentPan={x:e.getBoundingClientRect().width/2,y:e.getBoundingClientRect().height/2},this.updateTransform()}},C=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],E;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;E||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let r=E.default,t=new WeakMap;for(let n of e)t.set(n,n.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let a=t.get(s);a&&(s.innerHTML=a)}let n=C.reduce((s,a)=>(s[a]=window.getComputedStyle(document.documentElement).getPropertyValue(a),s),{}),c=document.documentElement.getAttribute("saved-theme")==="dark";r.initialize({startOnLoad:!1,securityLevel:"loose",theme:c?"dark":"base",themeVariables:{fontFamily:n["--codeFont"],primaryColor:n["--light"],primaryTextColor:n["--darkgray"],primaryBorderColor:n["--tertiary"],lineColor:n["--darkgray"],secondaryColor:n["--secondary"],tertiaryColor:n["--tertiary"],clusterBkg:n["--light"],edgeLabelBackground:n["--highlight"]}}),await r.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let n=0;n<e.length;n++){let v=function(){let g=l.querySelector("#mermaid-space"),m=l.querySelector(".mermaid-content");if(!m)return;y(m);let w=c.querySelector("svg").cloneNode(!0);m.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new h(g,m)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},c=e[n],s=c.parentElement,a=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(a),L=a.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),f(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript"></script><script src="../../../postscript.js" type="module"></script></html>

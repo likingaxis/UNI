@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><title>4.LIVELLO DI COLLEGAMENTO</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="Quartz 4"/><meta property="og:title" content="4.LIVELLO DI COLLEGAMENTO"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="4.LIVELLO DI COLLEGAMENTO"/><meta name="twitter:description" content="riassunto Livello di collegamento Dispositivi NIC incapsulamento decapsulamento servizi framing controllo del flusso accesso al collegamento accessi multipli MAC identificare i dispositivi MAC IEE rilevazione e correzione di errori ritrasmissioni non tipi di collegamento half duplex full duplex col..."/><meta property="og:description" content="riassunto Livello di collegamento Dispositivi NIC incapsulamento decapsulamento servizi framing controllo del flusso accesso al collegamento accessi multipli MAC identificare i dispositivi MAC IEE rilevazione e correzione di errori ritrasmissioni non tipi di collegamento half duplex full duplex col..."/><meta property="og:image:alt" content="riassunto Livello di collegamento Dispositivi NIC incapsulamento decapsulamento servizi framing controllo del flusso accesso al collegamento accessi multipli MAC identificare i dispositivi MAC IEE rilevazione e correzione di errori ritrasmissioni non tipi di collegamento half duplex full duplex col..."/><meta property="twitter:domain" content="quartz.jzhao.xyz"/><meta property="og:url" content="https://quartz.jzhao.xyz/UNI/ANNO-2/RETI/4.LIVELLO-DI-COLLEGAMENTO"/><meta property="twitter:url" content="https://quartz.jzhao.xyz/UNI/ANNO-2/RETI/4.LIVELLO-DI-COLLEGAMENTO"/><link rel="icon" href="../../../static/icon.png"/><meta name="description" content="riassunto Livello di collegamento Dispositivi NIC incapsulamento decapsulamento servizi framing controllo del flusso accesso al collegamento accessi multipli MAC identificare i dispositivi MAC IEE rilevazione e correzione di errori ritrasmissioni non tipi di collegamento half duplex full duplex col..."/><meta name="generator" content="Quartz"/><link href="../../../index.css" rel="stylesheet" type="text/css" spa-preserve/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  padding: 2rem;
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiQzpcXFVzZXJzXFxMdWNhXFxEZXNrdG9wXFxVTkkgTlVPVk9cXHF1YXJ0elxccXVhcnR6XFxjb21wb25lbnRzXFxzdHlsZXMiLCJzb3VyY2VzIjpbIm1lcm1haWQuaW5saW5lLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7O0FBR0Y7RUFDRTtFQUNBOztBQUdGO0VBQ0U7OztBQUtGO0VBQ0U7RUFDQTs7O0FBSUo7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTs7QUFHRjtFQUNFO0VBQ0E7O0FBSUo7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7O0FBSUY7RUFDRTtFQUNBO0VBQ0EiLCJzb3VyY2VzQ29udGVudCI6WyIuZXhwYW5kLWJ1dHRvbiB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxvYXQ6IHJpZ2h0O1xuICBwYWRkaW5nOiAwLjRyZW07XG4gIG1hcmdpbjogMC4zcmVtO1xuICByaWdodDogMDsgLy8gTk9URTogcmlnaHQgd2lsbCBiZSBzZXQgaW4gbWVybWFpZC5pbmxpbmUudHNcbiAgY29sb3I6IHZhcigtLWdyYXkpO1xuICBib3JkZXItY29sb3I6IHZhcigtLWRhcmspO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1saWdodCk7XG4gIGJvcmRlcjogMXB4IHNvbGlkO1xuICBib3JkZXItcmFkaXVzOiA1cHg7XG4gIG9wYWNpdHk6IDA7XG4gIHRyYW5zaXRpb246IDAuMnM7XG5cbiAgJiA+IHN2ZyB7XG4gICAgZmlsbDogdmFyKC0tbGlnaHQpO1xuICAgIGZpbHRlcjogY29udHJhc3QoMC4zKTtcbiAgfVxuXG4gICY6aG92ZXIge1xuICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICBib3JkZXItY29sb3I6IHZhcigtLXNlY29uZGFyeSk7XG4gIH1cblxuICAmOmZvY3VzIHtcbiAgICBvdXRsaW5lOiAwO1xuICB9XG59XG5cbnByZSB7XG4gICY6aG92ZXIgPiAuZXhwYW5kLWJ1dHRvbiB7XG4gICAgb3BhY2l0eTogMTtcbiAgICB0cmFuc2l0aW9uOiAwLjJzO1xuICB9XG59XG5cbiNtZXJtYWlkLWNvbnRhaW5lciB7XG4gIHBvc2l0aW9uOiBmaXhlZDtcbiAgY29udGFpbjogbGF5b3V0O1xuICB6LWluZGV4OiA5OTk7XG4gIGxlZnQ6IDA7XG4gIHRvcDogMDtcbiAgd2lkdGg6IDEwMHZ3O1xuICBoZWlnaHQ6IDEwMHZoO1xuICBvdmVyZmxvdzogaGlkZGVuO1xuICBkaXNwbGF5OiBub25lO1xuICBiYWNrZHJvcC1maWx0ZXI6IGJsdXIoNHB4KTtcbiAgYmFja2dyb3VuZDogcmdiYSgwLCAwLCAwLCAwLjUpO1xuXG4gICYuYWN0aXZlIHtcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIH1cblxuICAmID4gI21lcm1haWQtc3BhY2Uge1xuICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbGlnaHQpO1xuICAgIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgICBwb3NpdGlvbjogZml4ZWQ7XG4gICAgdG9wOiA1MCU7XG4gICAgbGVmdDogNTAlO1xuICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlKC01MCUsIC01MCUpO1xuICAgIGhlaWdodDogODB2aDtcbiAgICB3aWR0aDogODB2dztcbiAgICBvdmVyZmxvdzogaGlkZGVuO1xuXG4gICAgJiA+IC5tZXJtYWlkLWNvbnRlbnQge1xuICAgICAgcGFkZGluZzogMnJlbTtcbiAgICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICAgIHRyYW5zZm9ybS1vcmlnaW46IDAgMDtcbiAgICAgIHRyYW5zaXRpb246IHRyYW5zZm9ybSAwLjFzIGVhc2U7XG4gICAgICBvdmVyZmxvdzogdmlzaWJsZTtcbiAgICAgIG1pbi1oZWlnaHQ6IDIwMHB4O1xuICAgICAgbWluLXdpZHRoOiAyMDBweDtcblxuICAgICAgcHJlIHtcbiAgICAgICAgbWFyZ2luOiAwO1xuICAgICAgICBib3JkZXI6IG5vbmU7XG4gICAgICB9XG5cbiAgICAgIHN2ZyB7XG4gICAgICAgIG1heC13aWR0aDogbm9uZTtcbiAgICAgICAgaGVpZ2h0OiBhdXRvO1xuICAgICAgfVxuICAgIH1cblxuICAgICYgPiAubWVybWFpZC1jb250cm9scyB7XG4gICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgICBib3R0b206IDIwcHg7XG4gICAgICByaWdodDogMjBweDtcbiAgICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgICBnYXA6IDhweDtcbiAgICAgIHBhZGRpbmc6IDhweDtcbiAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0KTtcbiAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICBib3JkZXItcmFkaXVzOiA2cHg7XG4gICAgICBib3gtc2hhZG93OiAwIDJweCA0cHggcmdiYSgwLCAwLCAwLCAwLjEpO1xuICAgICAgei1pbmRleDogMjtcblxuICAgICAgLm1lcm1haWQtY29udHJvbC1idXR0b24ge1xuICAgICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgICAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgICAgICAgd2lkdGg6IDMycHg7XG4gICAgICAgIGhlaWdodDogMzJweDtcbiAgICAgICAgcGFkZGluZzogMDtcbiAgICAgICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHQpO1xuICAgICAgICBjb2xvcjogdmFyKC0tZGFyayk7XG4gICAgICAgIGJvcmRlci1yYWRpdXM6IDRweDtcbiAgICAgICAgY3Vyc29yOiBwb2ludGVyO1xuICAgICAgICBmb250LXNpemU6IDE2cHg7XG4gICAgICAgIGZvbnQtZmFtaWx5OiB2YXIoLS1ib2R5Rm9udCk7XG4gICAgICAgIHRyYW5zaXRpb246IGFsbCAwLjJzIGVhc2U7XG5cbiAgICAgICAgJjpob3ZlciB7XG4gICAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgICAgfVxuXG4gICAgICAgICY6YWN0aXZlIHtcbiAgICAgICAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoMXB4KTtcbiAgICAgICAgfVxuXG4gICAgICAgIC8vIFN0eWxlIHRoZSByZXNldCBidXR0b24gZGlmZmVyZW50bHlcbiAgICAgICAgJjpudGgtY2hpbGQoMikge1xuICAgICAgICAgIHdpZHRoOiBhdXRvO1xuICAgICAgICAgIHBhZGRpbmc6IDAgMTJweDtcbiAgICAgICAgICBmb250LXNpemU6IDE0cHg7XG4gICAgICAgIH1cbiAgICAgIH1cbiAgICB9XG4gIH1cbn1cbiJdfQ== */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" spa-preserve/><script src="../../../prescript.js" type="application/javascript" spa-preserve></script><script type="application/javascript" spa-preserve>const fetchData = fetch("../../../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://quartz.jzhao.xyz/index.xml"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://quartz.jzhao.xyz/UNI/ANNO-2/RETI/4.LIVELLO-DI-COLLEGAMENTO-og-image.webp"/><meta property="og:image:url" content="https://quartz.jzhao.xyz/UNI/ANNO-2/RETI/4.LIVELLO-DI-COLLEGAMENTO-og-image.webp"/><meta name="twitter:image" content="https://quartz.jzhao.xyz/UNI/ANNO-2/RETI/4.LIVELLO-DI-COLLEGAMENTO-og-image.webp"/><meta property="og:image:type" content="image/.webp"/></head><body data-slug="UNI/ANNO-2/RETI/4.LIVELLO-DI-COLLEGAMENTO"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="../../..">Quartz 4</a></h2><div class="spacer mobile-only"></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>Search</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="Search for something" placeholder="Search for something"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="Reader mode"><title>Reader mode</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a,b)=>!a.isFolder&amp;&amp;!b.isFolder||a.isFolder&amp;&amp;b.isFolder?a.displayName.localeCompare(b.displayName,void 0,{numeric:!0,sensitivity:\&quot;base\&quot;}):!a.isFolder&amp;&amp;b.isFolder?1:-1&quot;,&quot;filterFn&quot;:&quot;node=>node.slugSegment!==\&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;node=>node&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-268"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>Explorer</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-268" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#"></a></li></template><template id="template-folder"><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../../../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../UNI/">UNI</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../UNI/ANNO-2/">ANNO 2</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../UNI/ANNO-2/RETI/">RETI</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>4.LIVELLO DI COLLEGAMENTO</a></div></nav><h1 class="article-title">4.LIVELLO DI COLLEGAMENTO</h1><p show-comma="true" class="content-meta"><time datetime="2025-10-13T15:42:40.000Z">Oct 13, 2025</time><span>18 min read</span></p></div></div><article class="popover-hint"><blockquote class="callout tip is-collapsible is-collapsed" data-callout="tip" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>riassunto </p></div>
+                  <div class="fold-callout-icon"></div>
+                </div>
+<div class="callout-content">
+<ul>
+<li>Livello di collegamento</li>
+<li>Dispositivi
+<ul>
+<li>NIC</li>
+<li>incapsulamento decapsulamento</li>
+</ul>
+</li>
+<li>servizi
+<ul>
+<li>framing</li>
+<li>controllo del flusso</li>
+<li>accesso al collegamento
+<ul>
+<li>accessi multipli MAC</li>
+</ul>
+</li>
+<li>identificare i dispositivi MAC
+<ul>
+<li>IEE</li>
+</ul>
+</li>
+<li>rilevazione e correzione di errori
+<ul>
+<li>ritrasmissioni</li>
+<li>non</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>tipi di collegamento
+<ul>
+<li>half duplex</li>
+<li>full duplex</li>
+</ul>
+</li>
+<li>collegamento
+<ul>
+<li>end-to-end</li>
+<li>broadcast</li>
+</ul>
+</li>
+<li>protocolli di gestione dell’accesso multiplo
+<ul>
+<li>suddivisione di canale
+<ul>
+<li>TDMA</li>
+<li>FDMA</li>
+</ul>
+</li>
+<li>accesso multiplo
+<ul>
+<li>SLOTTED ALOHA</li>
+<li>UNSLOTTED ALOHA</li>
+<li>CSMA</li>
+<li>CSMA/CD</li>
+</ul>
+</li>
+<li>a turni presi
+<ul>
+<li>POLLING</li>
+<li>TOKEN PASSING</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Switch
+<ul>
+<li>tabella di commutazione</li>
+</ul>
+</li>
+<li>Ethernet
+<ul>
+<li>frame</li>
+<li>dominio di collisione</li>
+</ul>
+</li>
+<li>LAN</li>
+<li>MAC
+<ul>
+<li>NIC</li>
+</ul>
+</li>
+<li>Protocollo ARP
+<ul>
+<li>ARP reply</li>
+<li>ARP request</li>
+</ul>
+</li>
+<li>VLAN
+<ul>
+<li>VLAN a switch singolo</li>
+<li>VLAN a switch multipli</li>
+<li>EVPN</li>
+<li>ID VLAN 802.1Q</li>
+</ul>
+</li>
+<li>Reti Wireless
+<ul>
+<li>gestione frequenza</li>
+<li>2 modalità
+<ul>
+<li>con infrastruttura</li>
+<li>senza infrastruttura</li>
+</ul>
+</li>
+<li>attenuazione del segnale</li>
+<li>riflessione del segnale
+<ul>
+<li>tempo di coerenza</li>
+</ul>
+</li>
+<li>interferenza dei segnali
+<ul>
+<li>SNR</li>
+<li>BER</li>
+</ul>
+</li>
+<li>terminali nascosti</li>
+</ul>
+</li>
+<li>CDMA</li>
+<li>Wi-Fi standard 802.11
+<ul>
+<li>BSS</li>
+<li>Gestione frequenze</li>
+<li>Accesso
+<ul>
+<li>modalità passiva</li>
+<li>attiva</li>
+</ul>
+</li>
+<li>CSMA/CA
+<ul>
+<li>DIFS</li>
+<li>SIFS</li>
+</ul>
+</li>
+<li>prenotazione
+<ul>
+<li>RTS</li>
+<li>CTS</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Bluetooth
+<ul>
+<li>Piconet PAN</li>
+<li>Master</li>
+<li>Bootstrapping
+<ul>
+<li>neighbor discovery</li>
+<li>paging</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Reti 4G/5G
+<ul>
+<li>UE</li>
+<li>Base Station</li>
+<li>HSS</li>
+<li>MME</li>
+<li>P-GW</li>
+<li>S-GW</li>
+<li>mobilità handoff
+<ul>
+<li>routing diretto</li>
+<li>indiretto</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Reti LTE
+<ul>
+<li>piano di controllo</li>
+<li>piano di dati</li>
+<li>tunneling</li>
+</ul>
+</li>
+<li>home network</li>
+<li>visited network</li>
+</ul>
+</div>
+</blockquote>
+<h3 id="livello-di-collegamento">LIVELLO DI COLLEGAMENTO<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#livello-di-collegamento" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>introduzione</strong>
+<ul>
+<li>il livello di collegamento si occupa di trasferire i datagrammi da un nodo a quello fisicamente adiacente lungo il percorso
+<ul>
+<li>ha una visione più dettagliata su dispositivi come switch</li>
+</ul>
+</li>
+<li>il livello di collegamento si serve di frame, con al loro interno i datagrammi incapsulati</li>
+</ul>
+</li>
+<li><strong>servizi del livello di collegamento</strong>
+<ul>
+<li><em>Framing</em>
+<ul>
+<li>processo di incapsulamento dei datagrammi che provengono dal livello di rete aggiungendo intestazione e trailer che servono a delimitare la singola unità</li>
+</ul>
+</li>
+<li><em>Accesso al collegamento</em>
+<ul>
+<li>effettuare un accesso al mezzo di trasmissione condiviso tra dispositivi si usano protocolli MAC(Medium Access Control)</li>
+<li>per identificare i dispositivi che condividono questo stesso mezzo di trasmissione si usano gli indirizzi MAC che identificano univocamente la scheda di rete del dispositivo, è statico a differenza degli IP che lavorano sul livello di rete</li>
+</ul>
+</li>
+<li><em>Consegna affidabile tra nodi adiacenti</em>
+<ul>
+<li>servizi che rilevano errori, usati soprattutto in reti wireless dove ci sono errori più frequenti</li>
+</ul>
+</li>
+<li><em>Controllo del flusso</em>
+<ul>
+<li>Regola la velocità di trasmissione del singolo collegamento</li>
+</ul>
+</li>
+<li><em>Rilevazione degli errori e correzione</em>
+<ul>
+<li>Ogni protocollo di collegamento ha controllo sui vari errori e possono essere risolti con o senza ritrasmissioni
+<ul>
+<li><strong>ARQ</strong>(Automatic Repeat <font color="#00b050">reQuest</font>) con ritrasmissioni</li>
+<li><strong>FEC</strong>(Forward Error Correction) senza ritrasmissioni</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>tipi di trasmissione
+<ul>
+<li><strong>Half duplex</strong>
+<ul>
+<li>La trasmissione non può essere simultanea da entrambe le direzioni
+<ul>
+<li>Wifi</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Full duplex</strong>
+<ul>
+<li>La trasmissione è simultanea per entrambe le direzioni
+<ul>
+<li>Ethernet</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Livello di collegamento negli host</strong>
+<ul>
+<li>come componenti del livello di collegamento gli host hanno la scheda di rete detta
+<ul>
+<li>NIC(Network Interface Card) che fa da intermediario sia del livello fisico che quello di collegamento</li>
+</ul>
+</li>
+<li><strong>Come è fatto un host</strong>
+<ul>
+<li><em>mittente</em>
+<ul>
+<li>il mittente sfrutta il controller nella scheda di rete per
+<ul>
+<li>incapsulare il datagramma dentro un frame</li>
+<li>aggiungere vari bit di controllo</li>
+<li>gestire flusso trasferimento affidabile ecc…</li>
+</ul>
+</li>
+<li>la CPU dell’host consente di costruire i dati e interagisce con la NIC(Network Interface Card) per assemblare il pacchetto</li>
+</ul>
+</li>
+<li><em>destinatario</em>
+<ul>
+<li>il controller della scheda di rete
+<ul>
+<li>verifica eventuali errori nei bit ricevuti</li>
+<li>gestisce anche lui trasferimento affidabile e flusso</li>
+<li>estrae il datagramma dal frame</li>
+</ul>
+</li>
+<li>la CPU in questo caso prende i dati e li passa ai livelli superiori rete trasporto ecc…
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250508223125.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="rilevazione-degli-errori">Rilevazione degli errori<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#rilevazione-degli-errori" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>
+<p>introduzione alla rilevazione degli errori</p>
+<ul>
+<li>per rilevare errori si usano tecniche come l’utilizzo di un codice EDC(Error Detection and Correction)
+<ul>
+<li>quando vengono inviati dei dati <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span></span></span></span> viene aggiunto questo codice <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span></li>
+<li>questo codice EDC viene generato a partire da una funzione applicata sui dati <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span></span></span></span></li>
+<li>una volta generato viene inviato al destinatario</li>
+<li>il destinatario adesso riceve questi dati <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span></span></span></span> ci riapplica la funzione e vede se corrisponde a EDC precedente</li>
+<li>non é super affidabile e in più c’è overhead
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250508224352.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>3 tecniche utilizzate per fare controllo sugli errori migliori di EDC</p>
+<ul>
+<li><em>Bit di parità</em>
+<ul>
+<li>Obbiettivo
+<ul>
+<li>vengono presi i dati in bit e vengono aggiunti eventuali bit per rendere il numero di 1 totali pari</li>
+<li>dopo aver inviato il tutto se il numero di bit a 1 compreso quello di parità sono dispari, errore</li>
+<li>unico problema se ho errori su un numero di bit pari ritornerei comunque a una sequenza pari quindi non rileverei errori</li>
+<li>vengono spesso usate matrici di bit per verificarli</li>
+<li>parità bidimensionale
+<ul>
+<li>creare una matrice per calcolare parità su righe e colonne</li>
+<li>comprende anche un bit globale</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><em>Checksum</em>
+<ul>
+<li>Obbiettivo
+<ul>
+<li>Il checksum è un meccanismo di controllo dell’integrità dei dati che viene usato principalmente a livelli superiori come quello di trasporto con UDP TCP ecc… oppure anche sul livello di rete come IP
+<ul>
+<li>il mittente prende il contenuto del pacchetto come una sequenza di interi, la somma facendo il complemento a 1
+<ul>
+<li>ovvero la somma con i suoi bit normali e la sua controparte in complemento a 1</li>
+</ul>
+</li>
+<li>il risultato viene a sua volta complementato a 1 e lo inserisce nel campo checksum</li>
+</ul>
+</li>
+<li>il ricevente somma tutto compreso checksum
+<ul>
+<li>controlla se il risultato sono tutti 1 per vedere se non ci sono errori</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><em>CRC</em>
+<ul>
+<li>Sistema estremamente affidabile per rilevare errori</li>
+<li>il mittente tratta i dati come una lunga sequenza di bit e li divide per un polinomio binario predefinito
+<ul>
+<li>il resto della divisione CRC viene allegato al frame</li>
+</ul>
+</li>
+<li>il destinatario svolge la stessa divisione e verifica il resto
+<ul>
+<li>se è 0 i dati sono probabilmente corretti altrimenti c’è stato un errore nella trasmissione</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="collegamenti-e-accesso-multiplo">Collegamenti e accesso multiplo<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#collegamenti-e-accesso-multiplo" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li><strong>Punto a Punto</strong>
+<ul>
+<li>collegamento di tipo punto a punto</li>
+<li>composta da un trasmittente e un ricevente</li>
+</ul>
+</li>
+<li><strong>Broadcast</strong>
+<ul>
+<li>canale di collegamento che comprende più nodi che trasmettono e piu nodi che ricevono</li>
+<li>presentano problemi di accesso multiplo da risolvere</li>
+</ul>
+</li>
+</ul>
+<h4 id="gestione-accesso-multiplo">Gestione accesso multiplo<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#gestione-accesso-multiplo" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Iniziamo con la spiegazione di un protocollo <em>ideale</em> <em>MAC</em>
+<ul>
+<li>Multiple Access Channel</li>
+<li>in modo ideale è previsto che se in un collegamento ho più nodi ho trasmissione pari a R/M</li>
+<li>se invece ho solo un dispositivo avrò velocità R totale</li>
+<li>inattuabile</li>
+</ul>
+</li>
+</ul>
+<h4 id="tipi-di-protocolli-ad-accesso-multiplo-reali">Tipi di protocolli ad accesso multiplo reali<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#tipi-di-protocolli-ad-accesso-multiplo-reali" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>
+<p>si dividono in</p>
+<ul>
+<li><em>Channel Partitioning</em>
+<ul>
+<li>con canale suddiviso</li>
+<li>ogni nodo ha una sua fetta del canale</li>
+<li>le fette rimanenti sono inutilizzate</li>
+</ul>
+</li>
+<li><em>Random Access</em>
+<ul>
+<li>il canale presenta collisioni e per risolverle vengono fatte ritrasmissioni e operazioni di recover</li>
+</ul>
+</li>
+<li><em>Taking Turns</em>
+<ul>
+<li>i nodi usano il canale a turno</li>
+<li>i nodi con maggiore priorità potrebbero avere il turno più duraturo
+<ul>
+<li>tipo i nodi con più materiale da inviare</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Quelli a <em>Channel Partitioning</em></p>
+<ul>
+<li><strong>TDMA</strong>
+<ul>
+<li>il canale viene suddiviso per istanti temporali fissi
+<ul>
+<li>detti time slot</li>
+<li>ogni nodo ha il suo timeslot</li>
+<li>in quel timeslot ha accesso completo</li>
+<li>gli slot inutilizzati si dicono idle
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250521112454.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>FDMA</strong></p>
+<ul>
+<li>il canale viene suddiviso in spettri di frequenze diverse interna un cavo FDM</li>
+<li>ogni nodo trasmette sulla sua frequenza non alla massima velocità
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250521112857.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+<li>
+<p>Quelli ad <em>Accesso casuale</em></p>
+<ul>
+<li><strong>SLOTTED ALOHA</strong>
+<ul>
+<li>l’uso del collegamento è diviso in slot temporali</li>
+<li>ogni nodo che vuole inviare qualcosa accede attende il prossimo slot temporale libero e vi accede
+<ul>
+<li>se viene occupato prima da qualche altro nodo avviene una collisione e deve attendere il time slot successivo</li>
+</ul>
+</li>
+<li>ogni nodo decide in autonomia quando trasmettere</li>
+<li>possono esserci collisioni frequenti o inutilizzi di slot temporali</li>
+<li>i nodi devono essere sincronizzati</li>
+<li>un nodo può utilizzare il canale in modo efficace con una probabilità del 37% del tempo
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250521114843.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>UNSLOTTED ALOHA</strong></p>
+<ul>
+<li>senza sincronizzazione tra nodi
+<ul>
+<li>trasmettono finché non avviene una collisione</li>
+<li>i nodi non aspettano il time slot successivo</li>
+</ul>
+</li>
+<li>diminuisce probabilità di efficienza arrivando al 18%</li>
+</ul>
+</li>
+<li>
+<p><strong>CSMA</strong></p>
+<ul>
+<li>il nodo prima di trasmettere ascolta il canale e vede se è libero o occupato</li>
+<li>possono comunque esserci collisioni dovute a ritardi di propagazione</li>
+</ul>
+</li>
+<li>
+<p><strong>CSMA/CD</strong></p>
+<ul>
+<li>miglioria di CSMA con una detection delle collisioni</li>
+<li>il nodo che trasmette rimane in ascolto di eventuali collisioni</li>
+<li>se avviene smette di trasmettere così non viene sprecata banda per un frame che andrebbe perso
+<ul>
+<li>non funziona bene via wireless</li>
+</ul>
+</li>
+<li>funzionamento
+<ul>
+<li>un nodo sta trasmettendo nel collegamento, allo stesso tempo si mette in ascolto per vedere se ci sono collisioni in atto</li>
+<li>se un nodo prova a collegarsi il nodo che trasferiva i dati lo rileva</li>
+<li>si interrompe la trasmissione dei nodi coinvoli nella collisione</li>
+<li>viene segnalata</li>
+<li>e poi viene assegnato un tempo casuale di accesso ad ogni nodo coinvolto e si riprende così il tutto
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250521120825.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Quelli a <em>Taking Turns</em></p>
+<ul>
+<li><strong>POLLING</strong>
+<ul>
+<li>è presente un controllore centralizzato che dice ai nodi quanti frame possono trasmettere al massimo per un dato turno</li>
+<li>il fatto che ci sia un controllore aumenta il ritardo ma allo stesso tempo si riducono collisioni o slot inutilizzati</li>
+<li>usato nel Bluetooth
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250521122639.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Token Passing</strong></p>
+<ul>
+<li>Token che viene passato per ogni nodo, chi lo ha può usare il collegamento
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250521122744.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+<li>
+<p>Gestione via cavo di</p>
+<ul>
+<li><em>downstream</em>
+<ul>
+<li>vengono usati canali FDM in broadcast</li>
+</ul>
+</li>
+<li><em>upstream</em>
+<ul>
+<li>viene usato il sistema ad accesso casuale</li>
+</ul>
+</li>
+<li>per mettere d’accordo i vari modem via cavo viene usato uno standard DOCSIS che precisa quali tipologie di politiche di accesso devono essere usate</li>
+</ul>
+</li>
+</ul>
+<h4 id="lan">LAN<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#lan" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Definizione
+<ul>
+<li><strong>Local Area Network</strong></li>
+<li>indica una area ristretta come una casa o una scuola</li>
+</ul>
+</li>
+<li>spesso si usano Ethernet o Wifi</li>
+</ul>
+<h4 id="indirizzi-mac">Indirizzi MAC<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#indirizzi-mac" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>descrizione
+<ul>
+<li>Per identificare un dispositivo di rete ad esempio una scheda di rete per effettuare uno scambio dei frame abbiamo bisogno di un indirizzo MAC, è a 48 bit ed è memorizzato nella ROM della NIC Network Interface Card</li>
+</ul>
+</li>
+<li><strong>come vengono scelti IEE</strong>
+<ul>
+<li>ente internazionale che ha lo scopo di gestire e fornire indirizzi MAC ai vari produttori di NIC
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250521180754.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+<li><strong>Da IP a MAC</strong>
+<ul>
+<li>Viene utilizzato un protocollo ARP che ha una tabella ARP dove sono presenti
+<ul>
+<li>Ogni nodo IP nella LAN con le sue interfacce e il suo Indirizzo MAC con anche un TTL per la validità dell’informazione</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Protocollo ARP</strong>
+<ul>
+<li>Come funziona Se la tabella non presenta il MAC di un dato IP
+<ul>
+<li>se un nodo nella rete vuole avere il MAC di un dispositivo usa il protocollo ARP che invierà un broadcast di richiesta con quel determinato indirizzo IP</li>
+<li>il dispositivo corretto risponde</li>
+<li>ora potrà essere popolata la tabella ARP</li>
+</ul>
+</li>
+<li><strong>Attacco ARP SPOOFING o POISONING</strong>
+<ul>
+<li>viene inviata una risposta ARP falsa fingendosi di avere un’altro indirizzo IP</li>
+<li>fai confluire il traffico verso di te puoi intercettarlo oppure puoi fare un attacco Dos associando 1000 indirizzi IP allo stesso MAC</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Come inviare un datagramma a un nodo non adiacente nella rete</strong>
+<ul>
+<li>Se il destinatario si trova su un’altra sottorete allora bisogna instradare il frame a un router gateway</li>
+<li>viene creato un frame con all’interno il datagramma IP con le varie informazioni</li>
+<li>il router riceve il frame e lo decapsula, vede il datagramma che l’IP è da inoltrare a un altro dispositivo</li>
+<li>re incapsula il tutto e lo invia alla interfaccia dello switch corretta con il giusto destinatario</li>
+</ul>
+</li>
+</ul>
+<h4 id="ethernet">ETHERNET<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#ethernet" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>cosa è
+<ul>
+<li>Standard di comunicazione utilizzato per le reti LAN cablate</li>
+</ul>
+</li>
+<li><strong>frame ethernet</strong>
+<ul>
+<li>composto da
+<ul>
+<li><em>preambolo</em>
+<ul>
+<li>sincronizza il ricevente e segnala quando un frame inizia</li>
+</ul>
+</li>
+<li><em>Mac di destinazione</em></li>
+<li><em>MAC di sorgente</em></li>
+<li><em>Tipo di protocollo incapsulato</em> nel payload per poi de capsularlo e vedere cosa c’è</li>
+<li><em>Dati</em></li>
+<li>Codici di controllo errori <em>CRC</em></li>
+</ul>
+</li>
+<li>Tutti gli standard di Ethernet usano stesso frame
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250522155625.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+<li><strong>sicurezza di ethernet</strong>
+<ul>
+<li>è senza handshake</li>
+<li>vengono gestiti accessi multipli come ad esempio con CSMA/CD</li>
+<li>le altre sicurezze varie vengono gestite ai livelli superiori</li>
+</ul>
+</li>
+<li><em>Concetto di dominio di collisione</em>
+<ul>
+<li>punto in cui si condivide stesso mezzo di trasmissione</li>
+<li>si può verificare una collisione tra vari frame ethernet se si trasmette insieme</li>
+<li>si consiglia di ridurre i dispositivi collegati a un singolo collegamento</li>
+</ul>
+</li>
+</ul>
+<h4 id="switch-ethernet">Switch Ethernet<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#switch-ethernet" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Cosa sono
+<ul>
+<li>Lo switch è un dispositivo che lavora sul livello di collegamento</li>
+<li>ha il compito di memorizzare e inoltrare i frame Ethernet</li>
+</ul>
+</li>
+<li>Caratteristiche
+<ul>
+<li>è <em>plug and play</em> non devi configurarlo</li>
+</ul>
+</li>
+<li><strong>Tabella di commutazione degli Switch</strong>
+<ul>
+<li>Ogni switch ha una sua tabella di commutazione con un
+<ul>
+<li><em>indirizzo MAC del nodo</em></li>
+<li><em>interfaccia che conduce al nodo</em></li>
+<li><em>TTL</em></li>
+</ul>
+</li>
+<li>lo switch auto riempie le varie tabelle
+<ul>
+<li>ogni volta che riceve un frame aggiunge alla tabella il mittente</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><em>Cosa fa lo switch quando riceve un frame</em>
+<ul>
+<li>Aggiorna la Switch table mettendo il mittente</li>
+<li>se il mittente ha stessa porta del destinatario allora non serve che ci sia questo passaggio per lo switch e scarta il pacchetto</li>
+<li>se è su un’altra porta lo inoltra facendo lo switching</li>
+<li>se non ha nella tabella il destinatario fa una operazione di flood per trovarlo</li>
+</ul>
+</li>
+<li><strong>Differenze con i router</strong>
+<ul>
+<li>gli switch lavorano sul livello di collegamento i router no</li>
+<li>gli switch possono lavorare con pochi dispositivi perché usano una tabella normale
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250522173215.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+<h4 id="vlan">VLAN<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#vlan" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>
+<p>cosa sono</p>
+<ul>
+<li>Se si ha bisogno di utilizzare il concetto e la comodità delle LAN su reti di grandi dimensioni senza però dover ricorrere a un solo Switch che non garantirebbe privacy e problemi di dimensioni della tabella</li>
+<li>esistono le VLAN
+<ul>
+<li>si possono usare switch differenti per rimanere sulla stessa rete ma allo stesso tempo creare flessibilità di gestione</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>versione basata sulle porte</strong></p>
+<ul>
+<li>un singolo switch viene usato come due switch differenti per mantenere la sicurezza</li>
+<li>uno switch viene diviso a metà virtualmente
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250522175052.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+<li>
+<p><strong>versione con più switch</strong></p>
+<ul>
+<li>viene usata una porta trunk per collegare in serie più switch</li>
+<li>una volta collegato il tutto possono comunicare tra loro gli switch</li>
+</ul>
+</li>
+<li>
+<p><strong>EVPN</strong></p>
+<ul>
+<li>tecnologia di tunneling che consente di creare una rete locale anche se si hanno due reti di livello 2 quindi con switch su luoghi differenti
+<ul>
+<li>viene collegato il router allo switch e viene incapsulato il frame ethernet che poi verrà passato dall’altra parte con un altro router e switch</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>le VLAN hanno un loro ID per comunicare tra loro e riconoscersi</p>
+<ul>
+<li>quest’ultimo é definito dallo standard 802.1Q</li>
+</ul>
+</li>
+</ul>
+<h4 id="le-reti-wireless">LE RETI WIRELESS<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#le-reti-wireless" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li><strong>significato di wireless</strong>
+<ul>
+<li><em>Tecnologia</em> di collegamento senza l’uso di fili ma attraverso frequenze</li>
+</ul>
+</li>
+<li><strong>significato di mobilità</strong>
+<ul>
+<li><em>proprietà</em> dell’infrastruttura di rete che consente al client di muoversi cambiando punti di accesso</li>
+</ul>
+</li>
+<li><strong>Handover</strong>
+<ul>
+<li>Processo che consente a un dispositivo mobile di cambiare collegamento wireless senza problemi</li>
+</ul>
+</li>
+<li>Componenti che compongono una rete wireless
+<ul>
+<li><em>Host wireless</em>
+<ul>
+<li>dispositivi che eseguono operazioni e hanno un collegamento wireless</li>
+<li>si dividono in fissi o stazionari</li>
+</ul>
+</li>
+<li><em>Collegamento wireless</em>
+<ul>
+<li>Utilizzato per collegare un host wireless alla stazione base oppure un altro host wireless</li>
+</ul>
+</li>
+<li><em>Stazione base</em>
+<ul>
+<li>elemento che funge da ripetitore</li>
+<li>di solito connessa a una rete cablata</li>
+<li>dispositivo di relay al livello di collegamento</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>a una determinata velocità di banda varia il raggio di copertura</li>
+</ul>
+<h4 id="2-tipi-di-infrastrutture">2 Tipi di infrastrutture<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#2-tipi-di-infrastrutture" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>
+<p><strong>con infrastruttura</strong></p>
+<ul>
+<li>Sono presenti stazioni base che hanno il compito di offrire servizi di rete</li>
+<li>avvengono operazioni di handoff, quando un dispositivo si sposta dall’area di copertura e cambia punto di accesso
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250528104430.png" width="400" height="auto" alt/></li>
+</ul>
+</li>
+<li>
+<p><strong>senza infrastruttura</strong></p>
+<ul>
+<li>reti senza stazione base con host che comunicano tra di loro</li>
+<li>devono provvedere da se per fornire servizi di instradamento
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250528105453.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+<h4 id="caratteristiche-dei-collegamenti-wireless">Caratteristiche dei collegamenti wireless<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#caratteristiche-dei-collegamenti-wireless" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<h5 id="concetto-di-attenuazione">Concetto di attenuazione<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#concetto-di-attenuazione" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<ul>
+<li>il <strong>segnale</strong> può essere <em>assorbito</em> o <em>attenuato</em> a seconda della presenza di determinati ostacoli o anche solo dalla distanza</li>
+<li>l’attenuazione con spazio libero si calcola con
+<ul>
+<li><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mord mathnormal">re</span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="mord mathnormal">u</span><span class="mord mathnormal">e</span><span class="mord mathnormal">n</span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">i</span><span class="mord mathnormal">s</span><span class="mord mathnormal">t</span><span class="mord mathnormal">an</span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mord mathnormal">a</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">fd</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></li>
+<li>Più <strong>alta</strong> è la frequenza o più <strong>lontano</strong> è il ricevitore, più <strong>rapidamente</strong> si perde il segnale.
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250528111841.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+<h5 id="tempo-di-coerenza">Tempo di coerenza<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#tempo-di-coerenza" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<ul>
+<li>Tempo che ci indica se all’arrivo di un segnale ne possono arrivare <em>degli altri uguali</em> a causa di possibili <em>riflessioni</em> a distanza di un determinato tempo
+<ul>
+<li>questo tempo è <strong>detto di coerenza</strong></li>
+</ul>
+</li>
+</ul>
+<h5 id="interferenze-da-altre-sorgenti">interferenze da altre sorgenti<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#interferenze-da-altre-sorgenti" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<ul>
+<li>Il <strong>fenomeno fisico</strong> di interferenza può anche verificarsi a causa di altri dispositivi che lavorano su frequenze simili
+<ul>
+<li>per definire il segnale e la frequenza su cui lavoriamo usiamo il <strong>SNR(Signal-To-Noise-Ratio)</strong>
+<ul>
+<li>rappresenta un rapporto tra il segnale e il rumore di fondo</li>
+<li>un SNR alto consente di estrarre le informazioni facilmente</li>
+</ul>
+</li>
+<li>Il <strong>BER</strong>  <strong>(Bit error rate)</strong> rappresenta la probabilità che un bit sia ricevuto in errore</li>
+</ul>
+</li>
+<li><strong>Bilanciamento di rete</strong>
+<ul>
+<li>aumentare la potenza del segnale aumenta la SNR e riduce i BER
+<ul>
+<li>ma non è proprio facile da attuare dovuto a consumi eccessivi</li>
+<li>i dispositivi wireless si adattano automaticamente modulando la frequenza e la velocità di trasmissione</li>
+<li>così da avere maggiore stabilità</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Terminali nascosti</strong>
+<ul>
+<li>I terminali nascosti sono nodi che non possono vedere altri nodi perché sono fuori dalla loro portata ma possono comunque causare collisioni che li riguardano
+<ul>
+<li>ad esempio con un nodo intermedio che vede entrambi</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Accesso multiplo</strong>
+<ul>
+<li><em>CDMA</em>
+<ul>
+<li>protocollo che permette di condividere stessa frequenza di comunicazione con più utenti</li>
+<li>ogni utente ha un suo <em>codice unico</em> chiamato <strong>chipping sequence</strong> per identificarli</li>
+<li>il loro segnale è codificato su questo</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="standard-reti-wi-fi-80211">Standard Reti Wi-Fi 802.11<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#standard-reti-wi-fi-80211" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<ul>
+<li>
+<p>rappresenta un <strong>insieme di protocolli</strong> che consentono la comunicazione wireless tra più dispositivi</p>
+</li>
+<li>
+<p>Architettura delle LAN 802.11</p>
+<ul>
+<li>gli host wireless comunicano con una stazione base detta anche <strong>Access Point</strong></li>
+<li>le singole infrastrutture wireless sono dette <em>BSS</em> e hanno vari host punto di accesso ecc…
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250528123119.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+<li>
+<p><strong>Divisione dei canali</strong></p>
+<ul>
+<li><em>tecnica</em> che consente la <em>modulazione di frequenze</em> per creare una divisione dei canali di comunicazione</li>
+<li>ciò comunque non riduce a zero le interferenze</li>
+<li>questi canali vengono scelti dal <em>AP admin</em>
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250528123601.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+<li>
+<p><strong>ingresso di un dispositivo nella rete</strong></p>
+<ul>
+<li>un host in arrivo su una BSS deve essere associato a un AP e per farlo si hanno due modalità
+<ul>
+<li><em>scansione attiva</em>
+<ul>
+<li>il dispositivo che si collega deve mandare un <strong>frame sonda</strong> in <strong>broadcast</strong> per trovare l’AP corretto</li>
+</ul>
+</li>
+<li><em>passiva</em>
+<ul>
+<li>gli AP a intervalli regolari inviano questi <strong>frame beacon</strong> per essere rilevati dai dispositivi che vogliono accedervi
+<ul>
+<li>al loro interno hanno un MAC e un identificativo dell’AP il SSID</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>dopo aver instaurato questo collegamento con accessi sicuri attraverso ad esempio WPA2</li>
+<li>l’host può inviare un DHCP discover che sarà passato all’AP e poi al server DHCP
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250528124155.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+<li>
+<p><strong>collisioni nelle reti wireless</strong></p>
+<ul>
+<li><em>CSMA/CA</em>
+<ul>
+<li>per gestire accesso multiplo nelle reti WiFi non si possono usare CD ovvero collision Detection perché con le reti wireless è complesso e inutilizzabile vengono usate variabili</li>
+<li><strong>DIFS</strong>
+<ul>
+<li>variabile che indica l’intervallo di tempo che bisogna aspettare per vedere se un canale è libero</li>
+<li>se lo è il mittente trasmette</li>
+<li>sennò aspetta un tempo backoff casuale</li>
+</ul>
+</li>
+<li><strong>SIFS</strong>
+<ul>
+<li>variabile che indica un intervallo di tempo che deve aspettare il destinatario prima di inviare un ACK di ricevuta dei dati</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><em>Meccanismo di prenotazione</em>
+<ul>
+<li>vengono usati segnali <strong>RTS(Request to Send)</strong>
+<ul>
+<li>per prenotare il canale di comunicazione
+<ul>
+<li>vengono inviati ai vari AP</li>
+</ul>
+</li>
+<li>possono avvenire collisioni di prenotazione</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>quando un frame viene passato a un AP ha come destinazione l’indirizzo MAC dell’AP</p>
+<ul>
+<li>quando un frame deve passare per un router viene incapsulato in un altro frame che avrà come mittente il MAC dell’AP e come destinatario il MAC del router</li>
+</ul>
+</li>
+</ul>
+<h4 id="tecnologie-wireless">Tecnologie wireless<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#tecnologie-wireless" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>
+<p><strong>Bluetooth</strong></p>
+<ul>
+<li>definizione
+<ul>
+<li><em>Tecnologia wireless</em> che consente un collegamento di tipo <em>PAN(Personal Area Network)</em></li>
+</ul>
+</li>
+<li><strong>piconet</strong>
+<ul>
+<li>nome che prende una <em>singola rete Bluetooth</em> che consente fino a 8 dispositivi compreso 1 master controller</li>
+</ul>
+</li>
+<li><strong>bootstrapping</strong>
+<ul>
+<li><em>processo</em> di <em>accesso</em> a una <em>piconet</em> di un dispositivo client</li>
+<li>si divide in 2 modalità possibili
+<ul>
+<li><strong>Neighbor discovery</strong>
+<ul>
+<li>il master invia dei messaggi in broadcast detti inquiry</li>
+<li>il dispositivo in ascolto lo rileva e instaura così una connessione</li>
+</ul>
+</li>
+<li><strong>Paging</strong>
+<ul>
+<li>il master invita un dispositivo specifico a entrare quando lo conosce
+<ul>
+<li>viene successivamente comunicato l’indirizzo di partecipazione e altre informazioni utili
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250529120105.png" width="300" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Reti 4G/5G</strong></p>
+<ul>
+<li>definizione
+<ul>
+<li><em>Tecnologia funzionale</em> che consente il <em>collegamento</em> wireless su <em>WAN</em></li>
+<li>attraverso <strong>Access Point</strong></li>
+</ul>
+</li>
+<li>similarità e differenze con internet cablato
+<ul>
+<li>Usano stessi protocolli e sono reti globali</li>
+<li>tecnologie radio da parte delle reti 4G</li>
+<li>supporto alla mobilità nativa da parte delle reti 4G/5G</li>
+</ul>
+</li>
+<li><strong>architettura 4G</strong>
+<ul>
+<li>composta da
+<ul>
+<li><em>Mobile device(UE)User Equipment</em>
+<ul>
+<li>dispositivi mobili connessi alle base station</li>
+<li>ha un IMSI ovvero un suo identificativo</li>
+</ul>
+</li>
+<li><em>Base station(eNode-B)</em>
+<ul>
+<li>dispositivo che condivide le informazioni ai mobile Device
+<ul>
+<li>coordinandoli tra loro e gestendo le varie celle di collegamento</li>
+</ul>
+</li>
+<li>gestione di handover per mobilità dei device</li>
+</ul>
+</li>
+<li><em>MME(Mobility Management Entity)</em>
+<ul>
+<li>Servizio che</li>
+<li>conosce la posizione dei vari dispositivi</li>
+<li>fa da intermediario con i dispositivi e i P-GW</li>
+<li>identifica i dispositivi usando l’HSS</li>
+</ul>
+</li>
+<li><em>HSS(Home Subscriber Server)</em>
+<ul>
+<li>memorizza le informazioni degli utenti con le varie chiavi di autenticazione</li>
+<li>Serve per identificare i dispositivi con ad esempio il loro piano dati</li>
+</ul>
+</li>
+<li><em>S-GW</em>
+<ul>
+<li>router gateway interno alla rete che instrada i dati da parte delle UE verso i P-GW</li>
+</ul>
+</li>
+<li><em>P-GW</em>
+<ul>
+<li>router gateway che porta a internet i dati che vengono dalle S-GW attraverso il tunneling</li>
+<li>router connesso alla vera e propria rete globale</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>migliorie del 5G</strong>
+<ul>
+<li>maggiore velocità</li>
+<li>potrebbero esserci <em>problemi</em> di <em>distanza di banda</em>
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250529180732.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Rete LTE</strong></p>
+<ul>
+<li>definizione
+<ul>
+<li><em>Standard di comunicazione</em> wireless con delle modifiche alle reti 4G soprattutto nella fase di tunneling dei dati è diviso in 2</li>
+</ul>
+</li>
+<li><strong>piano di controllo</strong>
+<ul>
+<li>gestisce la <em>mobilità e la sicurezza</em>
+<ul>
+<li>non trasporta i dati effettivi</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>piano di dati</strong>
+<ul>
+<li>trasportare il vero e proprio <em>traffico dati</em></li>
+</ul>
+</li>
+<li><strong>pila protocollare LTE</strong>
+<ul>
+<li>ogni comunicazione LTE ha una sua pila protocollare che si differisce in 2 punti
+<ul>
+<li>
+<ol>
+<li>quando avviene lo <em>scambio dal UE al first hop</em> nella base station abbiamo un incapsulamento complesso che vuole garantire sicurezza e affidabilità nella gestione dei segnali radio</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>una volta raggiunto invece il <em>passaggio di tunneling</em> dove i dati passano tra i vari Gateway attraverso un tunnel</li>
+</ol>
+<ul>
+<li>la comunicazione avviene attraverso u n protocollo <em>GTP-U</em></li>
+<li>che impacchetta i dati in un pacchetto <strong>UDP</strong> per poi spedire i dati al P-GW passando per l’S-GW
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250529190918.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>problema della mobilità</strong></p>
+<ul>
+<li>definizione
+<ul>
+<li>quando un dispositivo si muove bisogna <em>rinstaurare una connessione</em> a una base station con la copertura adatta e che magari è collegata a un router differente</li>
+</ul>
+</li>
+<li><strong>Home agent</strong>
+<ul>
+<li>definizione
+<ul>
+<li><em>Nodo nella rete</em> che rappresenta il riferimento per la ricezione dei dati del dispositivo UE</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>approcci di routing</strong>
+<ul>
+<li>1.il router della base station differente <em>annuncia</em> agli altri che il <em>dispositivo ha effettuato questo cambiamento</em> e viene aggiornata la tabella di routing
+<ul>
+<li>con <strong>troppi dispositivi non funziona</strong></li>
+</ul>
+</li>
+<li>2.viene sfruttato il concetto di <em>Home agent</em>,</li>
+<li>si divide in 2 altri sottopunti
+<ul>
+<li>1.<strong>ROUTING INDIRETTO</strong>
+<ul>
+<li>l’<em>home Agent</em> <em>invia</em> i dati che riceve per quel determinato UE <em>al nuovo router</em> della nuova base station
+<ul>
+<li>è <strong>lento</strong> e vengono fatti giri troppo lunghi</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>2.<strong>ROUTING DIRETTO</strong>
+<ul>
+<li>i mittenti che vogliono mandare i messaggi all’UE non inviano più le informazioni all’Home agent ma <em>al nuovo router della base station</em>
+<ul>
+<li><strong>veloce ed efficiente</strong> ma i mittenti devono capire il tutto</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250530164917.png" width="auto" height="auto" alt/></p>
+<ul>
+<li><strong>Le reti si dividono in</strong>
+<ul>
+<li><em>home network</em>
+<ul>
+<li>rete <strong>gestita dall’operatore</strong> con cui si ha un contratto</li>
+</ul>
+</li>
+<li><em>visited network</em>
+<ul>
+<li><strong>rete gestita da altri operatori</strong></li>
+<li>viene concessa attraverso il <strong>roaming</strong>
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250601113458.jpg" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="backlinks"><h3>Backlinks</h3><ul id="list-2" class="overflow"><li><a href="../../../UNI/ANNO-2/RETI/INDICE-RETI" class="internal">INDICE RETI</a></li><li class="overflow-end"></li></ul></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.5.2</a> © 2025</p><ul><li><a href="https://github.com/jackyzha0/quartz">GitHub</a></li><li><a href="https://discord.gg/cRFFHYye7t">Discord Community</a></li></ul></footer></div></div></body><script type="application/javascript">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module">function f(i,e){if(!i)return;function r(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function t(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}i?.addEventListener("click",r),window.addCleanup(()=>i?.removeEventListener("click",r)),document.addEventListener("keydown",t),window.addCleanup(()=>document.removeEventListener("keydown",t))}function y(i){for(;i.firstChild;)i.removeChild(i.firstChild)}var h=class{constructor(e,r){this.container=e;this.content=r;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),r=this.onMouseMove.bind(this),t=this.onMouseUp.bind(this),o=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",r),document.addEventListener("mouseup",t),window.addEventListener("resize",o),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",r),()=>document.removeEventListener("mouseup",t),()=>window.removeEventListener("resize",o))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let r=this.createButton("+",()=>this.zoom(.1)),t=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(t),e.appendChild(o),e.appendChild(r),this.container.appendChild(e)}createButton(e,r){let t=document.createElement("button");return t.textContent=e,t.className="mermaid-control-button",t.addEventListener("click",r),window.addCleanup(()=>t.removeEventListener("click",r)),t}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}zoom(e){let r=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),t=this.content.getBoundingClientRect(),o=t.width/2,n=t.height/2,c=r-this.scale;this.currentPan.x-=o*c,this.currentPan.y-=n*c,this.scale=r,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){this.scale=1;let e=this.content.querySelector("svg");this.currentPan={x:e.getBoundingClientRect().width/2,y:e.getBoundingClientRect().height/2},this.updateTransform()}},C=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],E;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;E||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let r=E.default,t=new WeakMap;for(let n of e)t.set(n,n.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let a=t.get(s);a&&(s.innerHTML=a)}let n=C.reduce((s,a)=>(s[a]=window.getComputedStyle(document.documentElement).getPropertyValue(a),s),{}),c=document.documentElement.getAttribute("saved-theme")==="dark";r.initialize({startOnLoad:!1,securityLevel:"loose",theme:c?"dark":"base",themeVariables:{fontFamily:n["--codeFont"],primaryColor:n["--light"],primaryTextColor:n["--darkgray"],primaryBorderColor:n["--tertiary"],lineColor:n["--darkgray"],secondaryColor:n["--secondary"],tertiaryColor:n["--tertiary"],clusterBkg:n["--light"],edgeLabelBackground:n["--highlight"]}}),await r.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let n=0;n<e.length;n++){let v=function(){let g=l.querySelector("#mermaid-space"),m=l.querySelector(".mermaid-content");if(!m)return;y(m);let w=c.querySelector("svg").cloneNode(!0);m.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new h(g,m)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},c=e[n],s=c.parentElement,a=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(a),L=a.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),f(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript"></script><script src="../../../postscript.js" type="module"></script></html>

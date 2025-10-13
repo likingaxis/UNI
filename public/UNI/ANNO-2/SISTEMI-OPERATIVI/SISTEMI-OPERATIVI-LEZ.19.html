@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><title>SISTEMI OPERATIVI LEZ.19</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="Quartz 4"/><meta property="og:title" content="SISTEMI OPERATIVI LEZ.19"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="SISTEMI OPERATIVI LEZ.19"/><meta name="twitter:description" content="PRINCIPI DELL’HARDWARE DI I/O il mondo dell’I/O è un mondo vastissimo Per gestire al meglio hardware il sistema operativo deve avere delle funzionalità importantissime invio dei comandi intercettazione di interrupt gestione degli errori usare una interfaccia che funzioni con + dispositivi e +sistemi..."/><meta property="og:description" content="PRINCIPI DELL’HARDWARE DI I/O il mondo dell’I/O è un mondo vastissimo Per gestire al meglio hardware il sistema operativo deve avere delle funzionalità importantissime invio dei comandi intercettazione di interrupt gestione degli errori usare una interfaccia che funzioni con + dispositivi e +sistemi..."/><meta property="og:image:alt" content="PRINCIPI DELL’HARDWARE DI I/O il mondo dell’I/O è un mondo vastissimo Per gestire al meglio hardware il sistema operativo deve avere delle funzionalità importantissime invio dei comandi intercettazione di interrupt gestione degli errori usare una interfaccia che funzioni con + dispositivi e +sistemi..."/><meta property="twitter:domain" content="quartz.jzhao.xyz"/><meta property="og:url" content="https://quartz.jzhao.xyz/UNI/ANNO-2/SISTEMI-OPERATIVI/SISTEMI-OPERATIVI-LEZ.19"/><meta property="twitter:url" content="https://quartz.jzhao.xyz/UNI/ANNO-2/SISTEMI-OPERATIVI/SISTEMI-OPERATIVI-LEZ.19"/><link rel="icon" href="../../../static/icon.png"/><meta name="description" content="PRINCIPI DELL’HARDWARE DI I/O il mondo dell’I/O è un mondo vastissimo Per gestire al meglio hardware il sistema operativo deve avere delle funzionalità importantissime invio dei comandi intercettazione di interrupt gestione degli errori usare una interfaccia che funzioni con + dispositivi e +sistemi..."/><meta name="generator" content="Quartz"/><link href="../../../index.css" rel="stylesheet" type="text/css" spa-preserve/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  padding: 2rem;
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiQzpcXFVzZXJzXFxMdWNhXFxEZXNrdG9wXFxVTkkgTlVPVk9cXHF1YXJ0elxccXVhcnR6XFxjb21wb25lbnRzXFxzdHlsZXMiLCJzb3VyY2VzIjpbIm1lcm1haWQuaW5saW5lLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7O0FBR0Y7RUFDRTtFQUNBOztBQUdGO0VBQ0U7OztBQUtGO0VBQ0U7RUFDQTs7O0FBSUo7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTs7QUFHRjtFQUNFO0VBQ0E7O0FBSUo7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7O0FBSUY7RUFDRTtFQUNBO0VBQ0EiLCJzb3VyY2VzQ29udGVudCI6WyIuZXhwYW5kLWJ1dHRvbiB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxvYXQ6IHJpZ2h0O1xuICBwYWRkaW5nOiAwLjRyZW07XG4gIG1hcmdpbjogMC4zcmVtO1xuICByaWdodDogMDsgLy8gTk9URTogcmlnaHQgd2lsbCBiZSBzZXQgaW4gbWVybWFpZC5pbmxpbmUudHNcbiAgY29sb3I6IHZhcigtLWdyYXkpO1xuICBib3JkZXItY29sb3I6IHZhcigtLWRhcmspO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1saWdodCk7XG4gIGJvcmRlcjogMXB4IHNvbGlkO1xuICBib3JkZXItcmFkaXVzOiA1cHg7XG4gIG9wYWNpdHk6IDA7XG4gIHRyYW5zaXRpb246IDAuMnM7XG5cbiAgJiA+IHN2ZyB7XG4gICAgZmlsbDogdmFyKC0tbGlnaHQpO1xuICAgIGZpbHRlcjogY29udHJhc3QoMC4zKTtcbiAgfVxuXG4gICY6aG92ZXIge1xuICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICBib3JkZXItY29sb3I6IHZhcigtLXNlY29uZGFyeSk7XG4gIH1cblxuICAmOmZvY3VzIHtcbiAgICBvdXRsaW5lOiAwO1xuICB9XG59XG5cbnByZSB7XG4gICY6aG92ZXIgPiAuZXhwYW5kLWJ1dHRvbiB7XG4gICAgb3BhY2l0eTogMTtcbiAgICB0cmFuc2l0aW9uOiAwLjJzO1xuICB9XG59XG5cbiNtZXJtYWlkLWNvbnRhaW5lciB7XG4gIHBvc2l0aW9uOiBmaXhlZDtcbiAgY29udGFpbjogbGF5b3V0O1xuICB6LWluZGV4OiA5OTk7XG4gIGxlZnQ6IDA7XG4gIHRvcDogMDtcbiAgd2lkdGg6IDEwMHZ3O1xuICBoZWlnaHQ6IDEwMHZoO1xuICBvdmVyZmxvdzogaGlkZGVuO1xuICBkaXNwbGF5OiBub25lO1xuICBiYWNrZHJvcC1maWx0ZXI6IGJsdXIoNHB4KTtcbiAgYmFja2dyb3VuZDogcmdiYSgwLCAwLCAwLCAwLjUpO1xuXG4gICYuYWN0aXZlIHtcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIH1cblxuICAmID4gI21lcm1haWQtc3BhY2Uge1xuICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbGlnaHQpO1xuICAgIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgICBwb3NpdGlvbjogZml4ZWQ7XG4gICAgdG9wOiA1MCU7XG4gICAgbGVmdDogNTAlO1xuICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlKC01MCUsIC01MCUpO1xuICAgIGhlaWdodDogODB2aDtcbiAgICB3aWR0aDogODB2dztcbiAgICBvdmVyZmxvdzogaGlkZGVuO1xuXG4gICAgJiA+IC5tZXJtYWlkLWNvbnRlbnQge1xuICAgICAgcGFkZGluZzogMnJlbTtcbiAgICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICAgIHRyYW5zZm9ybS1vcmlnaW46IDAgMDtcbiAgICAgIHRyYW5zaXRpb246IHRyYW5zZm9ybSAwLjFzIGVhc2U7XG4gICAgICBvdmVyZmxvdzogdmlzaWJsZTtcbiAgICAgIG1pbi1oZWlnaHQ6IDIwMHB4O1xuICAgICAgbWluLXdpZHRoOiAyMDBweDtcblxuICAgICAgcHJlIHtcbiAgICAgICAgbWFyZ2luOiAwO1xuICAgICAgICBib3JkZXI6IG5vbmU7XG4gICAgICB9XG5cbiAgICAgIHN2ZyB7XG4gICAgICAgIG1heC13aWR0aDogbm9uZTtcbiAgICAgICAgaGVpZ2h0OiBhdXRvO1xuICAgICAgfVxuICAgIH1cblxuICAgICYgPiAubWVybWFpZC1jb250cm9scyB7XG4gICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgICBib3R0b206IDIwcHg7XG4gICAgICByaWdodDogMjBweDtcbiAgICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgICBnYXA6IDhweDtcbiAgICAgIHBhZGRpbmc6IDhweDtcbiAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0KTtcbiAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICBib3JkZXItcmFkaXVzOiA2cHg7XG4gICAgICBib3gtc2hhZG93OiAwIDJweCA0cHggcmdiYSgwLCAwLCAwLCAwLjEpO1xuICAgICAgei1pbmRleDogMjtcblxuICAgICAgLm1lcm1haWQtY29udHJvbC1idXR0b24ge1xuICAgICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgICAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgICAgICAgd2lkdGg6IDMycHg7XG4gICAgICAgIGhlaWdodDogMzJweDtcbiAgICAgICAgcGFkZGluZzogMDtcbiAgICAgICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHQpO1xuICAgICAgICBjb2xvcjogdmFyKC0tZGFyayk7XG4gICAgICAgIGJvcmRlci1yYWRpdXM6IDRweDtcbiAgICAgICAgY3Vyc29yOiBwb2ludGVyO1xuICAgICAgICBmb250LXNpemU6IDE2cHg7XG4gICAgICAgIGZvbnQtZmFtaWx5OiB2YXIoLS1ib2R5Rm9udCk7XG4gICAgICAgIHRyYW5zaXRpb246IGFsbCAwLjJzIGVhc2U7XG5cbiAgICAgICAgJjpob3ZlciB7XG4gICAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgICAgfVxuXG4gICAgICAgICY6YWN0aXZlIHtcbiAgICAgICAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoMXB4KTtcbiAgICAgICAgfVxuXG4gICAgICAgIC8vIFN0eWxlIHRoZSByZXNldCBidXR0b24gZGlmZmVyZW50bHlcbiAgICAgICAgJjpudGgtY2hpbGQoMikge1xuICAgICAgICAgIHdpZHRoOiBhdXRvO1xuICAgICAgICAgIHBhZGRpbmc6IDAgMTJweDtcbiAgICAgICAgICBmb250LXNpemU6IDE0cHg7XG4gICAgICAgIH1cbiAgICAgIH1cbiAgICB9XG4gIH1cbn1cbiJdfQ== */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" spa-preserve/><script src="../../../prescript.js" type="application/javascript" spa-preserve></script><script type="application/javascript" spa-preserve>const fetchData = fetch("../../../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://quartz.jzhao.xyz/index.xml"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://quartz.jzhao.xyz/UNI/ANNO-2/SISTEMI-OPERATIVI/SISTEMI-OPERATIVI-LEZ.19-og-image.webp"/><meta property="og:image:url" content="https://quartz.jzhao.xyz/UNI/ANNO-2/SISTEMI-OPERATIVI/SISTEMI-OPERATIVI-LEZ.19-og-image.webp"/><meta name="twitter:image" content="https://quartz.jzhao.xyz/UNI/ANNO-2/SISTEMI-OPERATIVI/SISTEMI-OPERATIVI-LEZ.19-og-image.webp"/><meta property="og:image:type" content="image/.webp"/></head><body data-slug="UNI/ANNO-2/SISTEMI-OPERATIVI/SISTEMI-OPERATIVI-LEZ.19"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="../../..">Quartz 4</a></h2><div class="spacer mobile-only"></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>Search</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="Search for something" placeholder="Search for something"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="Reader mode"><title>Reader mode</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a,b)=>!a.isFolder&amp;&amp;!b.isFolder||a.isFolder&amp;&amp;b.isFolder?a.displayName.localeCompare(b.displayName,void 0,{numeric:!0,sensitivity:\&quot;base\&quot;}):!a.isFolder&amp;&amp;b.isFolder?1:-1&quot;,&quot;filterFn&quot;:&quot;node=>node.slugSegment!==\&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;node=>node&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-352"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>Explorer</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-352" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#"></a></li></template><template id="template-folder"><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../../../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../UNI/">UNI</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../UNI/ANNO-2/">ANNO 2</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../UNI/ANNO-2/SISTEMI-OPERATIVI/">SISTEMI OPERATIVI</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>SISTEMI OPERATIVI LEZ.19</a></div></nav><h1 class="article-title">SISTEMI OPERATIVI LEZ.19</h1><p show-comma="true" class="content-meta"><time datetime="2025-10-13T15:42:40.000Z">Oct 13, 2025</time><span>7 min read</span></p></div></div><article class="popover-hint"><h1 id="principi-dellhardware-di-io">PRINCIPI DELL’HARDWARE DI I/O<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#principi-dellhardware-di-io" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>il mondo dell’I/O è un mondo vastissimo
+Per gestire al meglio hardware il sistema operativo deve avere delle funzionalità importantissime</p>
+<ul>
+<li>invio dei comandi</li>
+<li>intercettazione di interrupt</li>
+<li>gestione degli errori
+usare una interfaccia che funzioni con + dispositivi e +sistemi</li>
+</ul>
+<h4 id="ci-sono-due-punti-di-vista">ci sono due punti di vista<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#ci-sono-due-punti-di-vista" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>quello degli ingegneri elettronici
+<ul>
+<li>che vedono la scheda come una vera e propria scheda fisica</li>
+</ul>
+</li>
+<li>quello dei programmatori
+<ul>
+<li>interessati alle interfacce che permettono di utilizzare gli hardware con comandi ecc…</li>
+</ul>
+</li>
+</ul>
+<h3 id="dispositivi-io">DISPOSITIVI I/O<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#dispositivi-io" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<h3 id="ci-sono-due-macro-categorie-di-dispositivi-di-io">Ci sono due macro categorie di dispositivi di I/O:<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#ci-sono-due-macro-categorie-di-dispositivi-di-io" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<h4 id="1-dispositivi-a-blocchi">1. dispositivi a blocchi<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1-dispositivi-a-blocchi" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>Astraggono i dati in forma di blocchi di dati di dimensioni fisse e che prevedono l’esistenza di indirizzi</p>
+<ul>
+<li>HDD, SSD e  nastri</li>
+<li>ogni blocco viene scritto e letto indipendentemente</li>
+</ul>
+<h4 id="2-dispositivi-a-caratteri">2. dispositivi a caratteri<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#2-dispositivi-a-caratteri" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>flusso di caratteri senza struttura a blocchi</p>
+<ul>
+<li>mi limito a inviare e ricevere dati senza gestirli in modo indirizzabile o effettuando ricerche</li>
+<li>stampanti interfacce di rete mouse</li>
+</ul>
+<h4 id="alcuni-non-fanno-parte-completamente-di-uno-o-dellaltro">alcuni non fanno parte completamente di uno o dell’altro<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#alcuni-non-fanno-parte-completamente-di-uno-o-dellaltro" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>schermi mappati in memoria</p>
+<p>alcuni dispositivi per semplificazione vengono messi nel file system dal sistema operativo</p>
+<h3 id="velocita-dei-dispositivi-che-hanno-impatti-importanti">Velocita dei dispositivi che hanno impatti importanti<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#velocita-dei-dispositivi-che-hanno-impatti-importanti" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p><img src="../../../UNI/ANNO-2/SISTEMI-OPERATIVI/fotosop/Pasted-image-20250107183643.png" width="600" height="auto" alt/></p>
+<h2 id="panoramica-generale-dei-dispositivi-e-i-vari-controller">panoramica generale dei dispositivi e i vari controller<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#panoramica-generale-dei-dispositivi-e-i-vari-controller" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>il s.o. comunica con i controller dei dispositivi</p>
+<ul>
+<li>controller integrato nella scheda madre</li>
+</ul>
+<p>La scheda madre è divisa in northbridge e southbridge
+northbridge è il piu veloce e interagisce con il pci-e
+il southbridge è il piu lento e interagisce con le cose più lente
+<img src="../../../UNI/ANNO-2/SISTEMI-OPERATIVI/fotosop/Pasted-image-20250107184722.png" width="auto" height="auto" alt/></p>
+<h3 id="standard-delle-interfacce">Standard delle interfacce<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#standard-delle-interfacce" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>tipo sata scsi thunderbolt ecc…
+consentono di utilizzare dispositivi da diverse aziende</p>
+<h2 id="interfacce-di-basso-livello">interfacce di basso livello<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#interfacce-di-basso-livello" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>sono le ultime interfacce possibili e si occupano della gestione dei veri e propri bit
+effettuano verifiche e controlli per gli errori dei bit con ad esempio ECC(Error Correction Code)</p>
+<h2 id="una-vecchia-porta-parallela">Una vecchia porta parallela<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#una-vecchia-porta-parallela" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p><img src="../../../UNI/ANNO-2/SISTEMI-OPERATIVI/fotosop/Pasted-image-20250107185303.png" width="300" height="auto" alt/>
+<img src="../../../UNI/ANNO-2/SISTEMI-OPERATIVI/fotosop/Pasted-image-20250107185318.png" width="200" height="auto" alt/>
+vecchia interfaccia per stampanti ecc
+8 spinotti per scambiare i dati
+8 per i comandi effettivi
+altri per la gnd e alimentazione</p>
+<h2 id="porta-usb">porta usb<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#porta-usb" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p><img src="../../../UNI/ANNO-2/SISTEMI-OPERATIVI/fotosop/Pasted-image-20250107190238.png" width="300" height="auto" alt/>
+la vecchia porta usb è una interfaccia standardizzata per effettuare una connessione con il computer e i dispositivi
+<img src="../../../UNI/ANNO-2/SISTEMI-OPERATIVI/fotosop/Pasted-image-20250107190048.png" width="300" height="auto" alt/>
+2 pin per alimentazione e 2 per i dati
+in base alle onde positive o negative si codifica e decodifica il segnale
+<img src="../../../UNI/ANNO-2/SISTEMI-OPERATIVI/fotosop/Pasted-image-20250107190035.png" width="700" height="auto" alt/>
+diverse versioni di usb portano una forte retrocompatibilità e sono plug-play</p>
+<h3 id="tabella-di-porte-usb">tabella di porte usb<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#tabella-di-porte-usb" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p><img src="../../../UNI/ANNO-2/SISTEMI-OPERATIVI/fotosop/Pasted-image-20250107190501.png" width="500" height="auto" alt/></p>
+<h3 id="un-disco-hdd-come-è-fatto">un disco hdd come è fatto<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#un-disco-hdd-come-è-fatto" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>PCB è il circuito che ha</p>
+<ul>
+<li>al centro una MCU (micro controller unit)</li>
+<li>cache una ram usata per una cache</li>
+<li>VCM controlla la rotazione del motore del disco
+<img src="../../../UNI/ANNO-2/SISTEMI-OPERATIVI/fotosop/Pasted-image-20250107190540.png" width="500" height="auto" alt/></li>
+</ul>
+<h2 id="come-comunicano-dispositivi-e-cpu">Come comunicano dispositivi e CPU<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#come-comunicano-dispositivi-e-cpu" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>ogni dispositivo ha un controller che fa da intermediario tra cpu e dispositivo
+questo controller ha dei registri dove scrivere e leggere le informazioni
+molti hanno una area detta buffer dove vengono conservati i dati mentre vengono letti o scritti</p>
+<h2 id="come-avviene-importante">Come avviene? importante<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#come-avviene-importante" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>uso due approcci per inviare i dati</p>
+<ul>
+<li>I/O port-mapped</li>
+<li>I/O memory-mapped</li>
+<li>versione ibrida</li>
+</ul>
+<h4 id="port-mapped-io">Port mapped I/O<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#port-mapped-io" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>per rappresentare un dispositivo hardware uso ad esempio port mapped I/O
+ogni porta è un collegamento con quel dispositivo definito attraverso un indirizzo
+ogni porta a 8 o 16 bit
+uso istruzioni differenti dal solito assembly</p>
+<ul>
+<li><code>IN REG, PORT </code> per la lettura di port e salva in reg</li>
+<li><code>OUT PORT,REG</code> per scrivere
+due spazi di indirizzi uno per la ram e uno per i dispositivi di I/O
+<img src="../../../UNI/ANNO-2/SISTEMI-OPERATIVI/fotosop/Pasted-image-20250108171938.png" width="300" height="auto" alt/></li>
+</ul>
+<h4 id="memory-mapped-io">Memory mapped I/O<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#memory-mapped-io" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p><img src="../../../UNI/ANNO-2/SISTEMI-OPERATIVI/fotosop/Pasted-image-20250108173252.png" width="200" height="auto" alt/>
+ma perché non mettiamo tutto insieme?
+ogni dispositivo viene mappato in memoria insieme alle altre cose con degli indirizzi univoci
+i registri hardware sono accessibili solo dal kernel, garantisce maggiore sicurezza</p>
+<p>Attraverso la gestione delle pagine di memoria, il sistema può controllare dispositivi in modo selettivo.
+potrebbe esserci un problema relativo all’utilizzo della cache
+dove un registro viene salvato in cache e non subisce cambiamenti dal dispositivo e quindi il dato non si aggiorna
+<img src="../../../UNI/ANNO-2/SISTEMI-OPERATIVI/fotosop/Pasted-image-20250108181001.png" width="300" height="auto" alt/>
+di questo sistema c’è una problematica che prevede 2 soluzioni
+il sistema non sa se ha a che fare con un indirizzo in memoria o che appartiene a un dispositivo hardware</p>
+<ul>
+<li>prima soluzione a tentativi lenta ma facile da scrivere</li>
+<li>bus snooping come seconda soluzione che monitora quali sono i dispositivi di I/O e determina se un indirizzo è associato a un dispositivo hardware o alla memoria principale.
+necessità di bilanciare prestazioni e efficienza</li>
+</ul>
+<h4 id="ibrido">IBRIDO<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#ibrido" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p><img src="../../../UNI/ANNO-2/SISTEMI-OPERATIVI/fotosop/Pasted-image-20250108183047.png" width="200" height="auto" alt/>
+si usano entrambi i metodi uno per operazioni più rapide l’altro per operazioni più lente
+PMIO e MMIO, il primo per fare roba più lenta l’altro roba più veloce</p>
+<h3 id="direct-memory-access">Direct memory access<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#direct-memory-access" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<h5 id="dma-vs-senza">DMA VS SENZA<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#dma-vs-senza" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<p>Il controller DMA consente lo scambio di dati dei dispositivi senza uso della CPU</p>
+<ul>
+<li>senza DMA il controller del disco legge i dati e li memorizza nel suo buffer e li invia al SO</li>
+<li>con DMA la CPU dice al DMA attivati e dice al controller del disco attivati e li fa lavorare
+<img src="../../../UNI/ANNO-2/SISTEMI-OPERATIVI/fotosop/Pasted-image-20250108185829.png" width="500" height="auto" alt/>
+Il controller DMA può essere</li>
+<li>semplice(1 trasferimento per volta)</li>
+<li>complesso(+ trasferimenti)
+<ul>
+<li>inoltre possono essere più personalizzabili</li>
+<li>gestiscono più controller di dispositivi</li>
+</ul>
+</li>
+</ul>
+<h5 id="come-trasferisco-i-dati">Come trasferisco i dati?<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#come-trasferisco-i-dati" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<p>tutti i blocchi citati riguardano un conflitto di bus</p>
+<ul>
+<li>cycle stealing: invio un pacchetto alla volta rubando cicli alla cpu, perché ogni volta la interpello</li>
+<li>modalità burst: invia tutto con una botta rubando il bus per quel tempo</li>
+<li>fly by mode: trasferisce direttamente alla memoria principale senza cpu usando semafori mutex o roba cosi</li>
+</ul>
+<h3 id="come-arriva-linterrupt">Come arriva l’interrupt<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#come-arriva-linterrupt" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>trap, azione deliberata, expected</li>
+<li>fault, azione non deliberata, unexpected</li>
+<li>interrupt hardware segnali inviati da dispositivi come stampanti alla CPU
+l’interrupt viene gestito da un controller
+se ho piu interrupt li gestisco con delle code e algoritmi
+<img src="../../../UNI/ANNO-2/SISTEMI-OPERATIVI/fotosop/Pasted-image-20250108192445.png" width="500" height="auto" alt/></li>
+</ul>
+<h4 id="step-interrupt">STEP interrupt<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#step-interrupt" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>un dispositivo richiede attenzione alla CPU inviando un interrupt alla CPU, il controller assegna un numero a quel dispositivo per identificarlo</li>
+<li>la CPU interrompe ciò che fa e ha un vettore degli interrupt dove ad ogni numero corrisponde un indirizzo di quello che deve eseguire a seconda dell’interrupt. Quando un dispositivo corrisponde a un numero la CPU prende quel numero e lo confronta con l’array e esegue quella determinata riga di codice</li>
+<li>sfrutta il vettore degli interrupt, per eseguire una procedura puntando alla sua base</li>
+<li>una volta eseguita tutta la routine quindi procedura ecc… la cpu scrive nel controller degli interrupt per dire che ha finito questo è utile per evitare race conditions ovvero conflitti</li>
+<li>il program counter deve essere salvato per far riprendere la CPU ciò che stava facendo</li>
+<li>le informazioni dai dispositivi di I/O viene salvato nei registri interni o sullo stack</li>
+<li>ci sono due tipi di stack, uno nel kernel uno invece che appartiene al processo utente, con quello utente si possono creare errori, quello del kernel richiede cambi di contesto che rallentano un po’ le cose</li>
+</ol>
+<h3 id="interrupt-precisi-vs-imprecisi">interrupt precisi vs imprecisi<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#interrupt-precisi-vs-imprecisi" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p><img src="../../../UNI/ANNO-2/SISTEMI-OPERATIVI/fotosop/Pasted-image-20250109102914.png" width="auto" height="auto" alt/>
+la CPU grazie a pipeline può gestire più processi senza che debbano per forza finire
+questo complica la gestione degli interrupt
+abbiamo due tipi di interrupt:</p>
+<ol>
+<li>interrupt precisi: il sistema quando avviene un interrupt può determinare con esattezza quali istruzioni sono state completate</li>
+<li>interrupt imprecisi: salviamo gli stati di completamento degli interrupt non sapendo effettivamente lo stato del programma
+con gli interrupt precisi:</li>
+</ol>
+<ul>
+<li>forzo che le istruzioni terminino</li>
+<li>tutte le istruzioni prima del program counter sono state eseguite</li>
+<li>la CPU annulla tutti gli effetti transitori eseguiti dopo il PC, per evitare azioni non prevedibili</li>
+<li>quando avviene un interrupt vengono completate tutte le istruzioni prima di quella che stava per fare la CPU così si ha uno stato definito
+con gli interrupt imprecisi:</li>
+<li>ogni istruzione viene lacciata con uno stato di completamento</li>
+<li>salvare tutti questi stati rallenta il computer</li>
+<li>non tutti gli effetti sono completamente annullati</li>
+</ul></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc desktop-only"><button type="button" class="toc-header" aria-controls="toc-205" aria-expanded="true"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-1" class="toc-content overflow"><li class="depth-0"><a href="#principi-dellhardware-di-io" data-for="principi-dellhardware-di-io">PRINCIPI DELL’HARDWARE DI I/O</a></li><li class="depth-2"><a href="#dispositivi-io" data-for="dispositivi-io">DISPOSITIVI I/O</a></li><li class="depth-2"><a href="#ci-sono-due-macro-categorie-di-dispositivi-di-io" data-for="ci-sono-due-macro-categorie-di-dispositivi-di-io">Ci sono due macro categorie di dispositivi di I/O:</a></li><li class="depth-2"><a href="#velocita-dei-dispositivi-che-hanno-impatti-importanti" data-for="velocita-dei-dispositivi-che-hanno-impatti-importanti">Velocita dei dispositivi che hanno impatti importanti</a></li><li class="depth-1"><a href="#panoramica-generale-dei-dispositivi-e-i-vari-controller" data-for="panoramica-generale-dei-dispositivi-e-i-vari-controller">panoramica generale dei dispositivi e i vari controller</a></li><li class="depth-2"><a href="#standard-delle-interfacce" data-for="standard-delle-interfacce">Standard delle interfacce</a></li><li class="depth-1"><a href="#interfacce-di-basso-livello" data-for="interfacce-di-basso-livello">interfacce di basso livello</a></li><li class="depth-1"><a href="#una-vecchia-porta-parallela" data-for="una-vecchia-porta-parallela">Una vecchia porta parallela</a></li><li class="depth-1"><a href="#porta-usb" data-for="porta-usb">porta usb</a></li><li class="depth-2"><a href="#tabella-di-porte-usb" data-for="tabella-di-porte-usb">tabella di porte usb</a></li><li class="depth-2"><a href="#un-disco-hdd-come-è-fatto" data-for="un-disco-hdd-come-è-fatto">un disco hdd come è fatto</a></li><li class="depth-1"><a href="#come-comunicano-dispositivi-e-cpu" data-for="come-comunicano-dispositivi-e-cpu">Come comunicano dispositivi e CPU</a></li><li class="depth-1"><a href="#come-avviene-importante" data-for="come-avviene-importante">Come avviene? importante</a></li><li class="depth-2"><a href="#direct-memory-access" data-for="direct-memory-access">Direct memory access</a></li><li class="depth-2"><a href="#come-arriva-linterrupt" data-for="come-arriva-linterrupt">Come arriva l’interrupt</a></li><li class="depth-2"><a href="#interrupt-precisi-vs-imprecisi" data-for="interrupt-precisi-vs-imprecisi">interrupt precisi vs imprecisi</a></li><li class="overflow-end"></li></ul></div><div class="backlinks"><h3>Backlinks</h3><ul id="list-2" class="overflow"><li><a href="../../../UNI/ANNO-2/SISTEMI-OPERATIVI/SISTEMI-OPERATIVI-E-RETI-INDICE" class="internal">SISTEMI OPERATIVI E RETI INDICE</a></li><li class="overflow-end"></li></ul></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.5.2</a> © 2025</p><ul><li><a href="https://github.com/jackyzha0/quartz">GitHub</a></li><li><a href="https://discord.gg/cRFFHYye7t">Discord Community</a></li></ul></footer></div></div></body><script type="application/javascript">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module">function f(i,e){if(!i)return;function r(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function t(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}i?.addEventListener("click",r),window.addCleanup(()=>i?.removeEventListener("click",r)),document.addEventListener("keydown",t),window.addCleanup(()=>document.removeEventListener("keydown",t))}function y(i){for(;i.firstChild;)i.removeChild(i.firstChild)}var h=class{constructor(e,r){this.container=e;this.content=r;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),r=this.onMouseMove.bind(this),t=this.onMouseUp.bind(this),o=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",r),document.addEventListener("mouseup",t),window.addEventListener("resize",o),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",r),()=>document.removeEventListener("mouseup",t),()=>window.removeEventListener("resize",o))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let r=this.createButton("+",()=>this.zoom(.1)),t=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(t),e.appendChild(o),e.appendChild(r),this.container.appendChild(e)}createButton(e,r){let t=document.createElement("button");return t.textContent=e,t.className="mermaid-control-button",t.addEventListener("click",r),window.addCleanup(()=>t.removeEventListener("click",r)),t}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}zoom(e){let r=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),t=this.content.getBoundingClientRect(),o=t.width/2,n=t.height/2,c=r-this.scale;this.currentPan.x-=o*c,this.currentPan.y-=n*c,this.scale=r,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){this.scale=1;let e=this.content.querySelector("svg");this.currentPan={x:e.getBoundingClientRect().width/2,y:e.getBoundingClientRect().height/2},this.updateTransform()}},C=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],E;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;E||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let r=E.default,t=new WeakMap;for(let n of e)t.set(n,n.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let a=t.get(s);a&&(s.innerHTML=a)}let n=C.reduce((s,a)=>(s[a]=window.getComputedStyle(document.documentElement).getPropertyValue(a),s),{}),c=document.documentElement.getAttribute("saved-theme")==="dark";r.initialize({startOnLoad:!1,securityLevel:"loose",theme:c?"dark":"base",themeVariables:{fontFamily:n["--codeFont"],primaryColor:n["--light"],primaryTextColor:n["--darkgray"],primaryBorderColor:n["--tertiary"],lineColor:n["--darkgray"],secondaryColor:n["--secondary"],tertiaryColor:n["--tertiary"],clusterBkg:n["--light"],edgeLabelBackground:n["--highlight"]}}),await r.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let n=0;n<e.length;n++){let v=function(){let g=l.querySelector("#mermaid-space"),m=l.querySelector(".mermaid-content");if(!m)return;y(m);let w=c.querySelector("svg").cloneNode(!0);m.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new h(g,m)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},c=e[n],s=c.parentElement,a=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(a),L=a.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),f(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript"></script><script src="../../../postscript.js" type="module"></script></html>

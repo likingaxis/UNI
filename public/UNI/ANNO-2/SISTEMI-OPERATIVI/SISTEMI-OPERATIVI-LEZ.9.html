@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><title>SISTEMI OPERATIVI LEZ.9</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="Quartz 4"/><meta property="og:title" content="SISTEMI OPERATIVI LEZ.9"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="SISTEMI OPERATIVI LEZ.9"/><meta name="twitter:description" content="iniziamo vedendo C C nasce da Ritchie nel 1972 per sviluppare programmi UNIX ricordiamo che alcune caratteristiche di UNIX sono ancora in circolazione come everything is a file Quando avviamo un processo, in modo predefinito si aprono questi 3 file(stream) sono numerati, e sono dei file descriptor N..."/><meta property="og:description" content="iniziamo vedendo C C nasce da Ritchie nel 1972 per sviluppare programmi UNIX ricordiamo che alcune caratteristiche di UNIX sono ancora in circolazione come everything is a file Quando avviamo un processo, in modo predefinito si aprono questi 3 file(stream) sono numerati, e sono dei file descriptor N..."/><meta property="og:image:alt" content="iniziamo vedendo C C nasce da Ritchie nel 1972 per sviluppare programmi UNIX ricordiamo che alcune caratteristiche di UNIX sono ancora in circolazione come everything is a file Quando avviamo un processo, in modo predefinito si aprono questi 3 file(stream) sono numerati, e sono dei file descriptor N..."/><meta property="twitter:domain" content="quartz.jzhao.xyz"/><meta property="og:url" content="https://quartz.jzhao.xyz/UNI/ANNO-2/SISTEMI-OPERATIVI/SISTEMI-OPERATIVI-LEZ.9"/><meta property="twitter:url" content="https://quartz.jzhao.xyz/UNI/ANNO-2/SISTEMI-OPERATIVI/SISTEMI-OPERATIVI-LEZ.9"/><link rel="icon" href="../../../static/icon.png"/><meta name="description" content="iniziamo vedendo C C nasce da Ritchie nel 1972 per sviluppare programmi UNIX ricordiamo che alcune caratteristiche di UNIX sono ancora in circolazione come everything is a file Quando avviamo un processo, in modo predefinito si aprono questi 3 file(stream) sono numerati, e sono dei file descriptor N..."/><meta name="generator" content="Quartz"/><link href="../../../index.css" rel="stylesheet" type="text/css" spa-preserve/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  padding: 2rem;
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiQzpcXFVzZXJzXFxMdWNhXFxEZXNrdG9wXFxVTkkgTlVPVk9cXHF1YXJ0elxccXVhcnR6XFxjb21wb25lbnRzXFxzdHlsZXMiLCJzb3VyY2VzIjpbIm1lcm1haWQuaW5saW5lLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7O0FBR0Y7RUFDRTtFQUNBOztBQUdGO0VBQ0U7OztBQUtGO0VBQ0U7RUFDQTs7O0FBSUo7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTs7QUFHRjtFQUNFO0VBQ0E7O0FBSUo7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7O0FBSUY7RUFDRTtFQUNBO0VBQ0EiLCJzb3VyY2VzQ29udGVudCI6WyIuZXhwYW5kLWJ1dHRvbiB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxvYXQ6IHJpZ2h0O1xuICBwYWRkaW5nOiAwLjRyZW07XG4gIG1hcmdpbjogMC4zcmVtO1xuICByaWdodDogMDsgLy8gTk9URTogcmlnaHQgd2lsbCBiZSBzZXQgaW4gbWVybWFpZC5pbmxpbmUudHNcbiAgY29sb3I6IHZhcigtLWdyYXkpO1xuICBib3JkZXItY29sb3I6IHZhcigtLWRhcmspO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1saWdodCk7XG4gIGJvcmRlcjogMXB4IHNvbGlkO1xuICBib3JkZXItcmFkaXVzOiA1cHg7XG4gIG9wYWNpdHk6IDA7XG4gIHRyYW5zaXRpb246IDAuMnM7XG5cbiAgJiA+IHN2ZyB7XG4gICAgZmlsbDogdmFyKC0tbGlnaHQpO1xuICAgIGZpbHRlcjogY29udHJhc3QoMC4zKTtcbiAgfVxuXG4gICY6aG92ZXIge1xuICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICBib3JkZXItY29sb3I6IHZhcigtLXNlY29uZGFyeSk7XG4gIH1cblxuICAmOmZvY3VzIHtcbiAgICBvdXRsaW5lOiAwO1xuICB9XG59XG5cbnByZSB7XG4gICY6aG92ZXIgPiAuZXhwYW5kLWJ1dHRvbiB7XG4gICAgb3BhY2l0eTogMTtcbiAgICB0cmFuc2l0aW9uOiAwLjJzO1xuICB9XG59XG5cbiNtZXJtYWlkLWNvbnRhaW5lciB7XG4gIHBvc2l0aW9uOiBmaXhlZDtcbiAgY29udGFpbjogbGF5b3V0O1xuICB6LWluZGV4OiA5OTk7XG4gIGxlZnQ6IDA7XG4gIHRvcDogMDtcbiAgd2lkdGg6IDEwMHZ3O1xuICBoZWlnaHQ6IDEwMHZoO1xuICBvdmVyZmxvdzogaGlkZGVuO1xuICBkaXNwbGF5OiBub25lO1xuICBiYWNrZHJvcC1maWx0ZXI6IGJsdXIoNHB4KTtcbiAgYmFja2dyb3VuZDogcmdiYSgwLCAwLCAwLCAwLjUpO1xuXG4gICYuYWN0aXZlIHtcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIH1cblxuICAmID4gI21lcm1haWQtc3BhY2Uge1xuICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbGlnaHQpO1xuICAgIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgICBwb3NpdGlvbjogZml4ZWQ7XG4gICAgdG9wOiA1MCU7XG4gICAgbGVmdDogNTAlO1xuICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlKC01MCUsIC01MCUpO1xuICAgIGhlaWdodDogODB2aDtcbiAgICB3aWR0aDogODB2dztcbiAgICBvdmVyZmxvdzogaGlkZGVuO1xuXG4gICAgJiA+IC5tZXJtYWlkLWNvbnRlbnQge1xuICAgICAgcGFkZGluZzogMnJlbTtcbiAgICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICAgIHRyYW5zZm9ybS1vcmlnaW46IDAgMDtcbiAgICAgIHRyYW5zaXRpb246IHRyYW5zZm9ybSAwLjFzIGVhc2U7XG4gICAgICBvdmVyZmxvdzogdmlzaWJsZTtcbiAgICAgIG1pbi1oZWlnaHQ6IDIwMHB4O1xuICAgICAgbWluLXdpZHRoOiAyMDBweDtcblxuICAgICAgcHJlIHtcbiAgICAgICAgbWFyZ2luOiAwO1xuICAgICAgICBib3JkZXI6IG5vbmU7XG4gICAgICB9XG5cbiAgICAgIHN2ZyB7XG4gICAgICAgIG1heC13aWR0aDogbm9uZTtcbiAgICAgICAgaGVpZ2h0OiBhdXRvO1xuICAgICAgfVxuICAgIH1cblxuICAgICYgPiAubWVybWFpZC1jb250cm9scyB7XG4gICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgICBib3R0b206IDIwcHg7XG4gICAgICByaWdodDogMjBweDtcbiAgICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgICBnYXA6IDhweDtcbiAgICAgIHBhZGRpbmc6IDhweDtcbiAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0KTtcbiAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICBib3JkZXItcmFkaXVzOiA2cHg7XG4gICAgICBib3gtc2hhZG93OiAwIDJweCA0cHggcmdiYSgwLCAwLCAwLCAwLjEpO1xuICAgICAgei1pbmRleDogMjtcblxuICAgICAgLm1lcm1haWQtY29udHJvbC1idXR0b24ge1xuICAgICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgICAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgICAgICAgd2lkdGg6IDMycHg7XG4gICAgICAgIGhlaWdodDogMzJweDtcbiAgICAgICAgcGFkZGluZzogMDtcbiAgICAgICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHQpO1xuICAgICAgICBjb2xvcjogdmFyKC0tZGFyayk7XG4gICAgICAgIGJvcmRlci1yYWRpdXM6IDRweDtcbiAgICAgICAgY3Vyc29yOiBwb2ludGVyO1xuICAgICAgICBmb250LXNpemU6IDE2cHg7XG4gICAgICAgIGZvbnQtZmFtaWx5OiB2YXIoLS1ib2R5Rm9udCk7XG4gICAgICAgIHRyYW5zaXRpb246IGFsbCAwLjJzIGVhc2U7XG5cbiAgICAgICAgJjpob3ZlciB7XG4gICAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgICAgfVxuXG4gICAgICAgICY6YWN0aXZlIHtcbiAgICAgICAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoMXB4KTtcbiAgICAgICAgfVxuXG4gICAgICAgIC8vIFN0eWxlIHRoZSByZXNldCBidXR0b24gZGlmZmVyZW50bHlcbiAgICAgICAgJjpudGgtY2hpbGQoMikge1xuICAgICAgICAgIHdpZHRoOiBhdXRvO1xuICAgICAgICAgIHBhZGRpbmc6IDAgMTJweDtcbiAgICAgICAgICBmb250LXNpemU6IDE0cHg7XG4gICAgICAgIH1cbiAgICAgIH1cbiAgICB9XG4gIH1cbn1cbiJdfQ== */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" spa-preserve/><script src="../../../prescript.js" type="application/javascript" spa-preserve></script><script type="application/javascript" spa-preserve>const fetchData = fetch("../../../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://quartz.jzhao.xyz/index.xml"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://quartz.jzhao.xyz/UNI/ANNO-2/SISTEMI-OPERATIVI/SISTEMI-OPERATIVI-LEZ.9-og-image.webp"/><meta property="og:image:url" content="https://quartz.jzhao.xyz/UNI/ANNO-2/SISTEMI-OPERATIVI/SISTEMI-OPERATIVI-LEZ.9-og-image.webp"/><meta name="twitter:image" content="https://quartz.jzhao.xyz/UNI/ANNO-2/SISTEMI-OPERATIVI/SISTEMI-OPERATIVI-LEZ.9-og-image.webp"/><meta property="og:image:type" content="image/.webp"/></head><body data-slug="UNI/ANNO-2/SISTEMI-OPERATIVI/SISTEMI-OPERATIVI-LEZ.9"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="../../..">Quartz 4</a></h2><div class="spacer mobile-only"></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>Search</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="Search for something" placeholder="Search for something"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="Reader mode"><title>Reader mode</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a,b)=>!a.isFolder&amp;&amp;!b.isFolder||a.isFolder&amp;&amp;b.isFolder?a.displayName.localeCompare(b.displayName,void 0,{numeric:!0,sensitivity:\&quot;base\&quot;}):!a.isFolder&amp;&amp;b.isFolder?1:-1&quot;,&quot;filterFn&quot;:&quot;node=>node.slugSegment!==\&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;node=>node&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-358"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>Explorer</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-358" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#"></a></li></template><template id="template-folder"><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../../../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../UNI/">UNI</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../UNI/ANNO-2/">ANNO 2</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../UNI/ANNO-2/SISTEMI-OPERATIVI/">SISTEMI OPERATIVI</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>SISTEMI OPERATIVI LEZ.9</a></div></nav><h1 class="article-title">SISTEMI OPERATIVI LEZ.9</h1><p show-comma="true" class="content-meta"><time datetime="2025-10-13T15:42:40.000Z">Oct 13, 2025</time><span>19 min read</span></p></div></div><article class="popover-hint"><h4 id="iniziamo-vedendo-c">iniziamo vedendo C<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#iniziamo-vedendo-c" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>C nasce da Ritchie nel 1972 per sviluppare programmi UNIX</p>
+<ul>
+<li>ricordiamo che alcune caratteristiche di UNIX sono ancora in circolazione come everything is a file
+Quando avviamo un processo, in modo predefinito si aprono questi 3 file(stream)</li>
+<li>sono numerati, e sono dei file descriptor</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><center>Nome</center></th><th><center>Nome abbreviato</center></th><th><center>Numero del file</center></th><th><center>Descrizione</center></th></tr></thead><tbody><tr><td><center>Standard in</center></td><td><center>stdin</center></td><td><center>0</center></td><td><center>Input dalla tastiera</center></td></tr><tr><td><center>Standard out</center></td><td><center>stdout</center></td><td><center>1</center></td><td><center>Output alla console</center></td></tr><tr><td><center>Standard Error</center></td><td><center>stderr</center></td><td><center>2</center></td><td><center>Errore di output</center></td></tr><tr><td>Per illustrare il concetto di chiamate di sistema, possiamo stampare “Hello World!” utilizzando diversi metodi:</td><td></td><td></td><td></td></tr></tbody></table></div>
+<h5 id="metodo-1il-classico">Metodo 1(il classico)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#metodo-1il-classico" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<p><strong>Usando <code>printf</code>:</strong></p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="c" data-theme="github-light github-dark"><code data-language="c" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">#include</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> &lt;stdio.h></span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">int</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> main</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">int</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;"> argc</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">char</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> **</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">argv</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">) {</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">   printf</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;Hello World!</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">\n</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">);</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">   return</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> 0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">}</span></span></code></pre></figure>
+<p>per eseguire un programma in c faremmo
+<code>./programma arg1 arg2 arg3</code>
+oppure
+<code>./programma ciao a tutti</code></p>
+<ul>
+<li><code>argc</code>(argument count), conta quante parole(argomenti) scriviamo su riga di comando contando anche la chiamata del programma stesso <code>./programma</code></li>
+<li><code>**argv</code> (argument vector), è un array di puntatori dove ogni puntatore punta a una stringa di ciascun argomento
+<ul>
+<li><code>argv[0]</code> sarà <code>./programma</code> (nome del programma).</li>
+<li><code>argv[1]</code> sarà <code>ciao</code>.</li>
+<li><code>argv[2]</code> sarà <code>a</code>.</li>
+<li><code>argv[3]</code> sarà <code>tutti</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="build-process">Build Process<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#build-process" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Abbiamo 4 principali step</p>
+<ol>
+<li>Ho i miei file c e le mie librerie e le do in input al pre preprocessore C</li>
+<li>Il compilatore C riceve dal preprocessore un file dopo aver fatto una rapida lettura e aver interpretato(condizioni, librerie, costanti ecc…) per evitargli intoppi</li>
+<li>Il compilatore dopo aver compilato il codice butterà in output dei file in linguaggio macchina</li>
+<li>Questi file saranno tutti uniti da un linker che creerà il vero e proprio eseguibile prendendo e mettendo in comune funzioni, variabili ecc…
+<img src="../../../UNI/ANNO-2/SISTEMI-OPERATIVI/fotosop/Pasted-image-20241107185510.png" width="400" height="auto" alt/></li>
+</ol>
+<h5 id="metodo-2usando-chiamate-di-sistema-in-modo-astratto">Metodo 2(usando chiamate di sistema in modo astratto)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#metodo-2usando-chiamate-di-sistema-in-modo-astratto" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<p><strong>Usando la chiamata di sistema <code>write</code>:</strong></p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="c" data-theme="github-light github-dark"><code data-language="c" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">#include</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> &lt;unistd.h></span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">#define</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> STDOUT</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> 1</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">int</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> main</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">int</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;"> argc</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">char</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> **</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">argv</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">) {</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">   char</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> msg</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">[]</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> =</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> &quot;Hello World! </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">\n</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">;</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">   write</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(STDOUT,msg,</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">sizeof</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(msg));</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">   return</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> 0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">}</span></span></code></pre></figure>
+<ul>
+<li>per fare chiamate di sistema usiamo <code>unistd.h</code> una libreria che consente di gestire operazioni a basso livello</li>
+<li>definiamo una costante <code>STDOUT</code> per un uso più semplice nella write</li>
+<li>creiamo una stringa di caratteri per mettere <code>hello world...</code></li>
+<li>definiamo la funzione <code>write</code> che scrive in un determinato file, accetta 3 parametri fondamentali
+<ul>
+<li>il file descriptor, ovvero un intero che identifica un determinato file, i primi 3 sono già
+predefiniti e ogni file ha il suo, in questo caso usiamo 1 perché vogliamo scrivere alla console</li>
+<li>il secondo è la stringa o la cosa che vogliamo stampare</li>
+<li>la terza è la dimensione specifica che ha il messaggio che vogliamo stampare</li>
+</ul>
+</li>
+</ul>
+<h4 id="metodo-3usando-chiamate-di-sistema-ma-in-modo-meno-astratto">Metodo 3(usando chiamate di sistema ma in modo meno astratto)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#metodo-3usando-chiamate-di-sistema-ma-in-modo-meno-astratto" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>utilizziamo una libreria per effettuare delle <code>syscall</code> in modo diretto</p>
+<h6 id="unistdh-vs-syscallh"><code>unistd.h</code> vs <code>syscall.h</code><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#unistdh-vs-syscallh" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h6>
+<p>sembra che facciano le stesse cose solo che <code>unistd.h</code> è più astratto e meno diretto e semplice</p>
+<ul>
+<li>in <code>unistd.h</code> avrò read write ecc come funzioni</li>
+<li>in <code>syscall.h</code> devo usare il numero di chiamata di sistema e sarà più diretto</li>
+</ul>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="c" data-theme="github-light github-dark"><code data-language="c" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">#include</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> &lt;unistd.h></span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">#include</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> &lt;stdio.h></span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">#include</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> &lt;sys/syscall.h></span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">#define</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> STDOUT</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> 1</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">int</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> main</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">int</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;"> argc</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">char</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> **</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">argv</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">) {</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">   char</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> msg</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">[]</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> =</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> &quot;Hello World! </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">\n</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">;</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">   int</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> nr </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> SYS_write;</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">   syscall</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(nr, STDOUT, msg , </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">sizeof</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(msg));</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">   return</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> 0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">}</span></span></code></pre></figure>
+<p>senza che ripetiamo le altre cose arriviamo al dunque</p>
+<ul>
+<li>includiamo la libreria <code>syscall.h</code></li>
+<li>definiamo <code>nr</code>, sarà il numero di chiamata di sistema da fare, ci sono tipo <code>read open write..</code></li>
+<li>effettuo la <code>syscall</code> che accetta di solito i seguenti argomenti:
+<ul>
+<li>numero di chiamata di sistema in questo riguarda write</li>
+<li>il descrittore di file da utilizzare</li>
+<li>il messaggio</li>
+<li>la dimensione</li>
+</ul>
+</li>
+</ul>
+<blockquote class="callout info is-collapsible is-collapsed" data-callout="info" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>piccola nota sui descrittori </p></div>
+                  <div class="fold-callout-icon"></div>
+                </div>
+<div class="callout-content">
+<p>da quello che ho capito i descrittori identificano su quale file fare operazioni in stream
+come read write ecc…</p>
+<ul>
+<li>stream tipo una porzione di file continua dove passiamo le informazioni</li>
+</ul>
+</div>
+</blockquote>
+<h4 id="libc-e-syscall">Libc e Syscall<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#libc-e-syscall" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p><code>Libc</code> è una libreria standard del linguaggio C che fornisce molte funzionalità per facilitare lo sviluppo di programmi; include dei <strong>wrapper</strong> per semplificare l’uso delle syscall.
+I wrapper sono funzioni che “impacchettano” la chiamata a basso livello alle syscall per permetterti di usarle in un modo più semplice e leggibile.</p>
+<p>Quando non si usa <code>Libc</code> è necessario fare uso diretto delle syscall. Ci sono due modi:</p>
+<ul>
+<li>Utilizzare la funzione <strong>syscall()</strong>.</li>
+<li>Usare l’istruzione <strong><code>int 0x80</code></strong>, che è un’istruzione in linguaggio assembly specifica per effettuare una syscall in sistemi Linux a 32 bit.</li>
+</ul>
+<h5 id="syscall-note">Syscall note<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#syscall-note" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<p><a href="https://filippo.io/linux-syscall-table/" class="external">clicca qui per vederle tutte<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>
+<img src="../../../UNI/ANNO-2/SISTEMI-OPERATIVI/fotosop/Pasted-image-20241108183452.png" width="600" height="auto" alt/></p>
+<h3 id="differenza-tra-i-3">Differenza tra i 3<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#differenza-tra-i-3" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<blockquote class="callout question is-collapsible is-collapsed" data-callout="question" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>ma quindi cosa cambia tra queste 3 cose? </p></div>
+                  <div class="fold-callout-icon"></div>
+                </div>
+<div class="callout-content">
+<h3 id="riepilogo-della-differenza">Riepilogo della Differenza:<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#riepilogo-della-differenza" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ol>
+<li>
+<p><strong><code>libc</code></strong>: è una libreria che contiene varie funzioni standard in c come <code>malloc, printf...</code> e anche chiamate POSIX</p>
+</li>
+<li>
+<p><strong><code>unistd.h</code></strong>: è un file di intestazione(un file che ha delle funzioni costanti ecc…) che dichiara funzioni POSIX come <code>write, read e fork</code>, è un sottoinsieme di <code>libc</code> che serve solo per semplificare alcune chiamate POSIX</p>
+</li>
+<li>
+<p><strong><code>syscall.h</code></strong>: consente di effettuare delle chiamate di sistema direttamente  al kernel senza passaggi, è decisamente più a basso livello delle altre</p>
+</li>
+</ol>
+</div>
+</blockquote>
+<blockquote class="callout question is-collapsible is-collapsed" data-callout="question" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>cosa è un file di intestazione? </p></div>
+                  <div class="fold-callout-icon"></div>
+                </div>
+<div class="callout-content">
+<p>un file di intestazione ha al suo interno prototipi di funzioni di altre librerie e costanti.
+consente di fare da intermediario tra il codice scritto dal programmatore e le varie librerie.</p>
+<ul>
+<li>mostra solo quali strutture e funzioni sono disponibili</li>
+<li>La <strong>dichiarazione</strong> in un header è essenziale per il compilatore perché gli permette di verificare la <strong>correttezza dei parametri</strong> e fare in modo che il codice venga compilato senza errori.</li>
+<li>ci permette di leggere funzioni e parametri senza andare a leggere il codice</li>
+<li>dobbiamo dichiarare le librerie comunque</li>
+</ul>
+</div>
+</blockquote>
+<blockquote class="callout question is-collapsible is-collapsed" data-callout="question" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>cosa sono i wrapper? </p></div>
+                  <div class="fold-callout-icon"></div>
+                </div>
+<div class="callout-content">
+<p>Non sono dei cantanti xD
+si chiamano così quelle funzioni che implementano altre funzioni ma le migliorano “aggiungendo” cose</p>
+<ul>
+<li>in pratica, un wrapper è una sorta di “strato” di codice che si trova <strong>intorno</strong> a un’altra funzione
+un esempio è tipo una funzione che fa delle equazioni e tu gli aggiungi una funzione che fa da wrapper e magari stampa il log di quella funzione con tutti i passaggi che fa</li>
+</ul>
+</div>
+</blockquote>
+<h3 id="la-attraversata-del-croce">La <strong><font color="#d83931">ATTRAVERSATA</font></strong> del Croce<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#la-attraversata-del-croce" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Come abbiamo detto in precedenza syscall è la versione più a basso livello delle altre funzioni che abbiamo visto, ora vedremo dei passaggi da <strong>read della libreria <code>libc</code><span>→</span> <code>syscall</code></strong></p>
+<ul>
+<li>elenco dei passaggi</li>
+<li>alcuni punti saranno approssimati per rendere l’idea</li>
+</ul>
+<h5 id="tutti-i-passaggi-da-read-a-sys_read">Tutti i passaggi da <code>read()</code> a <code>sys_read()</code><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#tutti-i-passaggi-da-read-a-sys_read" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<ol>
+<li>
+<p><strong>Funzione <code>read()</code> in <code>glibc</code></strong></p>
+<ul>
+<li>All’interno della libreria <code>glibc</code>(implementazione della <code>libc</code>) è presente un wrapper chiamato <code>read()</code>.
+<ul>
+<li>La sua implementazione si trova nel file <code>read.c</code> all’interno della libreria <code>glibc</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Macro <code>SYSCALL_CANCEL</code></strong></p>
+<ul>
+<li>Dentro la funzione <code>read()</code>, per effettuare effettivamente la chiamata di sistema, viene utilizzata una macro chiamata <code>SYSCALL_CANCEL</code>, garantisce che una <code>syscall</code> possa essere “cancellata” senza compromettere il comportamento del programma.
+<ul>
+<li>La sua implementazione si trova nel file <code>sysdep.h</code>.</li>
+<li>si chiama con il <code>#define</code> ed è tipo una funzione</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Macro <code>INTERNAL_SYSCALL</code></strong></p>
+<ul>
+<li>La macro <code>SYSCALL_CANCEL</code> utilizza a sua volta <code>INTERNAL_SYSCALL</code>, che si occupa di configurare i registri del processore, per fare il passaggio di parametri al kernel quando chiamiamo <code>syscall</code>
+<ul>
+<li>La definizione di questa macro si trova anch’essa in <code>sysdep.h</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Punto di ingresso nel kernel (<code>entry_SYSCALL_64</code>)</strong></p>
+<ul>
+<li>Quando l’istruzione <code>syscall</code> viene eseguita, il processore cambia modalità(cambio di contesto), passando dall’esecuzione in spazio utente a quella in spazio kernel. Il primo punto in cui il kernel gestisce questa richiesta è la funzione <code>entry_SYSCALL_64</code>, scritta in assembly e definita nel file <code>entry_64.S</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Funzione <code>do_syscall_64</code></strong></p>
+<ul>
+<li>Dopo essere entrati nel kernel tramite <code>entry_SYSCALL_64</code>, la funzione <code>do_syscall_64</code> prende in carico la richiesta. Questa funzione, scritta in C, ha il compito di determinare quale funzione specifica del kernel deve essere chiamata, basandosi sul numero della syscall che è stato passato (ad esempio, il numero 0 corrisponde alla syscall <code>read</code>).
+<ul>
+<li>La definizione di questa funzione si trova nel file <code>common.c</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Tabella delle syscall (<code>sys_call_table</code>)</strong></p>
+<ul>
+<li>Per sapere quale funzione del kernel deve essere eseguita, <code>do_syscall_64</code> consulta la tabella delle syscall, chiamata <code>sys_call_table</code>. Questa tabella mappa i numeri delle syscall alle rispettive funzioni. Per la syscall <code>read</code>, il numero è 0, e la tabella lo collega alla funzione <code>__x64_sys_read</code>.
+<ul>
+<li>La tabella si trova nel file <code>syscall_64.tbl</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Funzione <code>__x64_sys_read</code></p>
+<ul>
+<li>Questa funzione è un wrapper per la logica vera e propria della syscall <code>read</code>, implementata internamente in un’altra funzione chiamata <code>ksys_read</code>, che contiene il codice che interagisce con il file system per leggere effettivamente i dati richiesti.
+<ul>
+<li>La funzione <code>__x64_sys_read</code> è implementata nel file <code>read_write.c</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p><img src="../../../UNI/ANNO-2/SISTEMI-OPERATIVI/fotosop/Pasted-image-20241108202513.png" width="auto" height="auto" alt/></p>
+<h2 id="creazione-dei-processi">CREAZIONE DEI PROCESSI<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#creazione-dei-processi" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h4 id="cerchiamo-attraverso-delle-funzioni-in-librerie-di-creare-una-shell-minimale">Cerchiamo attraverso delle funzioni in librerie di creare una shell minimale<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#cerchiamo-attraverso-delle-funzioni-in-librerie-di-creare-una-shell-minimale" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>quali sono le funzionalità BASILARI di una shell?
+<ol>
+<li><strong><font color="#00b0f0">Attende un comando</font></strong>: La shell interagisce con l’utente e aspetta un input.</li>
+<li><strong><font color="#d83931">Crea un processo</font></strong>: Quando l’utente digita un comando, la shell utilizza una chiamata di sistema, come <code>fork()</code>, per creare un nuovo processo.</li>
+<li><strong><font color="#de7802">Esegue e attende</font></strong>: Il processo esegue il comando (usando <code>execv()</code>) e la shell aspetta che termini (con <code>wait()</code>).</li>
+</ol>
+</li>
+</ul>
+<p>intanto vediamo il 2 e il 3</p>
+<h4 id="1creazione-di-un-processo-e-wait">1.<font color="#d83931">Creazione di un processo</font> e <font color="#de7802">wait</font><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1creazione-di-un-processo-e-wait" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>abbiamo due funzioni</p>
+<ul>
+<li><code>pid_t fork</code>, duplica il processo corrente e ritorna 0 se è il figlio oppure il pid del figlio se è il padre
+<ul>
+<li>il fatto che ci sia 0 o il pid serve per differenziare le due cose</li>
+</ul>
+</li>
+<li><code>pid_t wait</code>, monitora un processo figlio modificando una variabile <code>status</code> che gli passiamo noi, quest’ultima verrà letta dal processo padre</li>
+</ul>
+<h5 id="codice-di-esempio">CODICE DI ESEMPIO<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#codice-di-esempio" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="c" data-theme="github-light github-dark"><code data-language="c" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">void</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> main</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">void</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">){</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">	int</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> pid, child_status;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">	</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">	if</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">fork</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">() </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">==</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> 0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">){</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">		fai_qualcosa_nel_figlio</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">();</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"> // una funzione non implementata ma esplicita</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">	}</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">	else</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">{</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">		wait</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">&amp;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">child_status);</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"> // il padre aspetta che il figlio cambi stato</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">	}</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">}</span></span></code></pre></figure>
+<ul>
+<li>vediamo il codice in c come se venisse eseguito da entrambe le parti, ovvero sia dal padre che dal figlio</li>
+<li>entrambi fanno la chiamata fork</li>
+<li>il processo padre usa wait e passa la variabile child status con <code>&amp;</code> per farla modificare</li>
+</ul>
+<h4 id="2creazione-di-un-processo-wait-e-execv">2.<font color="#d83931">Creazione di un processo</font>, <font color="#de7802">wait e execv</font><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#2creazione-di-un-processo-wait-e-execv" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p><code>execv</code> crea un nuovo processo sostituendolo a quello precedente facendolo cessare di esistere, eliminando le mappature in memoria del vecchio mettendo quelle del nuovo
+<strong>Non ritorna mai se ha successo</strong>:</p>
+<ul>
+<li>Se <code>execv()</code> ha successo, il nuovo programma viene eseguito immediatamente e <code>execv()</code> <strong>non ritorna mai</strong> al chiamante.</li>
+<li>Se fallisce (ad esempio, se il file indicato da <code>path</code> non esiste), restituisce un valore negativo e imposta <code>errno</code>.</li>
+</ul>
+<h5 id="codice-di-esempio-1">CODICE DI ESEMPIO<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#codice-di-esempio-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="c" data-theme="github-light github-dark"><code data-language="c" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">void</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> main</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">void</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">){</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">    int</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> pid, child_status;</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">    char</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> *</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">args</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">[]</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> {</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;/bin/ls&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;-l&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">NULL</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">};</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"> // Argomenti per execv()</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">    if</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">fork</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">() </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">==</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> 0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">) {</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"> // Creazione del processo figlio</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">        execv</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">args</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">[</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">], args);</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"> // Nel figlio: carica ed esegui il programma </span></span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">						      ///bin/ls con argomenti &quot;-l&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    } </span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">    else</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> {</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">        wait</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">&amp;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">child_status);</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"> // Nel genitore: aspetta che il figlio termini</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">}</span></span>
+<span data-line> </span></code></pre></figure>
+<ul>
+<li>per far funzionare <code>execv</code> doppiamo negli argomenti
+<ul>
+<li>passare il path del programma da eseguire(in questo caso quello in args)</li>
+<li>oltre a passare il path passiamo direttamente l’array di puntatori con le relative opzioni del comando</li>
+<li>l’ultima posizione di<code> args</code> deve essere <code>NULL</code> per definire la fine</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-creazione-di-un-processo-wait-execv-e-attesa-di-un-comando">3. <font color="#d83931">Creazione di un processo</font>, <font color="#de7802">wait, execv</font> e <font color="#00b0f0">attesa di un comando</font><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#3-creazione-di-un-processo-wait-execv-e-attesa-di-un-comando" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<h5 id="esempio-di-shell-minimale">Esempio di shell minimale<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#esempio-di-shell-minimale" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<p>Il seguente codice mostra il funzionamento di una <strong>shell minimale</strong>, ossia un programma che:</p>
+<h5 id="codice-di-esempio-2">CODICE DI ESEMPIO<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#codice-di-esempio-2" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="c" data-theme="github-light github-dark"><code data-language="c" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">while</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> (</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">) {</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">    char</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;"> cmd</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">[</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">256</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">], </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">*</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">args</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">[</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">256</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">];</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"> // Buffer per il comando e i suoi argomenti</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">    int</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> status;</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"> // Per memorizzare lo stato del processo figlio</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">    pid_t</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> pid;</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"> // Per memorizzare il PID del processo figlio</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">    read_command</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(cmd, args);</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"> // Legge il comando e gli argomenti dalla riga di </span></span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">                             // comando</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    pid </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> fork</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">();</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"> // Crea un nuovo processo figlio</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">    if</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> (pid </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">==</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> 0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">) {</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"> // Nel processo figlio</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">        execv</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(cmd, args);</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"> // Sostituisce il processo figlio con il programma </span></span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">                          // specificato</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">        exit</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">);</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"> // Esce con errore se execv fallisce</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    } </span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">    else</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> {</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">        wait</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">&amp;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">status);</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"> // Nel processo genitore: aspetta che il figlio termini</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">}</span></span></code></pre></figure>
+<ul>
+<li>l’unica cosa nuova è <code>read_command</code> che legge dalla riga di comando e modifica le variabili <code>cmd</code> e <code>args</code>,</li>
+<li><code>cmd</code> riceverà il path del programma da eseguire</li>
+<li><code>args</code> le opzioni con il NULL
+<ul>
+<li>se scrivo tipo <code>ls -l</code></li>
+<li>ls verrà convertito in un <code>path</code> da mettere in <code>cmd</code> <code>/bin/ls</code></li>
+<li>il <code>path</code> poi <code>-l</code> con <code>NULL</code> verrà messo in <code>args</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="come-terminare-i-programmi">Come terminare i programmi?<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#come-terminare-i-programmi" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>USO CTRL+C che sostanzialmente invia un segnale</p>
+<h2 id="i-segnali">I segnali<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#i-segnali" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<blockquote class="callout question is-collapsible is-collapsed" data-callout="question" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>Cos'è un segnale? </p></div>
+                  <div class="fold-callout-icon"></div>
+                </div>
+<div class="callout-content">
+<ul>
+<li>I <strong>segnali</strong> sono un meccanismo di comunicazione utilizzato in Unix/Linux per notificare ai processi eventi asincroni.</li>
+<li>Un segnale è come un messaggio che viene inviato al processo per avvisarlo di un evento specifico, ad esempio:
+<ul>
+<li>terminazione</li>
+<li>interruzzione</li>
+<li>errori vari</li>
+</ul>
+</li>
+</ul>
+</div>
+</blockquote>
+<ul>
+<li>ogni processo ha un suo signal handler che gestisce la ricezione dei segnali indirizzati ad esso</li>
+</ul>
+<h3 id="signal-alarm-kill">Signal, Alarm, Kill<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#signal-alarm-kill" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>sono in <code>signal.h</code>
+vedremo tutti prototipi in questo file header</p>
+<h4 id="signal">signal()<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#signal" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="c" data-theme="github-light github-dark"><code data-language="c" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">sighandler_t</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> signal</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">int</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;"> signum</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">sighandler_t</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;"> handler</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">);</span></span></code></pre></figure>
+<ul>
+<li><strong>Cosa fa</strong>: Registra un gestore di segnali (signal handler) per un segnale specifico.</li>
+<li><code>signum</code> intero che identifica il tipo di segnale, ad esempio
+<ul>
+<li><code>SIGINT</code>(interruzione)</li>
+<li><code>SIGTERM</code> (richiesta di terminazione)</li>
+<li><code>SIGKILL</code> (terminazione forzata)</li>
+</ul>
+</li>
+<li><code>handler</code>
+<ul>
+<li>dato di tipo <code>sighandler_t</code> un tipo di dato specifico per rappresentare un <strong>puntatore a funzione</strong> che può gestire un segnale.</li>
+<li>colleghiamo un handler al tipo di segnale definito</li>
+</ul>
+</li>
+</ul>
+<h4 id="alarm">alarm()<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#alarm" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="c" data-theme="github-light github-dark"><code data-language="c" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">unsigned</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> int</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> alarm</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">unsigned</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> int</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;"> seconds</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">);</span></span></code></pre></figure>
+<ul>
+<li><strong>Cosa fa</strong>: Imposta un timer che invia il segnale <code>SIGALRM</code> al processo dopo un certo numero di secondi.</li>
+<li><strong>Argomenti</strong>:
+<ul>
+<li><code>seconds</code>: Numero di secondi dopo i quali inviare il segnale.</li>
+</ul>
+</li>
+<li><strong>Comportamento</strong>:
+<ul>
+<li>Dopo che il timer scade, il processo riceve <code>SIGALRM</code>.</li>
+<li>Puoi gestire <code>SIGALRM</code> con un handler personalizzato o lasciare il comportamento predefinito.</li>
+<li>Se chiami <code>alarm(0)</code>, annulli il timer.</li>
+</ul>
+</li>
+</ul>
+<blockquote class="callout example is-collapsible is-collapsed" data-callout="example" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>ESEMPIO </p></div>
+                  <div class="fold-callout-icon"></div>
+                </div>
+<div class="callout-content">
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="c" data-theme="github-light github-dark"><code data-language="c" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">#include</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> &lt;stdio.h></span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">#include</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> &lt;signal.h></span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">#include</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> &lt;unistd.h></span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">#include</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> &lt;stdlib.h></span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">void</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> alarm_handler</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">int</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;"> signal</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">) {</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">   printf</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;In signal handler: caught signal </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">%d</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">!</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">\n</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, signal);</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">   exit</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">);</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"> // Termina il programma</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">}</span></span>
+<span data-line> </span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">int</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> main</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">int</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;"> argc</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">char</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> **</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">argv</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">) {</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">   signal</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(SIGALRM, alarm_handler);</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"> // Associa SIGALRM al gestore custom</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">   alarm</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">);</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"> // Imposta un timer: SIGALRM sarà inviato dopo 1 secondo</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">   while</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> (</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">) {</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">       printf</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;I am running!</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">\n</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">);</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"> // Stampa &quot;I am running!&quot; continuamente</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">   }</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">   return</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> 0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">}</span></span></code></pre></figure>
+<ul>
+<li><code>unsigned int</code> indica un <code>int</code> con solo valori positivi</li>
+<li>dichiariamo una funzione che gestirà <code>alarm</code> con un determinato segnale
+nel main <code>signal</code></li>
+</ul>
+</div>
+</blockquote>
+<h4 id="kill">kill()<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#kill" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="c" data-theme="github-light github-dark"><code data-language="c" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">int</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> kill</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">pid_t</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;"> pid</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">int</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;"> sig</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">);</span></span></code></pre></figure>
+<ul>
+<li><strong>Cosa fa</strong>: Invia un segnale specifico a un processo identificato dal suo PID.</li>
+<li><strong>Argomenti</strong>:
+<ul>
+<li><code>pid</code>: Il PID del processo al quale inviare il segnale.
+<ul>
+<li><code>pid > 0</code>: Il segnale viene inviato al processo con quel PID.</li>
+<li><code>pid == 0</code>: Il segnale viene inviato a tutti i processi nel gruppo del chiamante.</li>
+<li><code>pid &lt; 0</code>: Il segnale viene inviato a tutti i processi nel gruppo identificato da <code>|pid|</code>.</li>
+</ul>
+</li>
+<li><code>sig</code>: Il segnale da inviare (es., <code>SIGTERM</code>, <code>SIGKILL</code>, <code>SIGUSR1</code>).</li>
+</ul>
+</li>
+<li><strong>Nota</strong>:
+<ul>
+<li><strong><code>kill()</code> non sempre “uccide” il processo</strong>. Il segnale inviato può essere gestito dal processo in modo personalizzato, a meno che non sia un segnale non ignorabile (come <code>SIGKILL</code>).</li>
+</ul>
+</li>
+</ul>
+<h2 id="comunicazione-tra-processi-attraverso-pipe">Comunicazione tra processi attraverso PIPE<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#comunicazione-tra-processi-attraverso-pipe" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="openclosedup">OPEN,CLOSE,DUP<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#openclosedup" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<h4 id="open">open()<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#open" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="c" data-theme="github-light github-dark"><code data-language="c" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">int</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> open</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">const</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> char</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> *</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">pathname</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">int</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;"> flags</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">);</span></span></code></pre></figure>
+<ul>
+<li><strong>Cosa fa</strong>: Apre un file specificato dal percorso <code>pathname</code> e restituisce un <strong>file descriptor (fd)</strong>, un identificatore unico per il file.</li>
+<li><strong>Argomenti</strong>:
+<ul>
+<li><code>pathname</code>: Il percorso al file da aprire.</li>
+<li><code>flags</code>: Specifica come aprire il file (es., sola lettura, scrittura, o entrambe). Esempi di flag:
+<ul>
+<li><code>O_RDONLY</code>: Apre il file in sola lettura.</li>
+<li><code>O_WRONLY</code>: Apre il file in sola scrittura.</li>
+<li><code>O_RDWR</code>: Apre il file in lettura e scrittura.</li>
+<li><code>O_CREAT</code>:</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Valore restituito</strong>:
+<ul>
+<li>Un intero positivo (il file descriptor) se l’apertura è riuscita.</li>
+<li><code>-1</code> in caso di errore, e <code>errno</code> contiene il codice dell’errore.</li>
+</ul>
+</li>
+</ul>
+<h4 id="close">close()<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#close" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="c" data-theme="github-light github-dark"><code data-language="c" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">int</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> close</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">int</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;"> fd</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">);</span></span></code></pre></figure>
+<ul>
+<li><strong>Cosa fa</strong>: Chiude il file associato al file descriptor <code>fd</code>.</li>
+<li><strong>Argomenti</strong>:
+<ul>
+<li><code>fd</code>: Il file descriptor da chiudere.</li>
+</ul>
+</li>
+<li><strong>Valore restituito</strong>:
+<ul>
+<li><code>0</code> se la chiusura è riuscita.</li>
+<li><code>-1</code> in caso di errore, e <code>errno</code> contiene il codice dell’errore.</li>
+</ul>
+</li>
+<li>Dopo la chiusura, il sistema operativo <strong>libera il file descriptor</strong> e lo rende disponibile per essere riassegnato ad altri file o risorse in futuro.</li>
+</ul>
+<blockquote class="callout info is-collapsible is-collapsed" data-callout="info" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>piccola parentesi sui file descriptor da francesco totti </p></div>
+                  <div class="fold-callout-icon"></div>
+                </div>
+<div class="callout-content">
+<p>Ah regà, ce sto! Allora, se chiudi er file col file descriptor, ‘sto numero magico va a farsi na vacanza, capito? In pratica, quanno usi <code>close(fd);</code>, er file descriptor sparisce, nun lo puoi più usà. Se provi a farce operazioni tipo legge o scrive, te becca er sistema e te dice “A Fra’, che stai a fa’?”.</p>
+<p>Er file descriptor mo è libero come ‘n uccellino, pronto a esse riassegnato. Quindi, se apri n’antra risorsa, può pure capità che usi lo stesso numero de file descriptor. Insomma, chiudi er file e nun ce pensi più, sta storia è chiusa!</p>
+</div>
+</blockquote>
+<h4 id="pipe">pipe()<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#pipe" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="c" data-theme="github-light github-dark"><code data-language="c" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">int</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> pipe</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">int</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;"> pipefd</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">[</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">2</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">]);</span></span></code></pre></figure>
+<ul>
+<li><strong>Cosa fa</strong>: Crea una <strong>pipe</strong>, un canale di comunicazione unidirezionale tra processi.</li>
+<li>la pipe funziona con <code>processo1 | processo2</code></li>
+<li>La pipe ha due estremità:
+<ul>
+<li><code>pipefd[0]</code>: quando scrivo 0 intendo lettura</li>
+<li><code>pipefd[1]</code>: quando scrivo 1 intendo scrittura</li>
+</ul>
+</li>
+<li>quando un processo deve inviare dei file al processo che si trova a destra della <code>|</code> allora deve fare una scrittura</li>
+<li>caso opposto lettura</li>
+<li><strong>Argomenti</strong>:
+<ul>
+<li><code>pipefd</code>: Un array di due file descriptor, dove:
+<ul>
+<li><code>pipefd[0]</code> è usato per leggere dalla pipe.</li>
+<li><code>pipefd[1]</code> è usato per scrivere nella pipe.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Valore restituito</strong>:
+<ul>
+<li><code>0</code> se la pipe è stata creata correttamente.</li>
+<li><code>-1</code> in caso di errore, e <code>errno</code> contiene il codice dell’errore.</li>
+</ul>
+</li>
+</ul>
+<h4 id="dup">dup()<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#dup" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="c" data-theme="github-light github-dark"><code data-language="c" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">int</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> dup</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">int</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;"> oldfd</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">);</span></span></code></pre></figure>
+<ul>
+<li><strong>Cosa fa</strong>: Crea una copia del file descriptor <code>oldfd</code> e restituisce il file descriptor più basso disponibile come copia
+in pratica se io ho i file descriptor <code>0</code>, <code>1</code>, <code>2</code> (stdin, stdout, stderr) e un file aperto <code>fd = 3</code>, se chiamo <code>int new_fd = dup(3)</code> il sistema assegnerà il valore <code>4</code> a <code>new_fd</code> perché è il file descriptor più basso disponibile.</li>
+<li><strong>Argomenti</strong>:
+<ul>
+<li><code>oldfd</code>: Il file descriptor da copiare.</li>
+</ul>
+</li>
+<li><strong>Valore restituito</strong>:
+<ul>
+<li>Un nuovo file descriptor (la copia) se l’operazione è riuscita.</li>
+<li><code>-1</code> in caso di errore, e <code>errno</code> contiene il codice dell’errore.</li>
+</ul>
+</li>
+</ul>
+<blockquote class="callout tip" data-callout="tip">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>Differenze tra <code>dup</code> e <code>dup2</code></p></div>
+                  
+                </div>
+<div class="callout-content">
+<ol>
+<li><strong><code>dup(oldfd)</code></strong>:</li>
+</ol>
+<ul>
+<li>Fa una copia di un file descriptor.</li>
+<li>Ti restituisce il <strong>numero più basso disponibile</strong> tra i file descriptor non usati.
+<ul>
+<li>
+<p>Esempio: Se <code>oldfd</code> è 3 e il file descriptor 4 è libero, <code>dup()</code> restituirà 4.</p>
+</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li><strong><code>dup2(oldfd, newfd)</code></strong>:</li>
+</ol>
+<ul>
+<li>Ti permette di scegliere <strong>esattamente</strong> quale numero usare come copia (<code>newfd</code>).</li>
+<li>Se il numero <code>newfd</code> è già occupato, lo chiude automaticamente prima di riassegnarlo.
+<ul>
+<li>Esempio: Se vuoi che il file descriptor 3 diventi anche il numero 1 (stdout), userai <code>dup2(3, 1)</code>.</li>
+</ul>
+</li>
+</ul>
+<h5 id="perché-sono-utili">Perché sono utili?<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#perché-sono-utili" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<p>Immagina che tu voglia:</p>
+<ol>
+<li><strong>Reindirizzare l’output di un programma</strong>:
+<ul>
+<li>Normalmente tutto ciò che stampi (con <code>printf</code>) va al terminale.</li>
+<li>Con <code>dup2</code>, puoi “agganciare” l’output (stdout) a un file. Così tutto quello che il programma stampa finirà nel file invece che sul terminale.</li>
+</ul>
+</li>
+<li><strong>Usare una pipe tra processi</strong>:
+<ul>
+<li>In una pipeline (<code>ls | grep txt</code>), il comando <code>ls</code> deve mandare il suo output non al terminale, ma all’input di <code>grep</code>.</li>
+<li>Questo si fa con <code>dup2</code> per collegare i file descriptor.</li>
+</ul>
+</li>
+</ol>
+</div>
+</blockquote>
+<h1 id="esempi-con-codici">ESEMPI CON CODICI<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#esempi-con-codici" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h3 id="esempio1">ESEMPIO1<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#esempio1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="C" data-theme="github-light github-dark"><code data-language="C" data-theme="github-light github-dark" style="display:grid;"><span data-line><span>int file_fd = open(&quot;output.txt&quot;, O_WRONLY | O_CREAT, 0644);</span></span>
+<span data-line><span>dup2(file_fd, STDOUT_FILENO);</span></span>
+<span data-line><span>printf(&quot;Questo va in output.txt\n&quot;);</span></span>
+<span data-line><span>close(file_fd);</span></span></code></pre></figure>
+<ul>
+<li>open prende un file in un path e sceglie di aprirlo in sola lettura oppure crearlo, mettiamo 0644 se in caso lo creiamo mettiamo quei ruoli<a href="../../../UNI/ANNO-2/SISTEMI-OPERATIVI/SISTEMI-OPERATIVI-LEZ.4-5-6-7#permessi-di-accesso-a-un-file" class="internal alias" data-slug="UNI/ANNO-2/SISTEMI-OPERATIVI/SISTEMI-OPERATIVI-LEZ.4-5-6-7">vedi qui la cosa dei ruoli</a></li>
+<li>mettiamo il file descriptor ritornato da open in<code>file_fd</code></li>
+<li><code>dup2</code> sostituisce il <code>file_fd</code> con uno <code>standard output con``FILENO</code></li>
+<li>print stampiamo</li>
+<li>close chiudiamo</li>
+</ul>
+<h3 id="esempio2">ESEMPIO2<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#esempio2" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="c" data-theme="github-light github-dark"><code data-language="c" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">int</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;"> fd</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">[</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">2</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">];</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">           // Array per i file descriptor: fd[0] (lettura), fd[1] (scrittura)</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">pipe</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(fd);</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">            // Creazione della pipe</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">if</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">fork</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">() </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">==</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> 0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">) {</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">   // Processo figlio</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">    close</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">fd</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">[</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">]);</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">    // Chiude l'estremità di lettura (non usata dal figlio)</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">    dup2</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">fd</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">[</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">], STDOUT_FILENO);</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">  // Reindirizza stdout nella pipe</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">    execlp</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;ps&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;ps&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;aux&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">NULL</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">);</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"> // Esegue il comando `ps aux`</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">} </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">else</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> {</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">             // Processo genitore</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">    close</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">fd</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">[</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">]);</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">    // Chiude l'estremità di scrittura (non usata dal genitore)</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">    dup2</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">fd</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">[</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">], STDIN_FILENO);</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">   // Reindirizza stdin dalla pipe</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">    execlp</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;grep&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;grep&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;httpd&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">NULL</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">);</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"> // Esegue il comando `grep httpd`</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">}</span></span></code></pre></figure>
+<ul>
+<li>
+<p>mette lo <code>standard output</code> della bash dentro lo stream di scrittura.</p>
+</li>
+<li>
+<p>il padre prende lo <code>standard input</code> e ci mette lo stream della pipe in lettura</p>
+</li>
+<li>
+<p><code>execlp</code>: funziona come <code>execv</code> solo che</p>
+<ul>
+<li>accetta le stringhe singolarmente senza creare array di stringhe</li>
+<li>con <code>p</code> diciamo che tutti i processi da prendere sono nel path e quindi non bisogna specificare tipo <code>/bin/ps</code> ecc…</li>
+</ul>
+</li>
+</ul>
+<blockquote class="callout example is-collapsible is-collapsed" data-callout="example" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>esempio di codice con <code>execlp</code> o <code>execv</code></p></div>
+                  <div class="fold-callout-icon"></div>
+                </div>
+<div class="callout-content">
+<p><strong>execv</strong></p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="c" data-theme="github-light github-dark"><code data-language="c" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">char</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> *</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">args</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">[]</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> {</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;ls&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;-l&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;-a&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">NULL</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">};</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">execv</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;/bin/ls&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, args);</span></span></code></pre></figure>
+<p>notare come devo specificare il path e usare la stringa di array
+<strong>execlp</strong></p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="c" data-theme="github-light github-dark"><code data-language="c" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">execlp</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;ls&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;ls&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;-l&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;-a&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">NULL</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">);</span></span></code></pre></figure>
+</div>
+</blockquote>
+<h3 id="esempio3">ESEMPIO3<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#esempio3" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="c" data-theme="github-light github-dark"><code data-language="c" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">if</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">fork</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">() </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">==</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> 0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">) {</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">                     // Processo figlio</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">    int</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> log_fd </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> open</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;logfile.txt&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, O_WRONLY </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">|</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> O_CREAT </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">|</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> O_APPEND, </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">0</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">644</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">);</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">    dup2</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(log_fd, STDOUT_FILENO);</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">       // Reindirizza stdout verso il file</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">    close</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(log_fd);</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">                     // Chiude il file descriptor</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">    execlp</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;ls&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;ls&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;-l&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">NULL</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">);</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">    // Esegue il comando `ls -l`</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">}</span></span></code></pre></figure>
+<p>uniche cose da ricordare
+trattiamo quel file descriptor come</p>
+<ul>
+<li><code>O_WRONLY</code> sola scrittura</li>
+<li><code>O_CREAT</code> se non esiste lo crea</li>
+<li><code>O_APPEND</code> se il file esiste tutto quello che scrive lo mette in append</li>
+</ul>
+<h3 id="esempio4-the-pipe-example">ESEMPIO4 (THE PIPE EXAMPLE)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#esempio4-the-pipe-example" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="c" data-theme="github-light github-dark"><code data-language="c" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">#include</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> &lt;stdio.h></span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">#include</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> &lt;stdlib.h></span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">#include</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> &lt;unistd.h></span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">#include</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> &lt;sys/types.h></span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">#include</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> &lt;sys/wait.h></span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">#define</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> STDIN</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> 0</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">#define</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> STDOUT</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> 1</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">#define</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> PIPE_RD</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> 0</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">#define</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> PIPE_WR</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> 1</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">int</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> main</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">int</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;"> argc</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">char**</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;"> argv</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">) {</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">    pid_t</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> cat_pid, sort_pid;</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">    int</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;"> fd</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">[</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">2</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">];</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    </span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">    pipe</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(fd);</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">    // Primo processo figlio: `cat names.txt`</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    cat_pid </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> fork</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">();</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">    if</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> (cat_pid </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">==</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> 0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">) {</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"> // Processo figlio per `cat`</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">        close</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">fd</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">[PIPE_RD]);</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">          // Chiude l'estremità di lettura (non usata)</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">        close</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(STDOUT);</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">               // Chiude lo standard output</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">        dup</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">fd</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">[PIPE_WR]);</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">            // Reindirizza stdout verso la pipe</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">        execl</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;/bin/cat&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;cat&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;names.txt&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">NULL</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">);</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"> // Esegue `cat names.txt`</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    </span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    </span></span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">    // Secondo processo figlio: `sort`</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    sort_pid </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> fork</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">();</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">    if</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> (sort_pid </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">==</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> 0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">) {</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"> // Processo figlio per `sort`</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">        close</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">fd</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">[PIPE_WR]);</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">          // Chiude l'estremità di scrittura (non usata)</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">        close</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(STDIN);</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">                // Chiude lo standard input</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">        dup</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">fd</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">[PIPE_RD]);</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">            // Reindirizza stdin verso la pipe</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">        execl</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;/usr/bin/sort&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;sort&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">NULL</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">);</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"> // Esegue `sort`</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    </span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    </span></span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">    // Processo genitore: chiude entrambe le estremità della pipe</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">    close</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">fd</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">[PIPE_RD]);</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">    close</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">fd</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">[PIPE_WR]);</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    </span></span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">    // Attende che i processi figli terminino</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">    waitpid</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(cat_pid, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">NULL</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">);</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">    waitpid</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(sort_pid, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">NULL</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">);</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    </span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">    return</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> 0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">}</span></span></code></pre></figure>
+<h3 id="cosa-succede-se-non-chiudo-una-pipe-spiegata-da-totti">Cosa succede se non chiudo una pipe? spiegata da Totti<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#cosa-succede-se-non-chiudo-una-pipe-spiegata-da-totti" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Ahó, mo’ te spiego come Francesco Totti, co’ parole semplici, sto discorso delle “chiusure”.
+È importante, perché le pipe sò tipo i passaggi della palla. Se nun chiudi bene ‘sti passaggi, succede un casino, capito?</p>
+<ul>
+<li>Evitare Blocchi: È come quando passi ‘a palla e nun te muovi. Se lasci aperta la pipe, quello che scrive rimane “bloccato” perché aspetta. Devi chiude la fine de lettura, così tutto fila liscio. Ricezione</li>
+<li>EOF: Sort aspetta er fischio finale (EOF) per capì che tutto è finito. Devi chiude la pipe de scrittura, sennò lui rimane là fermo, aspettando ‘na palla che nun arriva.</li>
+<li>Evitare Letture Accidentali: Se c’hai una pipe aperta e non la chiudi, ‘na lettura inaspettata potrebbe fa’ un casino, tipo uno che prende la palla quando nun deve.</li>
+<li>Reindirizzamento di STDOUT in cat: È come dire a ‘cat’ di passare ‘a palla solo nella pipe, niente dribbling extra. Chiudi er vecchio passaggio e fallo passare solo dove serve.</li>
+<li>Reindirizzamento di STDIN in sort: Dopo il setup, devi fa’ in modo che sort guardi solo ‘na direzione, cioè la pipe. Quindi chiudi er vecchio ingresso.</li>
+<li>Descriptor nel Processo Padre: Dopo er fork, il processo padre deve chiude le estremità della pipe, come un allenatore che lascia spazio ai giocatori sul campo.
+Capito? È tipo gioca’ a pallone: se nun chiudi i passaggi che non servono, tutto se incasina!</li>
+</ul>
+<blockquote class="callout warning is-collapsible is-collapsed" data-callout="warning" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>ALTRI ESEMPI DI CODICI SUL SUO TEAMS NEI FILE CODING </p></div>
+                  <div class="fold-callout-icon"></div>
+                </div>
+</blockquote>
+<h2 id="esercizio-per-casa">ESERCIZIO PER CASA<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#esercizio-per-casa" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p><img src="../../../UNI/ANNO-2/SISTEMI-OPERATIVI/fotosop/Pasted-image-20241111140121.png" width="auto" height="auto" alt/></p></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc desktop-only"><button type="button" class="toc-header" aria-controls="toc-211" aria-expanded="true"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-1" class="toc-content overflow"><li class="depth-2"><a href="#build-process" data-for="build-process">Build Process</a></li><li class="depth-2"><a href="#differenza-tra-i-3" data-for="differenza-tra-i-3">Differenza tra i 3</a></li><li class="depth-2"><a href="#riepilogo-della-differenza" data-for="riepilogo-della-differenza">Riepilogo della Differenza:</a></li><li class="depth-2"><a href="#la-font-colord83931attraversatafont-del-croce" data-for="la-font-colord83931attraversatafont-del-croce">La &lt;font color=&quot;#d83931&quot;>ATTRAVERSATA&lt;/font> del Croce</a></li><li class="depth-1"><a href="#creazione-dei-processi" data-for="creazione-dei-processi">CREAZIONE DEI PROCESSI</a></li><li class="depth-1"><a href="#i-segnali" data-for="i-segnali">I segnali</a></li><li class="depth-2"><a href="#signal-alarm-kill" data-for="signal-alarm-kill">Signal, Alarm, Kill</a></li><li class="depth-1"><a href="#comunicazione-tra-processi-attraverso-pipe" data-for="comunicazione-tra-processi-attraverso-pipe">Comunicazione tra processi attraverso PIPE</a></li><li class="depth-2"><a href="#openclosedup" data-for="openclosedup">OPEN,CLOSE,DUP</a></li><li class="depth-0"><a href="#esempi-con-codici" data-for="esempi-con-codici">ESEMPI CON CODICI</a></li><li class="depth-2"><a href="#esempio1" data-for="esempio1">ESEMPIO1</a></li><li class="depth-2"><a href="#esempio2" data-for="esempio2">ESEMPIO2</a></li><li class="depth-2"><a href="#esempio3" data-for="esempio3">ESEMPIO3</a></li><li class="depth-2"><a href="#esempio4-the-pipe-example" data-for="esempio4-the-pipe-example">ESEMPIO4 (THE PIPE EXAMPLE)</a></li><li class="depth-2"><a href="#cosa-succede-se-non-chiudo-una-pipe-spiegata-da-totti" data-for="cosa-succede-se-non-chiudo-una-pipe-spiegata-da-totti">Cosa succede se non chiudo una pipe? spiegata da Totti</a></li><li class="depth-1"><a href="#esercizio-per-casa" data-for="esercizio-per-casa">ESERCIZIO PER CASA</a></li><li class="overflow-end"></li></ul></div><div class="backlinks"><h3>Backlinks</h3><ul id="list-2" class="overflow"><li><a href="../../../UNI/ANNO-2/SISTEMI-OPERATIVI/SISTEMI-OPERATIVI-E-RETI-INDICE" class="internal">SISTEMI OPERATIVI E RETI INDICE</a></li><li class="overflow-end"></li></ul></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.5.2</a> © 2025</p><ul><li><a href="https://github.com/jackyzha0/quartz">GitHub</a></li><li><a href="https://discord.gg/cRFFHYye7t">Discord Community</a></li></ul></footer></div></div></body><script type="application/javascript">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module">function f(i,e){if(!i)return;function r(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function t(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}i?.addEventListener("click",r),window.addCleanup(()=>i?.removeEventListener("click",r)),document.addEventListener("keydown",t),window.addCleanup(()=>document.removeEventListener("keydown",t))}function y(i){for(;i.firstChild;)i.removeChild(i.firstChild)}var h=class{constructor(e,r){this.container=e;this.content=r;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),r=this.onMouseMove.bind(this),t=this.onMouseUp.bind(this),o=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",r),document.addEventListener("mouseup",t),window.addEventListener("resize",o),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",r),()=>document.removeEventListener("mouseup",t),()=>window.removeEventListener("resize",o))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let r=this.createButton("+",()=>this.zoom(.1)),t=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(t),e.appendChild(o),e.appendChild(r),this.container.appendChild(e)}createButton(e,r){let t=document.createElement("button");return t.textContent=e,t.className="mermaid-control-button",t.addEventListener("click",r),window.addCleanup(()=>t.removeEventListener("click",r)),t}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}zoom(e){let r=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),t=this.content.getBoundingClientRect(),o=t.width/2,n=t.height/2,c=r-this.scale;this.currentPan.x-=o*c,this.currentPan.y-=n*c,this.scale=r,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){this.scale=1;let e=this.content.querySelector("svg");this.currentPan={x:e.getBoundingClientRect().width/2,y:e.getBoundingClientRect().height/2},this.updateTransform()}},C=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],E;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;E||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let r=E.default,t=new WeakMap;for(let n of e)t.set(n,n.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let a=t.get(s);a&&(s.innerHTML=a)}let n=C.reduce((s,a)=>(s[a]=window.getComputedStyle(document.documentElement).getPropertyValue(a),s),{}),c=document.documentElement.getAttribute("saved-theme")==="dark";r.initialize({startOnLoad:!1,securityLevel:"loose",theme:c?"dark":"base",themeVariables:{fontFamily:n["--codeFont"],primaryColor:n["--light"],primaryTextColor:n["--darkgray"],primaryBorderColor:n["--tertiary"],lineColor:n["--darkgray"],secondaryColor:n["--secondary"],tertiaryColor:n["--tertiary"],clusterBkg:n["--light"],edgeLabelBackground:n["--highlight"]}}),await r.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let n=0;n<e.length;n++){let v=function(){let g=l.querySelector("#mermaid-space"),m=l.querySelector(".mermaid-content");if(!m)return;y(m);let w=c.querySelector("svg").cloneNode(!0);m.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new h(g,m)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},c=e[n],s=c.parentElement,a=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(a),L=a.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),f(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript"></script><script src="../../../postscript.js" type="module"></script></html>

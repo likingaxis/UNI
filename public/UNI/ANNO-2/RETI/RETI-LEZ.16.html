@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><title>RETI LEZ.16</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="Quartz 4"/><meta property="og:title" content="RETI LEZ.16"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="RETI LEZ.16"/><meta name="twitter:description" content="Conclusione del Livello di rete ICMP internet control message protocol Utilizzato da Host e router per comunicare informazioni a livello di rete tipo errori o richieste è incapsulato dentro IP, ma non viene considerato un protocollo di trasporto perché non ha quello come scopo i messaggi di ICMP son..."/><meta property="og:description" content="Conclusione del Livello di rete ICMP internet control message protocol Utilizzato da Host e router per comunicare informazioni a livello di rete tipo errori o richieste è incapsulato dentro IP, ma non viene considerato un protocollo di trasporto perché non ha quello come scopo i messaggi di ICMP son..."/><meta property="og:image:alt" content="Conclusione del Livello di rete ICMP internet control message protocol Utilizzato da Host e router per comunicare informazioni a livello di rete tipo errori o richieste è incapsulato dentro IP, ma non viene considerato un protocollo di trasporto perché non ha quello come scopo i messaggi di ICMP son..."/><meta property="twitter:domain" content="quartz.jzhao.xyz"/><meta property="og:url" content="https://quartz.jzhao.xyz/UNI/ANNO-2/RETI/RETI-LEZ.16"/><meta property="twitter:url" content="https://quartz.jzhao.xyz/UNI/ANNO-2/RETI/RETI-LEZ.16"/><link rel="icon" href="../../../static/icon.png"/><meta name="description" content="Conclusione del Livello di rete ICMP internet control message protocol Utilizzato da Host e router per comunicare informazioni a livello di rete tipo errori o richieste è incapsulato dentro IP, ma non viene considerato un protocollo di trasporto perché non ha quello come scopo i messaggi di ICMP son..."/><meta name="generator" content="Quartz"/><link href="../../../index.css" rel="stylesheet" type="text/css" spa-preserve/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  padding: 2rem;
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiQzpcXFVzZXJzXFxMdWNhXFxEZXNrdG9wXFxVTkkgTlVPVk9cXHF1YXJ0elxccXVhcnR6XFxjb21wb25lbnRzXFxzdHlsZXMiLCJzb3VyY2VzIjpbIm1lcm1haWQuaW5saW5lLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7O0FBR0Y7RUFDRTtFQUNBOztBQUdGO0VBQ0U7OztBQUtGO0VBQ0U7RUFDQTs7O0FBSUo7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTs7QUFHRjtFQUNFO0VBQ0E7O0FBSUo7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7O0FBSUY7RUFDRTtFQUNBO0VBQ0EiLCJzb3VyY2VzQ29udGVudCI6WyIuZXhwYW5kLWJ1dHRvbiB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxvYXQ6IHJpZ2h0O1xuICBwYWRkaW5nOiAwLjRyZW07XG4gIG1hcmdpbjogMC4zcmVtO1xuICByaWdodDogMDsgLy8gTk9URTogcmlnaHQgd2lsbCBiZSBzZXQgaW4gbWVybWFpZC5pbmxpbmUudHNcbiAgY29sb3I6IHZhcigtLWdyYXkpO1xuICBib3JkZXItY29sb3I6IHZhcigtLWRhcmspO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1saWdodCk7XG4gIGJvcmRlcjogMXB4IHNvbGlkO1xuICBib3JkZXItcmFkaXVzOiA1cHg7XG4gIG9wYWNpdHk6IDA7XG4gIHRyYW5zaXRpb246IDAuMnM7XG5cbiAgJiA+IHN2ZyB7XG4gICAgZmlsbDogdmFyKC0tbGlnaHQpO1xuICAgIGZpbHRlcjogY29udHJhc3QoMC4zKTtcbiAgfVxuXG4gICY6aG92ZXIge1xuICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICBib3JkZXItY29sb3I6IHZhcigtLXNlY29uZGFyeSk7XG4gIH1cblxuICAmOmZvY3VzIHtcbiAgICBvdXRsaW5lOiAwO1xuICB9XG59XG5cbnByZSB7XG4gICY6aG92ZXIgPiAuZXhwYW5kLWJ1dHRvbiB7XG4gICAgb3BhY2l0eTogMTtcbiAgICB0cmFuc2l0aW9uOiAwLjJzO1xuICB9XG59XG5cbiNtZXJtYWlkLWNvbnRhaW5lciB7XG4gIHBvc2l0aW9uOiBmaXhlZDtcbiAgY29udGFpbjogbGF5b3V0O1xuICB6LWluZGV4OiA5OTk7XG4gIGxlZnQ6IDA7XG4gIHRvcDogMDtcbiAgd2lkdGg6IDEwMHZ3O1xuICBoZWlnaHQ6IDEwMHZoO1xuICBvdmVyZmxvdzogaGlkZGVuO1xuICBkaXNwbGF5OiBub25lO1xuICBiYWNrZHJvcC1maWx0ZXI6IGJsdXIoNHB4KTtcbiAgYmFja2dyb3VuZDogcmdiYSgwLCAwLCAwLCAwLjUpO1xuXG4gICYuYWN0aXZlIHtcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIH1cblxuICAmID4gI21lcm1haWQtc3BhY2Uge1xuICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbGlnaHQpO1xuICAgIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgICBwb3NpdGlvbjogZml4ZWQ7XG4gICAgdG9wOiA1MCU7XG4gICAgbGVmdDogNTAlO1xuICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlKC01MCUsIC01MCUpO1xuICAgIGhlaWdodDogODB2aDtcbiAgICB3aWR0aDogODB2dztcbiAgICBvdmVyZmxvdzogaGlkZGVuO1xuXG4gICAgJiA+IC5tZXJtYWlkLWNvbnRlbnQge1xuICAgICAgcGFkZGluZzogMnJlbTtcbiAgICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICAgIHRyYW5zZm9ybS1vcmlnaW46IDAgMDtcbiAgICAgIHRyYW5zaXRpb246IHRyYW5zZm9ybSAwLjFzIGVhc2U7XG4gICAgICBvdmVyZmxvdzogdmlzaWJsZTtcbiAgICAgIG1pbi1oZWlnaHQ6IDIwMHB4O1xuICAgICAgbWluLXdpZHRoOiAyMDBweDtcblxuICAgICAgcHJlIHtcbiAgICAgICAgbWFyZ2luOiAwO1xuICAgICAgICBib3JkZXI6IG5vbmU7XG4gICAgICB9XG5cbiAgICAgIHN2ZyB7XG4gICAgICAgIG1heC13aWR0aDogbm9uZTtcbiAgICAgICAgaGVpZ2h0OiBhdXRvO1xuICAgICAgfVxuICAgIH1cblxuICAgICYgPiAubWVybWFpZC1jb250cm9scyB7XG4gICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgICBib3R0b206IDIwcHg7XG4gICAgICByaWdodDogMjBweDtcbiAgICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgICBnYXA6IDhweDtcbiAgICAgIHBhZGRpbmc6IDhweDtcbiAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0KTtcbiAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICBib3JkZXItcmFkaXVzOiA2cHg7XG4gICAgICBib3gtc2hhZG93OiAwIDJweCA0cHggcmdiYSgwLCAwLCAwLCAwLjEpO1xuICAgICAgei1pbmRleDogMjtcblxuICAgICAgLm1lcm1haWQtY29udHJvbC1idXR0b24ge1xuICAgICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgICAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgICAgICAgd2lkdGg6IDMycHg7XG4gICAgICAgIGhlaWdodDogMzJweDtcbiAgICAgICAgcGFkZGluZzogMDtcbiAgICAgICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHQpO1xuICAgICAgICBjb2xvcjogdmFyKC0tZGFyayk7XG4gICAgICAgIGJvcmRlci1yYWRpdXM6IDRweDtcbiAgICAgICAgY3Vyc29yOiBwb2ludGVyO1xuICAgICAgICBmb250LXNpemU6IDE2cHg7XG4gICAgICAgIGZvbnQtZmFtaWx5OiB2YXIoLS1ib2R5Rm9udCk7XG4gICAgICAgIHRyYW5zaXRpb246IGFsbCAwLjJzIGVhc2U7XG5cbiAgICAgICAgJjpob3ZlciB7XG4gICAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgICAgfVxuXG4gICAgICAgICY6YWN0aXZlIHtcbiAgICAgICAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoMXB4KTtcbiAgICAgICAgfVxuXG4gICAgICAgIC8vIFN0eWxlIHRoZSByZXNldCBidXR0b24gZGlmZmVyZW50bHlcbiAgICAgICAgJjpudGgtY2hpbGQoMikge1xuICAgICAgICAgIHdpZHRoOiBhdXRvO1xuICAgICAgICAgIHBhZGRpbmc6IDAgMTJweDtcbiAgICAgICAgICBmb250LXNpemU6IDE0cHg7XG4gICAgICAgIH1cbiAgICAgIH1cbiAgICB9XG4gIH1cbn1cbiJdfQ== */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" spa-preserve/><script src="../../../prescript.js" type="application/javascript" spa-preserve></script><script type="application/javascript" spa-preserve>const fetchData = fetch("../../../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://quartz.jzhao.xyz/index.xml"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://quartz.jzhao.xyz/UNI/ANNO-2/RETI/RETI-LEZ.16-og-image.webp"/><meta property="og:image:url" content="https://quartz.jzhao.xyz/UNI/ANNO-2/RETI/RETI-LEZ.16-og-image.webp"/><meta name="twitter:image" content="https://quartz.jzhao.xyz/UNI/ANNO-2/RETI/RETI-LEZ.16-og-image.webp"/><meta property="og:image:type" content="image/.webp"/></head><body data-slug="UNI/ANNO-2/RETI/RETI-LEZ.16"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="../../..">Quartz 4</a></h2><div class="spacer mobile-only"></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>Search</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="Search for something" placeholder="Search for something"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="Reader mode"><title>Reader mode</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a,b)=>!a.isFolder&amp;&amp;!b.isFolder||a.isFolder&amp;&amp;b.isFolder?a.displayName.localeCompare(b.displayName,void 0,{numeric:!0,sensitivity:\&quot;base\&quot;}):!a.isFolder&amp;&amp;b.isFolder?1:-1&quot;,&quot;filterFn&quot;:&quot;node=>node.slugSegment!==\&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;node=>node&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-286"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>Explorer</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-286" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#"></a></li></template><template id="template-folder"><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../../../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../UNI/">UNI</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../UNI/ANNO-2/">ANNO 2</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../UNI/ANNO-2/RETI/">RETI</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>RETI LEZ.16</a></div></nav><h1 class="article-title">RETI LEZ.16</h1><p show-comma="true" class="content-meta"><time datetime="2025-10-13T15:42:40.000Z">Oct 13, 2025</time><span>10 min read</span></p></div></div><article class="popover-hint"><h3 id="conclusione-del-livello-di-rete">Conclusione del Livello di rete<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#conclusione-del-livello-di-rete" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<h2 id="icmp-internet-control-message-protocol">ICMP internet control message protocol<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#icmp-internet-control-message-protocol" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>Utilizzato da Host e router per comunicare informazioni a livello di rete
+<ul>
+<li>tipo errori o richieste
+è incapsulato dentro IP, ma non viene considerato un protocollo di trasporto perché non ha quello come scopo</li>
+</ul>
+</li>
+<li>i messaggi di ICMP sono nello stesso datagramma di IP
+Informazioni su come è strutturato:
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250505192401.png" width="auto" height="auto" alt/></li>
+<li><strong>Tipo (8 bit)</strong>: identifica il tipo di messaggio (es. richiesta echo, host non raggiungibile, ecc.)</li>
+<li><strong>Codice (8 bit)</strong>: specifica il significato dettagliato del tipo.</li>
+<li><strong>Checksum (16 bit)</strong>: per il controllo degli errori.</li>
+<li><strong>Resto dell’intestazione</strong>: varia a seconda del tipo di messaggio.</li>
+<li><strong>Dati / intestazione IP originale</strong>: include i primi 8 byte dei dati del datagramma IP che ha causato il messaggio, per aiutare a identificare il processo responsabile.</li>
+</ul>
+<h3 id="tipi-di-messaggi-icmp">Tipi di messaggi ICMP<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#tipi-di-messaggi-icmp" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Questi sono tutti i messaggi possibili, se scendi giù c’è un focus sui più utili</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Tipo</th><th>Codice</th><th>Descrizione</th><th>Utilizzo / Spiegazione</th></tr></thead><tbody><tr><td>0</td><td>0</td><td>Echo reply (ping)</td><td>Risposta a una richiesta ping (tipo 8); il destinatario conferma la ricezione.</td></tr><tr><td>3</td><td>0</td><td>Destination unreachable</td><td>Segnala che il pacchetto non può essere consegnato.</td></tr><tr><td>3</td><td>0</td><td>Network unreachable</td><td>Nessuna rete di destinazione raggiungibile. Potrebbe essere un router a inviarlo.</td></tr><tr><td>3</td><td>1</td><td>Host unreachable</td><td>L’host specifico non è raggiungibile (es. fallimento ARP).</td></tr><tr><td>3</td><td>2</td><td>Protocol unreachable</td><td>Protocollo IP non supportato dalla destinazione.</td></tr><tr><td>3</td><td>3</td><td>Port unreachable</td><td>Porta della destinazione non aperta (es. nessun servizio in ascolto).</td></tr><tr><td>3</td><td>4</td><td>Fragmentation required</td><td>Necessaria frammentazione ma non permessa (usato da <strong>Path MTU Discovery</strong>).</td></tr><tr><td>3</td><td>6</td><td>Network unknown</td><td>La rete di destinazione è sconosciuta (nessuna rotta).</td></tr><tr><td>3</td><td>7</td><td>Host unknown</td><td>L’host è sconosciuto (indirizzo errato o non risolvibile).</td></tr><tr><td>4</td><td>0</td><td>Source quench <em>(deprecato)</em></td><td>Un router congestionato richiedeva all’host mittente di rallentare l’invio. Ora <strong>non più usato</strong>.</td></tr><tr><td>8</td><td>0</td><td>Echo request (ping)</td><td>Richiesta ping. Usata per verificare se un host è attivo e raggiungibile.</td></tr><tr><td>11</td><td>0</td><td>TTL expired</td><td>Il pacchetto è scaduto (TTL=0); usato da <strong>traceroute</strong> per identificare i router sul percorso.</td></tr><tr><td>✅ <strong>Focus pratico sui messaggi più importanti:</strong></td><td></td><td></td><td></td></tr></tbody></table></div>
+<h4 id="-echo-request--echo-reply-tipo-80-e-00">🔹 <strong>Echo Request / Echo Reply (Tipo 8/0 e 0/0)</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-echo-request--echo-reply-tipo-80-e-00" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Usati da <code>ping</code>.</li>
+<li>Permettono di sapere se un host è raggiungibile e misurare il tempo di risposta (RTT).</li>
+<li>La risposta (tipo 0) contiene gli stessi dati della richiesta (tipo 8), utile per calcoli.</li>
+</ul>
+<h4 id="-destination-unreachable-tipo-3">🔹 <strong>Destination Unreachable (Tipo 3)</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-destination-unreachable-tipo-3" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Molto usato dai router o dagli host di destinazione per indicare problemi di raggiungibilità.
+<ul>
+<li>Es. tipo 3 codice 3 (porta non raggiungibile): succede quando invii UDP a una porta chiusa.</li>
+<li>Tipo 3 codice 4 (fragmentation required): usato quando il pacchetto è troppo grande e il bit “don’t fragment” è attivo → utile per scoprire la MTU.</li>
+</ul>
+</li>
+</ul>
+<h4 id="-source-quench-tipo-4">🔹 <strong>Source Quench (Tipo 4)</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-source-quench-tipo-4" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Permetteva al router di segnalare congestione → ora <strong>deprecato</strong> e non più supportato nei protocolli moderni (sostituito da ECN).</li>
+</ul>
+<h4 id="-ttl-expired-tipo-11">🔹 <strong>TTL Expired (Tipo 11)</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-ttl-expired-tipo-11" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Fondamentale per il comando <code>traceroute</code>: ogni hop lungo il percorso invia questo messaggio quando il TTL arriva a 0.</li>
+<li>Serve per “mappare” i router intermedi tra sorgente e destinazione.</li>
+</ul>
+<h4 id="focus-su-traceroute-e-icmp">Focus su Traceroute e ICMP<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#focus-su-traceroute-e-icmp" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p><img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250505192939.png" width="auto" height="auto" alt/>
+con Traceroute possiamo tracciare il percorso di un pacchetto</p>
+<ul>
+<li>posso inviare un pacchetto “sonda” con UDP o ICMP</li>
+<li>invio questo pacchetto con TTL=1 time to live=1
+<ul>
+<li>un messaggio speciale che dopo un tot di secondi o hop dei router scade</li>
+<li>il router decrementa TTL di 1 poi appunto diventa expired e invia un messaggio al mittente</li>
+<li>il mittente così capisce quale percorso è stato eseguito e da quali router</li>
+</ul>
+</li>
+</ul>
+<p>TTL è di tipo incrementale cioè inizia con TTL=1 poi di solito si fa incrementare finché non si raggiunge la destinazione voluta</p>
+<ul>
+<li>si fanno più tentativi prima con TTL a 1 poi 2 ecc…
+Concetto di probes(prove):</li>
+<li>il numero di probes è il numero di pacchetti che vengono inviati tutti con lo stesso TTL
+<ul>
+<li>serve per vedere magari più casistiche di percorso</li>
+</ul>
+</li>
+</ul>
+<p>il traceroute mi serve per capire quanto RTT ho dal i-esimo router</p>
+<h5 id="nuova-versione-icmp-v6">Nuova versione ICMP v6<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#nuova-versione-icmp-v6" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<ul>
+<li>miglioramenti vari</li>
+<li>i nuovi router non fanno più troppa frammentazione quindi viene anche reso aggiornato sotto questo punto di vista</li>
+</ul>
+<h3 id="gestione-delle-reti">Gestione delle reti<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#gestione-delle-reti" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Una rete è:</p>
+<ul>
+<li>un sistema formato da migliaia di componenti software e hardware che interagiscono tra loro</li>
+<li>al posto di rete può anche chiamarsi Sistema Autonomo</li>
+</ul>
+<blockquote class="callout warning" data-callout="warning">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>Gestire e creare una rete è estremamente difficile </p></div>
+                  
+                </div>
+<div class="callout-content">
+<ul>
+<li>serve pianificare</li>
+<li>monitorare</li>
+<li>gestire le risorse economiche in modo intelligente</li>
+</ul>
+</div>
+</blockquote>
+<h4 id="componenti-che-gestiscono-la-rete">Componenti che gestiscono la rete<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#componenti-che-gestiscono-la-rete" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>
+<p>Server di gestione</p>
+<ul>
+<li>È il cervello del sistema.</li>
+<li>Raccoglie, elabora e analizza le informazioni inviate dai dispositivi.</li>
+<li>Invia comandi per configurare o modificare il comportamento dei dispositivi.</li>
+<li>Coinvolge spesso <strong>operatori umani</strong>.</li>
+</ul>
+</li>
+<li>
+<p>Dispositivi di rete gestiti</p>
+<ul>
+<li>Sono gli <strong>switch, router, firewall, server</strong>, ecc.</li>
+<li>Hanno componenti hardware e software <strong>configurabili</strong> e <strong>monitorabili</strong>.</li>
+<li>Ogni dispositivo ha un <strong>agente</strong> che comunica con il server.</li>
+</ul>
+</li>
+<li>
+<p>Dati</p>
+<ul>
+<li>Rappresentano gli <strong>“stati”</strong> del dispositivo:
+<ul>
+<li><strong>Configurazione</strong>: es. indirizzo IP, assegnato dall’amministratore.</li>
+<li><strong>Dati operativi</strong>: es. vicini OSPF, rilevati automaticamente.</li>
+<li><strong>Statistiche</strong>: es. traffico, errori, uptime.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Agente di gestione</p>
+<ul>
+<li>È il software <strong>installato nel dispositivo gestito</strong>.</li>
+<li>Raccoglie e fornisce i dati di stato al server di gestione.</li>
+<li>Riceve e applica i comandi del server.</li>
+</ul>
+</li>
+<li>
+<p>Protocollo di gestione di rete</p>
+<ul>
+<li>Serve a <strong>scambiare informazioni</strong> tra server e dispositivi gestiti.</li>
+<li>Il server lo usa per interrogare e comandare.</li>
+<li>I dispositivi lo usano per inviare aggiornamenti e notifiche.</li>
+<li>Esempi di protocolli: <strong>SNMP</strong>, <strong>NetConf</strong>, <strong>RESTCONF</strong>.
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250505194010.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+<h3 id="come-si-gestisce-una-rete">Come si gestisce una rete?<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#come-si-gestisce-una-rete" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Spieghiamo diversi modi per gestire una rete</p>
+<ul>
+<li>se sei tipo uno che lavora per modificarle ecc…</li>
+</ul>
+<h4 id="con-clicommand-line-interface">Con CLI(Command Line Interface)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#con-clicommand-line-interface" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Metodo più diretto e tradizionale</li>
+<li>L’operatore accede <strong>manualmente</strong> al dispositivo (es. via SSH) e inserisce comandi</li>
+<li>Supporta anche <strong>script automatizzati</strong></li>
+<li>Molti dispositivi offrono anche un’interfaccia web</li>
+<li><strong>Vantaggio</strong>: controllo preciso</li>
+<li><strong>Limite</strong>: poco scalabile in reti grandi</li>
+</ul>
+<h4 id="con-snmpmib">Con SNMP/MIB<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#con-snmpmib" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>(Simple Network Management Protocol / Management Information Base)</p>
+<ul>
+<li>SNMP è un protocollo standard per la gestione dei dispositivi di rete.</li>
+<li>I dati sono organizzati in strutture chiamate <strong>MIB</strong> (oggetti informativi).
+<ul>
+<li>e informazioni che descrivono lo stato, la configurazione e le statistiche di un dispositivo di rete</li>
+</ul>
+</li>
+<li>Il server di controllo interroga o modifica i dati tramite SNMP</li>
+<li><strong>Vantaggio</strong>: standard, supportato da quasi tutti i dispositivi</li>
+<li><strong>Limite</strong>: poco adatto alla gestione di configurazioni complesse
+in poche parole hai un software sul server di controllo che comanda e gestisce i tuoi dispositivi senza che devi modificarli tu singolarmente</li>
+<li>puoi farlo ma non conviene</li>
+<li>piuttosto hai una interfaccia e dal server di controllo mandi dei comandi ai dispositivi</li>
+</ul>
+<h4 id="con-netconfyang">Con NETCONF/YANG<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#con-netconfyang" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Approccio <strong>più moderno e astratto</strong></li>
+<li>Progettato per <strong>gestire configurazioni</strong> in modo robusto e coerente</li>
+<li><strong>YANG</strong> è un linguaggio di modellazione dei dati</li>
+<li><strong>NETCONF</strong> è il protocollo per leggere/scrivere dati compatibili con YANG su dispositivi remoti</li>
+<li><strong>Vantaggio</strong>: gestione multi-dispositivo, configurazioni strutturate e coerenti</li>
+<li><strong>Ideale per reti complesse e dinamiche</strong>
+Con questo hai proprio un linguaggio di configurazione che migliora di molto il tutto</li>
+</ul>
+<h4 id="in-poche-parole">IN POCHE PAROLE<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#in-poche-parole" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>con CLI vai proprio lì manualmente pezzo per pezzo ecc…</li>
+<li>con SMNP+MIB aumenti l’astrazione ma comunque devi manualmente fare determinate operazioni di monitoraggio ecc solo che lo fai dal server di gestione</li>
+<li>con NETCONF+YANG è tutto astratto e molto meno manuale</li>
+</ul>
+<h3 id="snmp-spiegato-meglio-con-anche-mib">SNMP spiegato meglio con anche MIB<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#snmp-spiegato-meglio-con-anche-mib" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>I <strong>dati di un dispositivo di rete</strong> (sia operativi che di configurazione) sono organizzati in <strong>moduli MIB</strong>.</li>
+<li>Ogni <strong>modulo MIB</strong> è come un “file” che descrive un certo gruppo di informazioni (es. quelle relative a UDP).
+<ul>
+<li>Ne esistono <strong>centinaia definiti dagli standard RFC</strong> e moltissimi altri proprietari, forniti dai produttori di hardware.</li>
+</ul>
+</li>
+<li>I dati sono definiti usando un linguaggio chiamato <strong>SMI (Structure of Management Information)</strong>.
+nella foto qua sotto puoi vedere come sono strutturate delle variabili MIB</li>
+</ul>
+<p>La MIB è come un “dizionario” di tutti i dati che un dispositivo di rete può rendere disponibili o modificabili via SNMP.</p>
+<p><img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250505195919.png" width="auto" height="auto" alt/></p>
+<p>la <strong>MIB ha una struttura ad albero</strong>, gerarchica:</p>
+<ul>
+<li>Gli oggetti sono <strong>nidificati</strong> in rami (es. <code>system</code> → <code>sysDescr</code>, <code>sysUpTime</code>, ecc.).</li>
+<li>Ogni voce è <strong>indicizzata da un OID</strong> (Object Identifier), ad esempio <code>.1.3.6.1.2.1.1.1</code> per <code>sysDescr</code>.
+Questo vuol dire che quando chiedi un dato a un dispositivo con SNMP, <strong>gli indichi un OID</strong> per sapere esattamente quale parametro vuoi leggere o modificare.
+📍 Esempio: per sapere il nome del dispositivo, potresti chiedere <code>.1.3.6.1.2.1.1.5</code> (che corrisponde a <code>sysName</code>).
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250505204310.png" width="auto" height="auto" alt/></li>
+<li>usa per il trasporto UDP
+<ul>
+<li>vuole essere rapido</li>
+</ul>
+</li>
+</ul>
+<h4 id="tipi-di-messaggio-snmp">Tipi di messaggio SNMP<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#tipi-di-messaggio-snmp" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>questi messaggi quindi vengono usati tipo per dire
+“Dimmi quanti pacchetti UDP hai ricevuto”</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Tipo</th><th>Da… → A…</th><th>A cosa serve</th></tr></thead><tbody><tr><td>GetRequest</td><td>Manager → Agente</td><td>Leggere un valore specifico</td></tr><tr><td>GetNextRequest</td><td>Manager → Agente</td><td>Navigare nella MIB</td></tr><tr><td>GetBulkRequest</td><td>Manager → Agente</td><td>Ottenere più dati in un colpo solo</td></tr><tr><td>SetRequest</td><td>Manager → Agente</td><td>Scrivere/aggiornare valori</td></tr><tr><td>Response</td><td>Agente → Manager</td><td>Rispondere a una richiesta</td></tr><tr><td>Trap</td><td>Agente → Manager</td><td>Segnalare un evento inaspettato</td></tr></tbody></table></div>
+<h4 id="formati-dei-messaggi-snmp">Formati dei messaggi SNMP<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#formati-dei-messaggi-snmp" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p><img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250708130045.png" width="400" height="auto" alt/>
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250505204432.png" width="auto" height="auto" alt/>
+come è fatto un <strong>messaggio SNMP</strong> (PDU – Protocol Data Unit), cioè cosa si invia realmente tra server e dispositivi:</p>
+<p>✅ Tipi di messaggi 0,1,2,3 (per get/set):</p>
+<ul>
+<li><strong>Request ID</strong>: per abbinare richiesta e risposta.</li>
+<li><strong>Error Status e Index</strong>: indicano se qualcosa è andato storto (es. oggetto inesistente).</li>
+<li><strong>Name / Value</strong>: la variabile da leggere o scrivere, con il suo valore.</li>
+</ul>
+<p>🔔 Tipo 4 (Trap):</p>
+<ul>
+<li>Usato dai dispositivi per <strong>inviare messaggi spontanei</strong> al server (eventi).</li>
+<li>Include info come:
+<ul>
+<li>tipo di trap</li>
+<li><strong>OID dell’evento</strong> (es. “link down”)</li>
+<li><strong>indirizzo IP dell’agente</strong></li>
+<li><strong>timestamp</strong></li>
+<li><strong>variabili coinvolte</strong>
+📌 Le trap sono fondamentali per <strong>monitoraggio in tempo reale</strong>: avvisano il server quando accade qualcosa (es. porta di rete disconnessa).</li>
+</ul>
+</li>
+</ul>
+<h3 id="netconf-spiegato-meglio">NETCONF spiegato meglio<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#netconf-spiegato-meglio" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Serve per gestire in modo attivo i dispositivi sulla rete</li>
+<li>Funziona tramite comandi come:
+<ul>
+<li><code>retrieve</code> (recupera configurazioni o dati operativi),</li>
+<li><code>set</code>, <code>modify</code>, <code>activate</code> (modifica e attiva configurazioni).</li>
+</ul>
+</li>
+<li>Supporta il <strong>commit atomico</strong>:
+<ul>
+<li>tutte le modifiche vengono applicate <strong>insieme</strong>, oppure <strong>nessuna viene applicata</strong> se c’è un errore.</li>
+<li>Può anche <strong>interrogare statistiche</strong>, ricevere <strong>notifiche</strong>, ecc.</li>
+</ul>
+</li>
+<li>Usa il <strong>modello RPC (Remote Procedure Call)</strong>:
+<ul>
+<li>il server invia richieste XML → il dispositivo risponde con <code>&lt;rpc-reply></code>.</li>
+</ul>
+</li>
+<li>usa come protocollo di trasporto affidabile
+<ul>
+<li>SSH o TLS</li>
+</ul>
+</li>
+</ul>
+<h4 id="operazioni-tipiche-di-netconf">Operazioni tipiche di NETCONF<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#operazioni-tipiche-di-netconf" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Operazione</th><th>Funzione</th></tr></thead><tbody><tr><td><code>&lt;get-config></code></td><td>Legge la configurazione corrente (es. quella in esecuzione, detta <code>running</code>)</td></tr><tr><td><code>&lt;get></code></td><td>Legge i dati <strong>operativi</strong> (es. traffico, stato delle interfacce)</td></tr><tr><td><code>&lt;edit-config></code></td><td>Modifica una parte della configurazione</td></tr><tr><td><code>&lt;lock></code> / <code>&lt;unlock></code></td><td>Blocca/sblocca la configurazione per evitare conflitti da altre fonti</td></tr><tr><td><code>&lt;create-subscription></code></td><td>Permette di ricevere notifiche automatiche (<code>&lt;notification></code>)</td></tr></tbody></table></div>
+<h5 id="esempio-di-scambi-netconf-in-xml">Esempio di scambi NETCONF in XML<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#esempio-di-scambi-netconf-in-xml" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<p>Il dialogo tipico tra server e dispositivo segue questi passaggi:</p>
+<ol>
+<li><code>&lt;hello></code>: scambio iniziale di capability.</li>
+<li>Scambio di richieste <code>&lt;rpc></code> e risposte <code>&lt;rpc-reply></code>.</li>
+<li>Ricezione eventuale di <code>&lt;notification></code> (es. eventi, cambiamenti).</li>
+<li>Chiusura della sessione con <code>&lt;close-session></code>.
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250505205227.png" width="auto" height="auto" alt/>
+➡️ Tutti i messaggi sono in formato XML.</li>
+</ol>
+<h5 id="esempio-concreto-in-xml">Esempio concreto in XML<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#esempio-concreto-in-xml" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<p><img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250505205406.png" width="auto" height="auto" alt/></p>
+<h5 id="yang-usato-con-netconf-spiegato-meglio">YANG (usato con netconf) spiegato meglio<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#yang-usato-con-netconf-spiegato-meglio" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<p>(Yet Another Next Generation)**
+Come abbiamo detto i comandi di NETCONF sono in XML ma le strutture dati che contengono i dati utili sono spesso in YANG</p>
+<ul>
+<li>è un linguaggio di modellazione dei dati,
+<ul>
+<li>pensato appositamente per le reti.</li>
+<li>Serve a <strong>descrivere la struttura, il tipo e i vincoli</strong> dei dati che si possono gestire tramite NETCONF.</li>
+</ul>
+</li>
+<li><strong>Definisce le strutture dati</strong> che rappresentano configurazioni o stati operativi (interfacce, hostname, MTU, ecc.).</li>
+<li>Permette di generare automaticamente la struttura XML dei messaggi NETCONF.</li>
+<li>Garantisce <strong>validità e coerenza</strong> dei dati con vincoli tra campi (es. range, obbligatorietà, relazioni tra elementi).</li>
+<li>Come lo SMI (usato con SNMP), <strong>YANG descrive i dati</strong>, ma in modo <strong>più ricco e moderno</strong>.
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250505205702.png" width="400" height="auto" alt/></li>
+</ul>
+<h6 id="esempio-vero-e-proprio-di-yangnetconf">Esempio vero e proprio di YANG+NETCONF<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#esempio-vero-e-proprio-di-yangnetconf" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h6>
+<p><img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250505205735.png" width="auto" height="auto" alt/>
+con yang:</p>
+<ul>
+<li><strong>definisce la struttura dei dati</strong> che il dispositivo può accettare o restituire.</li>
+<li>È come dire: <em>“Nella configurazione del dispositivo ci sarà una sezione chiamata <code>system</code>, che contiene <code>login</code>, che a sua volta contiene un campo <code>message</code> (di tipo stringa)”</em>.
+su netconf:</li>
+<li>Significa: <em>“Nel blocco system, nella sezione login, il messaggio da visualizzare al login è ‘Good morning’”</em>.</li>
+</ul></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc desktop-only"><button type="button" class="toc-header" aria-controls="toc-173" aria-expanded="true"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-1" class="toc-content overflow"><li class="depth-1"><a href="#conclusione-del-livello-di-rete" data-for="conclusione-del-livello-di-rete">Conclusione del Livello di rete</a></li><li class="depth-0"><a href="#icmp-internet-control-message-protocol" data-for="icmp-internet-control-message-protocol">ICMP internet control message protocol</a></li><li class="depth-1"><a href="#tipi-di-messaggi-icmp" data-for="tipi-di-messaggi-icmp">Tipi di messaggi ICMP</a></li><li class="depth-1"><a href="#gestione-delle-reti" data-for="gestione-delle-reti">Gestione delle reti</a></li><li class="depth-1"><a href="#come-si-gestisce-una-rete" data-for="come-si-gestisce-una-rete">Come si gestisce una rete?</a></li><li class="depth-1"><a href="#snmp-spiegato-meglio-con-anche-mib" data-for="snmp-spiegato-meglio-con-anche-mib">SNMP spiegato meglio con anche MIB</a></li><li class="depth-1"><a href="#netconf-spiegato-meglio" data-for="netconf-spiegato-meglio">NETCONF spiegato meglio</a></li><li class="overflow-end"></li></ul></div><div class="backlinks"><h3>Backlinks</h3><ul id="list-2" class="overflow"><li><a href="../../../UNI/ANNO-2/RETI/INDICE-RETI" class="internal">INDICE RETI</a></li><li class="overflow-end"></li></ul></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.5.2</a> © 2025</p><ul><li><a href="https://github.com/jackyzha0/quartz">GitHub</a></li><li><a href="https://discord.gg/cRFFHYye7t">Discord Community</a></li></ul></footer></div></div></body><script type="application/javascript">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module">function f(i,e){if(!i)return;function r(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function t(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}i?.addEventListener("click",r),window.addCleanup(()=>i?.removeEventListener("click",r)),document.addEventListener("keydown",t),window.addCleanup(()=>document.removeEventListener("keydown",t))}function y(i){for(;i.firstChild;)i.removeChild(i.firstChild)}var h=class{constructor(e,r){this.container=e;this.content=r;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),r=this.onMouseMove.bind(this),t=this.onMouseUp.bind(this),o=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",r),document.addEventListener("mouseup",t),window.addEventListener("resize",o),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",r),()=>document.removeEventListener("mouseup",t),()=>window.removeEventListener("resize",o))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let r=this.createButton("+",()=>this.zoom(.1)),t=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(t),e.appendChild(o),e.appendChild(r),this.container.appendChild(e)}createButton(e,r){let t=document.createElement("button");return t.textContent=e,t.className="mermaid-control-button",t.addEventListener("click",r),window.addCleanup(()=>t.removeEventListener("click",r)),t}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}zoom(e){let r=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),t=this.content.getBoundingClientRect(),o=t.width/2,n=t.height/2,c=r-this.scale;this.currentPan.x-=o*c,this.currentPan.y-=n*c,this.scale=r,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){this.scale=1;let e=this.content.querySelector("svg");this.currentPan={x:e.getBoundingClientRect().width/2,y:e.getBoundingClientRect().height/2},this.updateTransform()}},C=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],E;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;E||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let r=E.default,t=new WeakMap;for(let n of e)t.set(n,n.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let a=t.get(s);a&&(s.innerHTML=a)}let n=C.reduce((s,a)=>(s[a]=window.getComputedStyle(document.documentElement).getPropertyValue(a),s),{}),c=document.documentElement.getAttribute("saved-theme")==="dark";r.initialize({startOnLoad:!1,securityLevel:"loose",theme:c?"dark":"base",themeVariables:{fontFamily:n["--codeFont"],primaryColor:n["--light"],primaryTextColor:n["--darkgray"],primaryBorderColor:n["--tertiary"],lineColor:n["--darkgray"],secondaryColor:n["--secondary"],tertiaryColor:n["--tertiary"],clusterBkg:n["--light"],edgeLabelBackground:n["--highlight"]}}),await r.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let n=0;n<e.length;n++){let v=function(){let g=l.querySelector("#mermaid-space"),m=l.querySelector(".mermaid-content");if(!m)return;y(m);let w=c.querySelector("svg").cloneNode(!0);m.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new h(g,m)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},c=e[n],s=c.parentElement,a=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(a),L=a.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),f(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript"></script><script src="../../../postscript.js" type="module"></script></html>

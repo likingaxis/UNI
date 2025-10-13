@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><title>RETI LEZ.21</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="Quartz 4"/><meta property="og:title" content="RETI LEZ.21"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="RETI LEZ.21"/><meta name="twitter:description" content="Bluetooth Lavora sulle PAN(Personal Area Network) con bassissimo diametro (10 metri) Cerca di sostituire i vari cavi come mouse tastiera cuffie ecc… Con le ultime connessioni arriva fino a 3 Mbps Il TDM (Time Division Multiplexing) del Bluetooth è a 625 micro secondi Client device e Master controlle..."/><meta property="og:description" content="Bluetooth Lavora sulle PAN(Personal Area Network) con bassissimo diametro (10 metri) Cerca di sostituire i vari cavi come mouse tastiera cuffie ecc… Con le ultime connessioni arriva fino a 3 Mbps Il TDM (Time Division Multiplexing) del Bluetooth è a 625 micro secondi Client device e Master controlle..."/><meta property="og:image:alt" content="Bluetooth Lavora sulle PAN(Personal Area Network) con bassissimo diametro (10 metri) Cerca di sostituire i vari cavi come mouse tastiera cuffie ecc… Con le ultime connessioni arriva fino a 3 Mbps Il TDM (Time Division Multiplexing) del Bluetooth è a 625 micro secondi Client device e Master controlle..."/><meta property="twitter:domain" content="quartz.jzhao.xyz"/><meta property="og:url" content="https://quartz.jzhao.xyz/UNI/ANNO-2/RETI/RETI-LEZ.21"/><meta property="twitter:url" content="https://quartz.jzhao.xyz/UNI/ANNO-2/RETI/RETI-LEZ.21"/><link rel="icon" href="../../../static/icon.png"/><meta name="description" content="Bluetooth Lavora sulle PAN(Personal Area Network) con bassissimo diametro (10 metri) Cerca di sostituire i vari cavi come mouse tastiera cuffie ecc… Con le ultime connessioni arriva fino a 3 Mbps Il TDM (Time Division Multiplexing) del Bluetooth è a 625 micro secondi Client device e Master controlle..."/><meta name="generator" content="Quartz"/><link href="../../../index.css" rel="stylesheet" type="text/css" spa-preserve/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  padding: 2rem;
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiQzpcXFVzZXJzXFxMdWNhXFxEZXNrdG9wXFxVTkkgTlVPVk9cXHF1YXJ0elxccXVhcnR6XFxjb21wb25lbnRzXFxzdHlsZXMiLCJzb3VyY2VzIjpbIm1lcm1haWQuaW5saW5lLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7O0FBR0Y7RUFDRTtFQUNBOztBQUdGO0VBQ0U7OztBQUtGO0VBQ0U7RUFDQTs7O0FBSUo7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTs7QUFHRjtFQUNFO0VBQ0E7O0FBSUo7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7O0FBSUY7RUFDRTtFQUNBO0VBQ0EiLCJzb3VyY2VzQ29udGVudCI6WyIuZXhwYW5kLWJ1dHRvbiB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxvYXQ6IHJpZ2h0O1xuICBwYWRkaW5nOiAwLjRyZW07XG4gIG1hcmdpbjogMC4zcmVtO1xuICByaWdodDogMDsgLy8gTk9URTogcmlnaHQgd2lsbCBiZSBzZXQgaW4gbWVybWFpZC5pbmxpbmUudHNcbiAgY29sb3I6IHZhcigtLWdyYXkpO1xuICBib3JkZXItY29sb3I6IHZhcigtLWRhcmspO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1saWdodCk7XG4gIGJvcmRlcjogMXB4IHNvbGlkO1xuICBib3JkZXItcmFkaXVzOiA1cHg7XG4gIG9wYWNpdHk6IDA7XG4gIHRyYW5zaXRpb246IDAuMnM7XG5cbiAgJiA+IHN2ZyB7XG4gICAgZmlsbDogdmFyKC0tbGlnaHQpO1xuICAgIGZpbHRlcjogY29udHJhc3QoMC4zKTtcbiAgfVxuXG4gICY6aG92ZXIge1xuICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICBib3JkZXItY29sb3I6IHZhcigtLXNlY29uZGFyeSk7XG4gIH1cblxuICAmOmZvY3VzIHtcbiAgICBvdXRsaW5lOiAwO1xuICB9XG59XG5cbnByZSB7XG4gICY6aG92ZXIgPiAuZXhwYW5kLWJ1dHRvbiB7XG4gICAgb3BhY2l0eTogMTtcbiAgICB0cmFuc2l0aW9uOiAwLjJzO1xuICB9XG59XG5cbiNtZXJtYWlkLWNvbnRhaW5lciB7XG4gIHBvc2l0aW9uOiBmaXhlZDtcbiAgY29udGFpbjogbGF5b3V0O1xuICB6LWluZGV4OiA5OTk7XG4gIGxlZnQ6IDA7XG4gIHRvcDogMDtcbiAgd2lkdGg6IDEwMHZ3O1xuICBoZWlnaHQ6IDEwMHZoO1xuICBvdmVyZmxvdzogaGlkZGVuO1xuICBkaXNwbGF5OiBub25lO1xuICBiYWNrZHJvcC1maWx0ZXI6IGJsdXIoNHB4KTtcbiAgYmFja2dyb3VuZDogcmdiYSgwLCAwLCAwLCAwLjUpO1xuXG4gICYuYWN0aXZlIHtcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIH1cblxuICAmID4gI21lcm1haWQtc3BhY2Uge1xuICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbGlnaHQpO1xuICAgIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgICBwb3NpdGlvbjogZml4ZWQ7XG4gICAgdG9wOiA1MCU7XG4gICAgbGVmdDogNTAlO1xuICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlKC01MCUsIC01MCUpO1xuICAgIGhlaWdodDogODB2aDtcbiAgICB3aWR0aDogODB2dztcbiAgICBvdmVyZmxvdzogaGlkZGVuO1xuXG4gICAgJiA+IC5tZXJtYWlkLWNvbnRlbnQge1xuICAgICAgcGFkZGluZzogMnJlbTtcbiAgICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICAgIHRyYW5zZm9ybS1vcmlnaW46IDAgMDtcbiAgICAgIHRyYW5zaXRpb246IHRyYW5zZm9ybSAwLjFzIGVhc2U7XG4gICAgICBvdmVyZmxvdzogdmlzaWJsZTtcbiAgICAgIG1pbi1oZWlnaHQ6IDIwMHB4O1xuICAgICAgbWluLXdpZHRoOiAyMDBweDtcblxuICAgICAgcHJlIHtcbiAgICAgICAgbWFyZ2luOiAwO1xuICAgICAgICBib3JkZXI6IG5vbmU7XG4gICAgICB9XG5cbiAgICAgIHN2ZyB7XG4gICAgICAgIG1heC13aWR0aDogbm9uZTtcbiAgICAgICAgaGVpZ2h0OiBhdXRvO1xuICAgICAgfVxuICAgIH1cblxuICAgICYgPiAubWVybWFpZC1jb250cm9scyB7XG4gICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgICBib3R0b206IDIwcHg7XG4gICAgICByaWdodDogMjBweDtcbiAgICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgICBnYXA6IDhweDtcbiAgICAgIHBhZGRpbmc6IDhweDtcbiAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0KTtcbiAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICBib3JkZXItcmFkaXVzOiA2cHg7XG4gICAgICBib3gtc2hhZG93OiAwIDJweCA0cHggcmdiYSgwLCAwLCAwLCAwLjEpO1xuICAgICAgei1pbmRleDogMjtcblxuICAgICAgLm1lcm1haWQtY29udHJvbC1idXR0b24ge1xuICAgICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgICAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgICAgICAgd2lkdGg6IDMycHg7XG4gICAgICAgIGhlaWdodDogMzJweDtcbiAgICAgICAgcGFkZGluZzogMDtcbiAgICAgICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHQpO1xuICAgICAgICBjb2xvcjogdmFyKC0tZGFyayk7XG4gICAgICAgIGJvcmRlci1yYWRpdXM6IDRweDtcbiAgICAgICAgY3Vyc29yOiBwb2ludGVyO1xuICAgICAgICBmb250LXNpemU6IDE2cHg7XG4gICAgICAgIGZvbnQtZmFtaWx5OiB2YXIoLS1ib2R5Rm9udCk7XG4gICAgICAgIHRyYW5zaXRpb246IGFsbCAwLjJzIGVhc2U7XG5cbiAgICAgICAgJjpob3ZlciB7XG4gICAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgICAgfVxuXG4gICAgICAgICY6YWN0aXZlIHtcbiAgICAgICAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoMXB4KTtcbiAgICAgICAgfVxuXG4gICAgICAgIC8vIFN0eWxlIHRoZSByZXNldCBidXR0b24gZGlmZmVyZW50bHlcbiAgICAgICAgJjpudGgtY2hpbGQoMikge1xuICAgICAgICAgIHdpZHRoOiBhdXRvO1xuICAgICAgICAgIHBhZGRpbmc6IDAgMTJweDtcbiAgICAgICAgICBmb250LXNpemU6IDE0cHg7XG4gICAgICAgIH1cbiAgICAgIH1cbiAgICB9XG4gIH1cbn1cbiJdfQ== */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" spa-preserve/><script src="../../../prescript.js" type="application/javascript" spa-preserve></script><script type="application/javascript" spa-preserve>const fetchData = fetch("../../../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://quartz.jzhao.xyz/index.xml"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://quartz.jzhao.xyz/UNI/ANNO-2/RETI/RETI-LEZ.21-og-image.webp"/><meta property="og:image:url" content="https://quartz.jzhao.xyz/UNI/ANNO-2/RETI/RETI-LEZ.21-og-image.webp"/><meta name="twitter:image" content="https://quartz.jzhao.xyz/UNI/ANNO-2/RETI/RETI-LEZ.21-og-image.webp"/><meta property="og:image:type" content="image/.webp"/></head><body data-slug="UNI/ANNO-2/RETI/RETI-LEZ.21"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="../../..">Quartz 4</a></h2><div class="spacer mobile-only"></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>Search</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="Search for something" placeholder="Search for something"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="Reader mode"><title>Reader mode</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a,b)=>!a.isFolder&amp;&amp;!b.isFolder||a.isFolder&amp;&amp;b.isFolder?a.displayName.localeCompare(b.displayName,void 0,{numeric:!0,sensitivity:\&quot;base\&quot;}):!a.isFolder&amp;&amp;b.isFolder?1:-1&quot;,&quot;filterFn&quot;:&quot;node=>node.slugSegment!==\&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;node=>node&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-292"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>Explorer</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-292" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#"></a></li></template><template id="template-folder"><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../../../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../UNI/">UNI</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../UNI/ANNO-2/">ANNO 2</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../UNI/ANNO-2/RETI/">RETI</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>RETI LEZ.21</a></div></nav><h1 class="article-title">RETI LEZ.21</h1><p show-comma="true" class="content-meta"><time datetime="2025-10-13T15:42:40.000Z">Oct 13, 2025</time><span>15 min read</span></p></div></div><article class="popover-hint"><h2 id="bluetooth">Bluetooth<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#bluetooth" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>
+<p>Lavora sulle PAN(Personal Area Network)</p>
+<ul>
+<li>con bassissimo diametro (10 metri)</li>
+</ul>
+</li>
+<li>
+<p>Cerca di sostituire i vari cavi come mouse tastiera cuffie ecc…</p>
+</li>
+<li>
+<p>Con le ultime connessioni arriva fino a 3 Mbps
+Il TDM (Time Division Multiplexing) del Bluetooth è a 625 micro secondi</p>
+</li>
+<li>
+<p>Client device e Master controller comunicano su due slot alternati</p>
+<ul>
+<li>tipo uno prende gli slot pari uno i dispari</li>
+<li>gli slot sono divisi per un intervallo di tempo di 625 microsecondi
+FDM con FHSS
+Il <strong>FDM</strong> consiste nell’usare <strong>diverse frequenze</strong> per trasmettere dati <strong>in parallelo</strong>. Bluetooth lo combina con <strong>FHSS (Frequency-Hopping Spread Spectrum)</strong> per aumentare robustezza e sicurezza.
+L’ordine dei salti di frequenza è:</li>
+</ul>
+</li>
+<li>
+<p><strong>Pseudocasuale</strong> (sembrano casuali ma sono deterministici).</p>
+</li>
+<li>
+<p><strong>Sincronizzato</strong> tra master e client.</p>
+<ul>
+<li><strong>TDM</strong> → gestisce <em>chi parla quando</em>.</li>
+<li><strong>FDM con FHSS</strong> → gestisce <em>su quale frequenza si parla</em></li>
+</ul>
+</li>
+<li>
+<p><strong>M (Master Controller)</strong>: dispositivo centrale che controlla la comunicazione.</p>
+</li>
+<li>
+<p><strong>C (Client Device)</strong>: dispositivi attivi che comunicano con il master.</p>
+</li>
+<li>
+<p><strong>P (Parked Device)</strong>: dispositivi registrati ma <strong>inattivi</strong> (non comunicano finché non vengono “risvegliati”).
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250529120105.png" width="300" height="auto" alt/></p>
+</li>
+</ul>
+<p>Il Bluetooth non presenta infrastruttura fissa ma ha architettura ad hoc</p>
+<ul>
+<li>i dispositivi si organizzano in modo dinamico ponendo master controller e client device</li>
+<li>Fino a <strong>8 dispositivi attivi contemporaneamente</strong> (1 <strong>master</strong> + 7 <strong>client</strong>).</li>
+<li>Il <strong>master</strong> ha un ruolo fondamentale:
+<ul>
+<li>Decide la sequenza dei salti di frequenza (<strong>FHSS</strong>).</li>
+<li>Controlla la potenza di trasmissione.</li>
+<li>Esegue il <strong>polling</strong>, cioè interroga i client per sapere se hanno dati da trasmettere (i client non parlano autonomamente).</li>
+</ul>
+</li>
+</ul>
+<blockquote class="callout tip" data-callout="tip">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>una piccola rete Bluetooth si chiama PICONET </p></div>
+                  
+                </div>
+</blockquote>
+<h5 id="bootstrapping-processo-che-fa-entrare-in-una-piconet">Bootstrapping processo che fa entrare in una piconet<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#bootstrapping-processo-che-fa-entrare-in-una-piconet" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<p>si può entrare in 2 modi</p>
+<ol>
+<li>Neighbor discovery
+<ul>
+<li>il master invia dei messaggi in broadcast chiamati inquiry su diversi canali</li>
+<li>I dispositivi in ascolto (su un canale) rispondono con un ritardo <strong>casuale</strong> → per evitare collisioni.</li>
+<li>Serve a scoprire chi è nelle vicinanze.</li>
+</ul>
+</li>
+<li>Paging
+<ul>
+<li>il master invita un dispositivo specifico a entrare
+<ul>
+<li>Quando il dispositivo risponde con ACK, il master gli comunica:</li>
+<li>Il <strong>pattern</strong> dei salti di frequenza.</li>
+<li>L’<strong>orologio (clock)</strong>.</li>
+<li>L’<strong>indirizzo di partecipazione</strong>.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="covid-e-bluetooth">Covid e Bluetooth<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#covid-e-bluetooth" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p><img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250529122506.png" width="500" height="auto" alt/>
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250529122511.png" width="500" height="auto" alt/></p>
+<h2 id="reti-cellulari-4g5g">Reti Cellulari 4G/5G<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#reti-cellulari-4g5g" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Rappresentano una soluzione diffusa e funzionale per avere internet mobile in wide-area</p>
+<h4 id="similarità-con-internet-cablato">Similarità con Internet Cablato<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#similarità-con-internet-cablato" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Entrambe hanno una struttura a livelli formata da:
+<ul>
+<li>una Periferia di accesso, dove si collegano tutti gli utenti</li>
+<li>un Nucleo che è la parte di accesso centrale più potente
+<ul>
+<li>gestisce e smista il traffico tra le reti</li>
+</ul>
+</li>
+<li>Periferia e Nucleo sono differenti ma fanno parte dello stesso carrier, ovvero operatore telefonico Tim ecc…</li>
+</ul>
+</li>
+<li>Globalizzazione delle reti, proprio come internet le reti mobili sono reti di reti, anche se sei connesso a una rete TIM di Roma puoi comunicare con un utente Vodafone di Milano</li>
+<li>Le reti mobili usano gli stessi protocolli di comunicazione delle reti cablate
+<ul>
+<li>HTTP, DNS, TCP, UDP, IP, NAT</li>
+<li>Anche qui troviamo tecnologie moderne come:
+<ul>
+<li><strong>SDN</strong> (Software Defined Networking)</li>
+<li><strong>Ethernet</strong></li>
+<li><strong>Tunneling</strong> (per trasmettere informazioni in modo protetto o virtuale)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>La rete mobile è connessa alla rete cablata, attraverso punti di interconnessione</li>
+</ul>
+<h4 id="differenze-con-internet-cablato">Differenze con Internet Cablato<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#differenze-con-internet-cablato" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>la rete cablata ha collegamenti fissi e usa protocolli come quello Ethernet
+<ul>
+<li>invece nelle reti mobili abbiamo protocolli specifici per funzionare via wireless
+<ul>
+<li>LTE PHY per il livello fisico</li>
+<li>MAC per il controllo di accesso al mezzo</li>
+<li>RLC per il controllo al collegamento radio</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>il passaggio da una cella all’altra è gestito autonomamente nelle reti mobili
+<ul>
+<li>questo fenomeno si chiama handoff</li>
+<li>nelle reti cablate no</li>
+</ul>
+</li>
+<li>Sulle reti cablate, chiunque può collegarsi (spesso senza autenticazione).
+<ul>
+<li>Nelle reti mobili, invece, ogni utente ha una <strong>SIM card</strong>:</li>
+</ul>
+</li>
+<li>Esistenza del concetto Home network
+<ul>
+<li>sostanzialmente quando sei connesso alla rete a cui sei abbonato sei connesso alla home network</li>
+<li>quando cambi paese ed entri in roaming invece sei in una rete ospite, visited network</li>
+</ul>
+</li>
+</ul>
+<h3 id="architettura-4g-semplificata-e-i-suoi-elementi">Architettura 4G semplificata e i suoi elementi<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#architettura-4g-semplificata-e-i-suoi-elementi" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p><img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250529180732.png" width="auto" height="auto" alt/>
+Ora spiegheremo per bene tutte queste cose qua sopra che cosa rappresentano</p>
+<h5 id="esagono-in-alto-a-sx-mobile-device-e-base-station">Esagono in alto a sx Mobile device e Base station<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#esagono-in-alto-a-sx-mobile-device-e-base-station" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<ul>
+<li>il Mobile device e  il dispositivo dell’utente dotato di abbonamento e SIM
+<ul>
+<li>la SIM funziona con un identificativo IMSI a 64 bit</li>
+<li>nelle reti LTE si chiama UE, User Equipment</li>
+<li>Esso comunica con la rete tramite la base station</li>
+</ul>
+</li>
+<li>la base station si trova alla periferia della rete dell’operatore
+<ul>
+<li>è simile a un Access Point ma più avanzato perché deve
+<ul>
+<li>coordinare le varie autenticazioni dei device</li>
+<li>gestire le risorse radio per far si che ogni UE stia nella sua cella</li>
+<li>supporta handover con i vari passaggi di cella per la movilità</li>
+<li>collabora quindi con altre Base station per ottimizzare l’uso della radio</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="nuvola-a-dx-hss-gateway-e-mme">Nuvola a dx HSS, Gateway e MME<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#nuvola-a-dx-hss-gateway-e-mme" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<ul>
+<li>Home Subscriber Server ha il compito di memorizzare le informazioni degli utenti come IMSI, profili utente, chiavi di autenticazione
+<ul>
+<li>È <strong>il “registro centrale” dell’operatore</strong> (es. TIM, Vodafone…)</li>
+<li>La rete dell’HSS è considerata la home network per quei determinati dispositivi
+<ul>
+<li>quando invece sei in roaming loro non hanno i tuoi dati devono chiederli</li>
+</ul>
+</li>
+<li>Lavora con l’MME per autenticare i dispositivi mobili</li>
+</ul>
+</li>
+<li>MME(Mobility Management Entity)
+<ul>
+<li>Coordina l’autenticazione dei device con l’HSS</li>
+<li>Gestisce in particolare la parte della mobilità tra gli utenti
+<ul>
+<li>eseguendo handover tra celle</li>
+<li>sa la posizione dei vari dispositivi</li>
+</ul>
+</li>
+<li>si occupa di sistemare adeguatamente i tunnel tra UE e P-GW</li>
+</ul>
+</li>
+<li>Gateway S-GW e P-GW
+<ul>
+<li>sono delle componenti all’interno della rete che hanno il compito di instradare correttamente i dati nelle reti mobili
+<ul>
+<li>S-GW(Serving Gateway), inoltra i dati tra UE e P-GW</li>
+<li>P-GW(PDN Gateway), fa da gateway verso internet
+<ul>
+<li>appare come un normale router ed è connesso alla rete globale</li>
+<li>fornisce servizi NAT
+<ul>
+<li>se sei dietro un IP condiviso fa da intermediario tra UE e internet</li>
+</ul>
+</li>
+<li>usa il tunneling per garantire una comunicazione trasparente</li>
+<li>che sia anche sicura mente ti muovi</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="separazione-tra-piano-dati-e-di-controllo-della-rete-lte">Separazione tra piano dati e di controllo della rete LTE<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#separazione-tra-piano-dati-e-di-controllo-della-rete-lte" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>una rete LTE presenta una divisione tra piano dati e piano di controllo</p>
+<h5 id="-piano-di-controllo">🔒 Piano di Controllo<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-piano-di-controllo" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<p>📌 <strong>Scopo</strong>:<br/>
+Gestire <strong>mobilità</strong>, <strong>sicurezza</strong> e <strong>autenticazione</strong>.
+📦 <strong>Non trasporta dati reali</strong>, ma solo <strong>informazioni di gestione</strong>.<br/>
+È come dire: “Chi sei? Dove vuoi andare? Ti autorizzo? Hai il biglietto?”.</p>
+<p>🔧 <strong>Componenti principali</strong>:</p>
+<ul>
+<li><strong>Base station (eNode-B)</strong>: comunica con il telefono (UE).</li>
+<li><strong>MME (Mobility Management Entity)</strong>: gestisce autenticazioni, mobilità e sessioni.</li>
+<li><strong>HSS (Home Subscriber Server)</strong>: contiene chi sei (es. IMSI, profili, chiavi).</li>
+<li><strong>S-GW / P-GW</strong>: anche loro partecipano alla fase iniziale per preparare la connessione.
+🧠 <strong>Importante</strong>:<br/>
+I protocolli qui <strong>non spostano dati</strong>, ma <strong>fanno le regole</strong>, come GTP-C (Control), S1-AP, NAS…</li>
+</ul>
+<h5 id="-piano-dati">🌐 Piano Dati<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-piano-dati" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<p>📌 <strong>Scopo</strong>:<br/>
+Trasportare il <strong>traffico IP vero e proprio</strong>, cioè <strong>quello che stai facendo su Internet</strong> (YouTube, WhatsApp, siti, ecc.).
+📦 <strong>Viaggio diretto dei dati</strong>:
+<code>Telefono (UE) → eNode-B → S-GW → P-GW → Internet</code>
+🚇 I dati passano in un “tunnel” IP chiamato <strong>GTP-U (User)</strong> che serve a</p>
+<ul>
+<li><strong>Separare</strong> i dati reali dal resto della gestione rete</li>
+<li><strong>Proteggere</strong> e <strong>indirizzare</strong> correttamente il traffico
+✅ <strong>Vantaggi</strong></li>
+<li>Più <strong>velocità</strong></li>
+<li>Più <strong>efficienza</strong></li>
+<li>Il piano di controllo può cambiare (ad es. spostarti su un’altra antenna) <strong>senza disturbare il traffico in corso</strong>
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250529190918.png" width="auto" height="auto" alt/></li>
+</ul>
+<h4 id="pila-protocollare-del-piano-dei-dati-lte">Pila protocollare del piano dei dati LTE<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#pila-protocollare-del-piano-dei-dati-lte" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>ogni comunicazione segue una <strong>struttura a strati</strong> (chiamata <em>pila protocollare</em>)
+vediamo come è formato il livello di collegamento di questa pila nel first hop e nel tunneling core</p>
+<h4 id="1--first-hop">1.  First hop<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1--first-hop" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p><img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250529191107.png" width="auto" height="auto" alt/>
+è suddiviso in 3 sottolivelli</p>
+<ul>
+<li>PDCP- Packet Data Convergence Protocol
+<ul>
+<li>ha il compito di prendere ogni header dei pacchetti e di ridurle per occupare meno spazio attraverso compressioni</li>
+<li>criptazione dei dati per maggiore sicurezza</li>
+</ul>
+</li>
+<li>RLC- Radio Link Control
+<ul>
+<li>questo livello ha il compito di suddividere i dati in pezzi più piccoli per trasmetterli e poi vengono rimessi insieme una volta ricevuti</li>
+<li>presente anche una correzione degli errori garantendo che ogni pezzo arrivi a destinazione</li>
+</ul>
+</li>
+<li>MAC- Medium Access Control
+<ul>
+<li>gestisce gli accessi al vanale radio per gestire chi deve parlare e quando
+<ul>
+<li>assegna slot di tempo</li>
+</ul>
+</li>
+<li>OFDM è la tecnologia usata per suddividere la banda in più canali paralleli riducendo interferenze
+Questo primo hop LTE è quindi molto strutturato e complesso, con protocolli dedicati alla sicurezza, affidabilità e gestione della radio.</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-tunneling-nel-core-lte">2. Tunneling nel core LTE<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#2-tunneling-nel-core-lte" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>dalla base station ai vari gateway al vero e proprio internet e abbiamo dei cambiamenti</li>
+<li>Per trasferire tutti questi dati adeguatamente si effettua il tunneling
+<ul>
+<li>i dati dell’utente vengono impacchettati e spediti attraverso una sorta di tubo
+<ul>
+<li>si usa un protocollo chiamato GTP-U (GRPS Tunneling Protocol- User Plane) che ha il compito di impacchettare i dati e inserirli dentro un pacchetto UDP che verrà spedito nel tubo</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>🔄 Come funziona, passo dopo passo</p>
+<ol>
+<li>Il <strong>datagramma GTP-U</strong> viene creato nella <strong>base station</strong>.</li>
+<li>Viene inoltrato al <strong>S-GW</strong>, che <strong>non lo guarda dentro</strong>, ma semplicemente <strong>lo passa avanti</strong>.</li>
+<li>Il <strong>S-GW lo incapsula</strong> dentro un nuovo tunnel e lo spedisce al <strong>P-GW</strong>.</li>
+<li>Alla fine, il <strong>P-GW</strong> lo spacchetta e lo invia a Internet.
+🔁 Tutto questo avviene <strong>in maniera trasparente</strong> per l’utente: è come se fosse sempre connesso, anche se si muove o cambia celle.</li>
+</ol>
+<p>Presenta diversi vantaggi di mobilità, sicurezza e soprattutto è complementare a internet senza stravolgerlo al suo interno</p>
+<h4 id="piano-dati-associazione-con-una-base-station">piano dati: Associazione con una Base Station<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#piano-dati-associazione-con-una-base-station" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>L’associazione di un dispositivo UE a una base station avviene in 4 fasi</p>
+<h5 id="fase-1--la-base-station-si-fa-riconoscere">Fase 1 – La base station si fa riconoscere<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#fase-1--la-base-station-si-fa-riconoscere" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<ul>
+<li>ogni 5 millisecondi la BS invia un segnale in broadcast di sincronizzazione primario</li>
+<li>i dispositivi mobili sentono quel segnale</li>
+<li>tutti i BS trasmettono su frequenze differenti</li>
+</ul>
+<h5 id="fase-2--il-telefono-ascolta-e-analizza">Fase 2 – Il telefono ascolta e analizza<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#fase-2--il-telefono-ascolta-e-analizza" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<ul>
+<li>dopo aver sentito il segnale primario ora avviene quello secondario con più dettagli
+<ul>
+<li>per ogni BS rilevata il nostro UE avrà:
+<ul>
+<li>📶 <strong>Configurazione del canale</strong>: larghezza di banda, tipo di frequenza, ecc.</li>
+<li>🆔 <strong>ID della cella</strong>: identifica univocamente la BS.</li>
+<li>🏷️ <strong>ID operatore</strong>: capisce se la BS appartiene al suo operatore.</li>
+<li>⚙️ <strong>Parametri extra</strong>: ad esempio priorità, risorse disponibili.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="fase-3--il-telefono-sceglie-la-base-station">Fase 3 – Il telefono sceglie la base station<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#fase-3--il-telefono-sceglie-la-base-station" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<ul>
+<li>il telefono sceglie quale BS usare in base a quella che ha un segnale più forte e preferendo le varie home network senza andare in roaming</li>
+</ul>
+<h5 id="fase-4--cosa-succede-dopo-la-scelta">Fase 4 – Cosa succede dopo la scelta?<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#fase-4--cosa-succede-dopo-la-scelta" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<ul>
+<li>avviene la connessione vera e propria
+<ul>
+<li>✅ <strong>Autenticazione</strong>: il telefono si identifica con la SIM card → HSS e MME verificano chi sei.</li>
+<li>🧠 <strong>Creazione del collegamento</strong>: viene riservato un canale per te.</li>
+<li>🌍 <strong>Configurazione del piano dati</strong>:
+<ul>
+<li>Ti viene assegnato un indirizzo IP.</li>
+<li>Vengono stabilite le regole per far passare i tuoi pacchetti dati.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>La rete LTE prevede nodi dormienti per ridurre il loro consumo energetico che si dividono in</p>
+<ul>
+<li>light sleep
+<ul>
+<li>si attiva dopo alcune centinaia di millisecondi di inattività ma si risveglia periodicamente per controllare se ci sono dati in arrivo</li>
+</ul>
+</li>
+<li>deep sleep
+<ul>
+<li>si attiva dopo 5-10 secondi di inattività</li>
+<li>la connessione e sospesa e non riceve più dati periodicamente, ma se si sveglia può ancora riceverli</li>
+<li>se si sposta serve una nuova associazione con la BS
+<ul>
+<li>overhead aggiuntivo</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="rete-cellulare-globale-una-rete-di-reti-ip">Rete cellulare globale una rete di reti IP<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#rete-cellulare-globale-una-rete-di-reti-ip" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p><img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250530164202.png" width="auto" height="auto" alt/></p>
+<h3 id="5g">5G<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#5g" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>si è passati al 5G per tre scenari</p>
+<ul>
+<li>eMBB (Enhanced Mobile Broadband): connessioni più veloci e ad alta capacità.</li>
+<li>mMTC (Massive Machine-Type Communications): supporto a milioni di dispositivi IoT.</li>
+<li>URLLC (Ultra-Reliable Low Latency Communications): comunicazioni ultra-affidabili a bassa latenza.</li>
+</ul>
+<p>il 5G ha un incremento delle velocità rispetto al 4G di 10x e capacità di traffico del 100x</p>
+<ul>
+<li>frequenza maggiore</li>
+<li>potrebbero esserci problemi su distanze più lunghe dalle antenne rispetto al 4G</li>
+</ul>
+<h3 id="precisazioni-sul-concetto-di-mobilità">Precisazioni sul concetto di mobilità<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#precisazioni-sul-concetto-di-mobilità" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<blockquote class="callout definizione" data-callout="definizione">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>Definizione </p></div>
+                  
+                </div>
+<div class="callout-content">
+<p>La mobilità è la capacità di un dispositivo di muoversi tra le reti mantenendo attive le comunicazioni in corso, senza perdere la connessione.</p>
+</div>
+</blockquote>
+<h4 id="spettro-della-mobilità">Spettro della mobilità<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#spettro-della-mobilità" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p><img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250530164804.png" width="auto" height="auto" alt/></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Livello di mobilità</th><th>Descrizione</th></tr></thead><tbody><tr><td><strong>Nessuna mobilità</strong></td><td>Il dispositivo si muove tra reti di accesso ma è spento durante lo spostamento. Nessuna necessità di mantenere la connessione.</td></tr><tr><td><strong>Bassa mobilità (inattiva)</strong></td><td>Il dispositivo è acceso, si muove ma <strong>non mantiene connessioni attive</strong> (es. accendi il telefono in una nuova area).</td></tr><tr><td><strong>Mobilità intra-rete</strong></td><td>Il dispositivo si muove all’interno della stessa rete wireless dello stesso operatore. Cambia cella, ma <strong>rimane nella stessa rete di fornitore</strong>.</td></tr><tr><td><strong>Mobilità inter-rete (interessante per l’esame)</strong></td><td>Il dispositivo si muove <strong>tra reti di accesso</strong> ma <strong>resta nella stessa rete del fornitore</strong>, <strong>mantenendo attive le connessioni</strong>. <em>(Es. da una cella a un’altra, durante una videochiamata)</em></td></tr><tr><td><strong>Mobilità globale (interessante per l’esame)</strong></td><td>Il dispositivo si muove <strong>tra reti di fornitori differenti</strong>, mantenendo le connessioni attive. <em>(Richiede roaming e coordinamento più complesso tra operatori.)</em></td></tr></tbody></table></div>
+<p>Il problema della mobilità è che se un dispositivo si sposta da una rete  all’altra come fa la rete vecchia a sapere che deve inoltrare i pacchetti alla rete nuova?
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250530164917.png" width="auto" height="auto" alt/></p>
+<h3 id="due-approcci-differenti-al-problema">Due approcci differenti al problema<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#due-approcci-differenti-al-problema" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<h4 id="1-lasciare-che-i-router-gestiscano-la-cosa">1. Lasciare che i router gestiscano la cosa<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1-lasciare-che-i-router-gestiscano-la-cosa" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>In questo approccio:</p>
+<ul>
+<li>Ogni volta che un dispositivo si sposta in una nuova rete, <strong>il router della nuova rete annuncia al mondo “Ehi, ora questo dispositivo è con me!”</strong></li>
+<li>La rete interna aggiorna le sue <strong>tabelle di routing</strong>, ovvero le “mappe” per capire dove mandare i dati.
+Ma la cosa che rende questo approccio pessimo è che funziona se i dispositivi sono pochi</li>
+<li>se ci sono miliardi di utenti non possono aggiornarsi queste tabelle in continuazione</li>
+<li>sarebbe un disastro</li>
+</ul>
+<h4 id="2-far-gestire-la-mobilità-al-dispositivo-stesso-o-a-chi-gli-sta-vicinohome-agent">2. Far gestire la mobilità al dispositivo stesso o a chi gli sta vicino(Home Agent)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#2-far-gestire-la-mobilità-al-dispositivo-stesso-o-a-chi-gli-sta-vicinohome-agent" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>si divide in 2 tecniche principali</p>
+<ul>
+<li>a instradamento indiretto (indirect Routing)
+<ul>
+<li>il dispositivo ha un suo home agent nella rete di origine</li>
+<li>quando si sposta i pacchetti vengono prima spediti all’home agent</li>
+<li>poi l’home agent li reinvia al dispositivo nella nuova posizione
+<ul>
+<li>l’home agent non conosce direttamente quali sono le base station che invieranno il tutto al dispositivo, il tutto avviene in modo indiretto</li>
+</ul>
+</li>
+<li>Svantaggio: i dati fanno <strong>un giro più lungo</strong>, non ottimale.</li>
+</ul>
+</li>
+<li>instradamento diretto (Direct Routing)
+<ul>
+<li>il mittente scopre dove si trova il dispositivo(il suo nuovo indirizzo IP)</li>
+<li>gli invia i pacchetti in modo diretto senza passare dall’home agent</li>
+<li>in poche parole i servizi che ti forniscono informazioni ti mandano i dati sul nuovo indirizzo IP che scambi ad ogni spostamento</li>
+<li>veloce ed efficiente</li>
+</ul>
+</li>
+</ul>
+<p><img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250601112226.jpg" width="auto" height="auto" alt/></p>
+<h3 id="rete-domestica-rete-visitata">Rete domestica, Rete visitata<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#rete-domestica-rete-visitata" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<h4 id="4g5g">4G/5G<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#4g5g" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p><img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250601112519.jpg" width="auto" height="auto" alt/>
+In sostanza ci sono due tipi di network</p>
+<ul>
+<li>home network
+<ul>
+<li>rete gestita dal tuo operatore con cui hai un contratto</li>
+</ul>
+</li>
+<li>visited network
+<ul>
+<li>rete gestita da altri operatori con cui ti connetti in roaming</li>
+<li>funziona tramite accordi</li>
+</ul>
+</li>
+</ul>
+<h3 id="ispwi-fi">ISP/WI-FI<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#ispwi-fi" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p><img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250601113017.jpg" width="auto" height="auto" alt/>
+Nel concetto ISP/WI-FI non c’è un discorso di home network, ogni rete è indipendente e l’utente deve accedere ad esse attraverso le credenziali salvate sul loro device</p>
+<ul>
+<li>solo alcune reti hanno concetti di roaming come eduroam con un discorso simile</li>
+</ul>
+<h3 id="rete-domesticarete-visitata">Rete domestica/Rete visitata<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#rete-domesticarete-visitata" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p><img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250601113458.jpg" width="auto" height="auto" alt/></p>
+<ul>
+<li>il dispositivo mobile ha due identità
+<ul>
+<li>IMSI identificatore globale</li>
+<li>IP può essere permanente nella rete domestica e NAT nella rete visitata</li>
+</ul>
+</li>
+<li>La rete domestica assegna l’IP permanente e ha l’HSS, mobility manager ecc…</li>
+<li>La rete visitata assegna un IP locale ma fa tunneling verso la rete domestica</li>
+<li>instradamento e autenticazione vengono fatti sulla rete domestica anche se sei altrove</li>
+</ul>
+<h3 id="registrazione-come-far-capire-a-casa-dove-sei">Registrazione: come far capire “a casa” dove sei<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#registrazione-come-far-capire-a-casa-dove-sei" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Quando ti sposti in una rete diversa da quella del tuo operatore</p>
+<ul>
+<li>la rete domestica deve sapere dove inoltrare i tuoi dati, questo processo si chiama registrazione</li>
+</ul>
+<p>🔁 Passaggi della registrazione
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250601114803.jpg" width="auto" height="auto" alt/></p>
+<ol>
+<li>
+<p><strong>Il nodo mobile si associa al mobility manager della rete visitata</strong></p>
+<ul>
+<li>Appena entra nella rete visitata, il dispositivo invia una richiesta al <strong>Mobility Manager (MM)</strong> locale.</li>
+<li>Questo MM è responsabile di sapere che il dispositivo si trova lì <strong>in quel momento</strong>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Il mobility manager visitato registra la posizione del nodo presso l’HSS della rete domestica</strong></p>
+<ul>
+<li>Invia un messaggio all’<strong>HSS (Home Subscriber Server)</strong>, che si trova nella rete del tuo operatore.</li>
+<li>L’HSS aggiorna la posizione del nodo mobile, registrando <strong>in quale rete (e in quale MM)</strong> si trova attualmente.</li>
+</ul>
+</li>
+<li>
+<p>Risultato finale</p>
+<ul>
+<li>Il <strong>Mobility Manager visitato</strong> sa che il dispositivo è collegato a lui.</li>
+<li>L’<strong>HSS domestico</strong> sa che il tuo terminale è associato a quel mobility manager visitato.
+Così, quando un corrispondente ti invia un pacchetto (es. chiamata, messaggio, dati), il tuo operatore sa <strong>in quale rete</strong> inoltrarlo grazie all’aggiornamento ricevuto.</li>
+</ul>
+</li>
+</ol>
+<h4 id="routing-indiretto">Routing indiretto<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#routing-indiretto" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>Quando un dispositivo entra in una rete visitata non cambia il suo IP logico(domestico)</p>
+<ul>
+<li>come fa allora a ricevere pacchetti nella nuova rete?
+<ul>
+<li>la soluzione è il routing indiretto</li>
+</ul>
+</li>
+</ul>
+<p>🔄 Fasi del routing indiretto
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250601115315.jpg" width="auto" height="auto" alt/></p>
+<ol>
+<li>Comunicazione in ingresso
+<ul>
+<li>Il <strong>corrispondente</strong> (es. un server o un altro utente) invia un datagramma al dispositivo mobile usando l’<strong>IP della rete domestica</strong> (es. <code>128.119.40.186</code>).</li>
+<li>Il pacchetto arriva al <strong>gateway della rete domestica</strong> (Home Network Gateway).</li>
+</ul>
+</li>
+<li>Tunneling
+<ul>
+<li>Il gateway <strong>non può inoltrare direttamente</strong> il pacchetto al dispositivo, perché si trova altrove.</li>
+<li>Quindi lo <strong>incapsula</strong> (tunnel IP) e lo invia attraverso Internet al <strong>gateway della rete visitata</strong> (es. <code>79.129.16.x</code>).</li>
+</ul>
+</li>
+<li>Consegna
+<ul>
+<li>Il <strong>gateway visitato</strong> inoltra il datagramma al dispositivo mobile tramite il suo indirizzo NAT locale (es. <code>10.0.0.99</code>).</li>
+</ul>
+</li>
+</ol>
+<p>🔁 Comunicazione in uscita
+Il dispositivo mobile, una volta ricevuto il pacchetto, può rispondere in due modi:</p>
+<ul>
+<li><strong>4a. Routing indiretto simmetrico</strong>:
+<ul>
+<li>Invia la risposta al <strong>gateway domestico</strong>, che poi la consegna al corrispondente.</li>
+</ul>
+</li>
+<li><strong>4b. Routing diretto</strong>:
+<ul>
+<li>Invia direttamente la risposta al corrispondente (possibile, ma rompe la simmetria IP).</li>
+</ul>
+</li>
+</ul>
+<h6 id="routing-indiretto-pregi-e-difetti">Routing indiretto pregi e difetti<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#routing-indiretto-pregi-e-difetti" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h6>
+<p>Concetto di instradamento triangolare</p>
+<ul>
+<li>il corrispondente invia i dati all’IP domestico del dispositivo</li>
+<li>la rete domestica inoltra il tutto alla rete visitata tramite tunneling
+Se il corrispondente e il dispositivo sono vicini(tipo stesso paese), questo instradamento è altamente inefficiente
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250601120739.jpg" width="250" height="auto" alt/>
+Anche se l’IP del dispositivo cambia il corrispondente non se ne accorge e non vengono fermati inoltri dei dati</li>
+</ul>
+<h6 id="routing-diretto">Routing diretto<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#routing-diretto" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h6>
+<p>Nel routing diretto il corrispondente invia i pacchetti direttamente alla rete visitata dove si trova attualmente il dispositivo mobile, senza passare per reti domestiche
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250601121121.jpg" width="auto" height="auto" alt/></p>
+<p>🔄 Passaggi principali</p>
+<ul>
+<li><strong>(1)</strong> Il corrispondente vuole inviare un pacchetto al dispositivo mobile.</li>
+<li><strong>(2)</strong> Contatta l’<strong>HSS della rete domestica</strong> per sapere <strong>dove si trova</strong> il dispositivo.</li>
+<li><strong>(3)</strong> Riceve l’indirizzo della <strong>rete visitata</strong> (es. NAT o IP temporaneo).</li>
+<li><strong>(4)</strong> Invia i dati <strong>direttamente alla rete visitata</strong>, che li inoltra al dispositivo.</li>
+</ul>
+<p>questo rende il tutto estremamente più veloce e con latenza minore
+ma il corrispondente deve ogni volta ottenere il nuovo care-of-address, quindi il nuovo IP nella rete visitata</p>
+<p>se il nodo mobile cambia ancora rete
+il sistema riesce a gestirlo ma ad ogni cambio bisogna aggiornare e registrare di nuovo tutto aggiungendo maggiore complessità</p></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc desktop-only"><button type="button" class="toc-header" aria-controls="toc-179" aria-expanded="true"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-1" class="toc-content overflow"><li class="depth-0"><a href="#bluetooth" data-for="bluetooth">Bluetooth</a></li><li class="depth-0"><a href="#reti-cellulari-4g5g" data-for="reti-cellulari-4g5g">Reti Cellulari 4G/5G</a></li><li class="depth-1"><a href="#architettura-4g-semplificata-e-i-suoi-elementi" data-for="architettura-4g-semplificata-e-i-suoi-elementi">Architettura 4G semplificata e i suoi elementi</a></li><li class="depth-1"><a href="#5g" data-for="5g">5G</a></li><li class="depth-1"><a href="#precisazioni-sul-concetto-di-mobilità" data-for="precisazioni-sul-concetto-di-mobilità">Precisazioni sul concetto di mobilità</a></li><li class="depth-1"><a href="#due-approcci-differenti-al-problema" data-for="due-approcci-differenti-al-problema">Due approcci differenti al problema</a></li><li class="depth-1"><a href="#rete-domestica-rete-visitata" data-for="rete-domestica-rete-visitata">Rete domestica, Rete visitata</a></li><li class="depth-1"><a href="#ispwi-fi" data-for="ispwi-fi">ISP/WI-FI</a></li><li class="depth-1"><a href="#rete-domesticarete-visitata" data-for="rete-domesticarete-visitata">Rete domestica/Rete visitata</a></li><li class="depth-1"><a href="#registrazione-come-far-capire-a-casa-dove-sei" data-for="registrazione-come-far-capire-a-casa-dove-sei">Registrazione: come far capire “a casa” dove sei</a></li><li class="overflow-end"></li></ul></div><div class="backlinks"><h3>Backlinks</h3><ul id="list-2" class="overflow"><li><a href="../../../UNI/ANNO-2/RETI/INDICE-RETI" class="internal">INDICE RETI</a></li><li class="overflow-end"></li></ul></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.5.2</a> © 2025</p><ul><li><a href="https://github.com/jackyzha0/quartz">GitHub</a></li><li><a href="https://discord.gg/cRFFHYye7t">Discord Community</a></li></ul></footer></div></div></body><script type="application/javascript">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module">function f(i,e){if(!i)return;function r(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function t(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}i?.addEventListener("click",r),window.addCleanup(()=>i?.removeEventListener("click",r)),document.addEventListener("keydown",t),window.addCleanup(()=>document.removeEventListener("keydown",t))}function y(i){for(;i.firstChild;)i.removeChild(i.firstChild)}var h=class{constructor(e,r){this.container=e;this.content=r;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),r=this.onMouseMove.bind(this),t=this.onMouseUp.bind(this),o=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",r),document.addEventListener("mouseup",t),window.addEventListener("resize",o),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",r),()=>document.removeEventListener("mouseup",t),()=>window.removeEventListener("resize",o))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let r=this.createButton("+",()=>this.zoom(.1)),t=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(t),e.appendChild(o),e.appendChild(r),this.container.appendChild(e)}createButton(e,r){let t=document.createElement("button");return t.textContent=e,t.className="mermaid-control-button",t.addEventListener("click",r),window.addCleanup(()=>t.removeEventListener("click",r)),t}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}zoom(e){let r=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),t=this.content.getBoundingClientRect(),o=t.width/2,n=t.height/2,c=r-this.scale;this.currentPan.x-=o*c,this.currentPan.y-=n*c,this.scale=r,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){this.scale=1;let e=this.content.querySelector("svg");this.currentPan={x:e.getBoundingClientRect().width/2,y:e.getBoundingClientRect().height/2},this.updateTransform()}},C=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],E;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;E||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let r=E.default,t=new WeakMap;for(let n of e)t.set(n,n.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let a=t.get(s);a&&(s.innerHTML=a)}let n=C.reduce((s,a)=>(s[a]=window.getComputedStyle(document.documentElement).getPropertyValue(a),s),{}),c=document.documentElement.getAttribute("saved-theme")==="dark";r.initialize({startOnLoad:!1,securityLevel:"loose",theme:c?"dark":"base",themeVariables:{fontFamily:n["--codeFont"],primaryColor:n["--light"],primaryTextColor:n["--darkgray"],primaryBorderColor:n["--tertiary"],lineColor:n["--darkgray"],secondaryColor:n["--secondary"],tertiaryColor:n["--tertiary"],clusterBkg:n["--light"],edgeLabelBackground:n["--highlight"]}}),await r.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let n=0;n<e.length;n++){let v=function(){let g=l.querySelector("#mermaid-space"),m=l.querySelector(".mermaid-content");if(!m)return;y(m);let w=c.querySelector("svg").cloneNode(!0);m.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new h(g,m)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},c=e[n],s=c.parentElement,a=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(a),L=a.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),f(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript"></script><script src="../../../postscript.js" type="module"></script></html>

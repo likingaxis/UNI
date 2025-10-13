@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><title>RETI LEZ.4</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="Quartz 4"/><meta property="og:title" content="RETI LEZ.4"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="RETI LEZ.4"/><meta name="twitter:description" content="Livello di applicazione Nel livello applicativo ci sono le applicazioni di rete ad esempio posta elettronica trasferimento file social media streaming di video-clip memorizzati VoIP I dispositivi che eseguono le applicazioni di rete non sono quelle nel nucleo bensì quelle che confinano al nucleo Com..."/><meta property="og:description" content="Livello di applicazione Nel livello applicativo ci sono le applicazioni di rete ad esempio posta elettronica trasferimento file social media streaming di video-clip memorizzati VoIP I dispositivi che eseguono le applicazioni di rete non sono quelle nel nucleo bensì quelle che confinano al nucleo Com..."/><meta property="og:image:alt" content="Livello di applicazione Nel livello applicativo ci sono le applicazioni di rete ad esempio posta elettronica trasferimento file social media streaming di video-clip memorizzati VoIP I dispositivi che eseguono le applicazioni di rete non sono quelle nel nucleo bensì quelle che confinano al nucleo Com..."/><meta property="twitter:domain" content="quartz.jzhao.xyz"/><meta property="og:url" content="https://quartz.jzhao.xyz/UNI/ANNO-2/RETI/RETI-LEZ.4"/><meta property="twitter:url" content="https://quartz.jzhao.xyz/UNI/ANNO-2/RETI/RETI-LEZ.4"/><link rel="icon" href="../../../static/icon.png"/><meta name="description" content="Livello di applicazione Nel livello applicativo ci sono le applicazioni di rete ad esempio posta elettronica trasferimento file social media streaming di video-clip memorizzati VoIP I dispositivi che eseguono le applicazioni di rete non sono quelle nel nucleo bensì quelle che confinano al nucleo Com..."/><meta name="generator" content="Quartz"/><link href="../../../index.css" rel="stylesheet" type="text/css" spa-preserve/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  padding: 2rem;
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiQzpcXFVzZXJzXFxMdWNhXFxEZXNrdG9wXFxVTkkgTlVPVk9cXHF1YXJ0elxccXVhcnR6XFxjb21wb25lbnRzXFxzdHlsZXMiLCJzb3VyY2VzIjpbIm1lcm1haWQuaW5saW5lLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7O0FBR0Y7RUFDRTtFQUNBOztBQUdGO0VBQ0U7OztBQUtGO0VBQ0U7RUFDQTs7O0FBSUo7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTs7QUFHRjtFQUNFO0VBQ0E7O0FBSUo7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7O0FBSUY7RUFDRTtFQUNBO0VBQ0EiLCJzb3VyY2VzQ29udGVudCI6WyIuZXhwYW5kLWJ1dHRvbiB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxvYXQ6IHJpZ2h0O1xuICBwYWRkaW5nOiAwLjRyZW07XG4gIG1hcmdpbjogMC4zcmVtO1xuICByaWdodDogMDsgLy8gTk9URTogcmlnaHQgd2lsbCBiZSBzZXQgaW4gbWVybWFpZC5pbmxpbmUudHNcbiAgY29sb3I6IHZhcigtLWdyYXkpO1xuICBib3JkZXItY29sb3I6IHZhcigtLWRhcmspO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1saWdodCk7XG4gIGJvcmRlcjogMXB4IHNvbGlkO1xuICBib3JkZXItcmFkaXVzOiA1cHg7XG4gIG9wYWNpdHk6IDA7XG4gIHRyYW5zaXRpb246IDAuMnM7XG5cbiAgJiA+IHN2ZyB7XG4gICAgZmlsbDogdmFyKC0tbGlnaHQpO1xuICAgIGZpbHRlcjogY29udHJhc3QoMC4zKTtcbiAgfVxuXG4gICY6aG92ZXIge1xuICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICBib3JkZXItY29sb3I6IHZhcigtLXNlY29uZGFyeSk7XG4gIH1cblxuICAmOmZvY3VzIHtcbiAgICBvdXRsaW5lOiAwO1xuICB9XG59XG5cbnByZSB7XG4gICY6aG92ZXIgPiAuZXhwYW5kLWJ1dHRvbiB7XG4gICAgb3BhY2l0eTogMTtcbiAgICB0cmFuc2l0aW9uOiAwLjJzO1xuICB9XG59XG5cbiNtZXJtYWlkLWNvbnRhaW5lciB7XG4gIHBvc2l0aW9uOiBmaXhlZDtcbiAgY29udGFpbjogbGF5b3V0O1xuICB6LWluZGV4OiA5OTk7XG4gIGxlZnQ6IDA7XG4gIHRvcDogMDtcbiAgd2lkdGg6IDEwMHZ3O1xuICBoZWlnaHQ6IDEwMHZoO1xuICBvdmVyZmxvdzogaGlkZGVuO1xuICBkaXNwbGF5OiBub25lO1xuICBiYWNrZHJvcC1maWx0ZXI6IGJsdXIoNHB4KTtcbiAgYmFja2dyb3VuZDogcmdiYSgwLCAwLCAwLCAwLjUpO1xuXG4gICYuYWN0aXZlIHtcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIH1cblxuICAmID4gI21lcm1haWQtc3BhY2Uge1xuICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbGlnaHQpO1xuICAgIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgICBwb3NpdGlvbjogZml4ZWQ7XG4gICAgdG9wOiA1MCU7XG4gICAgbGVmdDogNTAlO1xuICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlKC01MCUsIC01MCUpO1xuICAgIGhlaWdodDogODB2aDtcbiAgICB3aWR0aDogODB2dztcbiAgICBvdmVyZmxvdzogaGlkZGVuO1xuXG4gICAgJiA+IC5tZXJtYWlkLWNvbnRlbnQge1xuICAgICAgcGFkZGluZzogMnJlbTtcbiAgICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICAgIHRyYW5zZm9ybS1vcmlnaW46IDAgMDtcbiAgICAgIHRyYW5zaXRpb246IHRyYW5zZm9ybSAwLjFzIGVhc2U7XG4gICAgICBvdmVyZmxvdzogdmlzaWJsZTtcbiAgICAgIG1pbi1oZWlnaHQ6IDIwMHB4O1xuICAgICAgbWluLXdpZHRoOiAyMDBweDtcblxuICAgICAgcHJlIHtcbiAgICAgICAgbWFyZ2luOiAwO1xuICAgICAgICBib3JkZXI6IG5vbmU7XG4gICAgICB9XG5cbiAgICAgIHN2ZyB7XG4gICAgICAgIG1heC13aWR0aDogbm9uZTtcbiAgICAgICAgaGVpZ2h0OiBhdXRvO1xuICAgICAgfVxuICAgIH1cblxuICAgICYgPiAubWVybWFpZC1jb250cm9scyB7XG4gICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgICBib3R0b206IDIwcHg7XG4gICAgICByaWdodDogMjBweDtcbiAgICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgICBnYXA6IDhweDtcbiAgICAgIHBhZGRpbmc6IDhweDtcbiAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0KTtcbiAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICBib3JkZXItcmFkaXVzOiA2cHg7XG4gICAgICBib3gtc2hhZG93OiAwIDJweCA0cHggcmdiYSgwLCAwLCAwLCAwLjEpO1xuICAgICAgei1pbmRleDogMjtcblxuICAgICAgLm1lcm1haWQtY29udHJvbC1idXR0b24ge1xuICAgICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgICAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgICAgICAgd2lkdGg6IDMycHg7XG4gICAgICAgIGhlaWdodDogMzJweDtcbiAgICAgICAgcGFkZGluZzogMDtcbiAgICAgICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHQpO1xuICAgICAgICBjb2xvcjogdmFyKC0tZGFyayk7XG4gICAgICAgIGJvcmRlci1yYWRpdXM6IDRweDtcbiAgICAgICAgY3Vyc29yOiBwb2ludGVyO1xuICAgICAgICBmb250LXNpemU6IDE2cHg7XG4gICAgICAgIGZvbnQtZmFtaWx5OiB2YXIoLS1ib2R5Rm9udCk7XG4gICAgICAgIHRyYW5zaXRpb246IGFsbCAwLjJzIGVhc2U7XG5cbiAgICAgICAgJjpob3ZlciB7XG4gICAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgICAgfVxuXG4gICAgICAgICY6YWN0aXZlIHtcbiAgICAgICAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoMXB4KTtcbiAgICAgICAgfVxuXG4gICAgICAgIC8vIFN0eWxlIHRoZSByZXNldCBidXR0b24gZGlmZmVyZW50bHlcbiAgICAgICAgJjpudGgtY2hpbGQoMikge1xuICAgICAgICAgIHdpZHRoOiBhdXRvO1xuICAgICAgICAgIHBhZGRpbmc6IDAgMTJweDtcbiAgICAgICAgICBmb250LXNpemU6IDE0cHg7XG4gICAgICAgIH1cbiAgICAgIH1cbiAgICB9XG4gIH1cbn1cbiJdfQ== */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" spa-preserve/><script src="../../../prescript.js" type="application/javascript" spa-preserve></script><script type="application/javascript" spa-preserve>const fetchData = fetch("../../../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://quartz.jzhao.xyz/index.xml"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://quartz.jzhao.xyz/UNI/ANNO-2/RETI/RETI-LEZ.4-og-image.webp"/><meta property="og:image:url" content="https://quartz.jzhao.xyz/UNI/ANNO-2/RETI/RETI-LEZ.4-og-image.webp"/><meta name="twitter:image" content="https://quartz.jzhao.xyz/UNI/ANNO-2/RETI/RETI-LEZ.4-og-image.webp"/><meta property="og:image:type" content="image/.webp"/></head><body data-slug="UNI/ANNO-2/RETI/RETI-LEZ.4"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="../../..">Quartz 4</a></h2><div class="spacer mobile-only"></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>Search</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="Search for something" placeholder="Search for something"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="Reader mode"><title>Reader mode</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a,b)=>!a.isFolder&amp;&amp;!b.isFolder||a.isFolder&amp;&amp;b.isFolder?a.displayName.localeCompare(b.displayName,void 0,{numeric:!0,sensitivity:\&quot;base\&quot;}):!a.isFolder&amp;&amp;b.isFolder?1:-1&quot;,&quot;filterFn&quot;:&quot;node=>node.slugSegment!==\&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;node=>node&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-295"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>Explorer</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-295" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#"></a></li></template><template id="template-folder"><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../../../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../UNI/">UNI</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../UNI/ANNO-2/">ANNO 2</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../UNI/ANNO-2/RETI/">RETI</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>RETI LEZ.4</a></div></nav><h1 class="article-title">RETI LEZ.4</h1><p show-comma="true" class="content-meta"><time datetime="2025-10-13T15:42:40.000Z">Oct 13, 2025</time><span>11 min read</span></p></div></div><article class="popover-hint"><h1 id="livello-di-applicazione">Livello di applicazione<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#livello-di-applicazione" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>Nel livello applicativo ci sono le applicazioni di rete
+ad esempio</p>
+<ul>
+<li>posta elettronica</li>
+<li>trasferimento file</li>
+<li>social media</li>
+<li>streaming di video-clip memorizzati</li>
+<li>VoIP
+I dispositivi che eseguono le applicazioni di rete non sono quelle nel nucleo bensì quelle che confinano al nucleo</li>
+</ul>
+<p><img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250318130926.png" width="400" height="auto" alt/></p>
+<h4 id="come-architettare-le-nostre-applicazioni-di-rete">Come architettare le nostre applicazioni di rete<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#come-architettare-le-nostre-applicazioni-di-rete" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>abbiamo due approcci principali</p>
+<h2 id="client-server">client-server<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#client-server" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>abbiamo due attori principali
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250318131113.png" width="400" height="auto" alt/></p>
+<ul>
+<li>server
+<ul>
+<li>macchina che deve essere sempre attiva per soddisfare le richieste dei client</li>
+<li>indirizzo IP ben noto</li>
+<li>se necessario deve essere potente per soddisfare enormi richieste</li>
+</ul>
+</li>
+<li>client
+<ul>
+<li>contattano il server</li>
+<li>possono funzionare in modo intermittente</li>
+<li>possono cambiare indirizzi IP perché il server non deve per forza conoscere il client</li>
+<li>in questa struttura i client non comunicano tra di loro ma solo con il server</li>
+</ul>
+</li>
+</ul>
+<p>esempio di app client-server: servizio di posta elettronica che vedremo meglio dopo</p>
+<ul>
+<li>oppure abbiamo host client o host server (è la stessa cosa ma dicendo host intendi il dispositivo vero e proprio)</li>
+<li>dire solo client-server si riferisce più all’architettura</li>
+</ul>
+<h3 id="peer-to-peer">peer-to-peer<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#peer-to-peer" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Non c’è un server sempre attivo e non ci deve essere una infrastruttura complessa e costosa
+È definito dai peer pari che comunicano direttamente tra di loro
+Ha una scalabilità intrinseca:</p>
+<ul>
+<li>aggiungere un peer aumenta carico perché chiedo dei chunk ma aumento anche le disponibilità quindi si deve avere un certo equilibrio
+i peer sono degli host che possono apparire o sparire e quindi non devono avere per forza stesso indirizzo IP
+chunk: singolo pezzetto di un file
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250318131542.png" width="400" height="auto" alt/></li>
+</ul>
+<h2 id="processi-comunicanti">Processi comunicanti<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#processi-comunicanti" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Come comunicano i processi
+Nel contesto delle reti un processo è un programma in esecuzione su un host
+i processi possono comunicare:</p>
+<h6 id="nello-stesso-host">Nello stesso host<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#nello-stesso-host" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h6>
+<p>Comunicano con un sistema interconnesso dettato dal sistema operativo</p>
+<h6 id="su-host-differenti">Su host differenti<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#su-host-differenti" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h6>
+<p>Comunicano attraverso messaggi</p>
+<h5 id="precisazione-su-client-server">Precisazione su Client Server<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#precisazione-su-client-server" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<p>Server: fornisce il servizio
+Client: colui che lo richiede
+Un server non deve per forza avere un solo ruolo ma può averli entrambi basta che siano su due nodi differenti della rete
+ad esempio P2P</p>
+<h3 id="socket">Socket<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#socket" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Socket è una interfaccia software che permette a un processo di inviare e ricevere messaggi</p>
+<ul>
+<li>funziona come una porta comunicante per cui il mittente può inviare il messaggio e avere una struttura dati che finirà nelle mani del destinatario</li>
+<li>I livelli fino a quello di trasporto sono gestiti dal SO</li>
+<li>i livelli di applicazione sono controllati dallo sviluppatore dell’applicazione
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250318133006.png" width="400" height="auto" alt/></li>
+</ul>
+<h2 id="indirizzamento">Indirizzamento<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#indirizzamento" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Se vogliamo mandare un messaggio a un processo dobbiamo poterlo <font color="#f79646">identificare </font></p>
+<ul>
+<li>Un host ha il uso Indirizzo IP univoco a 32 o 128 in base al ipv4-6
+Se vogliamo inviare a un processo un messaggio dobbiamo identificare l’host e poi l’applicazione
+Una volta identificato l’host attraverso l’indirizzo IP con quale processo parlo? esso è dato dal numero di porta che identifica una determinata socket su cui si appoggia il processo
+il numero è a piacere soprattutto se sopra 1024</li>
+<li>alcuni sono registrati da IANA che registra delle porte standard
+<ul>
+<li>ad esempio ha registrato
+<ul>
+<li>porta HTTP:80</li>
+<li>porta di posta elettronica:25
+esempio di invio di un messaggio a un server utilizzando</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>indirizzo IP: 128.119.245.12</li>
+<li>numero di porta: 80
+Il DNS aiuta per l’indirizzo IP invece per il numero di porta bisogna segnarne uno noto sennò non si trova</li>
+</ul>
+<h1 id="protocollo">Protocollo<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#protocollo" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>Definizione di protocollo nel livello applicativo
+cosa definisce:</p>
+<ul>
+<li>il tipo di messaggi
+<ul>
+<li>tipo se è un messaggio di richiesta di risposta</li>
+</ul>
+</li>
+<li>la sintassi del messaggio
+<ul>
+<li>campi del messaggio</li>
+</ul>
+</li>
+<li>semantica dei messaggi
+<ul>
+<li>cosa significano le informazioni nei campi</li>
+</ul>
+</li>
+<li>regole
+<ul>
+<li>regole generali di invio e ricezione dei messaggi</li>
+</ul>
+</li>
+</ul>
+<h5 id="ci-sono-due-tipi-di-protocolli">Ci sono due tipi di protocolli<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#ci-sono-due-tipi-di-protocolli" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<ul>
+<li>di pubblico dominio
+<ul>
+<li>specifica nota</li>
+<li>scritte in documenti come RFC definiti dalla IETF(un ente)</li>
+<li>tipo HTTP o SMTP</li>
+<li>garantiscono interoperabilità
+<ul>
+<li>quando due dispositivi sviluppati da aziende diverse possono funzionare assieme</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>proprietari
+<ul>
+<li>skype e zoom</li>
+<li>specifiche non note</li>
+</ul>
+</li>
+</ul>
+<h3 id="quale-servizio-di-trasporto-usare-in-base-a-unapplicazione">Quale servizio di trasporto usare in base a un’applicazione<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#quale-servizio-di-trasporto-usare-in-base-a-unapplicazione" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>cosa è una perdita di dati
+<ul>
+<li>data da coda o congestione</li>
+<li>Errori di trasmissione</li>
+<li>recuperi con algoritmi dei dati
+alcune applicazioni pretendono il 100% dei dati
+altre possono tollerare ad esempio app che gestiscono contenuti multimediali come audio/video</li>
+</ul>
+</li>
+<li>sensibilità al fattore tempo
+<ul>
+<li>applicazioni interattive ne risentono</li>
+</ul>
+</li>
+<li>troughput
+<ul>
+<li>Le applicazioni multimediali necessitano di un troughput minimo</li>
+</ul>
+</li>
+<li>sicurezza
+<ul>
+<li>riservatezza, integrità dei dati, autenticazione
+Tabella interessante sui vari requisiti
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250318143024.png" width="500" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+<h2 id="servizi-e-protocolli-forniti-da-internet">Servizi e protocolli forniti da internet<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#servizi-e-protocolli-forniti-da-internet" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="servizio-tcp">Servizio TCP<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#servizio-tcp" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Servizio affidabile che consente il trasferimento e il controllo del flusso di dati da una parte a un’altra</p>
+<ul>
+<li>consente di bloccare momentaneamente il processo d’invio quando la rete è sovraccarica</li>
+</ul>
+<h3 id="servizio-udp">Servizio UDP<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#servizio-udp" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Servizio senza particolari fronzoli
+manda un messaggio a un processo ma non offre affidabilità</p>
+<ul>
+<li>ha solo un piccolo controllo degli errori che li segnala e basta</li>
+<li>non fornisce correzioni, si limita a rinviare l’informazione
+(per la correzione vedremo ECC o Ritrasmissioni)
+a fronte di minori garanzie offre maggiore velocita
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250318144546.png" width="auto" height="auto" alt/></li>
+</ul>
+<h3 id="rendere-sicuro-tcp">Rendere sicuro TCP<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#rendere-sicuro-tcp" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>nessuno dei due è sicuro ma per TCP venne ideato un protocollo di wrap al TCP che aggiunge un livello di sicurezza detto TLS
+La libreria TLS cifra e decifra il messaggio facendo da “intermediario” al TCP, controllando inoltre l’integrità dei dati
+altrimenti sarebbe tutto in chiaro</p>
+<h1 id="web-e-http">Web e HTTP<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#web-e-http" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>Concetto di hypertext: è un sistema di organizzazione delle informazioni in cui i contenuti sono divisi in <strong>pagine collegate tra loro tramite link</strong>
+Accedo a oggetti(risorse) che sono gli elementi che compongono una pagina web come anche un file HTML o il CSS o gif
+ognuno di questi oggetti e diviso da un URL
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250318145635.png" width="400" height="auto" alt/></p>
+<ul>
+<li>il nome dell’host non è l’indirizzo IP ma viene convertito dal DNS in indirizzo IP il DNS non è nel nucleo infatti il nucleo ha solo inoltro e instradamento</li>
+<li>il percorso dell’oggetto è come un file system da remoto</li>
+</ul>
+<h2 id="panoramica-su-http">Panoramica su http<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#panoramica-su-http" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>È alla base delle applicazioni web
+È un protocollo basato sul paradigma client server
+dove un client richiede un oggetto al server che lo restituisce
+il client è uno user agent il server è un server agent
+il web è indipendente dal dispositivo usato ad esempio basta che ho un browser con http
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250318150258.png" width="300" height="auto" alt/></p>
+<h4 id="cosa-usa-http">Cosa usa http<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#cosa-usa-http" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>usa TCP fino alla versione 2.0 per trasferire i dati sulla porta 80
+HTTP è un protocollo stateless poiché non mantiene memoria dettagliata delle interazioni precedenti</p>
+<ul>
+<li>non ci conviene avere uno stato aumenta overhead</li>
+</ul>
+<h6 id="-passaggi-della-comunicazione-http-su-tcp-porta-80"><strong>🔹 Passaggi della comunicazione HTTP su TCP (porta 80)</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-passaggi-della-comunicazione-http-su-tcp-porta-80" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h6>
+<p>1️⃣ <strong>Il client inizializza la connessione TCP</strong></p>
+<ul>
+<li>Il client (ad esempio un browser web) crea una <strong>socket</strong> e tenta di aprire una connessione TCP con il server sulla <strong>porta 80</strong> (che è la porta standard per HTTP).</li>
+<li>Questo avviene tramite il <strong>3-way handshake</strong> di TCP.</li>
+</ul>
+<p>2️⃣ <strong>Il server accetta la connessione TCP</strong></p>
+<ul>
+<li>Il server web (es. Apache, Nginx) <strong>riceve la richiesta di connessione</strong> e la accetta.</li>
+<li>La connessione TCP è ora stabilita e pronta per lo scambio di dati.</li>
+</ul>
+<p>3️⃣ <strong>Scambio di messaggi HTTP</strong></p>
+<ul>
+<li>Il client (browser) invia una richiesta HTTP al server</li>
+<li>Il server web risponde con il contenuto richiesto</li>
+</ul>
+<p>4️⃣ <strong>Chiusura della connessione TCP</strong></p>
+<ul>
+<li>Una volta terminato lo scambio dei dati, la connessione TCP viene <strong>chiusa</strong>.</li>
+<li>La chiusura può essere iniziata dal client o dal server tramite un <strong>4-way handshake</strong> di TCP.</li>
+</ul>
+<h4 id="tipi-di-http">Tipi di HTTP<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#tipi-di-http" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>connessioni non persistenti</p>
+<ul>
+<li>si aprivano diverse connessioni per ogni richiesta</li>
+<li>usato fino alla versione 1 di http
+connessioni persistenti</li>
+<li>in http 2 le connessioni erano persistenti</li>
+<li>ogni richiesta era veicolata tra client e server</li>
+<li>senza disconnessione istantanea</li>
+<li>praticamente potevi scambiare più oggetti</li>
+</ul>
+<h4 id="esempio-grafico-di-non-persistenti">esempio grafico di non persistenti<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#esempio-grafico-di-non-persistenti" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p><img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250318151526.png" width="600" height="auto" alt/></p>
+<h5 id="rtt-definizione">RTT Definizione<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#rtt-definizione" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<p>per calcolare il tempo di risposta bisogna introdurre il RTT
+indica quanto tempo impiega un piccolo pacchetto per andare dal client al server e ritornare al client</p>
+<ul>
+<li>tenendo conto di tutti i ritardi possibili
+<ul>
+<li>tipo coda o congestione
+L’intervallo <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7778em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">i</span><span class="mord mathnormal">c</span><span class="mord mathnormal">hi</span><span class="mord mathnormal">es</span><span class="mord mathnormal">t</span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.854em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">i</span><span class="mord mathnormal">s</span><span class="mord mathnormal">p</span><span class="mord mathnormal">os</span><span class="mord mathnormal">t</span><span class="mord mathnormal">a</span></span></span></span> è indicato da un singolo RTT
+il tempo di risposta è dato da
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord">2</span><span class="mord mathnormal" style="margin-right:0.13889em;">RTT</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">t</span><span class="mord mathnormal">e</span><span class="mord mathnormal">m</span><span class="mord mathnormal">p</span><span class="mord mathnormal">o</span><span class="mspace"> </span><span class="mord mathnormal">d</span><span class="mord mathnormal">i</span><span class="mspace"> </span><span class="mord mathnormal">t</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">a</span><span class="mord mathnormal">s</span><span class="mord mathnormal">mi</span><span class="mord mathnormal">ss</span><span class="mord mathnormal">i</span><span class="mord mathnormal">o</span><span class="mord mathnormal">n</span><span class="mord mathnormal">e</span><span class="mspace"> </span><span class="mord mathnormal">d</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mspace"> </span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">e</span></span></span></span>
+in questo caso abbiamo <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span> <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">RTT</span></span></span></span> quindi abbiamo <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span>
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250318151455.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+<h4 id="connessioni-persistenti">Connessioni persistenti<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#connessioni-persistenti" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>Le connessioni persistenti rispetto alle connessioni non persistenti
+ci consentono di pagare 1 RTT per tutti gli oggetti richiesti quando invece prima ne servivano 2 per oggetto
+Presentano una notevole riduzione di overhead e facilitazione sul controllo delle connessioni(ne controllo meno)</p>
+<h2 id="messaggi-http">Messaggi HTTP<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#messaggi-http" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Il protocollo HTTP funziona con messaggi di richiesta e risposta
+un messaggio è formato da ASCII</p>
+<h3 id="messaggio-di-richiesta">Messaggio di richiesta<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#messaggio-di-richiesta" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>esempio di richiesta http
+Un tipico messaggio di richiesta HTTP appare così:</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="pgsql" data-theme="github-light github-dark"><code data-language="pgsql" data-theme="github-light github-dark" style="display:grid;"><span data-line><span>GET /index.html HTTP/1.1\r\n</span></span>
+<span data-line><span>Host: www.example.com\r\n</span></span>
+<span data-line><span>User-Agent: Mozilla/5.0\r\n</span></span>
+<span data-line><span>Accept: text/html\r\n</span></span>
+<span data-line><span>Accept-Language: en-us,en;q=0.5\r\n</span></span>
+<span data-line><span>Connection: keep-alive\r\n</span></span>
+<span data-line><span>\r\n</span></span>
+<span data-line> </span></code></pre></figure>
+<ul>
+<li><code>GET /index.html HTTP/1.1</code> → Indica il <strong>metodo HTTP</strong>, il file richiesto (<code>/index.html</code>) e la versione del protocollo (<code>HTTP/1.1</code>).</li>
+<li><code>Host: www.example.com</code> → Specifica il server a cui inviare la richiesta.</li>
+<li><code>User-Agent: Mozilla/5.0</code> → Specifica il browser e il sistema operativo del client.</li>
+<li><code>Accept: text/html</code> → Indica i tipi di contenuto che il client può ricevere.</li>
+<li><code>Accept-Language: en-us</code> → Indica la lingua preferita e la formattazione</li>
+<li><code>Connection: keep-alive</code> → Chiede di mantenere la connessione aperta.
+/r sposta all’inizio delle colonne del testo e invece /n va a capo</li>
+</ul>
+<h4 id="struttura-generale-di-una-richiesta-http">Struttura generale di una richiesta HTTP<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#struttura-generale-di-una-richiesta-http" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>principalmente la struttura generale è divisa in 3 punti
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250318183006.png" width="400" height="auto" alt/>
+1️⃣ <strong>Riga di richiesta (Request Line)</strong></p>
+<ul>
+<li>Contiene il <strong>metodo HTTP</strong>, l’ <strong>URL richiesto</strong> e la <strong>versione HTTP</strong>.
+2️⃣ <strong>Intestazioni (Header Lines)</strong></li>
+<li>Contengono informazioni sul client e sulle preferenze della richiesta.
+3️⃣ <strong>Corpo del messaggio (Entity Body)</strong></li>
+<li>Presente solo in alcuni metodi HTTP, come <strong>POST</strong> e <strong>PUT</strong>.</li>
+<li>Contiene dati inviati al server (ad esempio, un form compilato dall’utente).</li>
+</ul>
+<h3 id="piccola-parentesi-su-altri-messaggi-di-richiesta-http">Piccola parentesi su altri messaggi di richiesta HTTP<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#piccola-parentesi-su-altri-messaggi-di-richiesta-http" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<h5 id="-metodo-post"><strong>🔹 Metodo POST</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-metodo-post" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<p>✅ Utilizzato per <strong>inviare dati al server</strong>.<br/>
+✅ L’input dell’utente viene inviato <strong>nel corpo della richiesta HTTP</strong> (non nell’URL).<br/>
+✅ Spesso usato nei <strong>form di login, registrazione o invio di dati sensibili</strong>.</p>
+<hr/>
+<h5 id="-metodo-get"><strong>🔹 Metodo GET</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-metodo-get" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<p>✅ Utilizzato per <strong>richiedere risorse dal server</strong> (es. pagine web).<br/>
+✅ I dati inviati al server sono inclusi <strong>nell’URL</strong>, dopo un <strong><code>?</code></strong>.<br/>
+✅ Non sicuro per dati sensibili (es. password), perché i parametri sono visibili nell’URL.</p>
+<hr/>
+<h5 id="-metodo-head"><strong>🔹 Metodo HEAD</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-metodo-head" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<p>✅ Funziona come <strong>GET</strong>, ma <strong>richiede solo le intestazioni</strong> della risposta, senza il corpo.<br/>
+✅ Utile per verificare se una risorsa esiste o controllare le <strong>metainformazioni</strong> (es. dimensione di un file).<br/>
+l’intestazione sono tutti quei dati aggiuntivi al di fuori del corpo del messaggio
+ad esempio</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="html" data-theme="github-light github-dark"><code data-language="html" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">HTTP/1.1 200 OK</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">Date: Tue, 19 Mar 2024 14:00:00 GMT</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">Server: Apache/2.4.41 (Ubuntu)</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">Content-Type: text/html; charset=UTF-8</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">Content-Length: 5123</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">↑</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">queste sono le intestazioni</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">questo è il body</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">↓</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">&lt;</span><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;">html</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">></span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">&lt;</span><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;">body</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">></span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">&lt;</span><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;">h1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">>Benvenuto!&lt;/</span><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;">h1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">></span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">&lt;/</span><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;">body</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">></span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">&lt;/</span><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;">html</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">></span></span></code></pre></figure>
+<hr/>
+<h5 id="-metodo-put"><strong>🔹 Metodo PUT</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-metodo-put" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<p>✅ Utilizzato per <strong>caricare o aggiornare un file sul server</strong>.<br/>
+✅ Se il file esiste già, viene <strong>sostituito completamente</strong>.</p>
+<hr/>
+<h3 id="messaggio-di-risposta">Messaggio di risposta<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#messaggio-di-risposta" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>è il messaggio di risposta che invia il server al client dopo che ha effettuato una richiesta
+Ad esempio</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="yaml" data-theme="github-light github-dark"><code data-language="yaml" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">HTTP/1.1 200 OK ← RIGA DI STATO</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;">Date</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">Tue, 19 Mar 2024 14:00:00 GMT</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;">Server</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">Apache/2.4.41 (Ubuntu)</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;">Last-Modified</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">Mon, 18 Mar 2024 10:00:00 GMT</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;">Content-Length</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">5123</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;">Content-Type</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">text/html; charset=UTF-8</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">↑</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">TUTTO QUESTO È LA RIGA DI INTESTAZIONE</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">BODY IL CORPO DELLA RISPOSTA</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">↓</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&lt;html></span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&lt;body></span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&lt;h1>Benvenuto!&lt;/h1></span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&lt;/body></span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&lt;/html></span></span>
+<span data-line> </span></code></pre></figure>
+<p>1️⃣ <strong>Riga di stato (Status Line)</strong></p>
+<ul>
+<li>Contiene la versione del protocollo, il <strong>codice di stato</strong> e una breve descrizione.
+2️⃣ <strong>Intestazioni della risposta (Header Lines)</strong></li>
+<li>Forniscono <strong>informazioni aggiuntive</strong> sulla risposta, come il tipo di contenuto, la dimensione, la data ecc…
+3️⃣ <strong>Corpo della risposta (Body)</strong></li>
+<li>Contiene il contenuto effettivo della risposta (es. codice HTML di una pagina web, un’immagine, un file JSON, ecc.).</li>
+</ul>
+<h2 id="tipologie-di-codici-di-stato">Tipologie di codici di stato<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#tipologie-di-codici-di-stato" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Per ogni errore esiste un codice che appartiene a un insieme ben definito dalla cifra delle centinaia</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Codice</strong></th><th><strong>Descrizione</strong></th></tr></thead><tbody><tr><td><strong>1xx</strong> (Informational)</td><td>Messaggi informativi, raramente usati.</td></tr><tr><td><strong>2xx</strong> (Success)</td><td>La richiesta è andata a buon fine.</td></tr><tr><td><strong>3xx</strong> (Redirect)</td><td>Il client deve fare un’altra richiesta perché la risorsa si è spostata.</td></tr><tr><td><strong>4xx</strong> (Client Error)</td><td>La richiesta contiene un errore (es. risorsa non trovata, richiesta non valida).</td></tr><tr><td><strong>5xx</strong> (Server Error)</td><td>Errore lato server, il server non ha potuto soddisfare la richiesta.</td></tr></tbody></table></div>
+<h6 id="esempi-di-codici-di-stato-http-più-comuni"><strong>🔹Esempi di codici di stato HTTP più comuni</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#esempi-di-codici-di-stato-http-più-comuni" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h6>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Codice</strong></th><th><strong>Significato</strong></th><th><strong>Descrizione</strong></th></tr></thead><tbody><tr><td><strong>200 OK</strong></td><td>✅ Successo</td><td>La richiesta è stata completata con successo.</td></tr><tr><td><strong>301 Moved Permanently</strong></td><td>🔀 Reindirizzamento</td><td>La risorsa è stata spostata in modo permanente. Il client deve aggiornare l’URL.</td></tr><tr><td><strong>400 Bad Request</strong></td><td>❌ Errore Client</td><td>La richiesta non è valida (es. sintassi errata).</td></tr><tr><td><strong>404 Not Found</strong></td><td>🚫 Non trovato</td><td>La risorsa richiesta non esiste sul server.</td></tr><tr><td><strong>406 Not Acceptable</strong></td><td>❌ Contenuto non accettabile</td><td>Il server non può fornire il contenuto nel formato richiesto dal client.</td></tr><tr><td><strong>500 Internal Server Error</strong></td><td>⚠️ Errore Server</td><td>Il server ha riscontrato un errore interno.</td></tr><tr><td><strong>505 HTTP Version Not Supported</strong></td><td>❌ Versione HTTP non supportata</td><td>Il server non supporta la versione HTTP usata dal client.</td></tr></tbody></table></div>
+<p>Usare http per effettuare una richiesta con netcat (poi lo faremo)</p></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc desktop-only"><button type="button" class="toc-header" aria-controls="toc-181" aria-expanded="true"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-1" class="toc-content overflow"><li class="depth-0"><a href="#livello-di-applicazione" data-for="livello-di-applicazione">Livello di applicazione</a></li><li class="depth-1"><a href="#client-server" data-for="client-server">client-server</a></li><li class="depth-2"><a href="#peer-to-peer" data-for="peer-to-peer">peer-to-peer</a></li><li class="depth-1"><a href="#processi-comunicanti" data-for="processi-comunicanti">Processi comunicanti</a></li><li class="depth-2"><a href="#socket" data-for="socket">Socket</a></li><li class="depth-1"><a href="#indirizzamento" data-for="indirizzamento">Indirizzamento</a></li><li class="depth-0"><a href="#protocollo" data-for="protocollo">Protocollo</a></li><li class="depth-2"><a href="#quale-servizio-di-trasporto-usare-in-base-a-unapplicazione" data-for="quale-servizio-di-trasporto-usare-in-base-a-unapplicazione">Quale servizio di trasporto usare in base a un’applicazione</a></li><li class="depth-1"><a href="#servizi-e-protocolli-forniti-da-internet" data-for="servizi-e-protocolli-forniti-da-internet">Servizi e protocolli forniti da internet</a></li><li class="depth-2"><a href="#servizio-tcp" data-for="servizio-tcp">Servizio TCP</a></li><li class="depth-2"><a href="#servizio-udp" data-for="servizio-udp">Servizio UDP</a></li><li class="depth-2"><a href="#rendere-sicuro-tcp" data-for="rendere-sicuro-tcp">Rendere sicuro TCP</a></li><li class="depth-0"><a href="#web-e-http" data-for="web-e-http">Web e HTTP</a></li><li class="depth-1"><a href="#panoramica-su-http" data-for="panoramica-su-http">Panoramica su http</a></li><li class="depth-1"><a href="#messaggi-http" data-for="messaggi-http">Messaggi HTTP</a></li><li class="depth-2"><a href="#messaggio-di-richiesta" data-for="messaggio-di-richiesta">Messaggio di richiesta</a></li><li class="depth-2"><a href="#piccola-parentesi-su-altri-messaggi-di-richiesta-http" data-for="piccola-parentesi-su-altri-messaggi-di-richiesta-http">Piccola parentesi su altri messaggi di richiesta HTTP</a></li><li class="depth-2"><a href="#messaggio-di-risposta" data-for="messaggio-di-risposta">Messaggio di risposta</a></li><li class="depth-1"><a href="#tipologie-di-codici-di-stato" data-for="tipologie-di-codici-di-stato">Tipologie di codici di stato</a></li><li class="overflow-end"></li></ul></div><div class="backlinks"><h3>Backlinks</h3><ul id="list-2" class="overflow"><li><a href="../../../UNI/ANNO-2/RETI/INDICE-RETI" class="internal">INDICE RETI</a></li><li><a href="../../../UNI/ANNO-2/RETI/RETI-LEZ.7" class="internal">RETI LEZ.7</a></li><li class="overflow-end"></li></ul></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.5.2</a> © 2025</p><ul><li><a href="https://github.com/jackyzha0/quartz">GitHub</a></li><li><a href="https://discord.gg/cRFFHYye7t">Discord Community</a></li></ul></footer></div></div></body><script type="application/javascript">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module">function f(i,e){if(!i)return;function r(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function t(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}i?.addEventListener("click",r),window.addCleanup(()=>i?.removeEventListener("click",r)),document.addEventListener("keydown",t),window.addCleanup(()=>document.removeEventListener("keydown",t))}function y(i){for(;i.firstChild;)i.removeChild(i.firstChild)}var h=class{constructor(e,r){this.container=e;this.content=r;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),r=this.onMouseMove.bind(this),t=this.onMouseUp.bind(this),o=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",r),document.addEventListener("mouseup",t),window.addEventListener("resize",o),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",r),()=>document.removeEventListener("mouseup",t),()=>window.removeEventListener("resize",o))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let r=this.createButton("+",()=>this.zoom(.1)),t=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(t),e.appendChild(o),e.appendChild(r),this.container.appendChild(e)}createButton(e,r){let t=document.createElement("button");return t.textContent=e,t.className="mermaid-control-button",t.addEventListener("click",r),window.addCleanup(()=>t.removeEventListener("click",r)),t}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}zoom(e){let r=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),t=this.content.getBoundingClientRect(),o=t.width/2,n=t.height/2,c=r-this.scale;this.currentPan.x-=o*c,this.currentPan.y-=n*c,this.scale=r,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){this.scale=1;let e=this.content.querySelector("svg");this.currentPan={x:e.getBoundingClientRect().width/2,y:e.getBoundingClientRect().height/2},this.updateTransform()}},C=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],E;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;E||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let r=E.default,t=new WeakMap;for(let n of e)t.set(n,n.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let a=t.get(s);a&&(s.innerHTML=a)}let n=C.reduce((s,a)=>(s[a]=window.getComputedStyle(document.documentElement).getPropertyValue(a),s),{}),c=document.documentElement.getAttribute("saved-theme")==="dark";r.initialize({startOnLoad:!1,securityLevel:"loose",theme:c?"dark":"base",themeVariables:{fontFamily:n["--codeFont"],primaryColor:n["--light"],primaryTextColor:n["--darkgray"],primaryBorderColor:n["--tertiary"],lineColor:n["--darkgray"],secondaryColor:n["--secondary"],tertiaryColor:n["--tertiary"],clusterBkg:n["--light"],edgeLabelBackground:n["--highlight"]}}),await r.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let n=0;n<e.length;n++){let v=function(){let g=l.querySelector("#mermaid-space"),m=l.querySelector(".mermaid-content");if(!m)return;y(m);let w=c.querySelector("svg").cloneNode(!0);m.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new h(g,m)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},c=e[n],s=c.parentElement,a=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(a),L=a.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),f(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript"></script><script src="../../../postscript.js" type="module"></script></html>

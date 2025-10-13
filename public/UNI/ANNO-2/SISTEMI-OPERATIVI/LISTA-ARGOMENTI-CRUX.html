@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><title>LISTA ARGOMENTI CRUX</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="Quartz 4"/><meta property="og:title" content="LISTA ARGOMENTI CRUX"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="LISTA ARGOMENTI CRUX"/><meta name="twitter:description" content="Indice degli Argomenti 1. Definizione di Sistema Operativo Scopo e semplificazione delle risorse hardware."/><meta property="og:description" content="Indice degli Argomenti 1. Definizione di Sistema Operativo Scopo e semplificazione delle risorse hardware."/><meta property="og:image:alt" content="Indice degli Argomenti 1. Definizione di Sistema Operativo Scopo e semplificazione delle risorse hardware."/><meta property="twitter:domain" content="quartz.jzhao.xyz"/><meta property="og:url" content="https://quartz.jzhao.xyz/UNI/ANNO-2/SISTEMI-OPERATIVI/LISTA-ARGOMENTI-CRUX"/><meta property="twitter:url" content="https://quartz.jzhao.xyz/UNI/ANNO-2/SISTEMI-OPERATIVI/LISTA-ARGOMENTI-CRUX"/><link rel="icon" href="../../../static/icon.png"/><meta name="description" content="Indice degli Argomenti 1. Definizione di Sistema Operativo Scopo e semplificazione delle risorse hardware."/><meta name="generator" content="Quartz"/><link href="../../../index.css" rel="stylesheet" type="text/css" spa-preserve/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  padding: 2rem;
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiQzpcXFVzZXJzXFxMdWNhXFxEZXNrdG9wXFxVTkkgTlVPVk9cXHF1YXJ0elxccXVhcnR6XFxjb21wb25lbnRzXFxzdHlsZXMiLCJzb3VyY2VzIjpbIm1lcm1haWQuaW5saW5lLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7O0FBR0Y7RUFDRTtFQUNBOztBQUdGO0VBQ0U7OztBQUtGO0VBQ0U7RUFDQTs7O0FBSUo7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTs7QUFHRjtFQUNFO0VBQ0E7O0FBSUo7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7O0FBSUY7RUFDRTtFQUNBO0VBQ0EiLCJzb3VyY2VzQ29udGVudCI6WyIuZXhwYW5kLWJ1dHRvbiB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxvYXQ6IHJpZ2h0O1xuICBwYWRkaW5nOiAwLjRyZW07XG4gIG1hcmdpbjogMC4zcmVtO1xuICByaWdodDogMDsgLy8gTk9URTogcmlnaHQgd2lsbCBiZSBzZXQgaW4gbWVybWFpZC5pbmxpbmUudHNcbiAgY29sb3I6IHZhcigtLWdyYXkpO1xuICBib3JkZXItY29sb3I6IHZhcigtLWRhcmspO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1saWdodCk7XG4gIGJvcmRlcjogMXB4IHNvbGlkO1xuICBib3JkZXItcmFkaXVzOiA1cHg7XG4gIG9wYWNpdHk6IDA7XG4gIHRyYW5zaXRpb246IDAuMnM7XG5cbiAgJiA+IHN2ZyB7XG4gICAgZmlsbDogdmFyKC0tbGlnaHQpO1xuICAgIGZpbHRlcjogY29udHJhc3QoMC4zKTtcbiAgfVxuXG4gICY6aG92ZXIge1xuICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICBib3JkZXItY29sb3I6IHZhcigtLXNlY29uZGFyeSk7XG4gIH1cblxuICAmOmZvY3VzIHtcbiAgICBvdXRsaW5lOiAwO1xuICB9XG59XG5cbnByZSB7XG4gICY6aG92ZXIgPiAuZXhwYW5kLWJ1dHRvbiB7XG4gICAgb3BhY2l0eTogMTtcbiAgICB0cmFuc2l0aW9uOiAwLjJzO1xuICB9XG59XG5cbiNtZXJtYWlkLWNvbnRhaW5lciB7XG4gIHBvc2l0aW9uOiBmaXhlZDtcbiAgY29udGFpbjogbGF5b3V0O1xuICB6LWluZGV4OiA5OTk7XG4gIGxlZnQ6IDA7XG4gIHRvcDogMDtcbiAgd2lkdGg6IDEwMHZ3O1xuICBoZWlnaHQ6IDEwMHZoO1xuICBvdmVyZmxvdzogaGlkZGVuO1xuICBkaXNwbGF5OiBub25lO1xuICBiYWNrZHJvcC1maWx0ZXI6IGJsdXIoNHB4KTtcbiAgYmFja2dyb3VuZDogcmdiYSgwLCAwLCAwLCAwLjUpO1xuXG4gICYuYWN0aXZlIHtcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIH1cblxuICAmID4gI21lcm1haWQtc3BhY2Uge1xuICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbGlnaHQpO1xuICAgIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgICBwb3NpdGlvbjogZml4ZWQ7XG4gICAgdG9wOiA1MCU7XG4gICAgbGVmdDogNTAlO1xuICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlKC01MCUsIC01MCUpO1xuICAgIGhlaWdodDogODB2aDtcbiAgICB3aWR0aDogODB2dztcbiAgICBvdmVyZmxvdzogaGlkZGVuO1xuXG4gICAgJiA+IC5tZXJtYWlkLWNvbnRlbnQge1xuICAgICAgcGFkZGluZzogMnJlbTtcbiAgICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICAgIHRyYW5zZm9ybS1vcmlnaW46IDAgMDtcbiAgICAgIHRyYW5zaXRpb246IHRyYW5zZm9ybSAwLjFzIGVhc2U7XG4gICAgICBvdmVyZmxvdzogdmlzaWJsZTtcbiAgICAgIG1pbi1oZWlnaHQ6IDIwMHB4O1xuICAgICAgbWluLXdpZHRoOiAyMDBweDtcblxuICAgICAgcHJlIHtcbiAgICAgICAgbWFyZ2luOiAwO1xuICAgICAgICBib3JkZXI6IG5vbmU7XG4gICAgICB9XG5cbiAgICAgIHN2ZyB7XG4gICAgICAgIG1heC13aWR0aDogbm9uZTtcbiAgICAgICAgaGVpZ2h0OiBhdXRvO1xuICAgICAgfVxuICAgIH1cblxuICAgICYgPiAubWVybWFpZC1jb250cm9scyB7XG4gICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgICBib3R0b206IDIwcHg7XG4gICAgICByaWdodDogMjBweDtcbiAgICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgICBnYXA6IDhweDtcbiAgICAgIHBhZGRpbmc6IDhweDtcbiAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0KTtcbiAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICBib3JkZXItcmFkaXVzOiA2cHg7XG4gICAgICBib3gtc2hhZG93OiAwIDJweCA0cHggcmdiYSgwLCAwLCAwLCAwLjEpO1xuICAgICAgei1pbmRleDogMjtcblxuICAgICAgLm1lcm1haWQtY29udHJvbC1idXR0b24ge1xuICAgICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgICAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgICAgICAgd2lkdGg6IDMycHg7XG4gICAgICAgIGhlaWdodDogMzJweDtcbiAgICAgICAgcGFkZGluZzogMDtcbiAgICAgICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHQpO1xuICAgICAgICBjb2xvcjogdmFyKC0tZGFyayk7XG4gICAgICAgIGJvcmRlci1yYWRpdXM6IDRweDtcbiAgICAgICAgY3Vyc29yOiBwb2ludGVyO1xuICAgICAgICBmb250LXNpemU6IDE2cHg7XG4gICAgICAgIGZvbnQtZmFtaWx5OiB2YXIoLS1ib2R5Rm9udCk7XG4gICAgICAgIHRyYW5zaXRpb246IGFsbCAwLjJzIGVhc2U7XG5cbiAgICAgICAgJjpob3ZlciB7XG4gICAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgICAgfVxuXG4gICAgICAgICY6YWN0aXZlIHtcbiAgICAgICAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoMXB4KTtcbiAgICAgICAgfVxuXG4gICAgICAgIC8vIFN0eWxlIHRoZSByZXNldCBidXR0b24gZGlmZmVyZW50bHlcbiAgICAgICAgJjpudGgtY2hpbGQoMikge1xuICAgICAgICAgIHdpZHRoOiBhdXRvO1xuICAgICAgICAgIHBhZGRpbmc6IDAgMTJweDtcbiAgICAgICAgICBmb250LXNpemU6IDE0cHg7XG4gICAgICAgIH1cbiAgICAgIH1cbiAgICB9XG4gIH1cbn1cbiJdfQ== */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" spa-preserve/><script src="../../../prescript.js" type="application/javascript" spa-preserve></script><script type="application/javascript" spa-preserve>const fetchData = fetch("../../../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://quartz.jzhao.xyz/index.xml"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://quartz.jzhao.xyz/UNI/ANNO-2/SISTEMI-OPERATIVI/LISTA-ARGOMENTI-CRUX-og-image.webp"/><meta property="og:image:url" content="https://quartz.jzhao.xyz/UNI/ANNO-2/SISTEMI-OPERATIVI/LISTA-ARGOMENTI-CRUX-og-image.webp"/><meta name="twitter:image" content="https://quartz.jzhao.xyz/UNI/ANNO-2/SISTEMI-OPERATIVI/LISTA-ARGOMENTI-CRUX-og-image.webp"/><meta property="og:image:type" content="image/.webp"/></head><body data-slug="UNI/ANNO-2/SISTEMI-OPERATIVI/LISTA-ARGOMENTI-CRUX"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="../../..">Quartz 4</a></h2><div class="spacer mobile-only"></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>Search</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="Search for something" placeholder="Search for something"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="Reader mode"><title>Reader mode</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a,b)=>!a.isFolder&amp;&amp;!b.isFolder||a.isFolder&amp;&amp;b.isFolder?a.displayName.localeCompare(b.displayName,void 0,{numeric:!0,sensitivity:\&quot;base\&quot;}):!a.isFolder&amp;&amp;b.isFolder?1:-1&quot;,&quot;filterFn&quot;:&quot;node=>node.slugSegment!==\&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;node=>node&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-340"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>Explorer</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-340" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#"></a></li></template><template id="template-folder"><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../../../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../UNI/">UNI</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../UNI/ANNO-2/">ANNO 2</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../UNI/ANNO-2/SISTEMI-OPERATIVI/">SISTEMI OPERATIVI</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>LISTA ARGOMENTI CRUX</a></div></nav><h1 class="article-title">LISTA ARGOMENTI CRUX</h1><p show-comma="true" class="content-meta"><time datetime="2025-10-13T15:42:40.000Z">Oct 13, 2025</time><span>12 min read</span></p></div></div><article class="popover-hint"><h3 id="indice-degli-argomenti">Indice degli Argomenti<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#indice-degli-argomenti" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<h3 id="1-definizione-di-sistema-operativo"><strong>1. Definizione di Sistema Operativo</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1-definizione-di-sistema-operativo" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Scopo e semplificazione delle risorse hardware.</li>
+<li>Differenze tra software normale e sistema operativo.</li>
+</ul>
+<h3 id="2-librerie"><strong>2. Librerie</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#2-librerie" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Funzione delle librerie per la semplificazione dello sviluppo software.</li>
+</ul>
+<h3 id="3-storia-e-generazioni-dei-sistemi-operativi"><strong>3. Storia e Generazioni dei Sistemi Operativi</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#3-storia-e-generazioni-dei-sistemi-operativi" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Generazione anni ‘50: macchine specializzate.</li>
+<li>Generazione anni ‘60: mainframe e sistemi batch.</li>
+<li>Generazione anni ‘70: primi sistemi operativi (MULTICS, UNIX).</li>
+<li>Generazione anni ‘80: personal computer.</li>
+<li>Generazione anni ‘90: dispositivi mobili.</li>
+</ul>
+<h3 id="4-componenti-hardware"><strong>4. Componenti Hardware</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#4-componenti-hardware" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Microprocessori e interazione con il sistema operativo.</li>
+<li>Processore: funzioni e registri principali.</li>
+<li>Memorie: caratteristiche e velocità.</li>
+<li>Dispositivi di Input/Output (I/O): struttura e funzionamento.</li>
+</ul>
+<h3 id="5-concetti-fondamentali"><strong>5. Concetti Fondamentali</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#5-concetti-fondamentali" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Multiplexing: condivisione temporale e spaziale delle risorse.</li>
+<li>Tipi di sistemi operativi:
+<ul>
+<li>Mainframe.</li>
+<li>Server.</li>
+<li>Personal Computer.</li>
+<li>Smartphone e tablet.</li>
+<li>Sistemi embedded e IoT.</li>
+<li>Sistemi real-time.</li>
+<li>Smart card.</li>
+</ul>
+</li>
+</ul>
+<h3 id="6-concetti-di-processo"><strong>6. Concetti di Processo</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#6-concetti-di-processo" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Definizione e ciclo di vita di un processo.</li>
+<li>Alberi di processi e gerarchie.</li>
+<li>Layout della memoria di un processo (stack, heap, registri).</li>
+</ul>
+<h3 id="7-file-e-file-system"><strong>7. File e File System</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#7-file-e-file-system" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Strutturazione e organizzazione ad albero.</li>
+<li>Accesso ai file: montaggio e utilizzo.</li>
+<li>Protezione dei file tramite permessi (read, write, execute).</li>
+</ul>
+<h3 id="8-chiamate-di-sistema"><strong>8. Chiamate di Sistema</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#8-chiamate-di-sistema" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Funzionamento e scopo delle chiamate di sistema.</li>
+<li>Tipi di file speciali per dispositivi hardware.</li>
+</ul>
+<h3 id="9-strutture-di-sistemi-operativi"><strong>9. Strutture di Sistemi Operativi</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#9-strutture-di-sistemi-operativi" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Sistemi monolitici.</li>
+<li>Microkernel e client-server.</li>
+<li>Virtualizzazione (macchine virtuali e container).</li>
+</ul>
+<h3 id="10-introduzione-a-linux-e-bash"><strong>10. Introduzione a Linux e Bash</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#10-introduzione-a-linux-e-bash" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Storia di Linux.</li>
+<li>Comandi di base e scripting.</li>
+<li>Gestione di variabili d’ambiente e file di configurazione.</li>
+</ul>
+<h3 id="11-approfondimenti-su-comandi-linux"><strong>11. Approfondimenti su Comandi Linux</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#11-approfondimenti-su-comandi-linux" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Utilizzo di comandi come <code>grep</code>, <code>awk</code>, <code>cat</code>, <code>tail</code>.</li>
+<li>Visualizzazione e modifica di file (<code>sed</code>, <code>sort</code>).</li>
+</ul>
+<h3 id="12-segnali-e-gestione-dei-processi"><strong>12. Segnali e Gestione dei Processi</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#12-segnali-e-gestione-dei-processi" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Comunicazione tra processi.</li>
+<li>Utilizzo di <code>kill</code>, <code>nohup</code>, e gestione dei job.</li>
+</ul>
+<h3 id="13-navigazione-nel-file-system"><strong>13. Navigazione nel File System</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#13-navigazione-nel-file-system" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Struttura delle directory principali (es.: <code>mnt</code>, <code>root</code>, <code>usr</code>, <code>bin</code>).</li>
+<li>Comandi di base:
+<ul>
+<li><code>pwd</code>, <code>cd</code>, <code>ls</code> (con opzioni).</li>
+<li>Copia e spostamento (<code>cp</code>, <code>mv</code>).</li>
+<li>Identificazione file (<code>file</code>, <code>tac</code>).</li>
+</ul>
+</li>
+<li>Permessi di accesso:
+<ul>
+<li>Concetti di <code>chmod</code> e mapping permessi (lettura, scrittura, esecuzione).</li>
+</ul>
+</li>
+</ul>
+<h3 id="14-gestione-dei-processi"><strong>14. Gestione dei Processi</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#14-gestione-dei-processi" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Comandi per visualizzare processi (<code>ps</code>, <code>top</code>).</li>
+<li>Interazione con i processi:
+<ul>
+<li>Esecuzione in foreground e background.</li>
+<li>Uso di <code>nohup</code> e <code>screen</code> per processi persistenti.</li>
+</ul>
+</li>
+<li>Segnali e gestione:
+<ul>
+<li><code>kill</code>, <code>SIGINT</code>, <code>SIGKILL</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="15-creazione-e-gerarchia-dei-processi"><strong>15. Creazione e Gerarchia dei Processi</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#15-creazione-e-gerarchia-dei-processi" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Il modello di un processo:
+<ul>
+<li>Differenza tra <code>fork</code> ed <code>exec</code>.</li>
+<li>Stato dei processi (<code>running</code>, <code>ready</code>, <code>blocked</code>).</li>
+<li>Gestione delle risorse tramite PID, UID, GID.</li>
+</ul>
+</li>
+<li>Chiamate di sistema per i processi:
+<ul>
+<li><code>wait</code>, <code>execv</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="16-thread"><strong>16. Thread</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#16-thread" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Introduzione ai thread:
+<ul>
+<li>Differenze con i processi.</li>
+<li>Condivisione di memoria tra thread.</li>
+</ul>
+</li>
+<li>Implementazione dei thread:
+<ul>
+<li>Thread in spazio utente e kernel.</li>
+<li>Approcci ibridi.</li>
+<li>Pro e contro della programmazione multithread.</li>
+</ul>
+</li>
+</ul>
+<h3 id="17-chiamate-di-sistema-syscall"><strong>17. Chiamate di Sistema (Syscall)</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#17-chiamate-di-sistema-syscall" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Differenza tra:
+<ul>
+<li>Librerie standard (<code>libc</code>), <code>unistd.h</code>, <code>syscall.h</code>.</li>
+</ul>
+</li>
+<li>Esempio di chiamate di sistema:
+<ul>
+<li>Stampa con <code>write</code>.</li>
+</ul>
+</li>
+<li>Passaggi della chiamata <code>read</code> da libreria a kernel.</li>
+</ul>
+<h3 id="18-segnali-e-interruzioni"><strong>18. Segnali e Interruzioni</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#18-segnali-e-interruzioni" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Funzionamento dei segnali:
+<ul>
+<li>Signal handler e tipi di segnali.</li>
+<li>Uso di <code>alarm</code> per gestire temporizzazioni.</li>
+</ul>
+</li>
+<li>Differenza tra segnali hardware e software.</li>
+<li>Gestione degli interrupt:
+<ul>
+<li>Interrupt vector e interrupt handler.</li>
+</ul>
+</li>
+</ul>
+<h3 id="19-esempi-pratici-di-programmazione"><strong>19. Esempi Pratici di Programmazione</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#19-esempi-pratici-di-programmazione" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Shell minimale:
+<ul>
+<li>Creazione di processi e gestione dei comandi.</li>
+<li>Uso di <code>execv</code> per eseguire programmi.</li>
+</ul>
+</li>
+<li>Programmi esempio per:
+<ul>
+<li>Gestione segnali (<code>signal</code>, <code>alarm</code>).</li>
+<li>Comunicazione tra processi.</li>
+</ul>
+</li>
+</ul>
+<h3 id="20-gestione-dei-processi"><strong>20. Gestione dei Processi</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#20-gestione-dei-processi" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Comunicazione tra processi:
+<ul>
+<li>Pipe: utilizzo e gestione (<code>open</code>, <code>close</code>, <code>dup</code>).</li>
+<li>Differenze tra <code>dup</code> e <code>dup2</code>.</li>
+</ul>
+</li>
+<li>Esempi pratici:
+<ul>
+<li>Creazione di pipeline tra processi.</li>
+<li>Reindirizzamento di input e output.</li>
+</ul>
+</li>
+<li>Problemi comuni:
+<ul>
+<li>Blocco delle pipe e soluzioni.</li>
+</ul>
+</li>
+</ul>
+<h3 id="21-race-conditions-e-regioni-critiche"><strong>21. Race Conditions e Regioni Critiche</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#21-race-conditions-e-regioni-critiche" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Definizione di race condition.</li>
+<li>Implementazione delle regioni critiche:
+<ul>
+<li>Algoritmo di Peterson.</li>
+<li>Soluzioni al busy waiting.</li>
+</ul>
+</li>
+<li>Concetti di sincronizzazione:
+<ul>
+<li>Uso di variabili di blocco.</li>
+</ul>
+</li>
+</ul>
+<h3 id="22-concetto-di-produttore-consumatore"><strong>22. Concetto di Produttore-Consumatore</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#22-concetto-di-produttore-consumatore" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Problemi e soluzioni:
+<ul>
+<li>Utilizzo di semafori per sincronizzazione.</li>
+<li>Implementazione di codice per produttore e consumatore.</li>
+</ul>
+</li>
+<li>Problemi comuni:
+<ul>
+<li>Sincronizzazione dei segnali <code>wakeup</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="23-mutua-esclusione-e-semafori"><strong>23. Mutua Esclusione e Semafori</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#23-mutua-esclusione-e-semafori" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Definizione e utilizzo dei semafori:
+<ul>
+<li>Operazioni <code>down</code> e <code>up</code>.</li>
+<li>Atomicità e esclusione reciproca.</li>
+</ul>
+</li>
+<li>Differenze tra semafori e mutex.</li>
+<li>Esempi di codice con semafori.</li>
+</ul>
+<h3 id="24-lettori-e-scrittori"><strong>24. Lettori e Scrittori</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#24-lettori-e-scrittori" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Problema di lettori e scrittori:
+<ul>
+<li>Sincronizzazione tramite semafori.</li>
+</ul>
+</li>
+<li>Gestione delle priorità tra lettori e scrittori.</li>
+</ul>
+<h3 id="25-pthread-e-mutex"><strong>25. Pthread e Mutex</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#25-pthread-e-mutex" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Funzioni principali di Pthread:
+<ul>
+<li><code>pthread_mutex_lock</code>, <code>pthread_mutex_unlock</code>.</li>
+<li><code>pthread_cond_wait</code> e <code>pthread_cond_signal</code>.</li>
+</ul>
+</li>
+<li>Differenze tra lock e trylock.</li>
+<li>Uso delle variabili condizionali.</li>
+</ul>
+<h3 id="26-monitor"><strong>26. Monitor</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#26-monitor" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Introduzione ai monitor:
+<ul>
+<li>Vantaggi rispetto ai semafori.</li>
+</ul>
+</li>
+<li>Utilizzo in linguaggi come Java.</li>
+<li>Problema produttore-consumatore risolto con i monitor.</li>
+</ul>
+<h3 id="27-scambio-di-messaggi"><strong>27. Scambio di Messaggi</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#27-scambio-di-messaggi" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Comunicazione tramite messaggi:
+<ul>
+<li>Funzioni <code>send</code> e <code>receive</code>.</li>
+</ul>
+</li>
+<li>Problemi e soluzioni:
+<ul>
+<li>Perdita di pacchetti.</li>
+<li>Acknowledgment e autenticazione.</li>
+</ul>
+</li>
+<li>Implementazione produttore-consumatore con messaggi.</li>
+</ul>
+<h3 id="28-concetti-avanzati-di-sincronizzazione"><strong>28. Concetti Avanzati di Sincronizzazione</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#28-concetti-avanzati-di-sincronizzazione" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Barriere: sincronizzazione tra processi.</li>
+<li>Inversione di priorità:
+<ul>
+<li>Problema e soluzioni (esempio Mars Pathfinder).</li>
+</ul>
+</li>
+<li>Read-Copy-Update:
+<ul>
+<li>Separazione tra lettori e scrittori.</li>
+</ul>
+</li>
+</ul>
+<h3 id="29-scheduling"><strong>29. Scheduling</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#29-scheduling" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Funzioni dello scheduler:
+<ul>
+<li>Decisioni di esecuzione di processi e thread.</li>
+</ul>
+</li>
+<li>Costi del cambio di contesto.</li>
+<li>Differenza tra processi CPU-bound e I/O-bound.</li>
+</ul>
+<h3 id="30-introduzione-allo-scheduling"><strong>30. Introduzione allo Scheduling</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#30-introduzione-allo-scheduling" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Definizione e importanza dello scheduling.</li>
+<li>Stati di un processo:
+<ul>
+<li><strong>Esecuzione</strong></li>
+<li><strong>Ready</strong></li>
+<li><strong>Blocked</strong></li>
+</ul>
+</li>
+<li>Funzione dello scheduler.</li>
+<li>Tipologie di scheduling:
+<ul>
+<li><strong>Non preemptive (senza prelazione)</strong></li>
+<li><strong>Preemptive (con prelazione)</strong></li>
+</ul>
+</li>
+<li>Momenti di intervento dello scheduler:
+<ul>
+<li><strong>Creazione di un processo</strong></li>
+<li><strong>Uscita di un processo</strong></li>
+<li><strong>Blocco del processo</strong></li>
+<li><strong>Interrupt di I/O</strong></li>
+</ul>
+</li>
+</ul>
+<hr/>
+<h3 id="31-algoritmi-di-scheduling"><strong>31. Algoritmi di Scheduling</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#31-algoritmi-di-scheduling" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<h4 id="sistemi-batch-senza-prelazione"><strong>Sistemi Batch (senza prelazione)</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#sistemi-batch-senza-prelazione" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li><strong>First Come First Served (FCFS)</strong>
+<ul>
+<li>Esecuzione in ordine di arrivo</li>
+<li>Pro e contro</li>
+</ul>
+</li>
+<li><strong>Shortest Job First (SJF)</strong>
+<ul>
+<li>Ottimizzazione del turnaround</li>
+<li>Problematiche con arrivi successivi</li>
+</ul>
+</li>
+<li><strong>Shortest Remaining Time Next (SRTN)</strong>
+<ul>
+<li>Variante con prelazione di SJF</li>
+</ul>
+</li>
+</ol>
+<h4 id="sistemi-interattivi-con-prelazione"><strong>Sistemi Interattivi (con prelazione)</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#sistemi-interattivi-con-prelazione" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li><strong>Round Robin (RR)</strong>
+<ul>
+<li>Funzionamento</li>
+<li>Scelta del quantum di tempo</li>
+</ul>
+</li>
+<li><strong>Scheduling a Priorità (SAP)</strong>
+<ul>
+<li>Priorità statica vs dinamica</li>
+<li>Gestione delle code</li>
+</ul>
+</li>
+<li><strong>Shortest Process Next con Aging (SPNCA)</strong>
+<ul>
+<li>Equilibrio tra SJF e sistemi interattivi</li>
+</ul>
+</li>
+<li><strong>Guaranteed Scheduling (GS)</strong>
+<ul>
+<li>Equa ripartizione del tempo CPU</li>
+</ul>
+</li>
+<li><strong>Scheduling a Lotteria (SAL)</strong>
+<ul>
+<li>Assegnazione casuale di tempi CPU</li>
+</ul>
+</li>
+<li><strong>Scheduling Fair-Share (SFS)</strong>
+<ul>
+<li>Divisione equa della CPU tra gli utenti</li>
+</ul>
+</li>
+</ol>
+<h4 id="sistemi-real-time"><strong>Sistemi Real-Time</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#sistemi-real-time" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Tipologie:
+<ul>
+<li><strong>Hard Real-Time</strong></li>
+<li><strong>Soft Real-Time</strong></li>
+</ul>
+</li>
+<li>Tipi di eventi:
+<ul>
+<li><strong>Periodici</strong></li>
+<li><strong>Non periodici</strong></li>
+</ul>
+</li>
+<li>Condizioni di schedulabilità</li>
+</ul>
+<hr/>
+<h3 id="32-parallelismo-e-thread"><strong>32. Parallelismo e Thread</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#32-parallelismo-e-thread" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Differenza tra processi e thread</li>
+<li><strong>Thread a livello utente</strong> vs <strong>Thread a livello kernel</strong></li>
+<li>Scheduling dei thread:
+<ul>
+<li><strong>Allocazione della CPU tra thread dello stesso processo</strong></li>
+<li><strong>Problemi di starvation</strong></li>
+</ul>
+</li>
+<li><strong>Esecuzione concorrente e gestione delle risorse</strong></li>
+</ul>
+<hr/>
+<h3 id="33-astrazione-della-memoria"><strong>33. Astrazione della Memoria</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#33-astrazione-della-memoria" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Definizione e necessità di astrazione</li>
+<li><strong>Memoria fisica vs memoria virtuale</strong></li>
+<li>Modelli di organizzazione della memoria:
+<ul>
+<li><strong>Memoria senza astrazione</strong></li>
+<li><strong>Indirizzamento assoluto e relativi problemi</strong></li>
+</ul>
+</li>
+<li>Swapping e gestione dello spazio di indirizzi</li>
+</ul>
+<hr/>
+<h3 id="34-gestione-della-memoria"><strong>34. Gestione della Memoria</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#34-gestione-della-memoria" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Frammentazione della memoria</strong></li>
+<li>Metodi di allocazione della memoria:
+<ul>
+<li><strong>Bitmap</strong></li>
+<li><strong>Liste collegate</strong></li>
+</ul>
+</li>
+<li>Metodologie per l’allocazione dinamica:
+<ul>
+<li><strong>First Fit</strong></li>
+<li><strong>Next Fit</strong></li>
+<li><strong>Best Fit</strong></li>
+<li><strong>Worst Fit</strong></li>
+<li><strong>Quick Fit</strong></li>
+</ul>
+</li>
+<li><strong>Buddy Allocation</strong> e relativi problemi</li>
+<li><strong>Slab Allocator</strong></li>
+<li><strong>Caching e gestione delle risorse</strong></li>
+</ul>
+<hr/>
+<h3 id="35-memoria-virtuale"><strong>35. Memoria Virtuale</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#35-memoria-virtuale" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Concetto di memoria virtuale</li>
+<li><strong>Tabella delle pagine e traduzione degli indirizzi</strong></li>
+<li><strong>Gestione degli accessi alla memoria</strong></li>
+<li><strong>Page Fault e gestione degli errori</strong></li>
+<li><strong>Evoluzione delle tabelle di paginazione</strong>:
+<ul>
+<li><strong>Paging a due livelli</strong></li>
+<li><strong>Paging a quattro livelli</strong></li>
+</ul>
+</li>
+</ul>
+<hr/>
+<h3 id="36-algoritmi-di-sostituzione-delle-pagine"><strong>36. Algoritmi di Sostituzione delle Pagine</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#36-algoritmi-di-sostituzione-delle-pagine" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Page Replacement e Page Swap</strong></li>
+<li><strong>Lista degli algoritmi principali</strong>:
+<ol>
+<li><strong>Algoritmo Ottimale</strong></li>
+<li><strong>Not Recently Used (NRU)</strong></li>
+<li><strong>First-In, First-Out (FIFO)</strong></li>
+<li><strong>Second-Chance Algorithm</strong></li>
+<li><strong>Clock Algorithm</strong></li>
+<li><strong>Least Recently Used (LRU)</strong></li>
+<li><strong>Not Frequently Used con Aging (NFUA)</strong></li>
+<li><strong>Working Set Algorithm</strong></li>
+<li><strong>WS Clock Algorithm</strong></li>
+</ol>
+</li>
+</ul>
+<hr/>
+<h3 id="37-traduzione-degli-indirizzi-e-ottimizzazioni"><strong>37. Traduzione degli Indirizzi e Ottimizzazioni</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#37-traduzione-degli-indirizzi-e-ottimizzazioni" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>TLB (Translation Lookaside Buffer)</strong></li>
+<li><strong>Funzionamento e gestione delle tabelle delle pagine</strong></li>
+<li><strong>Page Table Walk e accessi alla memoria</strong></li>
+</ul>
+<hr/>
+<h3 id="38-algoritmi-di-sostituzione-delle-pagine"><strong>38. Algoritmi di Sostituzione delle Pagine</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#38-algoritmi-di-sostituzione-delle-pagine" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Second-Chance Algorithm</strong></li>
+<li><strong>Clock Algorithm</strong></li>
+<li><strong>Least Recently Used (LRU)</strong></li>
+<li><strong>Not Frequently Used con Aging (NFUA)</strong></li>
+<li><strong>Working Set Algorithm</strong></li>
+<li><strong>WS Clock Algorithm</strong></li>
+<li><strong>Allocazione Locale vs Globale</strong></li>
+<li><strong>Trashing e gestione della memoria</strong></li>
+</ul>
+<hr/>
+<h3 id="39-gestione-della-memoria-nei-processi"><strong>39. Gestione della Memoria nei Processi</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#39-gestione-della-memoria-nei-processi" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Page Fault Frequency</strong></li>
+<li><strong>Allocazione equa vs proporzionale</strong></li>
+<li><strong>Mitigazione del trashing</strong></li>
+<li><strong>Swapping e scheduling a due livelli</strong></li>
+<li><strong>Multiprogrammazione: gestione dei processi CPU-bound e I/O-bound</strong></li>
+<li><strong>Dimensione ottimale delle pagine e bilancio dei fattori</strong></li>
+<li><strong>Paging Daemon</strong></li>
+<li><strong>Transparent Huge Pages</strong></li>
+<li><strong>Calcolo della dimensione ottimale delle pagine</strong></li>
+<li><strong>Metodi di compressione, compattazione e deduplicazione</strong></li>
+</ul>
+<hr/>
+<h3 id="40-memoria-virtuale-e-gestione-dei-processi"><strong>40. Memoria Virtuale e Gestione dei Processi</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#40-memoria-virtuale-e-gestione-dei-processi" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Creazione di un processo e gestione delle dipendenze</strong></li>
+<li><strong>Fork e Copy-On-Write</strong></li>
+<li><strong>Esecuzione e Scheduling</strong></li>
+<li><strong>Page Fault e gestione in 10 passi</strong></li>
+<li><strong>Area di Swap e scenari di gestione</strong></li>
+<li><strong>DMA e problemi di gestione delle pagine</strong></li>
+</ul>
+<hr/>
+<h3 id="41-segmentazione-della-memoria"><strong>41. Segmentazione della Memoria</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#41-segmentazione-della-memoria" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Memoria monodimensionale vs segmentazione</strong></li>
+<li><strong>Differenze tra paginazione e segmentazione</strong></li>
+<li><strong>Condivisione e protezione dei segmenti</strong></li>
+<li><strong>Conversione degli indirizzi nei sistemi segmentati</strong></li>
+<li><strong>Uso della TLB nei sistemi segmentati</strong></li>
+<li><strong>Esempio MULTICS e segmentazione avanzata</strong></li>
+</ul>
+<hr/>
+<h3 id="42-sistemi-di-memorizzazione-e-file-system"><strong>42. Sistemi di Memorizzazione e File System</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#42-sistemi-di-memorizzazione-e-file-system" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Definizione e funzioni di un file system</strong></li>
+<li><strong>Organizzazione dei dati su disco</strong></li>
+<li><strong>Gestione dell’accesso ai file</strong></li>
+<li><strong>Virtual File System (VFS)</strong></li>
+<li><strong>Caching dei file (Page Cache, Buffer Cache)</strong></li>
+<li><strong>Metadati e attributi dei file</strong></li>
+<li><strong>Tipi di file e directory</strong></li>
+<li><strong>File speciali e file eseguibili</strong></li>
+</ul>
+<hr/>
+<h3 id="43-struttura-e-operazioni-sui-file"><strong>43. Struttura e Operazioni sui File</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#43-struttura-e-operazioni-sui-file" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Tipologie di file</strong></li>
+<li><strong>Strutture di gestione dei file</strong></li>
+<li><strong>Attributi e metadati</strong></li>
+<li><strong>Operazioni di base sui file</strong> (Creazione, Lettura, Scrittura, Eliminazione)</li>
+<li><strong>Accesso sequenziale e casuale</strong></li>
+<li><strong>Uso di Seek per l’accesso rapido</strong></li>
+<li><strong>Metodi di copia dei file</strong></li>
+<li><strong>Organizzazione delle directory</strong></li>
+<li><strong>Path assoluti e relativi</strong></li>
+</ul>
+<hr/>
+<h3 id="44-directory-e-gerarchia-del-file-system"><strong>44. Directory e Gerarchia del File System</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#44-directory-e-gerarchia-del-file-system" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Struttura monolivello vs multilivello</strong></li>
+<li><strong>Operazioni sulle directory</strong> (Creazione, Eliminazione, Lettura)</li>
+<li><strong>Gestione dei percorsi nei sistemi UNIX e Windows</strong></li>
+<li><strong>Gestione dei link (Hard link vs Symbolic link)</strong></li>
+<li><strong>Creazione ed estrazione di archivi (tar, zip)</strong></li>
+</ul>
+<hr/>
+<h3 id="45-boot-system-e-partizionamento"><strong>45. Boot System e Partizionamento</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#45-boot-system-e-partizionamento" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>BIOS e UEFI</strong></li>
+<li><strong>Struttura dell’MBR e partizioni</strong></li>
+<li><strong>GUID Partition Table (GPT)</strong></li>
+<li><strong>Secure Boot</strong></li>
+<li><strong>EFI System Partition (ESP)</strong></li>
+</ul>
+<hr/>
+<h3 id="46-allocazione-dei-file-nel-file-system"><strong>46. Allocazione dei File nel File System</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#46-allocazione-dei-file-nel-file-system" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Allocazione contigua</strong></li>
+<li><strong>Allocazione con liste concatenate</strong></li>
+<li><strong>File Allocation Table (FAT)</strong></li>
+<li><strong>Problemi di frammentazione</strong></li>
+<li><strong>Uso degli I-node per la gestione dei file</strong></li>
+</ul>
+<hr/>
+<h3 id="47-i-node-e-struttura-interna-dei-file-system"><strong>47. I-node e Struttura Interna dei File System</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#47-i-node-e-struttura-interna-dei-file-system" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Funzione e struttura degli I-node</strong></li>
+<li><strong>Gestione dei file di grandi dimensioni</strong></li>
+<li><strong>Caching degli I-node</strong></li>
+<li><strong>Uso della memoria RAM per migliorare la gestione del file system</strong></li>
+</ul>
+<hr/>
+<h3 id="48-approfondimenti-su-ntfs-e-sistemi-di-archiviazione"><strong>48. Approfondimenti su NTFS e Sistemi di Archiviazione</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#48-approfondimenti-su-ntfs-e-sistemi-di-archiviazione" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Differenze tra NTFS, FAT32 ed EXT4</strong></li>
+<li><strong>Gestione della memoria nei moderni file system</strong></li>
+<li><strong>Ottimizzazioni per la gestione dei blocchi di memoria</strong></li>
+<li><strong>Uso della cache per migliorare le prestazioni</strong></li>
+</ul>
+<hr/>
+<h3 id="49-struttura-delle-cartelle-e-gestione-dei-file"><strong>49. Struttura delle Cartelle e Gestione dei File</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#49-struttura-delle-cartelle-e-gestione-dei-file" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Struttura delle cartelle e voci nei file system</strong></li>
+<li><strong>Metodi di organizzazione delle directory</strong></li>
+<li><strong>I-node e gestione dei metadati</strong></li>
+<li><strong>Gestione dei nomi dei file nelle directory</strong></li>
+<li><strong>Heap e gestione delle voci</strong></li>
+<li><strong>Ricerca dei file all’interno delle directory</strong></li>
+<li><strong>Utilizzo della cache per l’accesso rapido ai file</strong></li>
+</ul>
+<hr/>
+<h3 id="50-file-condivisi-e-link-nei-file-system"><strong>50. File Condivisi e Link nei File System</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#50-file-condivisi-e-link-nei-file-system" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Hard Link</strong></li>
+<li><strong>Soft Link</strong></li>
+<li><strong>Link simbolici e differenze tra hard e soft link</strong></li>
+<li><strong>Problemi di duplicazione dei file e backup dei symlink</strong></li>
+</ul>
+<hr/>
+<h3 id="51-gestione-dello-spazio-su-disco"><strong>51. Gestione dello Spazio su Disco</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#51-gestione-dello-spazio-su-disco" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Allocazione contigua vs non contigua</strong></li>
+<li><strong>Strategie di ottimizzazione e latenza dei blocchi</strong></li>
+<li><strong>Bitmap vs Free List per la gestione dello spazio libero</strong></li>
+<li><strong>Gestione della latenza nei dischi</strong></li>
+<li><strong>Quota di utilizzo nei sistemi multiutente</strong></li>
+<li><strong>File System Ext2 e gestione dei blocchi liberi</strong></li>
+</ul>
+<hr/>
+<h3 id="52-performance-e-ottimizzazioni-del-file-system"><strong>52. Performance e Ottimizzazioni del File System</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#52-performance-e-ottimizzazioni-del-file-system" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Caching e buffer cache</strong></li>
+<li><strong>Struttura interna di Ext2</strong></li>
+<li><strong>Ottimizzazioni per ridurre la frammentazione</strong></li>
+<li><strong>Uso di bitmap per la gestione delle risorse</strong></li>
+<li><strong>Tecniche per migliorare la velocità di accesso ai file</strong></li>
+<li><strong>Algoritmi di sostituzione della cache</strong></li>
+<li><strong>Strategie di sincronizzazione per evitare perdita di dati</strong></li>
+<li><strong>Page Cache e Buffer Cache</strong></li>
+</ul>
+<hr/>
+<h3 id="53-virtual-file-system-vfs"><strong>53. Virtual File System (VFS)</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#53-virtual-file-system-vfs" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Struttura e funzionamento del VFS</strong></li>
+<li><strong>Montaggio di nuovi file system</strong></li>
+<li><strong>Gestione delle operazioni indipendenti dal tipo di file system</strong></li>
+<li><strong>Superblock e gestione dei V-NODE</strong></li>
+<li><strong>Compatibilità con diversi file system (Ext4, NTFS, FAT32, ecc.)</strong></li>
+</ul>
+<hr/>
+<h3 id="54-backup-e-affidabilità-del-file-system"><strong>54. Backup e Affidabilità del File System</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#54-backup-e-affidabilità-del-file-system" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Tipologie di backup (fisico vs logico)</strong></li>
+<li><strong>Uso di strumenti come rsync</strong></li>
+<li><strong>Strategie per la coerenza dei dati dopo un crash</strong></li>
+<li><strong>Journaling per la protezione dei file system</strong></li>
+<li><strong>Differenze tra Ext2, Ext3 ed Ext4</strong></li>
+<li><strong>Deframmentazione e deduplicazione</strong></li>
+</ul>
+<hr/>
+<h3 id="55-principi-di-hardware-io"><strong>55. Principi di Hardware I/O</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#55-principi-di-hardware-io" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Panoramica sui dispositivi di I/O</strong></li>
+<li><strong>Dispositivi a blocchi vs dispositivi a caratteri</strong></li>
+<li><strong>Velocità e impatto delle periferiche sul sistema</strong></li>
+<li><strong>Interfacce standard per la comunicazione con l’hardware</strong></li>
+<li><strong>Porta USB, SATA, SCSI, Thunderbolt</strong></li>
+<li><strong>Bus di sistema (PCIe, Northbridge, Southbridge)</strong></li>
+</ul>
+<hr/>
+<h3 id="56-comunicazione-tra-cpu-e-periferiche"><strong>56. Comunicazione tra CPU e Periferiche</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#56-comunicazione-tra-cpu-e-periferiche" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Controller dei dispositivi e registri di controllo</strong></li>
+<li><strong>Port-Mapped I/O vs Memory-Mapped I/O</strong></li>
+<li><strong>Gestione degli indirizzi di memoria per i dispositivi</strong></li>
+<li><strong>DMA (Direct Memory Access) e riduzione del carico sulla CPU</strong></li>
+<li><strong>Modalità di trasferimento dati:</strong>
+<ul>
+<li><strong>Polling (Busy Waiting)</strong></li>
+<li><strong>Interrupt-Driven I/O</strong></li>
+<li><strong>Cycle Stealing</strong></li>
+<li><strong>Burst Mode</strong></li>
+<li><strong>Fly-By Mode</strong></li>
+</ul>
+</li>
+</ul>
+<hr/>
+<h3 id="57-interrupt-e-gestione-degli-eventi-asincroni"><strong>57. Interrupt e Gestione degli Eventi Asincroni</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#57-interrupt-e-gestione-degli-eventi-asincroni" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Differenze tra Trap, Fault e Interrupt</strong></li>
+<li><strong>Interrupt hardware e gestione delle priorità</strong></li>
+<li><strong>Passaggi per la gestione di un interrupt</strong></li>
+<li><strong>Interrupt Precisi vs Imprecisi</strong></li>
+<li><strong>Pipeline e gestione dei processi interrotti</strong></li>
+<li><strong>Utilizzo di un Vettore degli Interrupt</strong></li>
+<li><strong>Salvataggio del contesto del processore</strong></li>
+</ul>
+<hr/>
+<h3 id="58-software-di-io"><strong>58. Software di I/O</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#58-software-di-io" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Struttura del software per la gestione dell’I/O</strong></li>
+<li><strong>Denominazione uniforme dei file nei dispositivi di archiviazione</strong></li>
+<li><strong>Gestione degli errori nei dispositivi di I/O</strong></li>
+<li><strong>Trasferimenti sincroni vs asincroni</strong></li>
+<li><strong>Buffering e gestione dei dispositivi in tempo reale</strong></li>
+<li><strong>Dispositivi condivisibili vs dispositivi dedicati</strong></li>
+<li><strong>Esempio di stampa e gestione del buffer di stampa</strong></li>
+</ul>
+<hr/>
+<h3 id="59-approfondimenti-su-dma-e-comunicazione-con-le-periferiche"><strong>59. Approfondimenti su DMA e Comunicazione con le Periferiche</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#59-approfondimenti-su-dma-e-comunicazione-con-le-periferiche" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Gestione degli interrupt in ambienti multitasking</strong></li>
+<li><strong>Polling vs Interrupt-Driven I/O</strong></li>
+<li><strong>Sincronizzazione tra processi e dispositivi hardware</strong></li>
+<li><strong>Tecniche di accesso diretto alla memoria</strong></li>
+<li><strong>Uso del DMA per l’ottimizzazione delle operazioni di I/O</strong></li>
+<li><strong>Direct Memory Access e riduzione degli interrupt della CPU</strong></li>
+</ul>
+<hr/>
+<h3 id="60-raid-e-disaster-recovery"><strong>60. RAID e Disaster Recovery</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#60-raid-e-disaster-recovery" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Gestione della ridondanza nei sistemi di archiviazione</strong></li>
+<li><strong>RAID 0, RAID 1, RAID 5, RAID 6 e RAID 10</strong></li>
+<li><strong>Backup remoti e Disaster Recovery</strong></li>
+<li><strong>Riduzione delle duplicazioni di file tramite hard link</strong></li>
+<li><strong>Uso di snapshot e versioning per la protezione dei dati</strong></li>
+</ul>
+<hr/>
+<h3 id="61-comandi-unixlinux-per-la-gestione-del-file-system"><strong>61. Comandi Unix/Linux per la Gestione del File System</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#61-comandi-unixlinux-per-la-gestione-del-file-system" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Comandi per la gestione delle partizioni (<code>lsblk</code>, <code>fdisk</code>, <code>mount</code>)</strong></li>
+<li><strong>Montaggio e smontaggio di dispositivi</strong></li>
+<li><strong>Comandi per la gestione dei file (<code>cp</code>, <code>mv</code>, <code>rm</code>, <code>ln</code>)</strong></li>
+<li><strong>Sincronizzazione dei dati con <code>rsync</code></strong></li>
+<li><strong>Gestione delle directory e percorsi assoluti/relativi</strong></li>
+<li><strong>Uso di <code>tar</code> e <code>zip</code> per la compressione e archiviazione</strong></li>
+</ul>
+<hr/>
+<h3 id="62-software-per-la-gestione-degli-interrupt"><strong>62. Software per la Gestione degli Interrupt</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#62-software-per-la-gestione-degli-interrupt" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Passaggi per la gestione di un interrupt software</strong></li>
+<li><strong>Salvataggio dello stato del processore</strong></li>
+<li><strong>Esecuzione della procedura di servizio dell’interrupt</strong></li>
+<li><strong>Ripristino del contesto del processo interrotto</strong></li>
+<li><strong>Esecuzione del processo successivo nella coda di scheduling</strong></li>
+</ul></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc desktop-only"><button type="button" class="toc-header" aria-controls="toc-193" aria-expanded="true"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-1" class="toc-content overflow"><li class="depth-0"><a href="#indice-degli-argomenti" data-for="indice-degli-argomenti">Indice degli Argomenti</a></li><li class="depth-0"><a href="#1-definizione-di-sistema-operativo" data-for="1-definizione-di-sistema-operativo">1. Definizione di Sistema Operativo</a></li><li class="depth-0"><a href="#2-librerie" data-for="2-librerie">2. Librerie</a></li><li class="depth-0"><a href="#3-storia-e-generazioni-dei-sistemi-operativi" data-for="3-storia-e-generazioni-dei-sistemi-operativi">3. Storia e Generazioni dei Sistemi Operativi</a></li><li class="depth-0"><a href="#4-componenti-hardware" data-for="4-componenti-hardware">4. Componenti Hardware</a></li><li class="depth-0"><a href="#5-concetti-fondamentali" data-for="5-concetti-fondamentali">5. Concetti Fondamentali</a></li><li class="depth-0"><a href="#6-concetti-di-processo" data-for="6-concetti-di-processo">6. Concetti di Processo</a></li><li class="depth-0"><a href="#7-file-e-file-system" data-for="7-file-e-file-system">7. File e File System</a></li><li class="depth-0"><a href="#8-chiamate-di-sistema" data-for="8-chiamate-di-sistema">8. Chiamate di Sistema</a></li><li class="depth-0"><a href="#9-strutture-di-sistemi-operativi" data-for="9-strutture-di-sistemi-operativi">9. Strutture di Sistemi Operativi</a></li><li class="depth-0"><a href="#10-introduzione-a-linux-e-bash" data-for="10-introduzione-a-linux-e-bash">10. Introduzione a Linux e Bash</a></li><li class="depth-0"><a href="#11-approfondimenti-su-comandi-linux" data-for="11-approfondimenti-su-comandi-linux">11. Approfondimenti su Comandi Linux</a></li><li class="depth-0"><a href="#12-segnali-e-gestione-dei-processi" data-for="12-segnali-e-gestione-dei-processi">12. Segnali e Gestione dei Processi</a></li><li class="depth-0"><a href="#13-navigazione-nel-file-system" data-for="13-navigazione-nel-file-system">13. Navigazione nel File System</a></li><li class="depth-0"><a href="#14-gestione-dei-processi" data-for="14-gestione-dei-processi">14. Gestione dei Processi</a></li><li class="depth-0"><a href="#15-creazione-e-gerarchia-dei-processi" data-for="15-creazione-e-gerarchia-dei-processi">15. Creazione e Gerarchia dei Processi</a></li><li class="depth-0"><a href="#16-thread" data-for="16-thread">16. Thread</a></li><li class="depth-0"><a href="#17-chiamate-di-sistema-syscall" data-for="17-chiamate-di-sistema-syscall">17. Chiamate di Sistema (Syscall)</a></li><li class="depth-0"><a href="#18-segnali-e-interruzioni" data-for="18-segnali-e-interruzioni">18. Segnali e Interruzioni</a></li><li class="depth-0"><a href="#19-esempi-pratici-di-programmazione" data-for="19-esempi-pratici-di-programmazione">19. Esempi Pratici di Programmazione</a></li><li class="depth-0"><a href="#20-gestione-dei-processi" data-for="20-gestione-dei-processi">20. Gestione dei Processi</a></li><li class="depth-0"><a href="#21-race-conditions-e-regioni-critiche" data-for="21-race-conditions-e-regioni-critiche">21. Race Conditions e Regioni Critiche</a></li><li class="depth-0"><a href="#22-concetto-di-produttore-consumatore" data-for="22-concetto-di-produttore-consumatore">22. Concetto di Produttore-Consumatore</a></li><li class="depth-0"><a href="#23-mutua-esclusione-e-semafori" data-for="23-mutua-esclusione-e-semafori">23. Mutua Esclusione e Semafori</a></li><li class="depth-0"><a href="#24-lettori-e-scrittori" data-for="24-lettori-e-scrittori">24. Lettori e Scrittori</a></li><li class="depth-0"><a href="#25-pthread-e-mutex" data-for="25-pthread-e-mutex">25. Pthread e Mutex</a></li><li class="depth-0"><a href="#26-monitor" data-for="26-monitor">26. Monitor</a></li><li class="depth-0"><a href="#27-scambio-di-messaggi" data-for="27-scambio-di-messaggi">27. Scambio di Messaggi</a></li><li class="depth-0"><a href="#28-concetti-avanzati-di-sincronizzazione" data-for="28-concetti-avanzati-di-sincronizzazione">28. Concetti Avanzati di Sincronizzazione</a></li><li class="depth-0"><a href="#29-scheduling" data-for="29-scheduling">29. Scheduling</a></li><li class="depth-0"><a href="#30-introduzione-allo-scheduling" data-for="30-introduzione-allo-scheduling">30. Introduzione allo Scheduling</a></li><li class="depth-0"><a href="#31-algoritmi-di-scheduling" data-for="31-algoritmi-di-scheduling">31. Algoritmi di Scheduling</a></li><li class="depth-0"><a href="#32-parallelismo-e-thread" data-for="32-parallelismo-e-thread">32. Parallelismo e Thread</a></li><li class="depth-0"><a href="#33-astrazione-della-memoria" data-for="33-astrazione-della-memoria">33. Astrazione della Memoria</a></li><li class="depth-0"><a href="#34-gestione-della-memoria" data-for="34-gestione-della-memoria">34. Gestione della Memoria</a></li><li class="depth-0"><a href="#35-memoria-virtuale" data-for="35-memoria-virtuale">35. Memoria Virtuale</a></li><li class="depth-0"><a href="#36-algoritmi-di-sostituzione-delle-pagine" data-for="36-algoritmi-di-sostituzione-delle-pagine">36. Algoritmi di Sostituzione delle Pagine</a></li><li class="depth-0"><a href="#37-traduzione-degli-indirizzi-e-ottimizzazioni" data-for="37-traduzione-degli-indirizzi-e-ottimizzazioni">37. Traduzione degli Indirizzi e Ottimizzazioni</a></li><li class="depth-0"><a href="#38-algoritmi-di-sostituzione-delle-pagine" data-for="38-algoritmi-di-sostituzione-delle-pagine">38. Algoritmi di Sostituzione delle Pagine</a></li><li class="depth-0"><a href="#39-gestione-della-memoria-nei-processi" data-for="39-gestione-della-memoria-nei-processi">39. Gestione della Memoria nei Processi</a></li><li class="depth-0"><a href="#40-memoria-virtuale-e-gestione-dei-processi" data-for="40-memoria-virtuale-e-gestione-dei-processi">40. Memoria Virtuale e Gestione dei Processi</a></li><li class="depth-0"><a href="#41-segmentazione-della-memoria" data-for="41-segmentazione-della-memoria">41. Segmentazione della Memoria</a></li><li class="depth-0"><a href="#42-sistemi-di-memorizzazione-e-file-system" data-for="42-sistemi-di-memorizzazione-e-file-system">42. Sistemi di Memorizzazione e File System</a></li><li class="depth-0"><a href="#43-struttura-e-operazioni-sui-file" data-for="43-struttura-e-operazioni-sui-file">43. Struttura e Operazioni sui File</a></li><li class="depth-0"><a href="#44-directory-e-gerarchia-del-file-system" data-for="44-directory-e-gerarchia-del-file-system">44. Directory e Gerarchia del File System</a></li><li class="depth-0"><a href="#45-boot-system-e-partizionamento" data-for="45-boot-system-e-partizionamento">45. Boot System e Partizionamento</a></li><li class="depth-0"><a href="#46-allocazione-dei-file-nel-file-system" data-for="46-allocazione-dei-file-nel-file-system">46. Allocazione dei File nel File System</a></li><li class="depth-0"><a href="#47-i-node-e-struttura-interna-dei-file-system" data-for="47-i-node-e-struttura-interna-dei-file-system">47. I-node e Struttura Interna dei File System</a></li><li class="depth-0"><a href="#48-approfondimenti-su-ntfs-e-sistemi-di-archiviazione" data-for="48-approfondimenti-su-ntfs-e-sistemi-di-archiviazione">48. Approfondimenti su NTFS e Sistemi di Archiviazione</a></li><li class="depth-0"><a href="#49-struttura-delle-cartelle-e-gestione-dei-file" data-for="49-struttura-delle-cartelle-e-gestione-dei-file">49. Struttura delle Cartelle e Gestione dei File</a></li><li class="depth-0"><a href="#50-file-condivisi-e-link-nei-file-system" data-for="50-file-condivisi-e-link-nei-file-system">50. File Condivisi e Link nei File System</a></li><li class="depth-0"><a href="#51-gestione-dello-spazio-su-disco" data-for="51-gestione-dello-spazio-su-disco">51. Gestione dello Spazio su Disco</a></li><li class="depth-0"><a href="#52-performance-e-ottimizzazioni-del-file-system" data-for="52-performance-e-ottimizzazioni-del-file-system">52. Performance e Ottimizzazioni del File System</a></li><li class="depth-0"><a href="#53-virtual-file-system-vfs" data-for="53-virtual-file-system-vfs">53. Virtual File System (VFS)</a></li><li class="depth-0"><a href="#54-backup-e-affidabilità-del-file-system" data-for="54-backup-e-affidabilità-del-file-system">54. Backup e Affidabilità del File System</a></li><li class="depth-0"><a href="#55-principi-di-hardware-io" data-for="55-principi-di-hardware-io">55. Principi di Hardware I/O</a></li><li class="depth-0"><a href="#56-comunicazione-tra-cpu-e-periferiche" data-for="56-comunicazione-tra-cpu-e-periferiche">56. Comunicazione tra CPU e Periferiche</a></li><li class="depth-0"><a href="#57-interrupt-e-gestione-degli-eventi-asincroni" data-for="57-interrupt-e-gestione-degli-eventi-asincroni">57. Interrupt e Gestione degli Eventi Asincroni</a></li><li class="depth-0"><a href="#58-software-di-io" data-for="58-software-di-io">58. Software di I/O</a></li><li class="depth-0"><a href="#59-approfondimenti-su-dma-e-comunicazione-con-le-periferiche" data-for="59-approfondimenti-su-dma-e-comunicazione-con-le-periferiche">59. Approfondimenti su DMA e Comunicazione con le Periferiche</a></li><li class="depth-0"><a href="#60-raid-e-disaster-recovery" data-for="60-raid-e-disaster-recovery">60. RAID e Disaster Recovery</a></li><li class="depth-0"><a href="#61-comandi-unixlinux-per-la-gestione-del-file-system" data-for="61-comandi-unixlinux-per-la-gestione-del-file-system">61. Comandi Unix/Linux per la Gestione del File System</a></li><li class="depth-0"><a href="#62-software-per-la-gestione-degli-interrupt" data-for="62-software-per-la-gestione-degli-interrupt">62. Software per la Gestione degli Interrupt</a></li><li class="overflow-end"></li></ul></div><div class="backlinks"><h3>Backlinks</h3><ul id="list-2" class="overflow"><li><a href="../../../UNI/ANNO-2/SISTEMI-OPERATIVI/SISTEMI-OPERATIVI-E-RETI-INDICE" class="internal">SISTEMI OPERATIVI E RETI INDICE</a></li><li class="overflow-end"></li></ul></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.5.2</a> © 2025</p><ul><li><a href="https://github.com/jackyzha0/quartz">GitHub</a></li><li><a href="https://discord.gg/cRFFHYye7t">Discord Community</a></li></ul></footer></div></div></body><script type="application/javascript">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module">function f(i,e){if(!i)return;function r(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function t(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}i?.addEventListener("click",r),window.addCleanup(()=>i?.removeEventListener("click",r)),document.addEventListener("keydown",t),window.addCleanup(()=>document.removeEventListener("keydown",t))}function y(i){for(;i.firstChild;)i.removeChild(i.firstChild)}var h=class{constructor(e,r){this.container=e;this.content=r;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),r=this.onMouseMove.bind(this),t=this.onMouseUp.bind(this),o=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",r),document.addEventListener("mouseup",t),window.addEventListener("resize",o),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",r),()=>document.removeEventListener("mouseup",t),()=>window.removeEventListener("resize",o))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let r=this.createButton("+",()=>this.zoom(.1)),t=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(t),e.appendChild(o),e.appendChild(r),this.container.appendChild(e)}createButton(e,r){let t=document.createElement("button");return t.textContent=e,t.className="mermaid-control-button",t.addEventListener("click",r),window.addCleanup(()=>t.removeEventListener("click",r)),t}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}zoom(e){let r=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),t=this.content.getBoundingClientRect(),o=t.width/2,n=t.height/2,c=r-this.scale;this.currentPan.x-=o*c,this.currentPan.y-=n*c,this.scale=r,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){this.scale=1;let e=this.content.querySelector("svg");this.currentPan={x:e.getBoundingClientRect().width/2,y:e.getBoundingClientRect().height/2},this.updateTransform()}},C=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],E;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;E||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let r=E.default,t=new WeakMap;for(let n of e)t.set(n,n.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let a=t.get(s);a&&(s.innerHTML=a)}let n=C.reduce((s,a)=>(s[a]=window.getComputedStyle(document.documentElement).getPropertyValue(a),s),{}),c=document.documentElement.getAttribute("saved-theme")==="dark";r.initialize({startOnLoad:!1,securityLevel:"loose",theme:c?"dark":"base",themeVariables:{fontFamily:n["--codeFont"],primaryColor:n["--light"],primaryTextColor:n["--darkgray"],primaryBorderColor:n["--tertiary"],lineColor:n["--darkgray"],secondaryColor:n["--secondary"],tertiaryColor:n["--tertiary"],clusterBkg:n["--light"],edgeLabelBackground:n["--highlight"]}}),await r.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let n=0;n<e.length;n++){let v=function(){let g=l.querySelector("#mermaid-space"),m=l.querySelector(".mermaid-content");if(!m)return;y(m);let w=c.querySelector("svg").cloneNode(!0);m.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new h(g,m)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},c=e[n],s=c.parentElement,a=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(a),L=a.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),f(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript"></script><script src="../../../postscript.js" type="module"></script></html>

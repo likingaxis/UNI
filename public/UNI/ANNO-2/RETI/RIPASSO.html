@@ -1,0 +1,3136 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><title>RIPASSO</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="Quartz 4"/><meta property="og:title" content="RIPASSO"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="RIPASSO"/><meta name="twitter:description" content="LIVELLO APPLICAZIONE definizione di internet Infrastruttura composta da un insieme di reti interconnesse tra loro Host ospitano le applicazioni di rete si trovano ai bordi di internet comunicano attraverso pacchetti di dati inoltrati da altri dispositivi come router e switch ISP organizzazioni che o..."/><meta property="og:description" content="LIVELLO APPLICAZIONE definizione di internet Infrastruttura composta da un insieme di reti interconnesse tra loro Host ospitano le applicazioni di rete si trovano ai bordi di internet comunicano attraverso pacchetti di dati inoltrati da altri dispositivi come router e switch ISP organizzazioni che o..."/><meta property="og:image:alt" content="LIVELLO APPLICAZIONE definizione di internet Infrastruttura composta da un insieme di reti interconnesse tra loro Host ospitano le applicazioni di rete si trovano ai bordi di internet comunicano attraverso pacchetti di dati inoltrati da altri dispositivi come router e switch ISP organizzazioni che o..."/><meta property="twitter:domain" content="quartz.jzhao.xyz"/><meta property="og:url" content="https://quartz.jzhao.xyz/UNI/ANNO-2/RETI/RIPASSO"/><meta property="twitter:url" content="https://quartz.jzhao.xyz/UNI/ANNO-2/RETI/RIPASSO"/><link rel="icon" href="../../../static/icon.png"/><meta name="description" content="LIVELLO APPLICAZIONE definizione di internet Infrastruttura composta da un insieme di reti interconnesse tra loro Host ospitano le applicazioni di rete si trovano ai bordi di internet comunicano attraverso pacchetti di dati inoltrati da altri dispositivi come router e switch ISP organizzazioni che o..."/><meta name="generator" content="Quartz"/><link href="../../../index.css" rel="stylesheet" type="text/css" spa-preserve/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  padding: 2rem;
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiQzpcXFVzZXJzXFxMdWNhXFxEZXNrdG9wXFxVTkkgTlVPVk9cXHF1YXJ0elxccXVhcnR6XFxjb21wb25lbnRzXFxzdHlsZXMiLCJzb3VyY2VzIjpbIm1lcm1haWQuaW5saW5lLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7O0FBR0Y7RUFDRTtFQUNBOztBQUdGO0VBQ0U7OztBQUtGO0VBQ0U7RUFDQTs7O0FBSUo7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTs7QUFHRjtFQUNFO0VBQ0E7O0FBSUo7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7O0FBSUY7RUFDRTtFQUNBO0VBQ0EiLCJzb3VyY2VzQ29udGVudCI6WyIuZXhwYW5kLWJ1dHRvbiB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxvYXQ6IHJpZ2h0O1xuICBwYWRkaW5nOiAwLjRyZW07XG4gIG1hcmdpbjogMC4zcmVtO1xuICByaWdodDogMDsgLy8gTk9URTogcmlnaHQgd2lsbCBiZSBzZXQgaW4gbWVybWFpZC5pbmxpbmUudHNcbiAgY29sb3I6IHZhcigtLWdyYXkpO1xuICBib3JkZXItY29sb3I6IHZhcigtLWRhcmspO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1saWdodCk7XG4gIGJvcmRlcjogMXB4IHNvbGlkO1xuICBib3JkZXItcmFkaXVzOiA1cHg7XG4gIG9wYWNpdHk6IDA7XG4gIHRyYW5zaXRpb246IDAuMnM7XG5cbiAgJiA+IHN2ZyB7XG4gICAgZmlsbDogdmFyKC0tbGlnaHQpO1xuICAgIGZpbHRlcjogY29udHJhc3QoMC4zKTtcbiAgfVxuXG4gICY6aG92ZXIge1xuICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICBib3JkZXItY29sb3I6IHZhcigtLXNlY29uZGFyeSk7XG4gIH1cblxuICAmOmZvY3VzIHtcbiAgICBvdXRsaW5lOiAwO1xuICB9XG59XG5cbnByZSB7XG4gICY6aG92ZXIgPiAuZXhwYW5kLWJ1dHRvbiB7XG4gICAgb3BhY2l0eTogMTtcbiAgICB0cmFuc2l0aW9uOiAwLjJzO1xuICB9XG59XG5cbiNtZXJtYWlkLWNvbnRhaW5lciB7XG4gIHBvc2l0aW9uOiBmaXhlZDtcbiAgY29udGFpbjogbGF5b3V0O1xuICB6LWluZGV4OiA5OTk7XG4gIGxlZnQ6IDA7XG4gIHRvcDogMDtcbiAgd2lkdGg6IDEwMHZ3O1xuICBoZWlnaHQ6IDEwMHZoO1xuICBvdmVyZmxvdzogaGlkZGVuO1xuICBkaXNwbGF5OiBub25lO1xuICBiYWNrZHJvcC1maWx0ZXI6IGJsdXIoNHB4KTtcbiAgYmFja2dyb3VuZDogcmdiYSgwLCAwLCAwLCAwLjUpO1xuXG4gICYuYWN0aXZlIHtcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIH1cblxuICAmID4gI21lcm1haWQtc3BhY2Uge1xuICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbGlnaHQpO1xuICAgIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgICBwb3NpdGlvbjogZml4ZWQ7XG4gICAgdG9wOiA1MCU7XG4gICAgbGVmdDogNTAlO1xuICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlKC01MCUsIC01MCUpO1xuICAgIGhlaWdodDogODB2aDtcbiAgICB3aWR0aDogODB2dztcbiAgICBvdmVyZmxvdzogaGlkZGVuO1xuXG4gICAgJiA+IC5tZXJtYWlkLWNvbnRlbnQge1xuICAgICAgcGFkZGluZzogMnJlbTtcbiAgICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICAgIHRyYW5zZm9ybS1vcmlnaW46IDAgMDtcbiAgICAgIHRyYW5zaXRpb246IHRyYW5zZm9ybSAwLjFzIGVhc2U7XG4gICAgICBvdmVyZmxvdzogdmlzaWJsZTtcbiAgICAgIG1pbi1oZWlnaHQ6IDIwMHB4O1xuICAgICAgbWluLXdpZHRoOiAyMDBweDtcblxuICAgICAgcHJlIHtcbiAgICAgICAgbWFyZ2luOiAwO1xuICAgICAgICBib3JkZXI6IG5vbmU7XG4gICAgICB9XG5cbiAgICAgIHN2ZyB7XG4gICAgICAgIG1heC13aWR0aDogbm9uZTtcbiAgICAgICAgaGVpZ2h0OiBhdXRvO1xuICAgICAgfVxuICAgIH1cblxuICAgICYgPiAubWVybWFpZC1jb250cm9scyB7XG4gICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgICBib3R0b206IDIwcHg7XG4gICAgICByaWdodDogMjBweDtcbiAgICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgICBnYXA6IDhweDtcbiAgICAgIHBhZGRpbmc6IDhweDtcbiAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0KTtcbiAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICBib3JkZXItcmFkaXVzOiA2cHg7XG4gICAgICBib3gtc2hhZG93OiAwIDJweCA0cHggcmdiYSgwLCAwLCAwLCAwLjEpO1xuICAgICAgei1pbmRleDogMjtcblxuICAgICAgLm1lcm1haWQtY29udHJvbC1idXR0b24ge1xuICAgICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgICAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgICAgICAgd2lkdGg6IDMycHg7XG4gICAgICAgIGhlaWdodDogMzJweDtcbiAgICAgICAgcGFkZGluZzogMDtcbiAgICAgICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHQpO1xuICAgICAgICBjb2xvcjogdmFyKC0tZGFyayk7XG4gICAgICAgIGJvcmRlci1yYWRpdXM6IDRweDtcbiAgICAgICAgY3Vyc29yOiBwb2ludGVyO1xuICAgICAgICBmb250LXNpemU6IDE2cHg7XG4gICAgICAgIGZvbnQtZmFtaWx5OiB2YXIoLS1ib2R5Rm9udCk7XG4gICAgICAgIHRyYW5zaXRpb246IGFsbCAwLjJzIGVhc2U7XG5cbiAgICAgICAgJjpob3ZlciB7XG4gICAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgICAgfVxuXG4gICAgICAgICY6YWN0aXZlIHtcbiAgICAgICAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoMXB4KTtcbiAgICAgICAgfVxuXG4gICAgICAgIC8vIFN0eWxlIHRoZSByZXNldCBidXR0b24gZGlmZmVyZW50bHlcbiAgICAgICAgJjpudGgtY2hpbGQoMikge1xuICAgICAgICAgIHdpZHRoOiBhdXRvO1xuICAgICAgICAgIHBhZGRpbmc6IDAgMTJweDtcbiAgICAgICAgICBmb250LXNpemU6IDE0cHg7XG4gICAgICAgIH1cbiAgICAgIH1cbiAgICB9XG4gIH1cbn1cbiJdfQ== */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" spa-preserve/><script src="../../../prescript.js" type="application/javascript" spa-preserve></script><script type="application/javascript" spa-preserve>const fetchData = fetch("../../../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://quartz.jzhao.xyz/index.xml"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://quartz.jzhao.xyz/UNI/ANNO-2/RETI/RIPASSO-og-image.webp"/><meta property="og:image:url" content="https://quartz.jzhao.xyz/UNI/ANNO-2/RETI/RIPASSO-og-image.webp"/><meta name="twitter:image" content="https://quartz.jzhao.xyz/UNI/ANNO-2/RETI/RIPASSO-og-image.webp"/><meta property="og:image:type" content="image/.webp"/></head><body data-slug="UNI/ANNO-2/RETI/RIPASSO"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="../../..">Quartz 4</a></h2><div class="spacer mobile-only"></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>Search</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="Search for something" placeholder="Search for something"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="Reader mode"><title>Reader mode</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a,b)=>!a.isFolder&amp;&amp;!b.isFolder||a.isFolder&amp;&amp;b.isFolder?a.displayName.localeCompare(b.displayName,void 0,{numeric:!0,sensitivity:\&quot;base\&quot;}):!a.isFolder&amp;&amp;b.isFolder?1:-1&quot;,&quot;filterFn&quot;:&quot;node=>node.slugSegment!==\&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;node=>node&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-301"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>Explorer</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-301" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#"></a></li></template><template id="template-folder"><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../../../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../UNI/">UNI</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../UNI/ANNO-2/">ANNO 2</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../UNI/ANNO-2/RETI/">RETI</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>RIPASSO</a></div></nav><h1 class="article-title">RIPASSO</h1><p show-comma="true" class="content-meta"><time datetime="2025-10-13T15:42:40.000Z">Oct 13, 2025</time><span>47 min read</span></p></div></div><article class="popover-hint"><h3 id="livello-applicazione">LIVELLO APPLICAZIONE<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#livello-applicazione" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>definizione di internet</strong>
+<ul>
+<li><font color="#f79646">Infrastruttura</font> composta da un insieme di reti interconnesse tra loro</li>
+</ul>
+</li>
+<li><strong>Host</strong>
+<ul>
+<li>ospitano le applicazioni di rete</li>
+<li>si trovano ai bordi di internet</li>
+<li>comunicano attraverso pacchetti di dati</li>
+<li>inoltrati da altri dispositivi come router e switch</li>
+</ul>
+</li>
+<li><strong>ISP</strong>
+<ul>
+<li>organizzazioni che offrono l’accesso a internet a utenti o varie aziende</li>
+<li>sono interconnessi tra loro per garantire il corretto funzionamento della rete</li>
+<li>se locali sono nei margini della rete</li>
+<li>se globali sono nel nucleo della rete</li>
+</ul>
+</li>
+<li><strong>Commutazione di una rete</strong>
+<ul>
+<li>Tecniche di scambio di pacchetti seguendo determinate regole</li>
+<li>Commutazione di pacchetto
+<ul>
+<li>Il singolo messaggio viene diviso in pacchetti di L bit</li>
+<li>viene inviato il singolo pacchetto senza flussi di bit</li>
+</ul>
+</li>
+<li>Commutazione di circuito
+<ul>
+<li>viene dedicato un collegamento tra mittente e destinatario e vengono inviati i bit in sequenza</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Lan o Wan</strong>
+<ul>
+<li>Local Area Network</li>
+<li>Wide Area Network</li>
+</ul>
+</li>
+<li><strong>Nucleo di rete</strong>
+<ul>
+<li>È un insieme di commutatori di pacchetti e link tra i vari host che sono poi collegate alle varie periferie di rete</li>
+<li>gli utenti non ci accedono direttamente</li>
+<li>azioni:
+<ul>
+<li>inoltro
+<ul>
+<li>attraverso una tabella di inoltro, invia i pacchetti a una determinata interfaccia</li>
+</ul>
+</li>
+<li>instradamento
+<ul>
+<li>indica il percorso che viene fatto da una serie di router per arrivare a destinazione da una radice</li>
+<li>fatto attraverso algoritmi</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>viene calcolato instradamento e poi inoltro
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250705102609.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+<li><strong>sicurezza di internet</strong>
+<ul>
+<li>una interfaccia di rete, quindi collegata alla rete
+<ul>
+<li>può vedere tutti i pacchetti che ci passano</li>
+<li>wireshark</li>
+</ul>
+</li>
+<li>ip spoofing
+<ul>
+<li>fingo di avere un’altro indirizzo IP nella rete</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>protocolli</strong>
+<ul>
+<li>insieme di regole che definiscono i metodi per la comunicazione tra dispositivi nella rete</li>
+</ul>
+</li>
+<li><strong>Divisione in livelli della TCP/IP pila protocollare</strong>
+<ul>
+<li><em>Applicazione</em>
+<ul>
+<li>supporto alle applicazioni di rete con protocolli come HTTP che inviano <font color="#f79646">messaggi</font></li>
+</ul>
+</li>
+<li><em>Trasporto</em>
+<ul>
+<li>Trasferimento di <font color="#f79646">segmenti</font> tra processi come UDP e TCP</li>
+</ul>
+</li>
+<li><em>Rete</em>
+<ul>
+<li>trasporto di <font color="#f79646">datagrammi</font>, pacchetti di rete tra host con indirizzo IP e protocolli IP</li>
+</ul>
+</li>
+<li><em>Collegamento</em>
+<ul>
+<li>Trasferimento di <font color="#f79646">frame</font> tra dispositivi vicini</li>
+</ul>
+</li>
+<li><em>Fisico</em>
+<ul>
+<li>Trasferimento di bit veri e propri su link</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>incapsulamento dei dati tra i vari livelli</strong>
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250705103837.png" width="auto" height="auto" alt/></li>
+</ul>
+<h3 id="livello-di-applicazione">Livello di applicazione<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#livello-di-applicazione" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>
+<p><strong>definizione</strong></p>
+<ul>
+<li>È un livello nella pila protocollare</li>
+<li>interagisce con l’utente o con le applicazioni di rete
+<ul>
+<li>fornendo i servizi di rete ad essi</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>architetture</strong></p>
+<ul>
+<li>client server chi sono?
+<ul>
+<li>sono due attori detti host all’interno della rete che comunicano tra loro scambiandosi messaggi</li>
+<li>server
+<ul>
+<li>deve essere sempre attivo e deve rispondere alle richieste degli host</li>
+<li>indirizzo IP noto dai client</li>
+</ul>
+</li>
+<li>client
+<ul>
+<li>comunica con i server inviando richieste</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>peer-to-peer
+<ul>
+<li>architettura che prevede un insieme di host che fanno sia da client che da server, sono detti peer
+<ul>
+<li>ogni peer condivide i file che ha già scaricato ai peer candidati più vicini</li>
+<li>utilizza determinate tecniche per ottimizzare lo scambio tra peer</li>
+</ul>
+</li>
+<li><em>torrent</em>
+<ul>
+<li>file che ha tracker dei i vari peer</li>
+</ul>
+</li>
+<li>peer-to-peer vs client server
+<ul>
+<li>Client server
+<ul>
+<li>lineare senza variazioni</li>
+</ul>
+</li>
+<li>peer-to-peer
+<ul>
+<li>dipende da il numero di utenti che condividono i dati e che li scaricano</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><em>tit for tat</em>
+<ul>
+<li>tecnica di ottimizzazione del peer-to-peer</li>
+<li>in un intervallo di secondi vengono ogni volta definiti i peer che sono destinati a scambiare i chunk
+<ul>
+<li>ogni tanto ne viene scelto uno a caso per vedere se era candidato e utile</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>processi</strong></p>
+<ul>
+<li>sono un programma in esecuzione su un host
+<ul>
+<li>accedono alla rete tramite il livello di trasporto</li>
+<li>ma per comunicare con il livello di applicazione dove abbiamo le varie applicazione di rete vengono usate le socket
+<ul>
+<li>sono interfacce software, permettono di comunicare con i processi che lavorano al livello di trasporto, quindi fanno da tramite con il livello di applicazione</li>
+<li>sono identificate da una coppia formata da
+<ul>
+<li><em>IP</em>
+<ul>
+<li>identifica l’host</li>
+</ul>
+</li>
+<li><em>Porta</em>
+<ul>
+<li>identifica l’applicazione</li>
+<li>alcune porte sono già standardizzate per alcune applicazioni
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250318133006.png" width="400" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>protocollo del livello di applicazione</strong></p>
+<ul>
+<li>si dividono in 2 tipi
+<ul>
+<li>proprietari
+<ul>
+<li>non sono noti e vengono usate da applicazioni private tipo skype</li>
+</ul>
+</li>
+<li>pubblici
+<ul>
+<li>sono noti e standardizzati tipo HTTP</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>vertono su
+<ul>
+<li>sicurezza
+<ul>
+<li>i livelli di trasporto non garantiscono chissà che sicurezza ma quelli di applicazione la possono migliorare con cifrature tipo TLS</li>
+</ul>
+</li>
+<li>troughput minimo garantito</li>
+<li>perdita di messaggi</li>
+<li>sensibilità al fattore tempo</li>
+</ul>
+</li>
+<li>applicazioni che usano protocolli di trasporto
+<ul>
+<li>HTTP usa TCP</li>
+<li>SMTP usa TCP</li>
+<li>Giochi interattivi TCP e UDP</li>
+<li>VoIP usa UDP</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>HTTP</strong></p>
+<ul>
+<li>alla base delle applicazioni web
+<ul>
+<li>sfrutta il paradigma client server</li>
+<li>presente sulla porta 80</li>
+<li>consente lo scambio di messaggi di richiesta HTTP</li>
+<li>vengono scambiare risorse</li>
+</ul>
+</li>
+<li>passaggi che compongono una richiesta HTTP
+<ul>
+<li>il client tenta di aprire una connessione TCP al server sulla porta 80, creando una socket, successivamente il server la riceve e accetta o meno la connessione, il client invia una richiesta HTTP al server, il server fornisce la risorsa, viene chiusa la connessione TCP</li>
+</ul>
+</li>
+<li>MESSAGGIO HTTP
+<ul>
+<li>è composto da
+<ul>
+<li>riga di richiesta
+<ul>
+<li>versione HTTP, URL richiesto, metodo HTTP usato(get put…)</li>
+</ul>
+</li>
+<li>intestazione
+<ul>
+<li>informazioni riguardo chi effettua la richiesta, formato, se ci sono cookie o meno ecc…</li>
+</ul>
+</li>
+<li>corpo del messaggio
+<ul>
+<li>contiene i dati inviati dal server</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Metodi HTTP
+<ul>
+<li>POST</li>
+<li>GET</li>
+<li>HEAD</li>
+<li>PUT</li>
+</ul>
+</li>
+<li>Versioni a grandi linee
+<ul>
+<li>1.0
+<ul>
+<li>ogni connessione creata TCP era uno scambio di un solo messaggio</li>
+<li>non persistenti, quindi la connessione termina, gli altri sono persistenti</li>
+</ul>
+</li>
+<li>1.1
+<ul>
+<li>consentiva di fare GET multiple di dati con politica FIFO</li>
+</ul>
+</li>
+<li>2.0
+<ul>
+<li>senza richieste venivano inviati più messaggi ma con priorità non FIFO</li>
+<li>i messaggi venivano inviati alternati tra loro divisi in frame, invio interlacciato</li>
+</ul>
+</li>
+<li>3.0
+<ul>
+<li>usa UDP con QUIC al livello di applicazione per gestire problemi di sicurezza e perdita dei messaggi
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250318183006.png" width="400" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>RTT</strong></p>
+<ul>
+<li>tempo che impiega un pacchetto per andare dal client al server e dal server al client</li>
+<li>variabile in base a eventuali congestioni ecc…
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250318151455.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+<li>
+<p><strong>Codici di stato</strong></p>
+<ul>
+<li>per ogni errore esiste un codice di stato che si trova nell’intestazione dei messaggi</li>
+<li>1xx messaggi informativi,</li>
+<li>2xx successo,</li>
+<li>3xx risorsa spostata,</li>
+<li>4xx errore,</li>
+<li>5xx errore server</li>
+</ul>
+</li>
+<li>
+<p><strong>I cookie</strong></p>
+<ul>
+<li>il protocollo HTTP è stateless, quindi login non funzionano ad esempio</li>
+<li>per salvare eventuali client vengono o salvati gli stati in memoria sui due dispositivi client e server oppure si usano i cookie
+<ul>
+<li>i cookie sono codici identificativi per client</li>
+<li>i cookie dopo la prima connessione effettuata vengono scambiati nell’header delle richieste HTTP</li>
+<li>essi vengono salvati in un database dei server e vengono forniti al client, il client salverà il proprio cookie ad esempio nel browser
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250318185425.png" width="300" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Web Cache</strong></p>
+<ul>
+<li>intermediario tra client e server</li>
+<li>se ha già una risorsa di una eventuale richiesta HTTP la fornisce senza interpellare il server effettivo</li>
+<li>ogni risorsa ha un TTL time to live</li>
+<li>può essere locale, interna al host client oppure un server come i proxy che fanno da client</li>
+<li>vengono usate per migliorare l’efficienza dei server e evitare congestioni
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250318192553.png" width="400" height="auto" alt/></li>
+</ul>
+</li>
+<li>
+<p><strong>Posta elettronica</strong></p>
+<ul>
+<li>applicazione che simula lo scambio di lettere attraverso user agent e mail server
+<ul>
+<li>tra server di posta avviene uno scambio attraverso SMTP</li>
+<li>uno user agent per inviare una mail la invia al suo server mail attraverso il protocollo SMTP, a sua volta questo server lo invia al server mail del destinatario attraverso il protocollo SMTP, per prelevare le mail viene usato IMAP dallo user agent</li>
+<li>perché SMTP non può fare pull</li>
+</ul>
+</li>
+<li>passaggi SMTP
+<ul>
+<li>usa il protocollo TCP
+<ul>
+<li>effettua prima di tutto il TCP handshake con la richiesta TCP che viene accettata</li>
+<li>successivamente viene effettuato un handshake SMTP per presentare le due parti</li>
+<li>viene inviato il messaggio, come corpo ha il contenuto della mail</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>HTTP VS SMTP
+<ul>
+<li>HTTP è di tipo pull, il client riceve dei dati solo se li richiede</li>
+<li>SMTP è di tipo push, il client riceve dei dati anche se non li richiede(server mail del destinatario)
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250321183245.png" width="500" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>DNS</strong></p>
+<ul>
+<li>Servizio di rete decentralizzato(con più server) che consente la conversione di indirizzi URL in IP attraverso un Database</li>
+<li>Ci sono 3 server noti di tipo DNS
+<ul>
+<li>root
+<ul>
+<li>indirizza a quale server TLD riferirsi</li>
+</ul>
+</li>
+<li>Top Level Domain
+<ul>
+<li>forniscono la parte finale dei domini e rimandano a quelli autoritativi che sono meno generici, hanno solo .com ecc…</li>
+</ul>
+</li>
+<li>Autoritativi
+<ul>
+<li>Server DNS che contengono indirizzi IP completi richiesti</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>richiesta DNS può essere
+<ul>
+<li>ricorsiva
+<ul>
+<li>i server DNS a partire da quello locale si risolvono da soli interrogandosi a vicenda</li>
+</ul>
+</li>
+<li>iterativa
+<ul>
+<li>il server DNS locale interroga i vari Server DNS personalmente
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250321190924.png" width="auto" height="auto" alt/>
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250321192921.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>URL</strong></p>
+<ul>
+<li>indirizzo che contiene sito di riferimento che poi dovrà essere convertito in IP</li>
+<li>risorse di riferimento richieste dopo lo /</li>
+</ul>
+</li>
+<li>
+<p><strong>streaming video</strong></p>
+<ul>
+<li>streaming invio di sequenze di dati che vengono riprodotte</li>
+<li>sequenza di immagini codificate per ottimizzare il peso</li>
+<li>bitrate
+<ul>
+<li>unità di misura che indica quanti bit vengono trasmessi al secondo</li>
+<li>fisso o variabile</li>
+</ul>
+</li>
+<li>viene usato TCP per evitare perdite
+<ul>
+<li>con HTTP può essere scelta la qualità scegliendo la determinata risorsa</li>
+</ul>
+</li>
+<li>CDN
+<ul>
+<li>server nel mondo che hanno stessi contenuti video per rispondere alle eccessive richieste</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="livello-di-trasporto">LIVELLO DI TRASPORTO<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#livello-di-trasporto" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<h3 id="livello-di-trasporto-1">Livello di trasporto<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#livello-di-trasporto-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>introduzione breve</strong>
+<ul>
+<li>livello che consente la comunicazione tra processi su host differenti mediante protocolli e segmenti</li>
+</ul>
+</li>
+<li><strong>tecniche di smistamento dei dati mediante IP+porta</strong>
+<ul>
+<li>multiplexing
+<ul>
+<li>effettuato al lato mittente</li>
+<li>i segmenti di ciascun processo vengono compattati e inviati, differenziati poi da una intestazione</li>
+</ul>
+</li>
+<li>demultiplexing
+<ul>
+<li>effettuato al lato destinatario</li>
+<li>tramite le intestazioni dei singoli segmenti viene definito a quale processo socket destinare quel determinato segmento</li>
+<li>si divide in
+<ul>
+<li>con connessione
+<ul>
+<li>vengono creare socket passive</li>
+</ul>
+</li>
+<li>senza
+<ul>
+<li>è sufficiente IP+porta
+<img src="../../../UNI/ANNO-2/RETI/fotret/ms-teams_hVpBKBk0sN.png" width="300" height="auto" alt/>
+<img src="../../../UNI/ANNO-2/RETI/fotret/ms-teams_j0jUvWaTsw.png" width="300" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="udp">UDP<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#udp" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<ul>
+<li><strong>definizione</strong>
+<ul>
+<li>Protocollo di trasporto veloce senza handshake, con ritrasmissione</li>
+</ul>
+</li>
+<li><strong>utilizzi</strong>
+<ul>
+<li>DNS</li>
+<li>DHCP</li>
+<li>HTTP/3 con QUIC</li>
+</ul>
+</li>
+<li><strong>struttura del segmento</strong>
+<ul>
+<li>Intestazione, in cui abbiamo porta di origine, porta di destinazione, lunghezza, checksum
+<ul>
+<li>origine serve solo se si vuole inviare eventualmente una risposta</li>
+</ul>
+</li>
+<li>dati dell’applicazione</li>
+</ul>
+</li>
+<li><strong>checksum</strong>
+<ul>
+<li>spazio di dati all’interno di UDP con lo scopo di rilevare errori e eventualmente ritrasmettere</li>
+<li>il mittente calcola la checksum e la invia al destinatario</li>
+<li>il destinatario calcola a sua volta la checksum e la confronta con quella inviata dal mittente
+<ul>
+<li>se tutti i bit sono a 1 allora non vi sono errori
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250406160244.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="modello-teorico-rdt">Modello teorico RDT<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#modello-teorico-rdt" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<p><img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250406162511.png" width="auto" height="auto" alt/></p>
+<ul>
+<li>
+<p><strong>affidabilità con RDT</strong></p>
+<ul>
+<li>RDT Reliable Data Transfer, modello astratto che indica come gestire un canale inaffidabile per garantire la corretta trasmissione dei dati è diviso in versioni
+<ul>
+<li>esso venne poi usato come idea per TCP</li>
+</ul>
+</li>
+<li>1.0
+<ul>
+<li>canale affidabile, mittente e destinatario devono solo aspettare di essere interpellati per inviare o ricevere dati</li>
+</ul>
+</li>
+<li>2.0
+<ul>
+<li>canale inaffidabile ma con segmenti che vengono inviati in ordine, vengono introdotti ACK e NAK</li>
+<li>il mittente prima di rimettersi in attesa di inviare un nuovo segmento attende uno di questi due segnali</li>
+<li>il destinatario invia ACK o NAK se i dati ricevuti sono ok oppure corrotti</li>
+<li>problematiche:
+<ul>
+<li>i segnali possono essere anche essi corrotti</li>
+<li>nel dubbio viene inviato ma presenterebbe delle duplicazioni</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>2.1
+<ul>
+<li>introduce numero di sequenza per evitare duplicazioni</li>
+<li>il numero di sequenza viene usato tra mittente e destinatario per capire se sono sullo stesso numero di sequenza</li>
+<li>il mittente invia un pacchetto con un numero di sequenza 0 o 1, si aspetta un ACK con lo stesso numero dal destinatario se è differente allora ci sono problematiche</li>
+<li>sono ancora usati ACK e NAK</li>
+</ul>
+</li>
+<li>2.2
+<ul>
+<li>rimuove i NAK, se invio un ACK non corrispondente è come se sto inviando un NAK</li>
+</ul>
+</li>
+<li>3.0
+<ul>
+<li>aggiunge RTT, ovvero una soglia di tempo per attendere un segnale necessario per effettuare una ritrasmissione</li>
+<li>usata per gestire perdite e non solo errori</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>trasferimento dati con stop and wait  vs pipeline</strong></p>
+<ul>
+<li><font color="#f79646">stop and wait</font> viene inviato un segmento e si attende un riscontro per esso</li>
+<li><font color="#f79646">pipeline</font>, vengono inviati in sequenza i segmenti e poi vengono accumulati su una pipe i rispettivi ACK, nel caso del mittente, per il destinatario i veri e propri segmenti
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250406184132.png" width="500" height="auto" alt/></li>
+</ul>
+</li>
+<li>
+<p><strong>GBN</strong></p>
+<ul>
+<li>protocollo teorico che prevede utilizzo di finestre
+<ul>
+<li>per tenere conto dei segmenti confermati, in attesa di conferma, ancora da inviare</li>
+<li>se in una sequenza di N segmenti un segmento non viene confermato, il mittente dovrà, dopo il timeout rinviare tutti da quel segmento in poi
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250406185245.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>con ripetizione selettiva</strong></p>
+<ul>
+<li>migliora la GBN</li>
+<li>ogni segmento è una istanza a se numerata, non devo reinviare tutta la sequenza ma solo il singolo interessato
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250406193400.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+<h4 id="tcp">TCP<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#tcp" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>
+<p><strong>introduzione</strong></p>
+<ul>
+<li>protocollo di trasporto affidabile basato su connessione tra gli host e correzione di errori</li>
+</ul>
+</li>
+<li>
+<p><strong>dettagli sul segmento MSS e MTU</strong></p>
+<ul>
+<li>MSS rappresenta la massima dimensione di un segmento, escludendo l’intestazione</li>
+<li>MTU rappresenta la massima dimensione di un datagramma del protocollo IP che racchiude anche il segmento
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250408124654.png" width="300" height="auto" alt/></li>
+</ul>
+</li>
+<li>
+<p><strong>segmento PDU del TCP</strong></p>
+<ul>
+<li>si divide in
+<ul>
+<li>intestazione
+<ul>
+<li>numeri di porta origine e destinazione checksum, ack, numero di sequenza, receive window</li>
+</ul>
+</li>
+<li>corpo, i dati effettivi
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250408130449.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>numero di sequenza e ACK</strong></p>
+<ul>
+<li>ogni byte è numerato sequenzialmente</li>
+<li>il campo numero di sequenza include il primo byte di sequenza</li>
+<li>il campo ACK include l’ultimo byte a essere confermato</li>
+</ul>
+</li>
+<li>
+<p><strong>RTT Round Trip Time</strong></p>
+<ul>
+<li>soglia di tempo che deve attendere un mittente prima di effettuare un reinvio se non si ricevono segnali</li>
+<li>viene stimato calcolando una media degli ACK ricevuti</li>
+</ul>
+</li>
+<li>
+<p><strong>Controllo e gestione del flusso</strong></p>
+<ul>
+<li>TCP permette al mittente di gestire il flusso di dati che può ricevere il buffer  del destinatario, per evitare saturazioni del buffer</li>
+<li>receive window
+<ul>
+<li>campo dell’intestazione TCP per definire quanti byte può ancora ricevere il buffer del destinatario
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250408135957.png" width="400" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>TCP con handshake</strong></p>
+<ul>
+<li>procedura che instaura un collegamento sicuro tra due host</li>
+<li>malgrado aumenti l’overhead dovuto a questa procedura diminuisce notevolmente la perdita di dati attraverso segnali di ACK scambiati tra le due parti</li>
+<li>2 vie
+<ul>
+<li>il mittente invia una richiesta di collegamento al destinatario</li>
+<li>il destinatario manda una conferma con un segnale di ACK</li>
+<li>la connessione è stabilita e i due possono comunicare fino alla chiusura</li>
+<li>problemi: perdita del segnale di ACK o di richiesta</li>
+</ul>
+</li>
+<li>3 vie
+<ul>
+<li>come quello a 2 vie solo che adesso anche il mittente deve inviare a sua volta un ACK dell’ACK del destinatario e per iniziare la sincronizzazione viene usato un Synbit che deve essere uguale tra i due
+<ul>
+<li>questi ACK sono identificati da</li>
+<li>ACKbit
+<ul>
+<li>semplice ACK 1=NAK       0=ACK</li>
+</ul>
+</li>
+<li>ACKnum
+<ul>
+<li>indica fino a quale sequenza di byte ha ricevuto i dati</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Bit di reset
+<ul>
+<li>in caso di errori è possibile terminare repentinamente la connessione stabilita</li>
+</ul>
+</li>
+<li>Chiusura connessione TCP
+<ul>
+<li>Viene inviato un Finbit=1</li>
+<li>il destinatario invierà un Finbit=1+ACK</li>
+<li>il mittente invia un ACK e basta
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250408142333.png" width="auto" height="auto" alt/>
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250408142831.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>attacco Syn flood</strong></p>
+<ul>
+<li>vengono inviate molteplici richieste di handshake per far crashare un server</li>
+<li>si risolve con i cookie
+<ul>
+<li>il client dovrà rispondere con il cookie assegnato altrimenti non alloca memoria</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="congestione">Congestione<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#congestione" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>
+<p><strong>definizione</strong></p>
+<ul>
+<li>fenomeno che avviene quando il carico da inviare supera la capacità di risorse che supporta la rete</li>
+</ul>
+</li>
+<li>
+<p><strong>scenario 1</strong></p>
+<ul>
+<li>breve descrizione
+<ul>
+<li>router con buffer illimitato, ogni coppia mittente/destinatario ha il suo collegamento al router</li>
+<li>se aumenta il troughput più di R/2 si presentano rallentamenti
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250410175431.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>scenario 2</strong></p>
+<ul>
+<li>breve descrizione
+<ul>
+<li>buffer del router limitato</li>
+<li>ritrasmissioni presenti al livello di trasporto non di applicazione</li>
+<li>si divide in 3 sotto-scenari
+<ul>
+<li>caso 1 ideale, buffer libero
+<ul>
+<li>i pacchetti vengono inviati regolarmente</li>
+<li>il mittente sa quando il buffer è pieno</li>
+</ul>
+</li>
+<li>caso 2, buffer pieno e conoscenza meno perfetta della situazione
+<ul>
+<li>vengono scartati pacchetti e ritrasmissioni</li>
+</ul>
+</li>
+<li>caso 3, timeout prematuro
+<ul>
+<li>timeout non impostato correttamente</li>
+<li>duplicazioni
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250410180557.png" width="auto" height="auto" alt/>
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250410181647.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>scenario 3</strong></p>
+<ul>
+<li>breve descrizione
+<ul>
+<li>4 host</li>
+<li>percorsi multi hop</li>
+<li>timeout e ritrasmissioni</li>
+</ul>
+</li>
+<li>problematiche
+<ul>
+<li>host adiacenti a router prendono tutta la banda possibile
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250410182434.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>controllo della congestione 2 approcci</strong></p>
+<ul>
+<li><em>end-to-end</em>
+<ul>
+<li>il controllo della congestione è <em>demandato solo al mittente</em>, che effettuerà dei calcoli
+<ul>
+<li>della finestra di ricezione prende solo ed esclusivamente il cwnd, ovvero i byte che devono ancora essere ACK e anche quelli non inviati</li>
+<li>calcolando poi cwnd/RTT riesce a definire circa il tasso di invio</li>
+<li>non preciso</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><em>assistito dalla rete</em>
+<ul>
+<li>il router invia dei <em>pacchetti informativi detti choke</em> al destinatario, lui li rimanda il mittente insieme a eventuali ACK</li>
+<li>informano del loro stato di congestione</li>
+<li>usato in TCP ECN</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>gestione del tasso di invio.</strong></p>
+<ul>
+<li>concetto di AIMD
+<ul>
+<li>Additive increase Multiplicative Decrease</li>
+<li>questo concetto regola dinamicamente gli MSS</li>
+<li>Maximum Segment Size, ovvero regola quanti segmenti può inviare prima di attendere una ricezione</li>
+<li>inizia da 1 aumenta additivamente ad ogni RTT e appena avviene un fault gli cwnd vengono dimezzati
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250411162431.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>fasi di gestione del tasso di invio</strong></p>
+<ul>
+<li><em>slow start</em>
+<ul>
+<li>si inizia piano e poi ad ogni RTT cwnd si raddoppia</li>
+</ul>
+</li>
+<li><em>congestion avoidance</em>
+<ul>
+<li>viene usata una variabile<code>sstresh</code> che definisce un limite per cui si smette di crescere esponenzialmente(slow start) ma linearmente</li>
+</ul>
+</li>
+<li><em>gestione errori</em>
+<ul>
+<li>se non si ricevono ACK(timeout)
+<ul>
+<li>entra in timeout e dimezza <code>sstresh</code> e cwnd=1</li>
+</ul>
+</li>
+<li>se riceve 1 o 2 ACK duplicati
+<ul>
+<li>prova semplicemente a ritrasmetterli</li>
+</ul>
+</li>
+<li>se invece ne riceve 3 duplicati
+<ul>
+<li>aumenta notevolmente cwnd per aumentare il tasso di trasmissione</li>
+<li>poi entra in fast recovery</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><em>fast recovery</em>
+<ul>
+<li>quando si verifica una perdita, triplo ACK duplicato si entra in fast recovery</li>
+<li>questa fase dura 1RTT per attendere l’ack del pacchetto perso</li>
+<li>quindi si entra in congestion avoidance partendo da
+<ul>
+<li><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">c</span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mord mathnormal">n</span><span class="mord mathnormal">d</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">c</span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mord mathnormal">n</span><span class="mord mathnormal">d</span><span class="mspace"> </span><span class="mord mathnormal">d</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mspace"> </span><span class="mord mathnormal">b</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">occo</span><span class="mspace"> </span><span class="mord mathnormal">p</span><span class="mord mathnormal">rece</span><span class="mord mathnormal">d</span><span class="mord mathnormal">e</span><span class="mord mathnormal">n</span><span class="mord mathnormal">t</span><span class="mord mathnormal">e</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord">3</span><span class="mspace"> </span><span class="mord mathnormal">t</span><span class="mord mathnormal">u</span><span class="mord mathnormal">tt</span><span class="mord mathnormal">o</span><span class="mspace"> </span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">a</span><span class="mord mathnormal">tt</span><span class="mord mathnormal">o</span><span class="mspace"> </span><span class="mord">2</span></span></span></span></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>evoluzioni TCP</strong></p>
+<ul>
+<li>TCP Reno
+<ul>
+<li>implementazione di TCP che utilizza un algoritmo con fast recovery e dimezzamento di 1 MSS quando si ha un ACK</li>
+</ul>
+</li>
+<li>TCP Cubic
+<ul>
+<li>utilizza <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">ma</span><span class="mord mathnormal mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, dimensione della finestra nel momento in cui avviene una congestione
+<ul>
+<li>successivamente a una congestione viene ogni volta dimezzata la velocità di trasmissione  e viene settata una variabile <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span></span></span></span> nei pressi di <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">ma</span><span class="mord mathnormal mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></li>
+<li>prima di <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span></span></span></span> si cresce velocemente in un valore compreso tra <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span></span></span></span> e <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">ma</span><span class="mord mathnormal mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> meno velocemente</li>
+<li>ogni volta viene causata la congestione</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>TCP Vegas
+<ul>
+<li>evoluzione di CUBIC</li>
+<li>calcola una stima e vede ogni volta se viene rispettata effettivamente</li>
+</ul>
+</li>
+<li>ECN
+<ul>
+<li>presente in alcune implementazioni di TCP</li>
+<li>vengono usate due variabili
+<ul>
+<li>ECN
+<ul>
+<li>il router le invia per segnalare congestioni
+<ul>
+<li>10 non c’è</li>
+<li>11 c’è</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>ECE
+<ul>
+<li>le invia il destinatario al mittente</li>
+<li>1 se c’è</li>
+<li>0 se non c’è
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250411183520.png" width="500" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>fairness di TCP e UDP</strong></p>
+<ul>
+<li>TCP è fair perché il troughput è dato da <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mord">/</span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span></span></span></span>
+<ul>
+<li>ovvero il numero la capacità del collegamento fratto il numero delle connessioni</li>
+</ul>
+</li>
+<li>TCP paralleli
+<ul>
+<li>se dallo stesso host faccio più socket con più richieste TCP non diventa più fair</li>
+</ul>
+</li>
+<li>UDP non è fair perché non può controllare il tasso di trasmissione</li>
+</ul>
+</li>
+<li>
+<p><strong>Evoluzioni protocolli di trasporto</strong></p>
+<ul>
+<li>QUIC
+<ul>
+<li>usa UDP e al livello di applicazione implementa le varie sicurezze e migliorie</li>
+<li>tipo TCP ha HOL(Head Of Line blocking) QUIC no</li>
+<li>essendo più recente è meno supportato</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="livello-di-rete">LIVELLO DI RETE<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#livello-di-rete" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<h3 id="livello-di-rete-1">LIVELLO DI RETE<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#livello-di-rete-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>
+<p><strong>Introduzione</strong>*</p>
+<ul>
+<li>il livello di rete si occupa di trasportare datagrammi da un host mittente a un host destinatario che possono trovarsi anche su reti differenti</li>
+</ul>
+</li>
+<li>
+<p><strong>Descrizione protocollo IP</strong>*</p>
+<ul>
+<li>protocollo fondamentale del livello di rete, si occupa del vero e proprio trasferimento dei datagrammi attraverso una rete di dispositivi</li>
+<li>È <strong>BEST EFFORT</strong>, non da garanzie dei servizi che offre ma fa del suo meglio
+<ul>
+<li>servizi che vuole offrire la rete:
+<ul>
+<li>servizi per il <strong>singolo datagramma</strong>
+<ul>
+<li>consegna garantita</li>
+<li>consegna con ritardo ridotto</li>
+</ul>
+</li>
+<li>servizi per <strong>datagrammi multipli</strong>(flussi)
+<ul>
+<li>consegna in ordine</li>
+<li>banda di trasferimento minima garantita</li>
+<li>frammenti che arrivano a intervalli regolari</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>DATAGRAMMA IP</strong>
+<ul>
+<li>intestazione con indirizzi IP sorgente e destinazione, lunghezza totale del datagramma versione e TTL, protocollo usato al livello superiore, checksum</li>
+<li>corpo dati
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250418131749.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>FRAMMENTAZIONE DATAGRAMMI</strong></p>
+<ul>
+<li>se un datagramma supera la MTU(Maximum Transmission Unit)</li>
+<li>viene frammentato con stesso identificatore
+<ul>
+<li>flag che indica se è l’ultimo del suo blocco,</li>
+<li>offset per indicare dove si inserisce nel datagramma totale</li>
+</ul>
+</li>
+<li>seguendo questi campi viene riassemblato nel destinatario finale</li>
+<li><strong>PMTUD</strong> (Path Maximum Transmission Unit Discovery)
+<ul>
+<li>obiettivo: scoprire quanto deve essere grande al massimo la MTU in 2 modi
+<ul>
+<li>
+<ol>
+<li>ICMP invia un datagramma con obbligo di non frammentazione, se riceve una segnalazione dal router che da un obbligo di frammentazione allora bisogna modificare la MTU con quella suggerita da parte del router</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>Mitigazione durante l’handshake, insomma viene accordato prima</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>funzioni chiave del livello di rete</strong></p>
+<ul>
+<li><strong>inoltro</strong>
+<ul>
+<li>si occupa dell’effettivo invio dei datagrammi</li>
+<li>si divide in:
+<ul>
+<li>basato sulla <font color="#f79646">destinazione</font>
+<ul>
+<li>usa indirizzo IP e la tabella di inoltro</li>
+</ul>
+</li>
+<li><font color="#f79646">generalizzato</font>
+<ul>
+<li>guarda altri campi come il protocollo e il servizio</li>
+<li>usato su reti più complesse</li>
+<li>tipo Match+Action</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>instradamento</strong>
+<ul>
+<li>processo che calcola i percorsi nella rete serve per effettuare un inoltro dei datagrammi coerente con l’infrastruttura di rete</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>classful addressing</strong></p>
+<ul>
+<li>utilizzo di classi prima dell’invenzione di CIDR per definire indirizzi IP</li>
+</ul>
+</li>
+<li>
+<p><strong>come trovare Ip nell’inoltro basato sulla destinazione</strong></p>
+<ul>
+<li>i router hanno un sacco di IP sulla tabella di inoltro
+<ul>
+<li>come capire l’IP di input a quale appartiene?
+<ul>
+<li><strong>CIDR</strong> standard di formattazione che divide IP in 2 parti indirizzo subnet e indirizzo host
+<ul>
+<li>funziona tipo indirizzo/16, indica che i primi 16 bit sono della subnet e i successivi 32-16 sono dell’host</li>
+</ul>
+</li>
+<li>potremmo avere più IP simili in termini di bit, viene effettuata una ricerca della corrispondenza sulla tabella fino ai bit meno significativi, l’indirizzo con più informazioni viene selezionato</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>TCAM+ priority encoder</strong>
+<ul>
+<li>usata per <em>rappresentare</em> le <em>tabelle di inoltro</em></li>
+<li>TCAM è una memoria speciale che permette di trovare la riga con l’IP adeguato in un tempo ridotto</li>
+<li>quando ci sono più indirizzi IP simili, entra in gioco il <em>priority encoder</em> che sceglierà quello con la priorità più alta
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250418125759.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>divisione in 2 del livello di rete</strong></p>
+<ul>
+<li><em>piano dei dati</em>
+<ul>
+<li>funzione locale dei router che decide come inoltrare un datagramma</li>
+</ul>
+</li>
+<li><em>piano di controllo</em>
+<ul>
+<li>si occupa della logica globale della rete
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250417214312.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>SDN(Software-Defined Networking)</strong>*</p>
+<ul>
+<li>architettura dove il <em>piano di controllo è centralizzato</em> in un unico <em>server</em> per tutta la rete
+<ul>
+<li>router esecutori il controller calcola lui le <em>tabelle di inoltro</em></li>
+</ul>
+</li>
+<li>posizionamento di SDN
+<ul>
+<li>abbiamo il <em>piano dei dati</em> con i vari router e le AS</li>
+<li>poi a un livello <em>intermedio</em> abbiamo le SDN con il controller</li>
+<li>ancora sopra abbiamo <em>il piano di controllo</em> con le varie <em>applicazioni</em> di gestione della rete
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250503150640.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>come è fatto il controller delle SDN</p>
+<ul>
+<li>è diviso in
+<ul>
+<li><em>Livello di interfaccia</em> con le applicazioni
+<ul>
+<li>Livello che si collega alle app del piano di controllo, attraverso varie <strong>API north-bound</strong> fornisce a loro dell informazioni</li>
+</ul>
+</li>
+<li><em>Gestione dello stato di rete</em>
+<ul>
+<li><strong>Database</strong> che contiene le varie info sulla rete, router, link, host e switch</li>
+</ul>
+</li>
+<li><em>Comunicazione con i dispositivi che controlla</em>
+<ul>
+<li>Attraverso protocolli come <strong>Open Flow</strong> comunica con i vari dispositivi della rete come switch ecc…</li>
+<li>questo <strong>insieme di protocolli</strong> è detto <strong>Southbound API</strong>
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250503150921.png" width="400" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250417214551.png" width="auto" height="auto" alt/></p>
+<ul>
+<li>
+<p><strong>Router</strong>*</p>
+<ul>
+<li>dispositivi di rete che hanno il compito di instradare datagrammi</li>
+<li>se non c’è la SDN si divide in
+<ul>
+<li><strong>piano di controllo</strong>
+<ul>
+<li>via software</li>
+</ul>
+</li>
+<li><strong>piano dati</strong>
+<ul>
+<li>hardware</li>
+</ul>
+</li>
+<li><strong>struttura di commutazione</strong>
+<ul>
+<li>componente del router che permette di instradare i datagrammi da una porta di ingresso a una di uscita</li>
+</ul>
+</li>
+<li><strong>porte di ingresso</strong>
+<ul>
+<li>interfacce destinate all’ingresso dei datagrammi ai router</li>
+<li>ogni porta deve ricevere e processare un datagramma in modo veloce</li>
+<li>è divisa in step
+<ul>
+<li><font color="#00b050">terminazione di linea</font>
+<ul>
+<li>riceve i bit grezzi e li passa al successivo step</li>
+</ul>
+</li>
+<li><font color="#00b050">elaborazione al livello di collegamento</font>
+<ul>
+<li>interpreta il frame e decapsula il datagramma</li>
+</ul>
+</li>
+<li><font color="#00b050">ricerca e inoltro</font>
+<ul>
+<li>guarda il datagramma e capisce a quale struttura di commutazione inoltrarlo</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>porte di uscita</strong>
+<ul>
+<li>prende input da un commutatore e poi esegue gli step inversi delle porte di ingresso</li>
+</ul>
+</li>
+<li><strong>accodamento in entrata e in uscita</strong>
+<ul>
+<li>in entrata potrei avere problemi di HOL</li>
+<li>in uscita potrei avere problemi di buffer troppo pieno e quindi scarti
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250417215033.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Commutazione</strong>*</p>
+</li>
+<li>
+<p>componente del router che permette di instradare i datagrammi da una porta di ingresso a una di uscita</p>
+<ul>
+<li><font color="#00b0f0">centralizzata</font>
+<ul>
+<li>tutto passa per una cpu unica del router</li>
+</ul>
+</li>
+<li><font color="#00b0f0">decentralizzata</font>
+<ul>
+<li>ogni porta del router ha una sua piccola cpu che elabora a quale porta di uscita mandare il pacchetto</li>
+</ul>
+</li>
+<li><strong>3 strutture</strong>
+<ul>
+<li>1 <font color="#9bbb59">memoria</font>
+<ul>
+<li>tutte le porte hanno una memoria condivisa</li>
+<li>i datagrammi vengono copiati dentro essa e le porte di uscita copiano il tutto</li>
+<li>lento</li>
+</ul>
+</li>
+<li>2 <font color="#9bbb59">bus</font>
+<ul>
+<li>bus tra le porte di entrata e uscita
+<ul>
+<li>problemi di congestione del bus</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>3 <font color="#9bbb59">interconnessione</font>
+<ul>
+<li>parallelismo</li>
+<li>si divide in
+<ul>
+<li><font color="#c00000">crossbar</font>
+<ul>
+<li>matrice di bus</li>
+</ul>
+</li>
+<li><font color="#c00000">multistage</font>
+<ul>
+<li>piccoli switch tra le due porte che indirizzano il tutto
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250706171108.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Gestione del buffer</strong>*</p>
+<ul>
+<li>troppo buffering causa aumenti di RTT facendo allocare troppi pacchetti nella rete</li>
+<li><strong>3 politiche di scarto</strong>
+<ul>
+<li><em>tail drop</em>
+<ul>
+<li>viene scartato l’ultimo che arriva</li>
+</ul>
+</li>
+<li><em>priorità</em>
+<ul>
+<li>i pacchetti hanno una priorità</li>
+</ul>
+</li>
+<li><em>marcatura</em>
+<ul>
+<li>prima di scartare invia dei segnali come ECN per avvisare che il buffer è pieno</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>3 algoritmi di scheduling</strong> per decidere quali mandare prima
+<ul>
+<li><em>FCFS first come first served</em>
+<ul>
+<li>il primo che arriva è il primo ad uscire</li>
+</ul>
+</li>
+<li><em>con priorità</em>
+<ul>
+<li>ogni pacchetto viene classificato con una sua priorità e viene definito in quale ordine inviarli</li>
+<li><strong>starvation</strong>: una delle code potrebbe non essere mai selezionata</li>
+</ul>
+</li>
+<li><em>RR Round Robin</em>
+<ul>
+<li>sempre diviso in classi ma si invia un po di tutto</li>
+</ul>
+</li>
+<li><em>WFQ Weighted Fair Queuing</em>
+<ul>
+<li>ogni priorità ha un suo spazio di banda per mantenere le cose fair</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250418131504.png" width="auto" height="auto" alt/></p>
+<h4 id="indirizzi-ip-e-gestioni-varie">Indirizzi IP e gestioni varie<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#indirizzi-ip-e-gestioni-varie" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>
+<p><strong>Sottorete</strong></p>
+<ul>
+<li>definizione
+<ul>
+<li>insieme di dispositivi che possono comunicare tra loro senza dover passare per un router ma uno switch si</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>DHCP(Dynamic Host Configuration Protocol)</strong></p>
+<ul>
+<li>definizione
+<ul>
+<li>è una alternativa al sistema manuale dove bisognava scrivere gli indirizzi IP in fase di inizializzazione della macchina</li>
+<li>in DHCP è presente un server che assegna ai nuovi host in ingresso un IP dinamico che può variare nel tempo
+<ul>
+<li>questo server si trova di solito interno ai router</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>4 step del DHCP
+<ul>
+<li>
+<ol>
+<li><em>Discover</em></li>
+</ol>
+<ul>
+<li>l’host che entra nel server manda un broadcast per trovare se ci sono DHCP disponibili</li>
+</ul>
+</li>
+<li>
+<ol start="2">
+<li><em>Offer</em></li>
+</ol>
+<ul>
+<li>il DHCP offre un indirizzo IP all’host</li>
+</ul>
+</li>
+<li>
+<ol start="3">
+<li><em>Request</em></li>
+</ol>
+<ul>
+<li>l’host conferma l’IP offerto al DHCP</li>
+</ul>
+</li>
+<li>
+<ol start="4">
+<li><em>Ack</em></li>
+</ol>
+<ul>
+<li>il DHCP invia un Ack di assegnazione dell’IP</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>non serve solo per IP
+<ul>
+<li>suggerisce quale Server DNS usare</li>
+<li>Router First-Hop da usare
+<ul>
+<li>ovvero router gateway, colui che si collega ad altre reti non interne facendo da tramite
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250418153930.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Come si ottengono IP pubblici/privati da condividere con la tua rete</strong></p>
+<ul>
+<li>ISP ha un grande blocco di indirizzi che assegnerà a sua volta ad ogni rete che ne richiede
+<ul>
+<li>un ISP ha magari <code>indirizzoIP/x</code>
+<ul>
+<li>questo significa che ho i primi x bit fissi e gli altri posso usarli per definire IP di rete da condividere con i richiedenti</li>
+<li>se x=20 posso dare <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">32</span><span class="mbin mtight">−</span><span class="mord mtight">20</span></span></span></span></span></span></span></span></span></span></span></span> indirizzi IP</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><em>Route aggregation</em>
+<ul>
+<li>è una tecnica di aggregazione di indirizzi IP per alleggerire la tabella di instradamento condivisa tra i vari ISP/grandi router</li>
+<li>ognuno scrive sulla tabella solo il blocco di indirizzi senza precisarli tutti</li>
+<li>se un indirizzo IP specifico passa a un’altra rete quella determinata rete deve fornire più dettagli di quell’indirizzo IP
+<ul>
+<li>ricordiamo che viene data la precedenza alle corrispondenze migliori</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>ICANN</strong></p>
+<ul>
+<li>organizzazione centrale che gestisce gli indirizzi IP al livello mondiale
+<ul>
+<li>fornisce questi indirizzi IP a 5 grandi fornitori RR
+<ul>
+<li>questi 5 RR forniscono poi i vari blocchi di indirizzi agli ISP</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>NAT(Network Address Translation)</strong></p>
+<ul>
+<li>definizione
+<ul>
+<li>gli indirizzi IPv4 sono limitati</li>
+<li>è una tecnica che riduce gli indirizzi IPv4</li>
+<li>per ovviare a questo problema esistono ad esempio dei router NAT che consentono di utilizzare solo un indirizzo IP pubblico per tutta la rete che gestiscono</li>
+<li>i dispositivi della rete avranno un indirizzo IP privato</li>
+<li>il router NAT dovrà ogni volta cambiare le varie intestazioni dei datagrammi mettendo l’IP pubblico, i dispositivi esterni alla rete vedranno solo il router NAT come dispositivo nella rete e poi dovrà essere lui a condividere i datagrammi corretti nella rete interna al dispositivo corretto</li>
+<li>per ricordarsi a chi deve condividere quel datagramma utilizza una tabella NAT con salvate le varie occorrenze
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250421191015.jpg" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>IPv6</strong></p>
+<ul>
+<li>descrizione
+<ul>
+<li>Nasce per aumentare i possibili IP</li>
+<li>è a 128 bit non a 32</li>
+</ul>
+</li>
+<li>tunneling
+<ul>
+<li>non è retrocompatibile ma ci sono router misti che usano entrambi gli IP
+<ul>
+<li>lavorano su reti miste con router Dual Stack</li>
+<li>ho un datagramma IPv6 che deve passare in una rete IPv4, per farlo incapsulo IPv6 in IPv4 e poi de capsulo il tutto</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>cosa avviene nella frammentazione
+<ul>
+<li>frammentazione non presente, scopro la MTU del datagramma IPv6 con PMTUD
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250421193837.jpg" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Tabella dei flussi o di inoltro</strong></p>
+<ul>
+<li>per capire dove inoltrare i vari datagrammi esiste questa tabella</li>
+<li>per gli inoltri <strong>di tipo generalizzato</strong> avevamo detto che non era sufficiente un indirizzo IP e basta
+<ul>
+<li>vengono usati dei dati interni al datagramma ricercati con la funzione Match</li>
+<li>che poi forniscono le informazioni per una determinata Action che deve fare il router
+<ul>
+<li>inoltro, scarto, modifica e se siamo in un SDN può essere inviato al controller</li>
+</ul>
+</li>
+<li>da qui nasce Match+ Action che è la vera e propria tabella</li>
+<li>se due Match hanno due action diverse viene data una priorità alle Action  vince quella con priorità maggiore
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250421201640.jpg" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Open flow</strong></p>
+<ul>
+<li>concetto
+<ul>
+<li>rappresenta uno standard che caratterizza la struttura delle reti a SDN, dove il piano di controllo è demandato a un controller</li>
+<li>OpenFlow ha una tabella che contiene
+<ul>
+<li>Match, è diviso in livelli perché l’informazione potrebbe stare su quello di collegamento, di rete, di trasporto</li>
+<li>Action azioni che si possono fare come blocchi</li>
+<li>Priorità, per Match con più Action</li>
+<li>Contatore dei byte o dei pacchetti, che tiene conto di quelli che hanno usato una certa regola</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>protocollo
+<ul>
+<li>protocollo utilizzato dai dispositivi OpenFlow come router ecc… che permette di comunicare con il server controller della SDN
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250503151241.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Load Balancing</strong></p>
+<ul>
+<li>caratteristica dell’inoltro generalizzato</li>
+<li>consente di spalmare il carico su più porte per instradare più pacchetti che vanno a uno stesso indirizzo IP</li>
+</ul>
+</li>
+<li>
+<p><strong>MiddleBox</strong></p>
+<ul>
+<li>dispositivi che forniscono servizi all’interno della rete e che non sono router</li>
+<li>come i firewall o i NAT o i DHCP</li>
+</ul>
+</li>
+</ul>
+<h3 id="algoritmi-di-instradamento">Algoritmi di instradamento<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#algoritmi-di-instradamento" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>definizione</strong>
+<ul>
+<li>Algoritmi che si occupano di riempire la tabella di instradamento, cercando un percorso migliore con la distanza minore possibile tra i vari dispositivi nella rete</li>
+</ul>
+</li>
+<li><strong>tipologie</strong>
+<ul>
+<li><em>Globale</em>
+<ul>
+<li>ha una visione ampia della rete</li>
+</ul>
+</li>
+<li><em>Non globale</em>
+<ul>
+<li>non ha bisogno di avere una visione ampia</li>
+</ul>
+</li>
+<li><em>Centralizzato</em>
+<ul>
+<li>calcolo dei percorsi centralizzato</li>
+<li>conoscenza globale della rete</li>
+</ul>
+</li>
+<li><em>Decentralizzati</em> (link-state)
+<ul>
+<li>ogni dispositivo deve calcolare i percorsi</li>
+<li>inizialmente il router conosce solo i costi dei dispositivi adiacenti</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>inoltre anche
+<ul>
+<li><em>statici</em>
+<ul>
+<li>cambiano raramente</li>
+<li>richiedono aggiornamenti manuali</li>
+</ul>
+</li>
+<li><em>dinamici</em>
+<ul>
+<li>si aggiornano automaticamente al variare dei costi dei vari collegamenti tra nodi</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Dijkstra</strong>
+<ul>
+<li>algoritmo Globale <em>link-state</em> che consente di trovare il percorso migliore ha un funzionamento iterativo</li>
+</ul>
+</li>
+<li><strong>Vector Distance</strong>
+<ul>
+<li>È di tipo decentralizzato</li>
+<li>Si basa sull’equazione di Bellman-Ford e funziona così: ogni router sa quanto costa raggiungere le reti vicine, e scambia informazioni con i router vicini per scoprire nuovi percorsi. Nel tempo, ogni router costruisce una tabella che indica: la distanza verso ogni rete e da quale router passare per raggiungerla nel modo più economico.</li>
+<li>cambio dei costi</li>
+<li>problema di conteggio infinito
+<ul>
+<li>inversione avvelenata</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="as-autonomous-system">AS (Autonomous System)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#as-autonomous-system" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>definizione
+<ul>
+<li>insieme di router scalabili interconnessi tra loro che si trovano nella stessa ISP o amministrazione di rete</li>
+<li>strategia per gestire in modo scalabile l’instradamento</li>
+</ul>
+</li>
+<li>differenza tra
+<ul>
+<li><em>intra-AS</em>
+<ul>
+<li>tutti i router che si trovano nella stessa AS e condividono gli stessi protocolli</li>
+</ul>
+</li>
+<li><em>inter-AS</em>
+<ul>
+<li>insieme dove deve essere effettuato un routing tra AS differenti, attraverso dei router gateway che appunto li collegano tra di loro</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250503124817.png" width="auto" height="auto" alt/></p>
+<ul>
+<li>protocolli usati nell’<em>intra-AS</em>
+<ul>
+<li>RIP</li>
+<li>EIGRP</li>
+<li><em>OSPF</em>
+<ul>
+<li>definizione
+<ul>
+<li>di tipo <em>Link-State</em>, i router si scambiano tra loro le varie informazioni di instradamento in broadcast(flooding) e aggiornano così la mappa di instradamento</li>
+<li>il messaggio usa protocollo TCP e algoritmi di Dijkstra per effettuare i calcoli</li>
+</ul>
+</li>
+<li>è divisa in 2 livelli ma riguarda comunque tutta la intra-AS
+<ul>
+<li><em>Area Locale</em>
+<ul>
+<li>sottoinsieme della rete senza router gateway</li>
+</ul>
+</li>
+<li><em>Backbone</em>
+<ul>
+<li>Dorsale che collega tutti i dispositivi della stessa area intra-AS</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>estensioni associate
+<ul>
+<li>per reti senza SDN viene usato <em>OSPF</em>, permettendo di scambiare informazioni utili per effettuare instradamenti corretti senza uso di SDN</li>
+<li>MPLS-TE protocollo che consente di evitare congestione</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250503131511.png" width="auto" height="auto" alt/></p>
+<h4 id="bgp-protocollo-usato-nella-inter-as">BGP protocollo usato nella inter-AS<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#bgp-protocollo-usato-nella-inter-as" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>definizione
+<ul>
+<li>permette di far comunicare tra loro i vari router gateway si divide in due modalità</li>
+</ul>
+</li>
+<li><em>i-BGP</em>
+<ul>
+<li>modalità che consente di inviare informazioni alla intra-AS riguardo le cose che vengono inviate dalla inter-AS</li>
+</ul>
+</li>
+<li><em>e-BGP</em>
+<ul>
+<li>modalità che consente lo scambio di informazioni tra AS esterne</li>
+<li>funziona attraverso annunci</li>
+</ul>
+</li>
+<li><em>sessione BGP</em>
+<ul>
+<li>è una <em>connessione TCP</em> semi permanente tra i router gateway detti <font color="#4bacc6">peers</font></li>
+</ul>
+</li>
+<li><em>messaggi BGP</em>
+<ul>
+<li>servono per stabilire e mantenere la connessione TCP tra peer
+<ul>
+<li><font color="#f79646">keepalive</font>
+<ul>
+<li>serve per mantenere la connessione attiva</li>
+</ul>
+</li>
+<li><font color="#f79646">open</font>
+<ul>
+<li>avvia connessione tra due peer</li>
+</ul>
+</li>
+<li><font color="#f79646">update</font>
+<ul>
+<li>annuncia nuove rotte o ritira vecchie rotte</li>
+</ul>
+</li>
+<li><font color="#f79646">notification</font>
+<ul>
+<li>segnalazione di errori</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>concetto di <font color="#00b0f0">rotta BGP</font>
+<ul>
+<li>insieme di informazioni inviate tra AS che indicano il percorso da seguire
+<ul>
+<li><em>prefisso</em>
+<ul>
+<li>indica la rete di destinazione con il vero e proprio indirizzo</li>
+</ul>
+</li>
+<li><em>attributi</em>
+<ul>
+<li>informazioni sul percorso per evitare cicli oppure trovare facilmente il primo router di salto</li>
+</ul>
+</li>
+<li><em>AS-PATH</em>
+<ul>
+<li>indica il vero e proprio percorso, la successione di AS</li>
+</ul>
+</li>
+<li><em>Next-Hop</em>
+<ul>
+<li>rappresenta il router gateway</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Esempio con o senza percorsi multipli
+<ul>
+<li>solo i router gateway possono modificare router di next hop per indicare “se volete inviare ad altre AS passate per me”</li>
+<li>un router che lavora in inter-AS annuncia anche l’<font color="#00b0f0">AS-PATH</font> ovvero il percorso che deve seguire per raggiungere quella determinata destinazione</li>
+<li>su percorsi multipli è simile solo che vengono seguite delle policy</li>
+</ul>
+</li>
+<li><em>Criteri</em> usati da router BGP <em>per riempire tabella di instradamento</em>
+<ul>
+<li>1.<strong>Next Hop modificato</strong>
+<ul>
+<li>i router gateway modificano il Next-Hop su loro stessi così i dispositivi nella intra-AS devono solo raggiungerlo seguendo un percorso nella inter-AS mediante OSPF</li>
+</ul>
+</li>
+<li>2.<strong>Next Hop non modificato</strong>
+<ul>
+<li>il router gateway non modifica il Next-Hop e lascia quello da lui raggiungibile di un’altra AS, i dispositivi interni devono capire che devono passare per il router gateway</li>
+</ul>
+</li>
+<li>3.<strong>Instradamento a patata bollente</strong>
+<ul>
+<li>se ci sono più percorsi simili prende quello meno costoso mandando il pacchetto nella inter-AS meno costosa per far passare il traffico il più velocemente possibile</li>
+</ul>
+</li>
+<li>4.<strong>Forzare percorsi tramite annunci</strong>
+<ul>
+<li>annuncio=azione di inviare un messaggio update tramite BGP</li>
+<li>per non intasare il traffico della sessione BGP vengono inviati solo gli annunci più utili</li>
+<li>se ad esempio so che un AS può raggiungerne un altro senza passare per un determinato AS, esso sceglie di non annunciare il proprio percorso</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="ip-anycast">IP ANYCAST<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#ip-anycast" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>definizione
+<ul>
+<li>più server con stesso indirizzo IP pubblico, il client avrà scambi con quello più vicino</li>
+<li>offrono stessi contenuti o servizi
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250503143925.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+<h4 id="ingegneria-del-traffico">Ingegneria del traffico<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#ingegneria-del-traffico" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>definizione
+<ul>
+<li>insieme di tecniche che consentono di modulare e ottimizzare il traffico della rete</li>
+</ul>
+</li>
+</ul>
+<h4 id="concetto-di-ibnintent-based-networking">Concetto di IBN(Intent-Based-Networking)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#concetto-di-ibnintent-based-networking" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>definizione
+<ul>
+<li>sistema dichiarativo che funziona attraverso intenti per modificare la struttura della rete in modo automatizzato</li>
+<li>es: voglio ridurre la latenza tra due router, spiego l’intento e essi verranno configurati in tal maniera</li>
+<li>colui che effettua queste modifiche è il controller SDN</li>
+</ul>
+</li>
+</ul>
+<h4 id="odl-e-onos">ODL e ONOS<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#odl-e-onos" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>definizioni
+<ul>
+<li>due tipi di controller</li>
+<li><em>ODL</em>
+<ul>
+<li>usa API per comunicare con applicazioni</li>
+</ul>
+</li>
+<li><em>ONOS</em>
+<ul>
+<li>controller che usa nel pratico il concetto IBN con gli intenti</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="icmpinternet-control-message-protocol">ICMP(Internet Control Message Protocol)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#icmpinternet-control-message-protocol" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>
+<p>cosa è</p>
+<ul>
+<li>protocollo incapsulato nel protocollo IP consente di scambiare messaggi utili per la gestione tra host e router</li>
+</ul>
+</li>
+<li>
+<p>messaggio ICMP</p>
+<ul>
+<li>composto da
+<ul>
+<li>tipo</li>
+<li>codice</li>
+<li>checksum</li>
+<li>altri dati</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>tipi di messaggio</p>
+<ul>
+<li>1.<em>Echo Request(0) o Reply</em>
+<ul>
+<li>permettono di capire se un host è raggiungibile e con quale distanza</li>
+</ul>
+</li>
+<li>2.<em>Destination Unreachable(3)</em>
+<ul>
+<li>utilizzato per segnalare Host non raggiungibili</li>
+</ul>
+</li>
+<li>3.<em>Source Quench</em>
+<ul>
+<li>permetteva di segnalare congestioni ora deprecato</li>
+</ul>
+</li>
+<li>4.<em>TTL expired(8)</em>
+<ul>
+<li>serve per quando imposti un determinato limite di hop utilizzando un contatore TTL che decrementa ad ogni hop</li>
+<li>se arriva a 0 invia questo segnale
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250505192401.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Traceroute</strong></p>
+<ul>
+<li>strumento di diagnostica per capire quanti hop deve effettuare un pacchetto sonda per raggiungere un determinato punto di destinazione</li>
+<li>di volta in volta si incrementano i TTL
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250505192939.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+<li>
+<p><strong>nuova versione ICMPv6</strong></p>
+<ul>
+<li>adattato ai nuovi router che non fanno troppa frammentazione</li>
+</ul>
+</li>
+</ul>
+<h4 id="gestione-delle-reti">Gestione delle reti<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#gestione-delle-reti" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>descrizione e componenti
+<ul>
+<li>per <strong>gestire una rete adeguatamente</strong> si ha bisogno di
+<ul>
+<li><em>server di gestione</em>
+<ul>
+<li>server che raccoglie dati e invia comandi per configurare i dispositivi della rete</li>
+</ul>
+</li>
+<li><em>dispositivi di rete da gestire</em>
+<ul>
+<li>router switch ecc…</li>
+</ul>
+</li>
+<li><em>dati</em>
+<ul>
+<li>dati utilizzati per gestire la rete come statistiche varie</li>
+</ul>
+</li>
+<li><em>agente di gestione</em>
+<ul>
+<li>Software di gestione della rete</li>
+</ul>
+</li>
+<li><em>protocollo di gestione di rete</em>
+<ul>
+<li>protocolli utilizzati per comunicare ai dispositivi i vari cambiamenti</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>metodi per gestire una rete
+<ul>
+<li><em>CLI</em>
+<ul>
+<li>linea di comando manuale</li>
+<li>metodo diretto ma non scalabile anche se prevede uso di eventuali script automatizzati</li>
+</ul>
+</li>
+<li><em>SNMP/MIB</em>
+<ul>
+<li>interfaccia server che usa come protocollo di comunicazione per i dispositivi SNMP</li>
+<li>i dati raccolti sono organizzati in MIB</li>
+<li>non propriamente automatizzato</li>
+</ul>
+</li>
+<li><em>NETCONF/YANG</em>
+<ul>
+<li>YANG è un linguaggio astratto che consente di configurare delle reti</li>
+<li>la configurazione e la modifica di questi YANG per poi cambiare i dispositivi remoti sono mediante un protocollo NETCONF</li>
+<li>consente commit atomici</li>
+<li>ideale per reti complesse, dinamiche e centralizzate</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="livello-di-collegamento">LIVELLO DI COLLEGAMENTO<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#livello-di-collegamento" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<h3 id="livello-di-collegamento-1">LIVELLO DI COLLEGAMENTO<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#livello-di-collegamento-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>introduzione</strong>
+<ul>
+<li>il livello di collegamento si occupa di trasferire i datagrammi da un nodo a quello fisicamente adiacente lungo il percorso
+<ul>
+<li>ha una visione più dettagliata su dispositivi come switch</li>
+</ul>
+</li>
+<li>il livello di collegamento si serve di frame, con al loro interno i datagrammi incapsulati</li>
+</ul>
+</li>
+<li><strong>servizi del livello di collegamento</strong>
+<ul>
+<li><em>Framing</em>
+<ul>
+<li>processo di incapsulamento dei datagrammi che provengono dal livello di rete aggiungendo intestazione e trailer che servono a delimitare la singola unità</li>
+</ul>
+</li>
+<li><em>Accesso al collegamento</em>
+<ul>
+<li>effettuare un accesso al mezzo di trasmissione condiviso tra dispositivi si usano protocolli MAC(Medium Access Control)</li>
+<li>per identificare i dispositivi che condividono questo stesso mezzo di trasmissione si usano gli indirizzi MAC che identificano univocamente la scheda di rete del dispositivo, è statico a differenza degli IP che lavorano sul livello di rete</li>
+</ul>
+</li>
+<li><em>Consegna affidabile tra nodi adiacenti</em>
+<ul>
+<li>servizi che rilevano errori, usati soprattutto in reti wireless dove ci sono errori più frequenti</li>
+</ul>
+</li>
+<li><em>Controllo del flusso</em>
+<ul>
+<li>Regola la velocità di trasmissione del singolo collegamento</li>
+</ul>
+</li>
+<li><em>Rilevazione degli errori e correzione</em>
+<ul>
+<li>Ogni protocollo di collegamento ha controllo sui vari errori e possono essere risolti con o senza ritrasmissioni
+<ul>
+<li><strong>ARQ</strong>(Automatic Repeat <font color="#00b050">reQuest</font>) con ritrasmissioni</li>
+<li><strong>FEC</strong>(Forward Error Correction) senza ritrasmissioni</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>tipi di trasmissione
+<ul>
+<li><strong>Half duplex</strong>
+<ul>
+<li>La trasmissione non può essere simultanea da entrambe le direzioni
+<ul>
+<li>Wifi</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Full duplex</strong>
+<ul>
+<li>La trasmissione è simultanea per entrambe le direzioni
+<ul>
+<li>Ethernet</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Livello di collegamento negli host</strong>
+<ul>
+<li>come componenti del livello di collegamento gli host hanno la scheda di rete detta
+<ul>
+<li>NIC(Network Interface Card) che fa da intermediario sia del livello fisico che quello di collegamento</li>
+</ul>
+</li>
+<li><strong>Come è fatto un host</strong>
+<ul>
+<li><em>mittente</em>
+<ul>
+<li>il mittente sfrutta il controller nella scheda di rete per
+<ul>
+<li>incapsulare il datagramma dentro un frame</li>
+<li>aggiungere vari bit di controllo</li>
+<li>gestire flusso trasferimento affidabile ecc…</li>
+</ul>
+</li>
+<li>la CPU dell’host consente di costruire i dati e interagisce con la NIC(Network Interface Card) per assemblare il pacchetto</li>
+</ul>
+</li>
+<li><em>destinatario</em>
+<ul>
+<li>il controller della scheda di rete
+<ul>
+<li>verifica eventuali errori nei bit ricevuti</li>
+<li>gestisce anche lui trasferimento affidabile e flusso</li>
+<li>estrae il datagramma dal frame</li>
+</ul>
+</li>
+<li>la CPU in questo caso prende i dati e li passa ai livelli superiori rete trasporto ecc…
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250508223125.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="rilevazione-degli-errori">Rilevazione degli errori<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#rilevazione-degli-errori" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>
+<p>introduzione alla rilevazione degli errori</p>
+<ul>
+<li>per rilevare errori si usano tecniche come l’utilizzo di un codice EDC(Error Detection and Correction)
+<ul>
+<li>quando vengono inviati dei dati <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span></span></span></span> viene aggiunto questo codice <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span></li>
+<li>questo codice EDC viene generato a partire da una funzione applicata sui dati <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span></span></span></span></li>
+<li>una volta generato viene inviato al destinatario</li>
+<li>il destinatario adesso riceve questi dati <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span></span></span></span> ci riapplica la funzione e vede se corrisponde a EDC precedente</li>
+<li>non é super affidabile e in più c’è overhead
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250508224352.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>3 tecniche utilizzate per fare controllo sugli errori migliori di EDC</p>
+<ul>
+<li><em>Bit di parità</em>
+<ul>
+<li>Obbiettivo
+<ul>
+<li>vengono presi i dati in bit e vengono aggiunti eventuali bit per rendere il numero di 1 totali pari</li>
+<li>dopo aver inviato il tutto se il numero di bit a 1 compreso quello di parità sono dispari, errore</li>
+<li>unico problema se ho errori su un numero di bit pari ritornerei comunque a una sequenza pari quindi non rileverei errori</li>
+<li>vengono spesso usate matrici di bit per verificarli</li>
+<li>parità bidimensionale
+<ul>
+<li>creare una matrice per calcolare parità su righe e colonne</li>
+<li>comprende anche un bit globale</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><em>Checksum</em>
+<ul>
+<li>Obbiettivo
+<ul>
+<li>Il checksum è un meccanismo di controllo dell’integrità dei dati che viene usato principalmente a livelli superiori come quello di trasporto con UDP TCP ecc… oppure anche sul livello di rete come IP
+<ul>
+<li>il mittente prende il contenuto del pacchetto come una sequenza di interi, la somma facendo il complemento a 1
+<ul>
+<li>ovvero la somma con i suoi bit normali e la sua controparte in complemento a 1</li>
+</ul>
+</li>
+<li>il risultato viene a sua volta complementato a 1 e lo inserisce nel campo checksum</li>
+</ul>
+</li>
+<li>il ricevente somma tutto compreso checksum
+<ul>
+<li>controlla se il risultato sono tutti 1 per vedere se non ci sono errori</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><em>CRC</em>
+<ul>
+<li>Sistema estremamente affidabile per rilevare errori</li>
+<li>il mittente tratta i dati come una lunga sequenza di bit e li divide per un polinomio binario predefinito
+<ul>
+<li>il resto della divisione CRC viene allegato al frame</li>
+</ul>
+</li>
+<li>il destinatario svolge la stessa divisione e verifica il resto
+<ul>
+<li>se è 0 i dati sono probabilmente corretti altrimenti c’è stato un errore nella trasmissione</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="collegamenti-e-accesso-multiplo">Collegamenti e accesso multiplo<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#collegamenti-e-accesso-multiplo" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li><strong>Punto a Punto</strong>
+<ul>
+<li>collegamento di tipo punto a punto</li>
+<li>composta da un trasmittente e un ricevente</li>
+</ul>
+</li>
+<li><strong>Broadcast</strong>
+<ul>
+<li>canale di collegamento che comprende più nodi che trasmettono e piu nodi che ricevono</li>
+<li>presentano problemi di accesso multiplo da risolvere</li>
+</ul>
+</li>
+</ul>
+<h4 id="gestione-accesso-multiplo">Gestione accesso multiplo<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#gestione-accesso-multiplo" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Iniziamo con la spiegazione di un protocollo <em>ideale</em> <em>MAC</em>
+<ul>
+<li>Multiple Access Channel</li>
+<li>in modo ideale è previsto che se in un collegamento ho più nodi ho trasmissione pari a R/M</li>
+<li>se invece ho solo un dispositivo avrò velocità R totale</li>
+<li>inattuabile</li>
+</ul>
+</li>
+</ul>
+<h4 id="tipi-di-protocolli-ad-accesso-multiplo-reali">Tipi di protocolli ad accesso multiplo reali<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#tipi-di-protocolli-ad-accesso-multiplo-reali" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>
+<p>si dividono in</p>
+<ul>
+<li><em>Channel Partitioning</em>
+<ul>
+<li>con canale suddiviso</li>
+<li>ogni nodo ha una sua fetta del canale</li>
+<li>le fette rimanenti sono inutilizzate</li>
+</ul>
+</li>
+<li><em>Random Access</em>
+<ul>
+<li>il canale presenta collisioni e per risolverle vengono fatte ritrasmissioni e operazioni di recover</li>
+</ul>
+</li>
+<li><em>Taking Turns</em>
+<ul>
+<li>i nodi usano il canale a turno</li>
+<li>i nodi con maggiore priorità potrebbero avere il turno più duraturo
+<ul>
+<li>tipo i nodi con più materiale da inviare</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Quelli a <em>Channel Partitioning</em></p>
+<ul>
+<li><strong>TDMA</strong>
+<ul>
+<li>il canale viene suddiviso per istanti temporali fissi
+<ul>
+<li>detti time slot</li>
+<li>ogni nodo ha il suo timeslot</li>
+<li>in quel timeslot ha accesso completo</li>
+<li>gli slot inutilizzati si dicono idle
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250521112454.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>FDMA</strong></p>
+<ul>
+<li>il canale viene suddiviso in spettri di frequenze diverse interna un cavo FDM</li>
+<li>ogni nodo trasmette sulla sua frequenza non alla massima velocità
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250521112857.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+<li>
+<p>Quelli ad <em>Accesso casuale</em></p>
+<ul>
+<li><strong>SLOTTED ALOHA</strong>
+<ul>
+<li>l’uso del collegamento è diviso in slot temporali</li>
+<li>ogni nodo che vuole inviare qualcosa accede attende il prossimo slot temporale libero e vi accede
+<ul>
+<li>se viene occupato prima da qualche altro nodo avviene una collisione e deve attendere il time slot successivo</li>
+</ul>
+</li>
+<li>ogni nodo decide in autonomia quando trasmettere</li>
+<li>possono esserci collisioni frequenti o inutilizzi di slot temporali</li>
+<li>i nodi devono essere sincronizzati</li>
+<li>un nodo può utilizzare il canale in modo efficace con una probabilità del 37% del tempo
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250521114843.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>UNSLOTTED ALOHA</strong></p>
+<ul>
+<li>senza sincronizzazione tra nodi
+<ul>
+<li>trasmettono finché non avviene una collisione</li>
+<li>i nodi non aspettano il time slot successivo</li>
+</ul>
+</li>
+<li>diminuisce probabilità di efficienza arrivando al 18%</li>
+</ul>
+</li>
+<li>
+<p><strong>CSMA</strong></p>
+<ul>
+<li>il nodo prima di trasmettere ascolta il canale e vede se è libero o occupato</li>
+<li>possono comunque esserci collisioni dovute a ritardi di propagazione</li>
+</ul>
+</li>
+<li>
+<p><strong>CSMA/CD</strong></p>
+<ul>
+<li>miglioria di CSMA con una detection delle collisioni</li>
+<li>il nodo che trasmette rimane in ascolto di eventuali collisioni</li>
+<li>se avviene smette di trasmettere così non viene sprecata banda per un frame che andrebbe perso
+<ul>
+<li>non funziona bene via wireless</li>
+</ul>
+</li>
+<li>funzionamento
+<ul>
+<li>un nodo sta trasmettendo nel collegamento, allo stesso tempo si mette in ascolto per vedere se ci sono collisioni in atto</li>
+<li>se un nodo prova a collegarsi il nodo che trasferiva i dati lo rileva</li>
+<li>si interrompe la trasmissione dei nodi coinvoli nella collisione</li>
+<li>viene segnalata</li>
+<li>e poi viene assegnato un tempo casuale di accesso ad ogni nodo coinvolto e si riprende così il tutto
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250521120825.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Quelli a <em>Taking Turns</em></p>
+<ul>
+<li><strong>POLLING</strong>
+<ul>
+<li>è presente un controllore centralizzato che dice ai nodi quanti frame possono trasmettere al massimo per un dato turno</li>
+<li>il fatto che ci sia un controllore aumenta il ritardo ma allo stesso tempo si riducono collisioni o slot inutilizzati</li>
+<li>usato nel Bluetooth
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250521122639.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Token Passing</strong></p>
+<ul>
+<li>Token che viene passato per ogni nodo, chi lo ha può usare il collegamento
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250521122744.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+<li>
+<p>Gestione via cavo di</p>
+<ul>
+<li><em>downstream</em>
+<ul>
+<li>vengono usati canali FDM in broadcast</li>
+</ul>
+</li>
+<li><em>upstream</em>
+<ul>
+<li>viene usato il sistema ad accesso casuale</li>
+</ul>
+</li>
+<li>per mettere d’accordo i vari modem via cavo viene usato uno standard DOCSIS che precisa quali tipologie di politiche di accesso devono essere usate</li>
+</ul>
+</li>
+</ul>
+<h4 id="lan">LAN<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#lan" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Definizione
+<ul>
+<li><strong>Local Area Network</strong></li>
+<li>indica una area ristretta come una casa o una scuola</li>
+</ul>
+</li>
+<li>spesso si usano Ethernet o Wifi</li>
+</ul>
+<h4 id="indirizzi-mac">Indirizzi MAC<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#indirizzi-mac" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>descrizione
+<ul>
+<li>Per identificare un dispositivo di rete ad esempio una scheda di rete per effettuare uno scambio dei frame abbiamo bisogno di un indirizzo MAC, è a 48 bit ed è memorizzato nella ROM della NIC Network Interface Card</li>
+</ul>
+</li>
+<li><strong>come vengono scelti IEE</strong>
+<ul>
+<li>ente internazionale che ha lo scopo di gestire e fornire indirizzi MAC ai vari produttori di NIC
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250521180754.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+<li><strong>Da IP a MAC</strong>
+<ul>
+<li>Viene utilizzato un protocollo ARP che ha una tabella ARP dove sono presenti
+<ul>
+<li>Ogni nodo IP nella LAN con le sue interfacce e il suo Indirizzo MAC con anche un TTL per la validità dell’informazione</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Protocollo ARP</strong>
+<ul>
+<li>Come funziona Se la tabella non presenta il MAC di un dato IP
+<ul>
+<li>se un nodo nella rete vuole avere il MAC di un dispositivo usa il protocollo ARP che invierà un broadcast di richiesta con quel determinato indirizzo IP</li>
+<li>il dispositivo corretto risponde</li>
+<li>ora potrà essere popolata la tabella ARP</li>
+</ul>
+</li>
+<li><strong>Attacco ARP SPOOFING o POISONING</strong>
+<ul>
+<li>viene inviata una risposta ARP falsa fingendosi di avere un’altro indirizzo IP</li>
+<li>fai confluire il traffico verso di te puoi intercettarlo oppure puoi fare un attacco Dos associando 1000 indirizzi IP allo stesso MAC</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Come inviare un datagramma a un nodo non adiacente nella rete</strong>
+<ul>
+<li>Se il destinatario si trova su un’altra sottorete allora bisogna instradare il frame a un router gateway</li>
+<li>viene creato un frame con all’interno il datagramma IP con le varie informazioni</li>
+<li>il router riceve il frame e lo decapsula, vede il datagramma che l’IP è da inoltrare a un altro dispositivo</li>
+<li>re incapsula il tutto e lo invia alla interfaccia dello switch corretta con il giusto destinatario</li>
+</ul>
+</li>
+</ul>
+<h4 id="ethernet">ETHERNET<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#ethernet" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>cosa è
+<ul>
+<li>Standard di comunicazione utilizzato per le reti LAN cablate</li>
+</ul>
+</li>
+<li><strong>frame ethernet</strong>
+<ul>
+<li>composto da
+<ul>
+<li><em>preambolo</em>
+<ul>
+<li>sincronizza il ricevente e segnala quando un frame inizia</li>
+</ul>
+</li>
+<li><em>Mac di destinazione</em></li>
+<li><em>MAC di sorgente</em></li>
+<li><em>Tipo di protocollo incapsulato</em> nel payload per poi de capsularlo e vedere cosa c’è</li>
+<li><em>Dati</em></li>
+<li>Codici di controllo errori <em>CRC</em></li>
+</ul>
+</li>
+<li>Tutti gli standard di Ethernet usano stesso frame
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250522155625.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+<li><strong>sicurezza di ethernet</strong>
+<ul>
+<li>è senza handshake</li>
+<li>vengono gestiti accessi multipli come ad esempio con CSMA/CD</li>
+<li>le altre sicurezze varie vengono gestite ai livelli superiori</li>
+</ul>
+</li>
+<li><em>Concetto di dominio di collisione</em>
+<ul>
+<li>punto in cui si condivide stesso mezzo di trasmissione</li>
+<li>si può verificare una collisione tra vari frame ethernet se si trasmette insieme</li>
+<li>si consiglia di ridurre i dispositivi collegati a un singolo collegamento</li>
+</ul>
+</li>
+</ul>
+<h4 id="switch-ethernet">Switch Ethernet<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#switch-ethernet" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Cosa sono
+<ul>
+<li>Lo switch è un dispositivo che lavora sul livello di collegamento</li>
+<li>ha il compito di memorizzare e inoltrare i frame Ethernet</li>
+</ul>
+</li>
+<li>Caratteristiche
+<ul>
+<li>è <em>plug and play</em> non devi configurarlo</li>
+</ul>
+</li>
+<li><strong>Tabella di commutazione degli Switch</strong>
+<ul>
+<li>Ogni switch ha una sua tabella di commutazione con un
+<ul>
+<li><em>indirizzo MAC del nodo</em></li>
+<li><em>interfaccia che conduce al nodo</em></li>
+<li><em>TTL</em></li>
+</ul>
+</li>
+<li>lo switch auto riempie le varie tabelle
+<ul>
+<li>ogni volta che riceve un frame aggiunge alla tabella il mittente</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><em>Cosa fa lo switch quando riceve un frame</em>
+<ul>
+<li>Aggiorna la Switch table mettendo il mittente</li>
+<li>se il mittente ha stessa porta del destinatario allora non serve che ci sia questo passaggio per lo switch e scarta il pacchetto</li>
+<li>se è su un’altra porta lo inoltra facendo lo switching</li>
+<li>se non ha nella tabella il destinatario fa una operazione di flood per trovarlo</li>
+</ul>
+</li>
+<li><strong>Differenze con i router</strong>
+<ul>
+<li>gli switch lavorano sul livello di collegamento i router no</li>
+<li>gli switch possono lavorare con pochi dispositivi perché usano una tabella normale
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250522173215.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+<h4 id="vlan">VLAN<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#vlan" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>
+<p>cosa sono</p>
+<ul>
+<li>Se si ha bisogno di utilizzare il concetto e la comodità delle LAN su reti di grandi dimensioni senza però dover ricorrere a un solo Switch che non garantirebbe privacy e problemi di dimensioni della tabella</li>
+<li>esistono le VLAN
+<ul>
+<li>si possono usare switch differenti per rimanere sulla stessa rete ma allo stesso tempo creare flessibilità di gestione</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>versione basata sulle porte</strong></p>
+<ul>
+<li>un singolo switch viene usato come due switch differenti per mantenere la sicurezza</li>
+<li>uno switch viene diviso a metà virtualmente
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250522175052.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+<li>
+<p><strong>versione con più switch</strong></p>
+<ul>
+<li>viene usata una porta trunk per collegare in serie più switch</li>
+<li>una volta collegato il tutto possono comunicare tra loro gli switch</li>
+</ul>
+</li>
+<li>
+<p><strong>EVPN</strong></p>
+<ul>
+<li>tecnologia di tunneling che consente di creare una rete locale anche se si hanno due reti di livello 2 quindi con switch su luoghi differenti
+<ul>
+<li>viene collegato il router allo switch e viene incapsulato il frame ethernet che poi verrà passato dall’altra parte con un altro router e switch</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>le VLAN hanno un loro ID per comunicare tra loro e riconoscersi</p>
+<ul>
+<li>quest’ultimo é definito dallo standard 802.1Q</li>
+</ul>
+</li>
+</ul>
+<h4 id="le-reti-wireless">LE RETI WIRELESS<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#le-reti-wireless" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li><strong>significato di wireless</strong>
+<ul>
+<li><em>Tecnologia</em> di collegamento senza l’uso di fili ma attraverso frequenze</li>
+</ul>
+</li>
+<li><strong>significato di mobilità</strong>
+<ul>
+<li><em>proprietà</em> dell’infrastruttura di rete che consente al client di muoversi cambiando punti di accesso</li>
+</ul>
+</li>
+<li><strong>Handover</strong>
+<ul>
+<li>Processo che consente a un dispositivo mobile di cambiare collegamento wireless senza problemi</li>
+</ul>
+</li>
+<li>Componenti che compongono una rete wireless
+<ul>
+<li><em>Host wireless</em>
+<ul>
+<li>dispositivi che eseguono operazioni e hanno un collegamento wireless</li>
+<li>si dividono in fissi o stazionari</li>
+</ul>
+</li>
+<li><em>Collegamento wireless</em>
+<ul>
+<li>Utilizzato per collegare un host wireless alla stazione base oppure un altro host wireless</li>
+</ul>
+</li>
+<li><em>Stazione base</em>
+<ul>
+<li>elemento che funge da ripetitore</li>
+<li>di solito connessa a una rete cablata</li>
+<li>dispositivo di relay al livello di collegamento</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>a una determinata velocità di banda varia il raggio di copertura</li>
+</ul>
+<h4 id="2-tipi-di-infrastrutture">2 Tipi di infrastrutture<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#2-tipi-di-infrastrutture" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>
+<p><strong>con infrastruttura</strong></p>
+<ul>
+<li>Sono presenti stazioni base che hanno il compito di offrire servizi di rete</li>
+<li>avvengono operazioni di handoff, quando un dispositivo si sposta dall’area di copertura e cambia punto di accesso
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250528104430.png" width="400" height="auto" alt/></li>
+</ul>
+</li>
+<li>
+<p><strong>senza infrastruttura</strong></p>
+<ul>
+<li>reti senza stazione base con host che comunicano tra di loro</li>
+<li>devono provvedere da se per fornire servizi di instradamento
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250528105453.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+<h4 id="caratteristiche-dei-collegamenti-wireless">Caratteristiche dei collegamenti wireless<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#caratteristiche-dei-collegamenti-wireless" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<h5 id="concetto-di-attenuazione">Concetto di attenuazione<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#concetto-di-attenuazione" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<ul>
+<li>il <strong>segnale</strong> può essere <em>assorbito</em> o <em>attenuato</em> a seconda della presenza di determinati ostacoli o anche solo dalla distanza</li>
+<li>l’attenuazione con spazio libero si calcola con
+<ul>
+<li><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mord mathnormal">re</span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="mord mathnormal">u</span><span class="mord mathnormal">e</span><span class="mord mathnormal">n</span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">i</span><span class="mord mathnormal">s</span><span class="mord mathnormal">t</span><span class="mord mathnormal">an</span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mord mathnormal">a</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">fd</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></li>
+<li>Più <strong>alta</strong> è la frequenza o più <strong>lontano</strong> è il ricevitore, più <strong>rapidamente</strong> si perde il segnale.
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250528111841.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+<h5 id="tempo-di-coerenza">Tempo di coerenza<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#tempo-di-coerenza" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<ul>
+<li>Tempo che ci indica se all’arrivo di un segnale ne possono arrivare <em>degli altri uguali</em> a causa di possibili <em>riflessioni</em> a distanza di un determinato tempo
+<ul>
+<li>questo tempo è <strong>detto di coerenza</strong></li>
+</ul>
+</li>
+</ul>
+<h5 id="interferenze-da-altre-sorgenti">interferenze da altre sorgenti<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#interferenze-da-altre-sorgenti" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<ul>
+<li>Il <strong>fenomeno fisico</strong> di interferenza può anche verificarsi a causa di altri dispositivi che lavorano su frequenze simili
+<ul>
+<li>per definire il segnale e la frequenza su cui lavoriamo usiamo il <strong>SNR(Signal-To-Noise-Ratio)</strong>
+<ul>
+<li>rappresenta un rapporto tra il segnale e il rumore di fondo</li>
+<li>un SNR alto consente di estrarre le informazioni facilmente</li>
+</ul>
+</li>
+<li>Il <strong>BER</strong>  <strong>(Bit error rate)</strong> rappresenta la probabilità che un bit sia ricevuto in errore</li>
+</ul>
+</li>
+<li><strong>Bilanciamento di rete</strong>
+<ul>
+<li>aumentare la potenza del segnale aumenta la SNR e riduce i BER
+<ul>
+<li>ma non è proprio facile da attuare dovuto a consumi eccessivi</li>
+<li>i dispositivi wireless si adattano automaticamente modulando la frequenza e la velocità di trasmissione</li>
+<li>così da avere maggiore stabilità</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Terminali nascosti</strong>
+<ul>
+<li>I terminali nascosti sono nodi che non possono vedere altri nodi perché sono fuori dalla loro portata ma possono comunque causare collisioni che li riguardano
+<ul>
+<li>ad esempio con un nodo intermedio che vede entrambi</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Accesso multiplo</strong>
+<ul>
+<li><em>CDMA</em>
+<ul>
+<li>protocollo che permette di condividere stessa frequenza di comunicazione con più utenti</li>
+<li>ogni utente ha un suo <em>codice unico</em> chiamato <strong>chipping sequence</strong> per identificarli</li>
+<li>il loro segnale è codificato su questo</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="standard-reti-wi-fi-80211">Standard Reti Wi-Fi 802.11<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#standard-reti-wi-fi-80211" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<ul>
+<li>
+<p>rappresenta un <strong>insieme di protocolli</strong> che consentono la comunicazione wireless tra più dispositivi</p>
+</li>
+<li>
+<p>Architettura delle LAN 802.11</p>
+<ul>
+<li>gli host wireless comunicano con una stazione base detta anche <strong>Access Point</strong></li>
+<li>le singole infrastrutture wireless sono dette <em>BSS</em> e hanno vari host punto di accesso ecc…
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250528123119.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+<li>
+<p><strong>Divisione dei canali</strong></p>
+<ul>
+<li><em>tecnica</em> che consente la <em>modulazione di frequenze</em> per creare una divisione dei canali di comunicazione</li>
+<li>ciò comunque non riduce a zero le interferenze</li>
+<li>questi canali vengono scelti dal <em>AP admin</em>
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250528123601.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+<li>
+<p><strong>ingresso di un dispositivo nella rete</strong></p>
+<ul>
+<li>un host in arrivo su una BSS deve essere associato a un AP e per farlo si hanno due modalità
+<ul>
+<li><em>scansione attiva</em>
+<ul>
+<li>il dispositivo che si collega deve mandare un <strong>frame sonda</strong> in <strong>broadcast</strong> per trovare l’AP corretto</li>
+</ul>
+</li>
+<li><em>passiva</em>
+<ul>
+<li>gli AP a intervalli regolari inviano questi <strong>frame beacon</strong> per essere rilevati dai dispositivi che vogliono accedervi
+<ul>
+<li>al loro interno hanno un MAC e un identificativo dell’AP il SSID</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>dopo aver instaurato questo collegamento con accessi sicuri attraverso ad esempio WPA2</li>
+<li>l’host può inviare un DHCP discover che sarà passato all’AP e poi al server DHCP
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250528124155.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+<li>
+<p><strong>collisioni nelle reti wireless</strong></p>
+<ul>
+<li><em>CSMA/CA</em>
+<ul>
+<li>per gestire accesso multiplo nelle reti WiFi non si possono usare CD ovvero collision Detection perché con le reti wireless è complesso e inutilizzabile vengono usate variabili</li>
+<li><strong>DIFS</strong>
+<ul>
+<li>variabile che indica l’intervallo di tempo che bisogna aspettare per vedere se un canale è libero</li>
+<li>se lo è il mittente trasmette</li>
+<li>sennò aspetta un tempo backoff casuale</li>
+</ul>
+</li>
+<li><strong>SIFS</strong>
+<ul>
+<li>variabile che indica un intervallo di tempo che deve aspettare il destinatario prima di inviare un ACK di ricevuta dei dati</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><em>Meccanismo di prenotazione</em>
+<ul>
+<li>vengono usati segnali <strong>RTS(Request to Send)</strong>
+<ul>
+<li>per prenotare il canale di comunicazione
+<ul>
+<li>vengono inviati ai vari AP</li>
+</ul>
+</li>
+<li>possono avvenire collisioni di prenotazione</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>quando un frame viene passato a un AP ha come destinazione l’indirizzo MAC dell’AP</p>
+<ul>
+<li>quando un frame deve passare per un router viene incapsulato in un altro frame che avrà come mittente il MAC dell’AP e come destinatario il MAC del router</li>
+</ul>
+</li>
+</ul>
+<h4 id="tecnologie-wireless">Tecnologie wireless<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#tecnologie-wireless" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>
+<p><strong>Bluetooth</strong></p>
+<ul>
+<li>definizione
+<ul>
+<li><em>Tecnologia wireless</em> che consente un collegamento di tipo <em>PAN(Personal Area Network)</em></li>
+</ul>
+</li>
+<li><strong>piconet</strong>
+<ul>
+<li>nome che prende una <em>singola rete Bluetooth</em> che consente fino a 8 dispositivi compreso 1 master controller</li>
+</ul>
+</li>
+<li><strong>bootstrapping</strong>
+<ul>
+<li><em>processo</em> di <em>accesso</em> a una <em>piconet</em> di un dispositivo client</li>
+<li>si divide in 2 modalità possibili
+<ul>
+<li><strong>Neighbor discovery</strong>
+<ul>
+<li>il master invia dei messaggi in broadcast detti inquiry</li>
+<li>il dispositivo in ascolto lo rileva e instaura così una connessione</li>
+</ul>
+</li>
+<li><strong>Paging</strong>
+<ul>
+<li>il master invita un dispositivo specifico a entrare quando lo conosce
+<ul>
+<li>viene successivamente comunicato l’indirizzo di partecipazione e altre informazioni utili
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250529120105.png" width="300" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Reti 4G/5G</strong></p>
+<ul>
+<li>definizione
+<ul>
+<li><em>Tecnologia funzionale</em> che consente il <em>collegamento</em> wireless su <em>WAN</em></li>
+<li>attraverso <strong>Access Point</strong></li>
+</ul>
+</li>
+<li>similarità e differenze con internet cablato
+<ul>
+<li>Usano stessi protocolli e sono reti globali</li>
+<li>tecnologie radio da parte delle reti 4G</li>
+<li>supporto alla mobilità nativa da parte delle reti 4G/5G</li>
+</ul>
+</li>
+<li><strong>architettura 4G</strong>
+<ul>
+<li>composta da
+<ul>
+<li><em>Mobile device(UE)User Equipment</em>
+<ul>
+<li>dispositivi mobili connessi alle base station</li>
+<li>ha un IMSI ovvero un suo identificativo</li>
+</ul>
+</li>
+<li><em>Base station(eNode-B)</em>
+<ul>
+<li>dispositivo che condivide le informazioni ai mobile Device
+<ul>
+<li>coordinandoli tra loro e gestendo le varie celle di collegamento</li>
+</ul>
+</li>
+<li>gestione di handover per mobilità dei device</li>
+</ul>
+</li>
+<li><em>MME(Mobility Management Entity)</em>
+<ul>
+<li>Servizio che</li>
+<li>conosce la posizione dei vari dispositivi</li>
+<li>fa da intermediario con i dispositivi e i P-GW</li>
+<li>identifica i dispositivi usando l’HSS</li>
+</ul>
+</li>
+<li><em>HSS(Home Subscriber Server)</em>
+<ul>
+<li>memorizza le informazioni degli utenti con le varie chiavi di autenticazione</li>
+<li>Serve per identificare i dispositivi con ad esempio il loro piano dati</li>
+</ul>
+</li>
+<li><em>S-GW</em>
+<ul>
+<li>router gateway interno alla rete che instrada i dati da parte delle UE verso i P-GW</li>
+</ul>
+</li>
+<li><em>P-GW</em>
+<ul>
+<li>router gateway che porta a internet i dati che vengono dalle S-GW attraverso il tunneling</li>
+<li>router connesso alla vera e propria rete globale</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>migliorie del 5G</strong>
+<ul>
+<li>maggiore velocità</li>
+<li>potrebbero esserci <em>problemi</em> di <em>distanza di banda</em>
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250529180732.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Rete LTE</strong></p>
+<ul>
+<li>definizione
+<ul>
+<li><em>Standard di comunicazione</em> wireless con delle modifiche alle reti 4G soprattutto nella fase di tunneling dei dati è diviso in 2</li>
+</ul>
+</li>
+<li><strong>piano di controllo</strong>
+<ul>
+<li>gestisce la <em>mobilità e la sicurezza</em>
+<ul>
+<li>non trasporta i dati effettivi</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>piano di dati</strong>
+<ul>
+<li>trasportare il vero e proprio <em>traffico dati</em></li>
+</ul>
+</li>
+<li><strong>pila protocollare LTE</strong>
+<ul>
+<li>ogni comunicazione LTE ha una sua pila protocollare che si differisce in 2 punti
+<ul>
+<li>
+<ol>
+<li>quando avviene lo <em>scambio dal UE al first hop</em> nella base station abbiamo un incapsulamento complesso che vuole garantire sicurezza e affidabilità nella gestione dei segnali radio</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>una volta raggiunto invece il <em>passaggio di tunneling</em> dove i dati passano tra i vari Gateway attraverso un tunnel</li>
+</ol>
+<ul>
+<li>la comunicazione avviene attraverso u n protocollo <em>GTP-U</em></li>
+<li>che impacchetta i dati in un pacchetto <strong>UDP</strong> per poi spedire i dati al P-GW passando per l’S-GW
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250529190918.png" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>problema della mobilità</strong></p>
+<ul>
+<li>definizione
+<ul>
+<li>quando un dispositivo si muove bisogna <em>rinstaurare una connessione</em> a una base station con la copertura adatta e che magari è collegata a un router differente</li>
+</ul>
+</li>
+<li><strong>Home agent</strong>
+<ul>
+<li>definizione
+<ul>
+<li><em>Nodo nella rete</em> che rappresenta il riferimento per la ricezione dei dati del dispositivo UE</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>approcci di routing</strong>
+<ul>
+<li>1.il router della base station differente <em>annuncia</em> agli altri che il <em>dispositivo ha effettuato questo cambiamento</em> e viene aggiornata la tabella di routing
+<ul>
+<li>con <strong>troppi dispositivi non funziona</strong></li>
+</ul>
+</li>
+<li>2.viene sfruttato il concetto di <em>Home agent</em>,</li>
+<li>si divide in 2 altri sottopunti
+<ul>
+<li>1.<strong>ROUTING INDIRETTO</strong>
+<ul>
+<li>l’<em>home Agent</em> <em>invia</em> i dati che riceve per quel determinato UE <em>al nuovo router</em> della nuova base station
+<ul>
+<li>è <strong>lento</strong> e vengono fatti giri troppo lunghi</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>2.<strong>ROUTING DIRETTO</strong>
+<ul>
+<li>i mittenti che vogliono mandare i messaggi all’UE non inviano più le informazioni all’Home agent ma <em>al nuovo router della base station</em>
+<ul>
+<li><strong>veloce ed efficiente</strong> ma i mittenti devono capire il tutto</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250530164917.png" width="auto" height="auto" alt/></p>
+<ul>
+<li><strong>Le reti si dividono in</strong>
+<ul>
+<li><em>home network</em>
+<ul>
+<li>rete <strong>gestita dall’operatore</strong> con cui si ha un contratto</li>
+</ul>
+</li>
+<li><em>visited network</em>
+<ul>
+<li><strong>rete gestita da altri operatori</strong></li>
+<li>viene concessa attraverso il <strong>roaming</strong>
+<img src="../../../UNI/ANNO-2/RETI/fotret/Pasted-image-20250601113458.jpg" width="auto" height="auto" alt/></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc desktop-only"><button type="button" class="toc-header" aria-controls="toc-187" aria-expanded="true"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-1" class="toc-content overflow"><li class="depth-0"><a href="#livello-applicazione" data-for="livello-applicazione">LIVELLO APPLICAZIONE</a></li><li class="depth-0"><a href="#livello-di-applicazione" data-for="livello-di-applicazione">Livello di applicazione</a></li><li class="depth-0"><a href="#livello-di-trasporto" data-for="livello-di-trasporto">LIVELLO DI TRASPORTO</a></li><li class="depth-0"><a href="#livello-di-trasporto-1" data-for="livello-di-trasporto-1">Livello di trasporto</a></li><li class="depth-0"><a href="#livello-di-rete" data-for="livello-di-rete">LIVELLO DI RETE</a></li><li class="depth-0"><a href="#algoritmi-di-instradamento" data-for="algoritmi-di-instradamento">Algoritmi di instradamento</a></li><li class="depth-0"><a href="#livello-di-collegamento" data-for="livello-di-collegamento">LIVELLO DI COLLEGAMENTO</a></li><li class="overflow-end"></li></ul></div><div class="backlinks"><h3>Backlinks</h3><ul id="list-2" class="overflow"><li><a href="../../../UNI/ANNO-2/RETI/INDICE-RETI" class="internal">INDICE RETI</a></li><li class="overflow-end"></li></ul></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.5.2</a> © 2025</p><ul><li><a href="https://github.com/jackyzha0/quartz">GitHub</a></li><li><a href="https://discord.gg/cRFFHYye7t">Discord Community</a></li></ul></footer></div></div></body><script type="application/javascript">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module">function f(i,e){if(!i)return;function r(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function t(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}i?.addEventListener("click",r),window.addCleanup(()=>i?.removeEventListener("click",r)),document.addEventListener("keydown",t),window.addCleanup(()=>document.removeEventListener("keydown",t))}function y(i){for(;i.firstChild;)i.removeChild(i.firstChild)}var h=class{constructor(e,r){this.container=e;this.content=r;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),r=this.onMouseMove.bind(this),t=this.onMouseUp.bind(this),o=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",r),document.addEventListener("mouseup",t),window.addEventListener("resize",o),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",r),()=>document.removeEventListener("mouseup",t),()=>window.removeEventListener("resize",o))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let r=this.createButton("+",()=>this.zoom(.1)),t=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(t),e.appendChild(o),e.appendChild(r),this.container.appendChild(e)}createButton(e,r){let t=document.createElement("button");return t.textContent=e,t.className="mermaid-control-button",t.addEventListener("click",r),window.addCleanup(()=>t.removeEventListener("click",r)),t}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}zoom(e){let r=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),t=this.content.getBoundingClientRect(),o=t.width/2,n=t.height/2,c=r-this.scale;this.currentPan.x-=o*c,this.currentPan.y-=n*c,this.scale=r,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){this.scale=1;let e=this.content.querySelector("svg");this.currentPan={x:e.getBoundingClientRect().width/2,y:e.getBoundingClientRect().height/2},this.updateTransform()}},C=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],E;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;E||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let r=E.default,t=new WeakMap;for(let n of e)t.set(n,n.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let a=t.get(s);a&&(s.innerHTML=a)}let n=C.reduce((s,a)=>(s[a]=window.getComputedStyle(document.documentElement).getPropertyValue(a),s),{}),c=document.documentElement.getAttribute("saved-theme")==="dark";r.initialize({startOnLoad:!1,securityLevel:"loose",theme:c?"dark":"base",themeVariables:{fontFamily:n["--codeFont"],primaryColor:n["--light"],primaryTextColor:n["--darkgray"],primaryBorderColor:n["--tertiary"],lineColor:n["--darkgray"],secondaryColor:n["--secondary"],tertiaryColor:n["--tertiary"],clusterBkg:n["--light"],edgeLabelBackground:n["--highlight"]}}),await r.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let n=0;n<e.length;n++){let v=function(){let g=l.querySelector("#mermaid-space"),m=l.querySelector(".mermaid-content");if(!m)return;y(m);let w=c.querySelector("svg").cloneNode(!0);m.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new h(g,m)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},c=e[n],s=c.parentElement,a=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(a),L=a.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),f(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript"></script><script src="../../../postscript.js" type="module"></script></html>

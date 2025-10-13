@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><title>11. MACRO ARCHITETTURA + Linguaggio assemblativo</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="Quartz 4"/><meta property="og:title" content="11. MACRO ARCHITETTURA + Linguaggio assemblativo"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="11. MACRO ARCHITETTURA + Linguaggio assemblativo"/><meta name="twitter:description" content="MACRO ARCHITETTURA Modalità di indirizzamento conosciamo 8 tipi di indirizzamento: Immediato: Quando il valore dell’operando è direttamente nell’istruzioni tipo #5 Diretto: Quando nell’istruzione scrivi l’indirizzo completo dell’operando tipo 0x005 Indiretto: Quando fornisci l’indirizzo di memoria c..."/><meta property="og:description" content="MACRO ARCHITETTURA Modalità di indirizzamento conosciamo 8 tipi di indirizzamento: Immediato: Quando il valore dell’operando è direttamente nell’istruzioni tipo #5 Diretto: Quando nell’istruzione scrivi l’indirizzo completo dell’operando tipo 0x005 Indiretto: Quando fornisci l’indirizzo di memoria c..."/><meta property="og:image:alt" content="MACRO ARCHITETTURA Modalità di indirizzamento conosciamo 8 tipi di indirizzamento: Immediato: Quando il valore dell’operando è direttamente nell’istruzioni tipo #5 Diretto: Quando nell’istruzione scrivi l’indirizzo completo dell’operando tipo 0x005 Indiretto: Quando fornisci l’indirizzo di memoria c..."/><meta property="twitter:domain" content="quartz.jzhao.xyz"/><meta property="og:url" content="https://quartz.jzhao.xyz/UNI/ANNO-1/ARCHITETTURA/LEZIONI/11.-MACRO-ARCHITETTURA-+-Linguaggio-assemblativo"/><meta property="twitter:url" content="https://quartz.jzhao.xyz/UNI/ANNO-1/ARCHITETTURA/LEZIONI/11.-MACRO-ARCHITETTURA-+-Linguaggio-assemblativo"/><link rel="icon" href="../../../../static/icon.png"/><meta name="description" content="MACRO ARCHITETTURA Modalità di indirizzamento conosciamo 8 tipi di indirizzamento: Immediato: Quando il valore dell’operando è direttamente nell’istruzioni tipo #5 Diretto: Quando nell’istruzione scrivi l’indirizzo completo dell’operando tipo 0x005 Indiretto: Quando fornisci l’indirizzo di memoria c..."/><meta name="generator" content="Quartz"/><link href="../../../../index.css" rel="stylesheet" type="text/css" spa-preserve/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  padding: 2rem;
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiQzpcXFVzZXJzXFxMdWNhXFxEZXNrdG9wXFxVTkkgTlVPVk9cXHF1YXJ0elxccXVhcnR6XFxjb21wb25lbnRzXFxzdHlsZXMiLCJzb3VyY2VzIjpbIm1lcm1haWQuaW5saW5lLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7O0FBR0Y7RUFDRTtFQUNBOztBQUdGO0VBQ0U7OztBQUtGO0VBQ0U7RUFDQTs7O0FBSUo7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTs7QUFHRjtFQUNFO0VBQ0E7O0FBSUo7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7O0FBSUY7RUFDRTtFQUNBO0VBQ0EiLCJzb3VyY2VzQ29udGVudCI6WyIuZXhwYW5kLWJ1dHRvbiB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxvYXQ6IHJpZ2h0O1xuICBwYWRkaW5nOiAwLjRyZW07XG4gIG1hcmdpbjogMC4zcmVtO1xuICByaWdodDogMDsgLy8gTk9URTogcmlnaHQgd2lsbCBiZSBzZXQgaW4gbWVybWFpZC5pbmxpbmUudHNcbiAgY29sb3I6IHZhcigtLWdyYXkpO1xuICBib3JkZXItY29sb3I6IHZhcigtLWRhcmspO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1saWdodCk7XG4gIGJvcmRlcjogMXB4IHNvbGlkO1xuICBib3JkZXItcmFkaXVzOiA1cHg7XG4gIG9wYWNpdHk6IDA7XG4gIHRyYW5zaXRpb246IDAuMnM7XG5cbiAgJiA+IHN2ZyB7XG4gICAgZmlsbDogdmFyKC0tbGlnaHQpO1xuICAgIGZpbHRlcjogY29udHJhc3QoMC4zKTtcbiAgfVxuXG4gICY6aG92ZXIge1xuICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICBib3JkZXItY29sb3I6IHZhcigtLXNlY29uZGFyeSk7XG4gIH1cblxuICAmOmZvY3VzIHtcbiAgICBvdXRsaW5lOiAwO1xuICB9XG59XG5cbnByZSB7XG4gICY6aG92ZXIgPiAuZXhwYW5kLWJ1dHRvbiB7XG4gICAgb3BhY2l0eTogMTtcbiAgICB0cmFuc2l0aW9uOiAwLjJzO1xuICB9XG59XG5cbiNtZXJtYWlkLWNvbnRhaW5lciB7XG4gIHBvc2l0aW9uOiBmaXhlZDtcbiAgY29udGFpbjogbGF5b3V0O1xuICB6LWluZGV4OiA5OTk7XG4gIGxlZnQ6IDA7XG4gIHRvcDogMDtcbiAgd2lkdGg6IDEwMHZ3O1xuICBoZWlnaHQ6IDEwMHZoO1xuICBvdmVyZmxvdzogaGlkZGVuO1xuICBkaXNwbGF5OiBub25lO1xuICBiYWNrZHJvcC1maWx0ZXI6IGJsdXIoNHB4KTtcbiAgYmFja2dyb3VuZDogcmdiYSgwLCAwLCAwLCAwLjUpO1xuXG4gICYuYWN0aXZlIHtcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIH1cblxuICAmID4gI21lcm1haWQtc3BhY2Uge1xuICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbGlnaHQpO1xuICAgIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgICBwb3NpdGlvbjogZml4ZWQ7XG4gICAgdG9wOiA1MCU7XG4gICAgbGVmdDogNTAlO1xuICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlKC01MCUsIC01MCUpO1xuICAgIGhlaWdodDogODB2aDtcbiAgICB3aWR0aDogODB2dztcbiAgICBvdmVyZmxvdzogaGlkZGVuO1xuXG4gICAgJiA+IC5tZXJtYWlkLWNvbnRlbnQge1xuICAgICAgcGFkZGluZzogMnJlbTtcbiAgICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICAgIHRyYW5zZm9ybS1vcmlnaW46IDAgMDtcbiAgICAgIHRyYW5zaXRpb246IHRyYW5zZm9ybSAwLjFzIGVhc2U7XG4gICAgICBvdmVyZmxvdzogdmlzaWJsZTtcbiAgICAgIG1pbi1oZWlnaHQ6IDIwMHB4O1xuICAgICAgbWluLXdpZHRoOiAyMDBweDtcblxuICAgICAgcHJlIHtcbiAgICAgICAgbWFyZ2luOiAwO1xuICAgICAgICBib3JkZXI6IG5vbmU7XG4gICAgICB9XG5cbiAgICAgIHN2ZyB7XG4gICAgICAgIG1heC13aWR0aDogbm9uZTtcbiAgICAgICAgaGVpZ2h0OiBhdXRvO1xuICAgICAgfVxuICAgIH1cblxuICAgICYgPiAubWVybWFpZC1jb250cm9scyB7XG4gICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgICBib3R0b206IDIwcHg7XG4gICAgICByaWdodDogMjBweDtcbiAgICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgICBnYXA6IDhweDtcbiAgICAgIHBhZGRpbmc6IDhweDtcbiAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0KTtcbiAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICBib3JkZXItcmFkaXVzOiA2cHg7XG4gICAgICBib3gtc2hhZG93OiAwIDJweCA0cHggcmdiYSgwLCAwLCAwLCAwLjEpO1xuICAgICAgei1pbmRleDogMjtcblxuICAgICAgLm1lcm1haWQtY29udHJvbC1idXR0b24ge1xuICAgICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgICAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgICAgICAgd2lkdGg6IDMycHg7XG4gICAgICAgIGhlaWdodDogMzJweDtcbiAgICAgICAgcGFkZGluZzogMDtcbiAgICAgICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHQpO1xuICAgICAgICBjb2xvcjogdmFyKC0tZGFyayk7XG4gICAgICAgIGJvcmRlci1yYWRpdXM6IDRweDtcbiAgICAgICAgY3Vyc29yOiBwb2ludGVyO1xuICAgICAgICBmb250LXNpemU6IDE2cHg7XG4gICAgICAgIGZvbnQtZmFtaWx5OiB2YXIoLS1ib2R5Rm9udCk7XG4gICAgICAgIHRyYW5zaXRpb246IGFsbCAwLjJzIGVhc2U7XG5cbiAgICAgICAgJjpob3ZlciB7XG4gICAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgICAgfVxuXG4gICAgICAgICY6YWN0aXZlIHtcbiAgICAgICAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoMXB4KTtcbiAgICAgICAgfVxuXG4gICAgICAgIC8vIFN0eWxlIHRoZSByZXNldCBidXR0b24gZGlmZmVyZW50bHlcbiAgICAgICAgJjpudGgtY2hpbGQoMikge1xuICAgICAgICAgIHdpZHRoOiBhdXRvO1xuICAgICAgICAgIHBhZGRpbmc6IDAgMTJweDtcbiAgICAgICAgICBmb250LXNpemU6IDE0cHg7XG4gICAgICAgIH1cbiAgICAgIH1cbiAgICB9XG4gIH1cbn1cbiJdfQ== */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" spa-preserve/><script src="../../../../prescript.js" type="application/javascript" spa-preserve></script><script type="application/javascript" spa-preserve>const fetchData = fetch("../../../../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://quartz.jzhao.xyz/index.xml"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://quartz.jzhao.xyz/UNI/ANNO-1/ARCHITETTURA/LEZIONI/11.-MACRO-ARCHITETTURA-+-Linguaggio-assemblativo-og-image.webp"/><meta property="og:image:url" content="https://quartz.jzhao.xyz/UNI/ANNO-1/ARCHITETTURA/LEZIONI/11.-MACRO-ARCHITETTURA-+-Linguaggio-assemblativo-og-image.webp"/><meta name="twitter:image" content="https://quartz.jzhao.xyz/UNI/ANNO-1/ARCHITETTURA/LEZIONI/11.-MACRO-ARCHITETTURA-+-Linguaggio-assemblativo-og-image.webp"/><meta property="og:image:type" content="image/.webp"/></head><body data-slug="UNI/ANNO-1/ARCHITETTURA/LEZIONI/11.-MACRO-ARCHITETTURA-+-Linguaggio-assemblativo"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="../../../..">Quartz 4</a></h2><div class="spacer mobile-only"></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>Search</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="Search for something" placeholder="Search for something"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="Reader mode"><title>Reader mode</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a,b)=>!a.isFolder&amp;&amp;!b.isFolder||a.isFolder&amp;&amp;b.isFolder?a.displayName.localeCompare(b.displayName,void 0,{numeric:!0,sensitivity:\&quot;base\&quot;}):!a.isFolder&amp;&amp;b.isFolder?1:-1&quot;,&quot;filterFn&quot;:&quot;node=>node.slugSegment!==\&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;node=>node&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-70"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>Explorer</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-70" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#"></a></li></template><template id="template-folder"><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../../../../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../../UNI/">UNI</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../../UNI/ANNO-1/">ANNO 1</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../../UNI/ANNO-1/ARCHITETTURA/">ARCHITETTURA</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../../UNI/ANNO-1/ARCHITETTURA/LEZIONI/">LEZIONI</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>11. MACRO ARCHITETTURA + Linguaggio assemblativo</a></div></nav><h1 class="article-title">11. MACRO ARCHITETTURA + Linguaggio assemblativo</h1><p show-comma="true" class="content-meta"><time datetime="2025-10-13T15:42:40.000Z">Oct 13, 2025</time><span>11 min read</span></p></div></div><article class="popover-hint"><h1 id="macro-architettura">MACRO ARCHITETTURA<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#macro-architettura" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="modalità-di-indirizzamento">Modalità di indirizzamento<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#modalità-di-indirizzamento" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>conosciamo 8 tipi di indirizzamento:</p>
+<ul>
+<li>Immediato: Quando il valore dell’operando è direttamente nell’istruzioni  tipo #5</li>
+<li>Diretto: Quando nell’istruzione scrivi l’indirizzo completo dell’operando tipo 0x005</li>
+<li>Indiretto: Quando fornisci l’indirizzo di memoria che contiene l’indirizzo effettivo dell’operando</li>
+<li>A registro: Quando specifichi un Registro come operando</li>
+<li>Indiretto a registro: Quando tu metti un registro che contiene l’indirizzo dell’operando</li>
+<li>Indicizzato: l’indirizzo è dato da una costante più il contenuto di un registro quindi tipo con l’offset</li>
+<li>A registro base: Viene sommato anzichè una costante un registro agli indirizzi</li>
+<li>Stack: l’operando è sulla cima dello stack</li>
+</ul>
+<h3 id="esempio-di-somma-di-array-e-spostamento-di-array">Esempio di somma di array e spostamento di array<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#esempio-di-somma-di-array-e-spostamento-di-array" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Noi vogliamo scorrere l’array e per farlo prendiamo il registro di base e lo sommiamo di volta in volta di 4 byte, R2 ci servirà per salvare l’attuale array così da poterci poi sommare 4 per scorrere al successivo, R1 salverà la somma degli elementi e R3 la prima posizione esterna così da trovare la fine dell’array
+<img src="../../../../UNI/ANNO-1/UTILITY/Pasted-image-20240429122530.png" width="290" height="auto" alt/></p>
+<h2 id="continuo-dellesempio">continuo dell’esempio<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#continuo-dellesempio" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p><img src="../../../../UNI/ANNO-1/UTILITY/Pasted-image-20240429123849.png" width="380" height="auto" alt/>
+<img src="../../../../UNI/ANNO-1/UTILITY/Pasted-image-20240429123919.png" width="340" height="auto" alt/></p>
+<h2 id="codice-auto-modificante">Codice auto-modificante<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#codice-auto-modificante" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Così si chiamano quei codici che nel corso dell’esecuzione si modificano ad esempio con dei loop
+<img src="../../../../UNI/ANNO-1/UTILITY/Pasted-image-20240429125318.png" width="420" height="auto" alt/>
+si può notare come nella fase di codice rossa ci sia un add con un registro che cambia nel tempo</p>
+<h2 id="indirizzamento-indicizzato">Indirizzamento indicizzato<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#indirizzamento-indicizzato" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>è un indirizzo dato da un indirizzo+ offset
+esempio:
+fa un and bit a bit tra gli array A e B e fa un or tra tutti i risultati</p>
+<pre><code>(A[0] AND B[0]) OR (A[1] AND B[1] ) OR (A[2] AND B[2]) OR...
+</code></pre>
+<p>R1 accumula l’or tra gli and
+R2 indica la posizione attuale dell’array
+R3 indica la fine ovvero 4096 quindi 1025
+R4 usata come variabile d’appoggio per le AND
+<img src="../../../../UNI/ANNO-1/UTILITY/Pasted-image-20240429143942.png" width="auto" height="auto" alt/></p>
+<h2 id="indirizzamento-indicizzato-esteso">INDIRIZZAMENTO INDICIZZATO ESTESO<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#indirizzamento-indicizzato-esteso" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>l’indirizzo di memoria è calcolato sommando due registri:</p>
+<ul>
+<li>uno memorizza la base</li>
+<li>l’altro l’indice
+inizializziamo R5 con A e R6 con B</li>
+</ul>
+<p>MOV R4,(R2+R5)
+AND R4,(R2+R6)</p>
+<h2 id="stack">STACK<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#stack" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p><a href="../../../../UNI/ANNO-1/ARCHITETTURA/LEZIONI/10.Micro-architettura-e-Macro-architettura#347d6f" class="internal alias" data-slug="UNI/ANNO-1/ARCHITETTURA/LEZIONI/10.Micro-architettura-e-Macro-architettura">^347d6f</a>
+cosa da aggiungere:
+al top dello stack in una operazione aritmetica hai il secondo operando e sotto hai il primo operando</p>
+<h2 id="notazione-polacca-postfissa">NOTAZIONE POLACCA POSTFISSA<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#notazione-polacca-postfissa" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>È un sistema per scrivere in modo differente espressioni matematiche senza l’uso di parentesi
+il segno và dopo che hai scritto i numeri che ne riguardano
+<img src="../../../../UNI/ANNO-1/UTILITY/Pasted-image-20240429151548.png" width="400" height="auto" alt/></p>
+<h2 id="ortogonalità">ORTOGONALITÀ<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#ortogonalità" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Un set di istruzioni è caratterizzato principalmente da 2 cose:</p>
+<ul>
+<li>codici operativi(<strong>OPCODE</strong>)</li>
+<li>modalità di indirizzamento
+si dice ortogonalità quando puoi usare tutte le modalità di indirizzamento viste in precedenza con tutti i codici operativi, ad esempio sul MUL devi usare per forza dei registri quindi non c’è ortogonalità
+su alcune architettura ad esempio quella Intel non è possibile attuarla
+esempio instruction set ortogonale</li>
+</ul>
+<h3 id="istruzione-ortogonale">ISTRUZIONE ORTOGONALE<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#istruzione-ortogonale" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<h3 id="istruzione-non-ortogonale">ISTRUZIONE NON ORTOGONALE<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#istruzione-non-ortogonale" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<h2 id="tipi-di-istruzioni">TIPI DI ISTRUZIONI<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#tipi-di-istruzioni" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>(vedi prossime pagine per approfondimenti)</p>
+<ul>
+<li>UNARIE:
+<ul>
+<li>Aritmetiche: complemento, opposto, incremento, radice,…</li>
+<li>Bit a bit: not, shift e rotation.</li>
+</ul>
+</li>
+<li>BINARIE:
+<ul>
+<li>Aritmetiche e logiche</li>
+</ul>
+</li>
+<li>TRASFERIMENTO DATI:
+<ul>
+<li>Da registro/memoria a registro/memoria</li>
+</ul>
+</li>
+<li>SELEZIONE E CONFRONTO</li>
+<li>ITERAZIONE</li>
+<li>CHIAMATA DI UNA PROCEDURA</li>
+<li>INPUT/OUTPUT:
+<ul>
+<li>Polling, interrupt, DMA</li>
+</ul>
+</li>
+</ul>
+<h5 id="esempio-di-istruzione-unaria">ESEMPIO DI ISTRUZIONE UNARIA<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#esempio-di-istruzione-unaria" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<p><img src="../../../../UNI/ANNO-1/UTILITY/Pasted-image-20240429153438.png" width="460" height="auto" alt/>
+come viene applicato lo shift??
+scorrere k posizioni a sinistra o destra ad un numero X comporta una potenza  o una divisione
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8491em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8491em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span></span></span></span></span></span></span></span></p>
+<h3 id="altre-istruzioni-unarie">ALTRE ISTRUZIONI UNARIE:<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#altre-istruzioni-unarie" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>CLR, fa il clear di un registro</li>
+<li>INC,  lo incrementa di 1</li>
+<li>NEG, lo trasforma in un numero negativo facendo il complemento a 2</li>
+<li>NOT, nega la variabile</li>
+<li>SQRT, radice quadrata</li>
+</ul>
+<h3 id="operazioni-binarie">OPERAZIONI BINARIE<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#operazioni-binarie" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>si dividono in:</p>
+<ul>
+<li>Logiche:
+<ul>
+<li>AND, OR, XOR, NAND, NOR</li>
+</ul>
+</li>
+<li>Aritmetiche:
+<ul>
+<li>ADD, MULT, DIV, e altre…</li>
+</ul>
+</li>
+</ul>
+<h3 id="istruzioni-di-selezione">ISTRUZIONI DI SELEZIONE<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#istruzioni-di-selezione" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>il modo migliore per scegliere cosa eseguire o meno è attraverso l’uso di Branch e  Condizioni dove quest’ultime vengono verificate attraverso la PSW(Program Status Word)
+<img src="../../../../UNI/ANNO-1/UTILITY/Pasted-image-20240429154605.png" width="auto" height="auto" alt/></p>
+<h2 id="istruzioni-di-tipo-iterativo">ISTRUZIONI DI TIPO ITERATIVO<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#istruzioni-di-tipo-iterativo" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Ci sono istruzioni che attraverso l’uso di etichette permettono di creare delle ripetizioni fino al verificarsi di determinate condizioni.
+<img src="../../../../UNI/ANNO-1/UTILITY/Pasted-image-20240429155433.png" width="490" height="auto" alt/></p>
+<h2 id="istruzioni-di-io">ISTRUZIONI DI I/O<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#istruzioni-di-io" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Un’operazione di I/O è una operazione che consiste nel trasferimento di dati in entrata o in uscita da un dispositivo periferico
+ESISTONO 3 MODI DI FARE I/O:</p>
+<ol>
+<li>con busy waiting: dove la CPU periodicamente interroga i dispositivi (polling) che rimanendo in attesa(busy waiting) che il dispositivo sia pronto al trasferimento</li>
+<li>I/O gestito con interruzioni: La CPU riceve richieste di trasferimento dai dispositivi attraverso un interrupt</li>
+<li>DMA(Direct Memory Access): La CPU avvia una operazione che viene gestita dal controllore DMA</li>
+</ol>
+<h3 id="dma">DMA<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#dma" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>La CPU programma il controller DMA specificando:</p>
+<ul>
+<li>la dimensione che il trasferimento ha in byte</li>
+<li>il dispositivo che bisogna interrogare</li>
+<li>in quale zona di memoria bisogna prendere i dati attraverso un indirizzo
+Il controller gestisce l’operazione da solo
+Il DMA può gestire più operazioni contemporaneamente
+<img src="../../../../UNI/ANNO-1/UTILITY/Pasted-image-20240429160633.png" width="auto" height="auto" alt/></li>
+</ul>
+<h2 id="istruzioni-del-intel-core-i7">Istruzioni del Intel Core i7<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#istruzioni-del-intel-core-i7" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p><img src="../../../../UNI/ANNO-1/UTILITY/Pasted-image-20240429160835.png" width="400" height="auto" alt/>
+<img src="../../../../UNI/ANNO-1/UTILITY/Pasted-image-20240429160900.png" width="400" height="auto" alt/></p>
+<h2 id="controllo-del-flusso">CONTROLLO DEL FLUSSO<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#controllo-del-flusso" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>ci sono delle tecniche che pemettono di alterare l’esecuzione di un programma come:</p>
+<ul>
+<li>salti con o senza condizione</li>
+<li>Chiamata di procedure</li>
+<li>Coroutine</li>
+<li>Trap</li>
+<li>Interrupt
+<img src="../../../../UNI/ANNO-1/UTILITY/Pasted-image-20240429162256.png" width="auto" height="auto" alt/></li>
+</ul>
+<h2 id="procedure">Procedure<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#procedure" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>una procedura è una serie di istruzioni(tipo una funzione)
+ogni volta che ne viene chiamata una viene allocato sullo stack un nuovo frame dello stack che contiene i seguenti dati:</p>
+<ul>
+<li>i parametri in entrata e uscita</li>
+<li>le variabili locali</li>
+<li>l’indirizzo di rientro (return)</li>
+<li>un puntatore allo stack frame del chiamante
+SP punta alla cima dello stack invece BP alla base del frame creato
+l’accesso a variabili locali e parametri avviene attraverso il BP+ un offset
+Quando la procedura termina il frame viene deallocato
+ci sono un Master e uno Slave quando si avvia una procedura, la procedura è lo slave che deve essere chiamata e il master è colui che chiama questa procedura</li>
+</ul>
+<h2 id="trap">Trap<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#trap" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>La trap è una procedura atuomatica che si attiva quando avviene una eccezione durante l’esecuzione di un programma
+la gestione della trap è affidata alla trap handler
+esempi di trap:</p>
+<ul>
+<li>overflow e underflow</li>
+<li>opcode non definito</li>
+<li>violazione di protezione</li>
+<li>divisione per zero</li>
+<li>tentativi di utilizzo di dispositivi inesistenti</li>
+</ul>
+<h2 id="coroutine">COROUTINE<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#coroutine" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Una <strong>coroutine</strong> è una funzione speciale che può essere interrotta e ripresa. A differenza di una funzione normale che inizia dall’inizio e corre fino al suo completamento quando viene chiamata, una coroutine può iniziare la sua esecuzione, poi fermarsi (“sospendersi”) in un punto specifico, fare qualcos’altro, e poi riprendere l’esecuzione esattamente da dove si era fermata.
+ogni istruzione può riprendersi RESUME sono usate per simulazioni parallele su singola CPU</p>
+<h2 id="interrupt">INTERRUPT<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#interrupt" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Sono eventi, spesso correlati con I/O, che cambiano il normale flusso di esecuzione.
+A differenza delle trap, sono asincroni e nascono all’esterno della CPU.
+La gestione delle interruzioni è affidata all’interrupt handler e la routine di gestione dell’interrupt è chiamata ISR (Interrupt Service Routine)
+alla fine dell’interrupt si deve riprendere quello che si stava facendo</p>
+<h2 id="azioni-hardware-di-gestione-dellinterrupt">Azioni hardware di gestione dell’interrupt<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#azioni-hardware-di-gestione-dellinterrupt" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>quando avviene una interrupt vengono svolte delle azioni a livello hardware che sono le seguenti:</p>
+<ul>
+<li>il controller del dispositivo genera un interrupt</li>
+<li>quando la CPU è pronta a ricevere l’interrupt gli invia al controller del dispositivo una acknowledge</li>
+<li>quando il controller vede l’acknowledge risponde con un vettore interruzione identificativo per farsi riconoscere</li>
+<li>la CPU lo legge e se lo salva</li>
+<li>la CPU salva il PC Program counter e la PSW Program status Word sullo stack</li>
+<li>la CPU attraverso il vettore di interruzione capisce la prima istruzione e la mette nel PC</li>
+</ul>
+<h2 id="azioni-software-di-gestione-dellinterrupt">Azioni software di gestione dell’interrupt<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#azioni-software-di-gestione-dellinterrupt" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Dopo aver settato a livello hardware tutte le componenti per gestire l’interrupt, ora si passa all’esecuzione effettiva della routine di servizio:</p>
+<ol>
+<li>La ISR salva sullo stack i registri della CPU per poterli ripristinare</li>
+<li>Individua il numero esatto del device che ha generato l’interruzione tramite la lettura di opportuni registri</li>
+<li>Legge tutte le informazioni relative all’interruzione (es. codici di stato)</li>
+<li>Gestisce eventuali errori di I/O</li>
+<li>Esegue tutto ciò che è previsto per la gestione dell’interruzione</li>
+<li>SE NECESSARIO informa il device che l’interruzione è stata risolta</li>
+<li>Ripristina tutti i registri salvati sullo stack</li>
+<li>Esegue un’istruzione di RETURN FROM INTERRUPT ripristinando lo stato della CPU precedente l’interruzione</li>
+</ol>
+<h5 id="quando-ci-sono-multipli-interrupt-entra-in-gioco-la-loro-priorità">Quando ci sono multipli interrupt entra in gioco la loro priorità<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#quando-ci-sono-multipli-interrupt-entra-in-gioco-la-loro-priorità" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<p><img src="../../../../UNI/ANNO-1/UTILITY/Pasted-image-20240429195957.png" width="auto" height="auto" alt/></p>
+<h2 id="i-problemi-di-intel-architecture-32">I problemi di Intel Architecture-32<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#i-problemi-di-intel-architecture-32" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>È una architettura di tipo CISC</li>
+<li>Ha un tipo di indirizzamento a memoria questo vuole dire che molte operazioni e istruzioni nella CPU vengono fatte direttamente sulla memoria del computer piuttosto che tra i registri interni del processore.</li>
+<li>Ci sono pochi registri e non regolari:
+<ul>
+<li>per essere riordinate serve un hardware complesso</li>
+<li>il fatto che le istruzioni transitino sulla memoria crea delle dipendenze tra le istruzioni che vengono usate</li>
+<li>serve una Pipeline per gestire l’esecuzione di tutte le istruzioni obbligando una predizione dei salti precisa che per esserlo il codice deve essere eseguito prima che venga richiesto(esecuzione speculativa)</li>
+<li>i programmi sono limitati a 4GB disponendo di 32 bit</li>
+</ul>
+</li>
+</ul>
+<h2 id="architettura-ia-64">ARCHITETTURA IA-64<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#architettura-ia-64" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>è una versione della IA-32 ma a 64 bit ma poco utilizzata perché il mercato server preferiva rimanere a 32 bit
+obiettivi della architettura in questione:</p>
+<ul>
+<li>al posto di compilare in modo approssimativo ed eseguire successivamente il codice si decise di fargli compilare il codice in modo più esaustivo per poi fargli eseguire il codice in modo più leggero</li>
+<li>il core i7 riordina le istruzioni, rinomina i registri e schedula le unità funzionali(tipo la ALU)
+per ottimizzare le performance si fecero delle implementazioni come:</li>
+<li>riduzione degli accessi in memoria</li>
+<li>scheduling delle istruzioni</li>
+<li>riduzione dei salti condizionati</li>
+<li>caricamenti speculativi</li>
+</ul>
+<h1 id="linguaggio-assemblativo">LINGUAGGIO ASSEMBLATIVO<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#linguaggio-assemblativo" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p><img src="../../../../UNI/ANNO-1/UTILITY/Pasted-image-20240429203330.png" width="350" height="auto" alt/>
+Assembler= traduttore
+Assembly= linguaggio usato</p>
+<h3 id="introduzione">INTRODUZIONE<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#introduzione" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>I livelli di micro e macro-architettura erano interpretati il livello assembly è interamente tradotto.
+Il programma
+colui che converte il programma sorgente in un programma destinazione è detto traduttore (colui che traduce il codice in una roba che può capire la macchina)
+<img src="../../../../UNI/ANNO-1/UTILITY/Pasted-image-20240429203940.png" width="auto" height="auto" alt/></p>
+<p>Mentre si esegue il programma oggetto(linguaggio che si avvicina alla macchina)
+i livelli di micro e macro architettura vengono usati per scambiare le informazioni adeguatamente</p>
+<h3 id="introduzione-al-linguaggio-assemblativo">INTRODUZIONE AL LINGUAGGIO ASSEMBLATIVO<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#introduzione-al-linguaggio-assemblativo" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Il linguaggio sorgente è una rappresentazione simbolica del linguaggio macchina
+i simboli mnemonici sono tipo ADD,SUB, MUL
+ogni istruzione ha una corrispondenza in linguaggio macchina(binaria)
+il programmatore assembler ha accesso a tutte le risorse della macchina a differenza di linguaggi più ad alto livello
+un programma è scritto per una specifica famiglia di macchine
+assembler viene usato per creare programmi di ridotte dimensioni, che sfruttino la macchina al 100% e che siano veloci
+ci sono dei comanti che usa l’assemblatore nel codice vengono chiamati pseudoistruzioni o direttive dell’assemblatore
+Esempi
+Per definire un nuovo simbolo pari al valore di una espressione(creare una costante)
+si può ad esempio fare BASE EQU 1000
+oppure allocare 3 byte con dei valori fissati:
+TABLE DB 11,23,49
+oppure fare un assemblaggio con condizioni
+WORDSIZE EQU 32
+IF WORDSIZE GT 32
+WSIZE DD 64
+ELSE WSIZE DD 32
+ENDIF</p>
+<h2 id="le-macroistruzioni">LE MACROISTRUZIONI<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#le-macroistruzioni" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>consentono di creare delle istruzioni ripetibili vedi l’esempio e capisci subito
+<img src="../../../../UNI/ANNO-1/UTILITY/Pasted-image-20240429214253.png" width="auto" height="auto" alt/></p>
+<h2 id="processo-di-assemblaggio">PROCESSO DI ASSEMBLAGGIO<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#processo-di-assemblaggio" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>c’è sempre il solito problema dei salti che non possono essere previsti dall’assemblatore, ci sono perciò due soluzioni</p>
+<ul>
+<li>leggere il programma due volte costruendo una tabella dei simboli, etichette e istruzioni che poi alla seconda esecuzione saranno già presenti</li>
+<li>leggere il programma sorgente dopo averlo convertito in  un formato intermedio con una tabella intermedia salvata in memoria che poi viene precisata meglio al secondo passaggio</li>
+</ul>
+<h3 id="primo-passaggio">PRIMO PASSAGGIO<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#primo-passaggio" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>il primo passaggio costruisce la tabella dei simboli
+l’assembler usa la variabile ILC(instruction location counter) per memorizzare l’indirizzo dell’istruzione che sta assemblando
+un assembler usa 3 tabelle principalmente:</p>
+<ul>
+<li>Simboli</li>
+<li>Pseudo istruzioni</li>
+<li>codici operativi</li>
+</ul>
+<h2 id="esempio">ESEMPIO<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#esempio" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p><img src="../../../../UNI/ANNO-1/UTILITY/Pasted-image-20240429215124.png" width="auto" height="auto" alt/></p>
+<h2 id="secondo-passaggio">SECONDO PASSAGGIO<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#secondo-passaggio" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Durante il secondo passaggio viene generato il vero e proprio codice oggetto
+generando anche le informazioni che userà il linker per collegare tutte le istruzioni in un unico file
+dio cane!</p>
+<h2 id="la-tabella-dei-simboli">La tabella dei simboli<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#la-tabella-dei-simboli" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>la tabella dei simboli raccoglie seguendo lo standard&lt;simbolo, valore> accessibili tramite il simbolo
+esistono vari algoritmi per creare questa tabella
+Utilizzare una struttura  ordinata accedendovi in modo dinamico con costo <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>
+Usare una codifica hash che mappa ogni simbolo a determinati intervalli da 0 a k-1(O(1))</p>
+<h2 id="linker-e-loader">LINKER E LOADER<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#linker-e-loader" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>tutti i programmi hanno più procedure e queste procedure vengono tradotte dall’assembler una alla volta salvando sul disco il risultato.
+l’operazione di linking prende le procedure oggetto e unendole crea il programma
+prima di eseguirlo occorre caricare il programma in memoria centrale serve il loader</p>
+<p><img src="../../../../UNI/ANNO-1/UTILITY/Pasted-image-20240429221058.png" width="auto" height="auto" alt/></p>
+<h2 id="la-struttura-di-un-codice-oggetto">LA STRUTTURA DI UN CODICE OGGETTO<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#la-struttura-di-un-codice-oggetto" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>il codice oggetto è il risultato della compilazione del codice sorgente
+ed è diviso in più “strati”</p>
+<ol>
+<li>codice identificativo e lunghezze, contiene tutti i dati che si riferiscono a lunghezze e identificativi per trovare subito determinate linee di codice che servono per il linker per creare un programma singolo</li>
+<li>uno “strato” dove vengono definite le variabili PUBLIC che possono essere usate su altri file o moduli</li>
+<li>una lista intera di riferimenti esterni con funzioni esterne o variabili definite in altri moduli indicati con EXTERN</li>
+<li>ora c’è il vero e proprio codice dopo questa serie di variabili e informazioni questa parte contiene il vero e proprio codice tradotto in linguaggio macchina</li>
+<li>poi c’è un dizionario di rilocazione che include indirizzi di memoria che devono essere sistemati o resettati</li>
+<li>identificativo di fine modulo: alla fine del file oggetto viene identificata la fine del modulo con anche un checksum che è una somma usata per trovare errori durante la lettura di un modulo
+<img src="../../../../UNI/ANNO-1/UTILITY/Pasted-image-20240429221937.png" width="250" height="auto" alt/></li>
+</ol></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc desktop-only"><button type="button" class="toc-header" aria-controls="toc-17" aria-expanded="true"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-1" class="toc-content overflow"><li class="depth-0"><a href="#macro-architettura" data-for="macro-architettura">MACRO ARCHITETTURA</a></li><li class="depth-1"><a href="#modalità-di-indirizzamento" data-for="modalità-di-indirizzamento">Modalità di indirizzamento</a></li><li class="depth-2"><a href="#esempio-di-somma-di-array-e-spostamento-di-array" data-for="esempio-di-somma-di-array-e-spostamento-di-array">Esempio di somma di array e spostamento di array</a></li><li class="depth-1"><a href="#continuo-dellesempio" data-for="continuo-dellesempio">continuo dell’esempio</a></li><li class="depth-1"><a href="#codice-auto-modificante" data-for="codice-auto-modificante">Codice auto-modificante</a></li><li class="depth-1"><a href="#indirizzamento-indicizzato" data-for="indirizzamento-indicizzato">Indirizzamento indicizzato</a></li><li class="depth-1"><a href="#indirizzamento-indicizzato-esteso" data-for="indirizzamento-indicizzato-esteso">INDIRIZZAMENTO INDICIZZATO ESTESO</a></li><li class="depth-1"><a href="#stack" data-for="stack">STACK</a></li><li class="depth-1"><a href="#notazione-polacca-postfissa" data-for="notazione-polacca-postfissa">NOTAZIONE POLACCA POSTFISSA</a></li><li class="depth-1"><a href="#ortogonalità" data-for="ortogonalità">ORTOGONALITÀ</a></li><li class="depth-2"><a href="#istruzione-ortogonale" data-for="istruzione-ortogonale">ISTRUZIONE ORTOGONALE</a></li><li class="depth-2"><a href="#istruzione-non-ortogonale" data-for="istruzione-non-ortogonale">ISTRUZIONE NON ORTOGONALE</a></li><li class="depth-1"><a href="#tipi-di-istruzioni" data-for="tipi-di-istruzioni">TIPI DI ISTRUZIONI</a></li><li class="depth-2"><a href="#altre-istruzioni-unarie" data-for="altre-istruzioni-unarie">ALTRE ISTRUZIONI UNARIE:</a></li><li class="depth-2"><a href="#operazioni-binarie" data-for="operazioni-binarie">OPERAZIONI BINARIE</a></li><li class="depth-2"><a href="#istruzioni-di-selezione" data-for="istruzioni-di-selezione">ISTRUZIONI DI SELEZIONE</a></li><li class="depth-1"><a href="#istruzioni-di-tipo-iterativo" data-for="istruzioni-di-tipo-iterativo">ISTRUZIONI DI TIPO ITERATIVO</a></li><li class="depth-1"><a href="#istruzioni-di-io" data-for="istruzioni-di-io">ISTRUZIONI DI I/O</a></li><li class="depth-2"><a href="#dma" data-for="dma">DMA</a></li><li class="depth-1"><a href="#istruzioni-del-intel-core-i7" data-for="istruzioni-del-intel-core-i7">Istruzioni del Intel Core i7</a></li><li class="depth-1"><a href="#controllo-del-flusso" data-for="controllo-del-flusso">CONTROLLO DEL FLUSSO</a></li><li class="depth-1"><a href="#procedure" data-for="procedure">Procedure</a></li><li class="depth-1"><a href="#trap" data-for="trap">Trap</a></li><li class="depth-1"><a href="#coroutine" data-for="coroutine">COROUTINE</a></li><li class="depth-1"><a href="#interrupt" data-for="interrupt">INTERRUPT</a></li><li class="depth-1"><a href="#azioni-hardware-di-gestione-dellinterrupt" data-for="azioni-hardware-di-gestione-dellinterrupt">Azioni hardware di gestione dell’interrupt</a></li><li class="depth-1"><a href="#azioni-software-di-gestione-dellinterrupt" data-for="azioni-software-di-gestione-dellinterrupt">Azioni software di gestione dell’interrupt</a></li><li class="depth-1"><a href="#i-problemi-di-intel-architecture-32" data-for="i-problemi-di-intel-architecture-32">I problemi di Intel Architecture-32</a></li><li class="depth-1"><a href="#architettura-ia-64" data-for="architettura-ia-64">ARCHITETTURA IA-64</a></li><li class="depth-0"><a href="#linguaggio-assemblativo" data-for="linguaggio-assemblativo">LINGUAGGIO ASSEMBLATIVO</a></li><li class="depth-2"><a href="#introduzione" data-for="introduzione">INTRODUZIONE</a></li><li class="depth-2"><a href="#introduzione-al-linguaggio-assemblativo" data-for="introduzione-al-linguaggio-assemblativo">INTRODUZIONE AL LINGUAGGIO ASSEMBLATIVO</a></li><li class="depth-1"><a href="#le-macroistruzioni" data-for="le-macroistruzioni">LE MACROISTRUZIONI</a></li><li class="depth-1"><a href="#processo-di-assemblaggio" data-for="processo-di-assemblaggio">PROCESSO DI ASSEMBLAGGIO</a></li><li class="depth-2"><a href="#primo-passaggio" data-for="primo-passaggio">PRIMO PASSAGGIO</a></li><li class="depth-1"><a href="#esempio" data-for="esempio">ESEMPIO</a></li><li class="depth-1"><a href="#secondo-passaggio" data-for="secondo-passaggio">SECONDO PASSAGGIO</a></li><li class="depth-1"><a href="#la-tabella-dei-simboli" data-for="la-tabella-dei-simboli">La tabella dei simboli</a></li><li class="depth-1"><a href="#linker-e-loader" data-for="linker-e-loader">LINKER E LOADER</a></li><li class="depth-1"><a href="#la-struttura-di-un-codice-oggetto" data-for="la-struttura-di-un-codice-oggetto">LA STRUTTURA DI UN CODICE OGGETTO</a></li><li class="overflow-end"></li></ul></div><div class="backlinks"><h3>Backlinks</h3><ul id="list-2" class="overflow"><li><a href="../../../../UNI/ANNO-1/ARCHITETTURA/Architettura-INDICE" class="internal">Architettura INDICE</a></li><li class="overflow-end"></li></ul></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.5.2</a> © 2025</p><ul><li><a href="https://github.com/jackyzha0/quartz">GitHub</a></li><li><a href="https://discord.gg/cRFFHYye7t">Discord Community</a></li></ul></footer></div></div></body><script type="application/javascript">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module">function f(i,e){if(!i)return;function r(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function t(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}i?.addEventListener("click",r),window.addCleanup(()=>i?.removeEventListener("click",r)),document.addEventListener("keydown",t),window.addCleanup(()=>document.removeEventListener("keydown",t))}function y(i){for(;i.firstChild;)i.removeChild(i.firstChild)}var h=class{constructor(e,r){this.container=e;this.content=r;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),r=this.onMouseMove.bind(this),t=this.onMouseUp.bind(this),o=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",r),document.addEventListener("mouseup",t),window.addEventListener("resize",o),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",r),()=>document.removeEventListener("mouseup",t),()=>window.removeEventListener("resize",o))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let r=this.createButton("+",()=>this.zoom(.1)),t=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(t),e.appendChild(o),e.appendChild(r),this.container.appendChild(e)}createButton(e,r){let t=document.createElement("button");return t.textContent=e,t.className="mermaid-control-button",t.addEventListener("click",r),window.addCleanup(()=>t.removeEventListener("click",r)),t}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}zoom(e){let r=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),t=this.content.getBoundingClientRect(),o=t.width/2,n=t.height/2,c=r-this.scale;this.currentPan.x-=o*c,this.currentPan.y-=n*c,this.scale=r,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){this.scale=1;let e=this.content.querySelector("svg");this.currentPan={x:e.getBoundingClientRect().width/2,y:e.getBoundingClientRect().height/2},this.updateTransform()}},C=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],E;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;E||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let r=E.default,t=new WeakMap;for(let n of e)t.set(n,n.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let a=t.get(s);a&&(s.innerHTML=a)}let n=C.reduce((s,a)=>(s[a]=window.getComputedStyle(document.documentElement).getPropertyValue(a),s),{}),c=document.documentElement.getAttribute("saved-theme")==="dark";r.initialize({startOnLoad:!1,securityLevel:"loose",theme:c?"dark":"base",themeVariables:{fontFamily:n["--codeFont"],primaryColor:n["--light"],primaryTextColor:n["--darkgray"],primaryBorderColor:n["--tertiary"],lineColor:n["--darkgray"],secondaryColor:n["--secondary"],tertiaryColor:n["--tertiary"],clusterBkg:n["--light"],edgeLabelBackground:n["--highlight"]}}),await r.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let n=0;n<e.length;n++){let v=function(){let g=l.querySelector("#mermaid-space"),m=l.querySelector(".mermaid-content");if(!m)return;y(m);let w=c.querySelector("svg").cloneNode(!0);m.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new h(g,m)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},c=e[n],s=c.parentElement,a=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(a),L=a.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),f(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript"></script><script src="../../../../postscript.js" type="module"></script></html>

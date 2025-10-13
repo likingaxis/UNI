@@ -1,0 +1,14 @@
+def TOPLAVORO(Lista S, n, M):
+    DeltaP = M - S[n];
+    k=0;
+    count=1;
+    for(i=n-1 to 1):  # Andiamo a ritroso
+        count++;
+        if (DeltaP == 1) then
+            return 1;
+			
+        k=DeltaP*count;
+        if ((M-k-S[i])<0) then
+            DeltaP--;
+			
+    return DeltaP;
