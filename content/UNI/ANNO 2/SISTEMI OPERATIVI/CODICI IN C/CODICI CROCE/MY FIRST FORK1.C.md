@@ -1,0 +1,45 @@
+```c
+#include <stdio.h>
+
+#include <stdlib.h>
+
+#include <unistd.h>
+
+
+
+#define STDIN 0
+
+#define STDOUT 1
+
+#define PIPE_RD 0
+
+#define PIPE_WR 1
+
+
+int main(){
+
+  
+
+    int pid, child_status;
+
+  
+
+    if ((pid = fork()) == 0) {
+
+    printf("I am the child and I see the PID %d\n", pid);
+
+   } else {
+
+       wait(&child_status); // Wait for child
+
+       printf("I am the parent, I see the child's PID (%d) and the status (%d)\n", pid, child_status);
+
+    }
+
+}
+```
+definisco delle costanti 
+uso if e else per differenziare ciò che deve fare un figlio da un padre
+quando faccio fork viene generato un processo che ha un pid, se si tratta del processo figlio allora avremo 0 altrimenti un padre
+wait attende la terminazione del processo figlio e salva nell'indirizzo del child status il risultato in questo caso una terminazione senza errori quindi 0
+le costanti non vengono usate

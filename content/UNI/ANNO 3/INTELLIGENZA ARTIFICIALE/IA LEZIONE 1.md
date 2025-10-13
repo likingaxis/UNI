@@ -1,0 +1,32 @@
+- IA disciplina
+- Agenti plurale di più IA
+- Una IA
+	- osserva, comprende
+	- riproduce comportamenti intelligenti
+- IA si dice forte se tende a essere razionale come l'uomo
+	- non deve fornire solo l'output ma deve eseguire gli step simulando il tutto come se li facesse un uomo
+- Criterio di successo dell'IA
+	- devo misurare il successo in % a paragone dell'uomo
+- una IA può seguire i pensieri e le azioni umane oppure razionali
+	- tipo un robot non pensa e non esegue azioni come una persona che pulisce
+	- l'uomo di per se non è razionale sempre, quindi potrebbe portare a soluzioni non ottimizzate al 100%
+	- questo detto sopra non va in contrapposizione a quanto detto prima? come definizione di IA?
+	- forse umanità e razionalità vanno di pari passo
+- UNA IA come chat gpt lavora su quello che è
+	- il question answering
+	- sequenze di regole context free radicate 
+	- Sentiment analysis o recognition
+		- obiettivi con un certo sentiment
+		- per ognuno di questi obiettivi assegna un certo sentiment
+- instruction tuning
+- premessa+domanda
+	- avvia un processo dinamico dove la macchina itera fino a che non termina 
+	- successivamente recuperano le informazioni on the fly tipo sul web
+	- e poi forniscono una risposta basato sul contesto che ha derivato da premessa+domanda
+- prompt
+	- porzione di premessa e domanda +contesto prelevato da parti diverse
+- fondamenti dell'IA
+	- psicologia
+	- matematica...
+- Test di Turing
+	- sto parlando con una macchina o una persona?

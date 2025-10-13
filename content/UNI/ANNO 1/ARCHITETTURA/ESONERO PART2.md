@@ -1,0 +1,36 @@
+# PRATICA
+- ESERCIZIO SUGLI INDIRIZZAMENTI(73)
+- Esercizio dei processi e il carico della CPU(1)
+- SISTEMI BATCH
+	- first come first
+	- shortest job first
+	- shortest remaining next
+- INTERATTIVI
+	- round robin
+	- lotteria
+	- Shortest process next
+- REAL TIME
+	- Sono soft e hard(sostenibilita del sistema) sono piu o meno rigidi
+- RICHIESTE SU DISCO
+	- First come first served
+	- Shortest seek first
+	- Ascensore
+- GESTIONE DELLA MEMORIA
+	- memoria libera
+		- lista collegata
+		- bitmap
+	- best fit
+	- first fit
+	- next fit
+	- worst fit
+- GESTIONE DELLE PAGINE
+	- ottimo
+	- least recently used
+	- not recently used
+	- not frequently used
+	- clock
+	- working set
+	- wsclock
+	- aging
+	- second chance
+	- fifo
