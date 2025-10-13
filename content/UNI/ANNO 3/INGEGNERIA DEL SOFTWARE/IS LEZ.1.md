@@ -186,4 +186,3 @@
         - Il prodotto viene **corretto** e si **ricomincia** il testing per lo stesso intervallo.
             
 - **Modello più usato:** _modello del frakkone_.
-c
