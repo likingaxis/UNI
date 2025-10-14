@@ -5,7 +5,7 @@ on:
     branches:
       - main
 env:
-  THEME_NAME: aura
+  THEME_NAME: kanagawa
 permissions:
   contents: read
   pages: write
