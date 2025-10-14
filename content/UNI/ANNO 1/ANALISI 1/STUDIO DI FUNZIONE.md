@@ -1,1 +1,0 @@
-![[studio di funzione.png||700]]

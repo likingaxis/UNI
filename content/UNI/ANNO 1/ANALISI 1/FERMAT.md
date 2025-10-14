@@ -1,4 +1,0 @@
-- se hai un intorno (a, b)
-- se hai un punto $x_0$ di minimo relativo o massimo relativo $\in (a,b)$ che é derivabile in base alla funzione
-- se calcoli il rapporto incrementale ti vengono due risultati uno minore di 0 e uno maggiore di 0 automaticamente con la permanenza del segno ti viene 0 quindi è un punto stazionario ovvero un punto che ha angolatura 0
-- non puoi prendere in considerazione i punti angolosi o roba non derivabile pure se sono minimi relativi o massimi relativi
