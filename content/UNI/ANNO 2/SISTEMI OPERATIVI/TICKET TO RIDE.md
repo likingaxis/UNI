@@ -1,0 +1,123 @@
+# PROCESSI
+- Definizione
+- stati di un processo
+- layout di un processo
+- cpu bound
+- i/o bound
+- cpu burst
+- Thread
+	- spazio utente spazio kernel
+	- race condition
+	- regione critica
+	- atomico
+- Comunicazione tra processi
+	- pipe
+	- interrupt 
+		- precisi imprecisi
+	- segnali
+- scheduler
+	- sistemi e algoritmi
+	- prelazione no
+- altro sulla sincronizzazione
+	- barriere
+	- read copy update
+# MEMORIA
+- senza astrazione
+	- indirizzamenti diretti no spazio indirizzi
+- astrazione
+	- reg base + limite
+	- swapping(intero)
+	- avvantaggio crescita
+	- spazi liberi
+		- bitmap
+		- liste
+	- algoritmi di allocazione
+	- buddy allocator
+	- slab
+- memoria virtuale
+	- pagine
+		- page fault
+		- spazi di swap
+		- tabelle
+			- singola
+			- 2 o 4
+		- TLB MMU
+		- soft miss hard miss
+		- dimensione delle pagine 
+		- frammentazione interna
+		- page fault frequency
+		- trashing
+		- algoritmi di paging
+		- allocazione globale locale 
+		- equa proporzionale
+		- out of memory killer e demon
+	- I SPACE D SPACE
+		- read copy on write
+	- segmentazione
+		- multics
+		- ha anche una TLB
+		- frammentazione esterna
+# FILE E FILE SYSTEM
+- problema memorizzazione(volatile)
+- definizione di file
+	- 3 modi struttura file
+	- tipi di file
+		- normali, 
+		- speciali(caratteri, blocchi),eseguibili, archivio
+	- accesso sequenziale casuale
+- directory
+	- due tipi di directory
+	- singolo livello o gerarchico
+	- concetto di root
+	- nomi dei file
+- file system
+	- definizione
+	- allocazione blocchi contigua o liste
+	- fat
+		- ram
+	- ext2
+		- i-node, gruppi
+	- hard link soft link symbol link
+	- roadmap
+	- virtual file system
+- disco
+	- tracciare blocchi liberi
+		- bitmap liste
+	- quote utente
+	- backup e raid
+# Dispositivi I/O
+- definizione
+- blocchi o caratteri
+- memory mapped port mapped
+	- problema cache
+		- tentativi sequenziali o snooping
+- SOFTWARE
+	- regole
+		- buffering
+		- indipendente
+		- errori
+		- sincroni asincroni
+	- programmato
+	- interrupt
+		- gestore
+	- DMA
+	- driver
+		- kernel o utente
+		- 3 livelli
+		- a caratteri o blocchi
+	- software indipendente
+		- buffering
+		- spooling
+		- errori con interazione
+# S.O.
+- definizione
+- kernel
+	- unikernel
+	- exokernel
+	- microkernel
+
+- syscall
+- virtualizzazione
+	- container
+	- hypervisor
+

@@ -1,0 +1,256 @@
+#### Livello di applicazione
+- Pila protocollare
+- Livello di applicazione
+	- Architetture del livello di applicazione
+		- Peer to peer
+			- tit for tat
+			- torrent
+			- chunk
+		- Client Server
+	- Socket cosa sono
+	- Protocolli di applicazione 
+		- HTTP 
+		- cosa è
+			- Messaggio HTTP(Metodo, versione, cookie, URL richiesto)
+			- v1
+			- v1.1
+			- v2
+			- v3
+		- Biscottini
+		- DNS
+			- SERVER DNS
+			- iterativa
+			- ricorsiva
+		- Email
+			- User agent
+			- Server mail
+			- SMTP
+			- IMAP
+		- Web Cache e proxy
+		- RTT
+#### Livello di Trasporto
+- Livello di trasporto
+	- multiplexing 
+	- demultiplexing
+	- Protocolli del livello di trasporto
+		- UDP
+			- Segmento UDP
+			- checksum
+		- TCP
+			- MTU
+			- MSS
+			- segmento TCP(porta mittente, porta destinatario, rcwnd, ACK, checksum, ECE)
+			- Handshake
+				- 1 via
+				- 2 vie
+			- finestra di ricezione
+			- Numero di sequenza
+			- ACK
+			- Controllo del flusso
+	- Trasferimenti su canali inaffidabili
+		- stop and wait
+			- RDT
+		- pipeline
+			- GBN
+			- Ripetizione selettiva
+	- Esempi di congestione
+	- Controllo della congestione
+		- end to end
+		- assistito dalla rete
+			- Bit ECN ECE
+	- Gestioni del tasso di invio
+		- AIMD(Additive Increase Multiplicative Decrease)
+		- slow start
+		- congestion avoidance
+		- fast recovery
+	- TCP RENO
+	- TCP CUBIC
+	- TCP VEGAS
+	- TCP è fair?
+#### Livello di Rete
+- definizione
+	- Protocollo IP
+		- best effort
+		- cosa cerca di fare
+			- riduzione perdita datagrammi
+			- consegna con basso ritardo
+			- consegna in ordine
+	- il livello di rete si divide in 2 principali funzioni
+		- Inoltro 
+			- basato su destinazione
+				- IP classful addressing
+				- Notazione CIDR
+					- Route Aggregation
+				- TCAM+priority encoder
+				- come ottiene IP un ISP
+				- ICANN
+			- generalizzato
+				- tabella di flusso
+				- `match+action+counter+priority`
+				- regola=voce
+		- instradamento
+	- Frammentazione datagrammi
+		- PMTUD
+			- ICMP
+			- Mitigazione
+	- la rete inoltre si può dividere in 2 principali piani
+		- piano di controllo
+		- piano dati
+	- SDN
+		- cosa sono
+		- dove sono posizionate
+		- southbound, Dati , northbound 
+		- Openflow
+			- tabella di flusso
+	- Router
+		- tabella di inoltro
+		- tabella di instradamento
+		- sottorete
+		- porta di ingresso
+		- porta di uscita
+		- commutazione
+			- centralizzata
+			- decentralizzata
+			- 4 tipologie
+				- Memoria
+				- bus
+				- Crossbar switch
+				- multistage
+		- gestione buffer dei router
+			- 3 politiche
+				- tail drop
+				- priorità
+				- marcatura
+	- DHCP
+		- Discovery
+		- Offer
+		- Request
+		- Ack
+	- NAT
+		- come funziona
+	- Ipv6
+		- tunneling
+	- AS
+		- intra-AS
+		- inter-AS
+		- OSPF
+			- backbone
+			- nodi interni
+		- BGP
+			- I-BGP
+			- E-BGP
+			- rotta BGP
+				- AS-PATH
+				- Next-HOP
+			- sessione BGP
+	- ICMP
+		- messaggi ICMP
+		- traceroute
+		- ping
+	- Algoritmi di instradamento
+		- Globali
+		- Non globali
+		- centralizzati
+		- decentralizzati
+		- statici
+		- dinamici
+		- Dijkstra
+		- Vector Distance
+	- Gestione della rete
+		- CLI
+		- SNMP/NETCONF
+		- MIB/YANG
+#### Livello di collegamento
+ - Livello di collegamento
+ - Dispositivi
+	 - NIC
+	 - incapsulamento decapsulamento
+ - servizi
+	 - framing 
+	 - controllo del flusso
+	 - accesso al collegamento 
+	 - accessi multipli MAC
+	 - identificare i dispositivi MAC
+		 - IEE
+- rilevazione e correzione di errori
+	 - ritrasmissioni
+	 - non
+ - tipi di collegamento
+	 - half duplex
+	 - full duplex
+ - collegamento
+	 - end-to-end
+	 - broadcast
+ - protocolli di gestione dell'accesso multiplo
+	 - suddivisione di canale
+		 - TDMA
+		 - FDMA
+	 - accesso casuale
+		 - SLOTTED ALOHA
+		 - UNSLOTTED ALOHA
+		 - CSMA
+		 - CSMA/CD
+	 - a turni presi
+		 - POLLING
+		 - TOKEN PASSING
+ - Switch 
+	 - tabella di commutazione
+ - Ethernet
+	 - frame
+	 - dominio di collisione
+	 - LAN
+	 - MAC
+ - Protocollo ARP
+	 - ARP reply 
+	 - ARP request
+ - VLAN
+	 - VLAN a switch singolo
+	 - VLAN a switch multipli
+	 - EVPN
+	 - ID VLAN 802.1Q
+ - Reti Wireless
+	 - 2 modalità
+		 - con infrastruttura
+		 - senza infrastruttura
+	 - attenuazione del segnale
+	 - riflessione del segnale
+		 - tempo di coerenza
+	 - interferenza dei segnali
+		 - SNR
+		 - BER
+	 - terminali nascosti
+	 - CDMA
+	 - Wi-Fi standard 802.11
+		 -  BSS
+	 - Gestione frequenze
+	 - Accesso
+		 - modalità passiva
+		 - attiva
+	 - CSMA/CA
+		 - DIFS
+		 - SIFS
+	 - prenotazione
+		 - RTS
+		 - CTS
+	 - Bluetooth
+		- Piconet PAN
+	 - Master
+	 - Bootstrapping
+		- neighbor discovery
+		- paging
+ - Reti 4G/5G
+	 - UE
+	- Base Station
+	 - HSS
+	 - MME
+	- P-GW
+	- S-GW
+	 - mobilità handoff
+		- routing diretto
+		 - indiretto
+	 - Reti LTE
+		 - piano di controllo 
+		 - piano di dati
+		 - tunneling
+	 - home network 
+	 - visited network
