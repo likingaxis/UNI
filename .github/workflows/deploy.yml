@@ -5,7 +5,7 @@ on:
     branches:
       - main
 env:
-  THEME_NAME: kanagawa
+  THEME_NAME: adrenaline
 permissions:
   contents: read
   pages: write
