@@ -206,3 +206,37 @@ restituisci(azione)
 
 Ogni agente, indipendentemente dalla sua architettura, può **migliorare nel tempo attraverso l’apprendimento**, diventando progressivamente più razionale e adattivo.
 
+## DIVERSI TIPI DI AGENTE
+- studiare le funzioni degli agenti!
+- AGENTE BASATO SU TABELLA
+	- AGENTE REATTIVO SEMPLICE, DI CUI UN ESEMPIO AGENTE BASATO SU TABELLA?
+	- IL PUZZO DEL WUMPUS
+- AGENTI BASATI SU MODELLO 
+	- molto piu complessi, non scrivi solo una tabella con match della regola e match condizionale
+	- devo avere la memorizzazione del modello(ovvero, prendere i dettagli essenziali di un certo oggetto e codificarli in dati comprensibili)
+	- lo scopo viene definito dall'azione, devi fare l'azione e basta
+- AGENTE CON OBIETTIVO
+	- un agente ancora piú complesso ragiona ponendosi degli obiettivi
+	- un goal non e per forza la soluzione migliore possibile ma cio che ci direziona verso una soluzione valida e accettabile
+- utility e il goal?
+	- utility e una autovalutazione dell'agente
+ENUMERATI E NON VALUTATI
+- AGENTI CON VALUTAZIONE DI UTILITÀ
+	- valutazione da parte dell'ambiente
+- AGENTI CHE APPRENDONO
+	- dentro performance element abbiamo state world and utility
+	- il performance element quando lavora non si addestra subito, bensi una volta accumulati gli addestramenti viene interrotto il performance element e viene sostituito da una nuova versione addestrata dai feedback ricevuti
+		- ambiente simulato a volte usato nel batch learning
+### IMPLICAZIONI COMPUTAZIONALI
+- rappresentazioni
+- funzioni principale degli agenti
+- sborra
+## TIPI DI RAPPRESENTAZIONE
+- ATOMICA
+- FATTORIZZATAf
+- STRUTTURATA
+## Pattern linguistici via machine learning con encoder e decoders per NL
+- meccanismo di encoding che ci porta ad avere per ogni d appartenente a D d freccia sopra appartenente a R con 256 che fa encoding e cardinalita di D circa 250k
+- con una certa probabilita abbiamo il decoding in teoria
+- si chiamano LANGUAGE MODEL perche forniscono un modello stocastico che predice la transizione successiva ovvero la parola che va detta dopo
+### DESIDERATA DI UN AGENTE
