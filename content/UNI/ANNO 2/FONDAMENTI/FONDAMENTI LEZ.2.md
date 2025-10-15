@@ -5,14 +5,12 @@
 - $q_0 \in Q$ e $Q_f$  un insieme di stati finali che è $\subseteq Q$ 
 - l'insieme delle quintuple $P$ (le istruzioni) P $\subseteq$  $Q$ x $\Sigma$ $\cup$ ${\square}$ x $\Sigma$ $\cup$ $\square$ x $Q$ x $\{S,F,D\}$
 $\Sigma$ P e Q sono insiemi con cardinalità costante 
-#### È una macchina di Turing se 
-$\forall q \in Q a \in \Sigma [\forall b,c \in \Sigma \ \forall q’, q’’ \in Q: b \ne c \ v \ q’ \ne q’’ [<q,a,b,q’,m’> \notin P \ v \ <q, a, c, q’’, m’’> \notin P]$
 ## una macchina di Turing è definita da
 $⟨Σ,Q,q_0​,Q_F​,P⟩$  che sono tutti gli insiemi citati prima
 #### Facciamo un esempio per definire una possibile incorrettezza
-sia $Q=\{q_0,q_1,q_2\}$ e $\Sigma={0,1}$
+sia $Q=\{q_0,q_1,q_2\}$ e $\Sigma=\{0,1\}$
 se abbiamo $<q_0,0,0,q_1,D>$ $<q_0,0,1,q_1,D>$
-le due quintuple sono distinte quindi non possono $\subseteq$ in P
+le due quintuple sono distinte quindi non possono essere $\subseteq$ in P
 perché hanno stessa condizione ma azione diversa
 
 Quindi è sufficiente scrivere tale che non esistono due coppie che hanno stessa condizione e diversa azione
@@ -32,16 +30,20 @@ La macchina può terminare se <font color="#f79646">non ha quintuple</font> da e
 
 # ESEMPIO
 Data una parola binaria con una sola x progettare una macchina a un solo nastro che analizza e cancella via via i valori sul nastro
-- termina nello stato $q_p$ se x contiene un numero pari di 1 
-- termina in $q_d$ se x contiene un numero dispari di 1 
+- termina nello stato $q_f$ se x contiene un numero pari di 1 e scrive P sul nastro
+- termina in $q_f$ se x contiene un numero dispari di 1 e scrive D sul nastro
 ![[Screenshot_2025-03-06-19-29-04-36_45415775811cea13943236d9369df411.jpg|400]]
 ![[Pasted image 20250306193134.png|600]]
 # ESERCIZIO
 Progettare una macchina di Turing a due nastri che, avendo sul primo nastro due numeri interi della stessa lunghezza, calcola il valore della loro somma scrivendo il risultato sul secondo nastro – ossia, si richiede di progettare una macchina di Turing che esegua la somma “in riga” di due numeri
+![[Pasted image 20251015120203.png]]
+
 ![[Screenshot_2025-03-06-20-23-20-26_45415775811cea13943236d9369df411.jpg|600]]
 
 # Una serie di definizioni
 $\Sigma ^*$ sono tutte le parole dell'alfabeto, tutte le sequenze di caratteri combinate tra loro
+![[Pasted image 20251015121442.png]]
+
 # Stato globale
 È una "fotografia" della macchina a un certo istante
 lo stato globale rappresenta lo stato interno della macchina:
@@ -58,7 +60,7 @@ ecco due esempi:
 # transizione
 avviene tra due stati globali
 SG1->SG2 
-SG1 non deve essere stato uno globale finale
+SG1 non deve essere uno stato globale finale
 È il passaggio tra uno stato globale a un altro tramite l'esecuzione di una quintupla
 ![[Pasted image 20250306210934.png]]
 # computazione
@@ -77,9 +79,9 @@ Calcolano il valore di una funzione e la scrivono su nastro
 - hanno un solo stato finale $Q_f$
 # Riconoscitori
 - calcolano solo funzioni booleane$(0,1)$ $(V,F)$ $(S,N)$...
-- non hanno un nastro di output, il risultato lo danno nello $Q_f$ stato finale
+- non hanno un nastro di output, il risultato lo danno nello stato finale $Q_f$ 
 	- vero falso ecc...
-un esempio e la macchina $T_{parità}$
+un esempio è la macchina $T_{parità}$
 Gli stati riconoscitori
 $Q_a$ e $Q_r$ 
 - accettazione

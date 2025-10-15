@@ -13,5 +13,4 @@
 | INFORMATION RETRIEVAL       |                          | ✅                     |                   |
 | FISICA/CALCOLO/CRITTO       |                          |                       | ✅                 |
 
-
 DAMMI LA PAZIENZA 
