@@ -1,3 +1,0 @@
-riflessiva
-transitiva
-simmetrica
